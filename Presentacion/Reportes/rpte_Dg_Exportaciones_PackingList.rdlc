@@ -1,0 +1,3043 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2008/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
+  <Body>
+    <ReportItems>
+      <Rectangle Name="Rectangle2">
+        <ReportItems>
+          <Textbox Name="Textbox2">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>Grover And Exporter  :</Value>
+                    <Style>
+                      <FontFamily>Consolas</FontFamily>
+                      <FontSize>8pt</FontSize>
+                      <FontWeight>Bold</FontWeight>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>Container N°         :</Value>
+                    <Style>
+                      <FontFamily>Consolas</FontFamily>
+                      <FontSize>8pt</FontSize>
+                      <FontWeight>Bold</FontWeight>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>Guides Of Remision   :</Value>
+                    <Style>
+                      <FontFamily>Consolas</FontFamily>
+                      <FontSize>8pt</FontSize>
+                      <FontWeight>Bold</FontWeight>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>FDA                  :</Value>
+                    <Style>
+                      <FontFamily>Consolas</FontFamily>
+                      <FontSize>8pt</FontSize>
+                      <FontWeight>Bold</FontWeight>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>Invoice Number       :</Value>
+                    <Style>
+                      <FontFamily>Consolas</FontFamily>
+                      <FontSize>8pt</FontSize>
+                      <FontWeight>Bold</FontWeight>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>Loading Date         :</Value>
+                    <Style>
+                      <FontFamily>Consolas</FontFamily>
+                      <FontSize>8pt</FontSize>
+                      <FontWeight>Bold</FontWeight>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>Safety Thread Aduana :</Value>
+                    <Style>
+                      <FontFamily>Consolas</FontFamily>
+                      <FontSize>8pt</FontSize>
+                      <FontWeight>Bold</FontWeight>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>Safety Thread Senasa :</Value>
+                    <Style>
+                      <FontFamily>Consolas</FontFamily>
+                      <FontSize>8pt</FontSize>
+                      <FontWeight>Bold</FontWeight>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>Total Boxes          :</Value>
+                    <Style>
+                      <FontFamily>Consolas</FontFamily>
+                      <FontSize>8pt</FontSize>
+                      <FontWeight>Bold</FontWeight>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>Termograph           :</Value>
+                    <Style>
+                      <FontFamily>Consolas</FontFamily>
+                      <FontSize>8pt</FontSize>
+                      <FontWeight>Bold</FontWeight>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>Sensor               :</Value>
+                    <Style>
+                      <FontFamily>Consolas</FontFamily>
+                      <FontSize>8pt</FontSize>
+                      <FontWeight>Bold</FontWeight>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>Textbox2</rd:DefaultName>
+            <Top>0.73083cm</Top>
+            <Height>3.90025cm</Height>
+            <Width>3.71933cm</Width>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="Textbox3">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>N° Booking           :</Value>
+                    <Style>
+                      <FontFamily>Consolas</FontFamily>
+                      <FontSize>8pt</FontSize>
+                      <FontWeight>Bold</FontWeight>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>Country Of Destiny   :</Value>
+                    <Style>
+                      <FontFamily>Consolas</FontFamily>
+                      <FontSize>8pt</FontSize>
+                      <FontWeight>Bold</FontWeight>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>Discharge Port       :</Value>
+                    <Style>
+                      <FontFamily>Consolas</FontFamily>
+                      <FontSize>8pt</FontSize>
+                      <FontWeight>Bold</FontWeight>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>City Of Origin       :</Value>
+                    <Style>
+                      <FontFamily>Consolas</FontFamily>
+                      <FontSize>8pt</FontSize>
+                      <FontWeight>Bold</FontWeight>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>Load Port            :</Value>
+                    <Style>
+                      <FontFamily>Consolas</FontFamily>
+                      <FontSize>8pt</FontSize>
+                      <FontWeight>Bold</FontWeight>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>Shipping Line        :</Value>
+                    <Style>
+                      <FontFamily>Consolas</FontFamily>
+                      <FontSize>8pt</FontSize>
+                      <FontWeight>Bold</FontWeight>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>Vessel               :</Value>
+                    <Style>
+                      <FontFamily>Consolas</FontFamily>
+                      <FontSize>8pt</FontSize>
+                      <FontWeight>Bold</FontWeight>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>Date Of Departure    :</Value>
+                    <Style>
+                      <FontFamily>Consolas</FontFamily>
+                      <FontSize>8pt</FontSize>
+                      <FontWeight>Bold</FontWeight>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>Date Of Arrival      :</Value>
+                    <Style>
+                      <FontFamily>Consolas</FontFamily>
+                      <FontSize>8pt</FontSize>
+                      <FontWeight>Bold</FontWeight>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>Termograph Location  :</Value>
+                    <Style>
+                      <FontFamily>Consolas</FontFamily>
+                      <FontSize>8pt</FontSize>
+                      <FontWeight>Bold</FontWeight>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>Sensor Location      :</Value>
+                    <Style>
+                      <FontFamily>Consolas</FontFamily>
+                      <FontSize>8pt</FontSize>
+                      <FontWeight>Bold</FontWeight>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>Textbox2</rd:DefaultName>
+            <Top>0.73083cm</Top>
+            <Left>9.34969cm</Left>
+            <Height>3.90025cm</Height>
+            <Width>3.80753cm</Width>
+            <ZIndex>1</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="Textbox4">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>=First(Fields!PRODUCTOR.Value, "cd_Exportaciones_PackingList_T1")  &amp; CHR(10) &amp;
+First(Fields!CONTAINER.Value, "cd_Exportaciones_PackingList_T1") &amp; CHR(10) &amp;
+First(Fields!GUIA_REMISION.Value, "cd_Exportaciones_PackingList_T1") &amp; CHR(10) &amp;
+First(Fields!FDA.Value, "cd_Exportaciones_PackingList_T1") &amp; CHR(10) &amp; 
+First(Fields!INVOICE_NUMBER.Value, "cd_Exportaciones_PackingList_T1") &amp; CHR(10) &amp;
+First(Fields!LOADING_DATE.Value, "cd_Exportaciones_PackingList_T1") &amp; CHR(10) &amp;
+First(Fields!PRECINTOADUANA.Value, "cd_Exportaciones_PackingList_T1") &amp; CHR(10) &amp;
+First(Fields!PRECINTOSENASA.Value, "cd_Exportaciones_PackingList_T1") &amp; CHR(10) &amp;
+Sum(Fields!BOXES.Value, "cd_Exportaciones_PackingList_T1") &amp; CHR(10) &amp;
+First(Fields!THERMOREGISTRO.Value, "cd_Exportaciones_PackingList_T1") &amp; CHR(10)</Value>
+                    <Style>
+                      <FontFamily>Consolas</FontFamily>
+                      <FontSize>8pt</FontSize>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>Textbox2</rd:DefaultName>
+            <Top>0.73083cm</Top>
+            <Left>3.82516cm</Left>
+            <Height>3.90025cm</Height>
+            <Width>5.46558cm</Width>
+            <ZIndex>2</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="Textbox5">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>=First(Fields!NRO_BOOKING.Value, "cd_Exportaciones_PackingList_T1") &amp; CHR(10) &amp;
+First(Fields!PAIS_DESTINO.Value, "cd_Exportaciones_PackingList_T1") &amp; CHR(10) &amp;
+First(Fields!PUERTO_DESTINO.Value, "cd_Exportaciones_PackingList_T1") &amp; CHR(10) &amp;
+First(Fields!CIUDAD_ORIGEN.Value, "cd_Exportaciones_PackingList_T1") &amp; CHR(10) &amp;
+First(Fields!PUERTO_CARGA.Value, "cd_Exportaciones_PackingList_T1") &amp; CHR(10) &amp; 
+First(Fields!SHIPPING_LINE.Value, "cd_Exportaciones_PackingList_T1") &amp; CHR(10) &amp;
+First(Fields!VESSEL.Value, "cd_Exportaciones_PackingList_T1") &amp; CHR(10) &amp;
+First(Fields!DATE_DEPARTURE.Value, "cd_Exportaciones_PackingList_T1") &amp; CHR(10) &amp;
+First(Fields!DATE_ARRIVAL.Value, "cd_Exportaciones_PackingList_T1") &amp; CHR(10) &amp;
+First(Fields!TERMOGRAPH_LOCATION.Value, "cd_Exportaciones_PackingList_T1")</Value>
+                    <Style>
+                      <FontFamily>Consolas</FontFamily>
+                      <FontSize>8pt</FontSize>
+                      <FontWeight>Normal</FontWeight>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>Textbox2</rd:DefaultName>
+            <Top>0.73083cm</Top>
+            <Left>13.23961cm</Left>
+            <Height>3.90025cm</Height>
+            <Width>5.3154cm</Width>
+            <ZIndex>3</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="Textbox40">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>Nro Packing List:</Value>
+                    <Style>
+                      <FontFamily>Consolas</FontFamily>
+                      <FontSize>8pt</FontSize>
+                      <FontWeight>Bold</FontWeight>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>Textbox40</rd:DefaultName>
+            <Top>0.145cm</Top>
+            <Height>0.48cm</Height>
+            <Width>2.89688cm</Width>
+            <ZIndex>4</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="Textbox41">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>=First(Fields!NROPACKINGLIST.Value, "cd_Exportaciones_PackingList_T1")</Value>
+                    <Style>
+                      <FontFamily>Consolas</FontFamily>
+                      <FontSize>8pt</FontSize>
+                      <FontWeight>Bold</FontWeight>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>Textbox40</rd:DefaultName>
+            <Top>0.145cm</Top>
+            <Left>3.08485cm</Left>
+            <Height>0.48cm</Height>
+            <Width>2cm</Width>
+            <ZIndex>5</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="Textbox42">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>Consignee:</Value>
+                    <Style>
+                      <FontFamily>Consolas</FontFamily>
+                      <FontSize>8pt</FontSize>
+                      <FontWeight>Bold</FontWeight>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>Textbox40</rd:DefaultName>
+            <Top>0.145cm</Top>
+            <Left>5.27281cm</Left>
+            <Height>0.48cm</Height>
+            <Width>1.78563cm</Width>
+            <ZIndex>6</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="Textbox43">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>=First(Fields!CONSIGNATARIO.Value, "cd_Exportaciones_PackingList_T1")</Value>
+                    <Style>
+                      <FontFamily>Consolas</FontFamily>
+                      <FontSize>8pt</FontSize>
+                      <FontWeight>Bold</FontWeight>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>Textbox40</rd:DefaultName>
+            <Top>0.145cm</Top>
+            <Left>7.24641cm</Left>
+            <Height>0.48cm</Height>
+            <Width>11.3086cm</Width>
+            <ZIndex>7</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+        </ReportItems>
+        <KeepTogether>true</KeepTogether>
+        <Top>0.17639cm</Top>
+        <Height>4.92965cm</Height>
+        <Width>18.55501cm</Width>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+        </Style>
+      </Rectangle>
+      <Tablix Name="Tablix1">
+        <TablixBody>
+          <TablixColumns>
+            <TablixColumn>
+              <Width>2.4cm</Width>
+            </TablixColumn>
+            <TablixColumn>
+              <Width>2.5cm</Width>
+            </TablixColumn>
+            <TablixColumn>
+              <Width>2.5cm</Width>
+            </TablixColumn>
+            <TablixColumn>
+              <Width>2.82717cm</Width>
+            </TablixColumn>
+            <TablixColumn>
+              <Width>1.5cm</Width>
+            </TablixColumn>
+            <TablixColumn>
+              <Width>1.3cm</Width>
+            </TablixColumn>
+            <TablixColumn>
+              <Width>0.75cm</Width>
+            </TablixColumn>
+            <TablixColumn>
+              <Width>0.75cm</Width>
+            </TablixColumn>
+            <TablixColumn>
+              <Width>0.75cm</Width>
+            </TablixColumn>
+            <TablixColumn>
+              <Width>0.75cm</Width>
+            </TablixColumn>
+            <TablixColumn>
+              <Width>0.75cm</Width>
+            </TablixColumn>
+            <TablixColumn>
+              <Width>0.75cm</Width>
+            </TablixColumn>
+            <TablixColumn>
+              <Width>1cm</Width>
+            </TablixColumn>
+          </TablixColumns>
+          <TablixRows>
+            <TablixRow>
+              <Height>0.5cm</Height>
+              <TablixCells>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox99">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>Id Number</Value>
+                              <Style>
+                                <FontFamily>Ubuntu Mono</FontFamily>
+                                <FontSize>8pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox99</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox105">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>Variety</Value>
+                              <Style>
+                                <FontFamily>Ubuntu Mono</FontFamily>
+                                <FontSize>8pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox105</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox107">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>Weight/Box</Value>
+                              <Style>
+                                <FontFamily>Ubuntu Mono</FontFamily>
+                                <FontSize>8pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox107</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox101">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>Grower</Value>
+                              <Style>
+                                <FontFamily>Ubuntu Mono</FontFamily>
+                                <FontSize>8pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox101</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox103">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>Label</Value>
+                              <Style>
+                                <FontFamily>Ubuntu Mono</FontFamily>
+                                <FontSize>8pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox103</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox111">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>CAT.</Value>
+                              <Style>
+                                <FontFamily>Ubuntu Mono</FontFamily>
+                                <FontSize>8pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox111</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox6">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>J</Value>
+                              <Style>
+                                <FontFamily>Ubuntu Mono</FontFamily>
+                                <FontSize>8pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox6</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox8">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>JJ</Value>
+                              <Style>
+                                <FontFamily>Ubuntu Mono</FontFamily>
+                                <FontSize>8pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox8</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox10">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>M</Value>
+                              <Style>
+                                <FontFamily>Ubuntu Mono</FontFamily>
+                                <FontSize>8pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox10</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox12">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>L</Value>
+                              <Style>
+                                <FontFamily>Ubuntu Mono</FontFamily>
+                                <FontSize>8pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox12</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox16">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>XL</Value>
+                              <Style>
+                                <FontFamily>Ubuntu Mono</FontFamily>
+                                <FontSize>8pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox16</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox18">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>XXL</Value>
+                              <Style>
+                                <FontFamily>Ubuntu Mono</FontFamily>
+                                <FontSize>8pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox18</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox20">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>TOTAL</Value>
+                              <Style>
+                                <FontFamily>Ubuntu Mono</FontFamily>
+                                <FontSize>8pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox20</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+              </TablixCells>
+            </TablixRow>
+            <TablixRow>
+              <Height>0.5cm</Height>
+              <TablixCells>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="NROPALETA">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>=Fields!NROPALETA.Value</Value>
+                              <Style>
+                                <FontFamily>Ubuntu Mono</FontFamily>
+                                <FontSize>8pt</FontSize>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>NROPALETA</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="VARIEDAD">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>=Fields!VARIEDAD.Value</Value>
+                              <Style>
+                                <FontFamily>Ubuntu Mono</FontFamily>
+                                <FontSize>8pt</FontSize>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>VARIEDAD</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="ENVASE">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>=Fields!ENVASE.Value</Value>
+                              <Style>
+                                <FontFamily>Ubuntu Mono</FontFamily>
+                                <FontSize>8pt</FontSize>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>ENVASE</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="GROWER">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>=Fields!GROWER.Value</Value>
+                              <Style>
+                                <FontFamily>Ubuntu Mono</FontFamily>
+                                <FontSize>8pt</FontSize>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>GROWER</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="ETIQUETA">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>=Fields!ETIQUETA.Value</Value>
+                              <Style>
+                                <FontFamily>Ubuntu Mono</FontFamily>
+                                <FontSize>8pt</FontSize>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>ETIQUETA</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="CATEGORIA">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>=Fields!CATEGORIA.Value</Value>
+                              <Style>
+                                <FontFamily>Ubuntu Mono</FontFamily>
+                                <FontSize>8pt</FontSize>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>CATEGORIA</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="J">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>=IIF(Fields!J.Value&lt;=0,"",Fields!J.Value)</Value>
+                              <Style>
+                                <FontFamily>Ubuntu Mono</FontFamily>
+                                <FontSize>8pt</FontSize>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>J</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="JJ">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>=IIF(Fields!JJ.Value&lt;=0,"",Fields!JJ.Value)</Value>
+                              <Style>
+                                <FontFamily>Ubuntu Mono</FontFamily>
+                                <FontSize>8pt</FontSize>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>JJ</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="M">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>=IIF(Fields!M.Value&lt;=0,"",Fields!M.Value)</Value>
+                              <Style>
+                                <FontFamily>Ubuntu Mono</FontFamily>
+                                <FontSize>8pt</FontSize>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>M</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="L">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>=IIF(Fields!L.Value&lt;=0,"",Fields!L.Value)</Value>
+                              <Style>
+                                <FontFamily>Ubuntu Mono</FontFamily>
+                                <FontSize>8pt</FontSize>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>L</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="XL">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>=IIF(Fields!XL.Value&lt;=0,"",Fields!XL.Value)</Value>
+                              <Style>
+                                <FontFamily>Ubuntu Mono</FontFamily>
+                                <FontSize>8pt</FontSize>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>XL</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="XXL">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>=IIF(Fields!XXL.Value&lt;=0,"",Fields!XXL.Value)</Value>
+                              <Style>
+                                <FontFamily>Ubuntu Mono</FontFamily>
+                                <FontSize>8pt</FontSize>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>XXL</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="TOTAL">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>=IIF(Fields!TOTAL.Value&lt;=0,"",Fields!TOTAL.Value)</Value>
+                              <Style>
+                                <FontFamily>Ubuntu Mono</FontFamily>
+                                <FontSize>8pt</FontSize>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>TOTAL</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+              </TablixCells>
+            </TablixRow>
+          </TablixRows>
+        </TablixBody>
+        <TablixColumnHierarchy>
+          <TablixMembers>
+            <TablixMember />
+            <TablixMember />
+            <TablixMember />
+            <TablixMember />
+            <TablixMember />
+            <TablixMember />
+            <TablixMember />
+            <TablixMember />
+            <TablixMember />
+            <TablixMember />
+            <TablixMember />
+            <TablixMember />
+            <TablixMember />
+          </TablixMembers>
+        </TablixColumnHierarchy>
+        <TablixRowHierarchy>
+          <TablixMembers>
+            <TablixMember>
+              <KeepWithGroup>After</KeepWithGroup>
+            </TablixMember>
+            <TablixMember>
+              <Group Name="Detalles" />
+            </TablixMember>
+          </TablixMembers>
+        </TablixRowHierarchy>
+        <DataSetName>cd_Exportaciones_PackingList_T2</DataSetName>
+        <Top>5.43209cm</Top>
+        <Left>0.22784cm</Left>
+        <Height>1cm</Height>
+        <Width>18.52717cm</Width>
+        <ZIndex>1</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <FontFamily>Courier New</FontFamily>
+          <FontSize>8pt</FontSize>
+        </Style>
+      </Tablix>
+      <Tablix Name="Tablix2">
+        <TablixBody>
+          <TablixColumns>
+            <TablixColumn>
+              <Width>2.5cm</Width>
+            </TablixColumn>
+            <TablixColumn>
+              <Width>2.5cm</Width>
+            </TablixColumn>
+          </TablixColumns>
+          <TablixRows>
+            <TablixRow>
+              <Height>0.5cm</Height>
+              <TablixCells>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox115">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>PALLET</Value>
+                              <Style>
+                                <FontFamily>Ubuntu Mono</FontFamily>
+                                <FontSize>8pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox115</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox117">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>DISTRIBUTION</Value>
+                              <Style>
+                                <FontFamily>Ubuntu Mono</FontFamily>
+                                <FontSize>8pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox117</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+              </TablixCells>
+            </TablixRow>
+            <TablixRow>
+              <Height>0.5cm</Height>
+              <TablixCells>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="PALLET_C1">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>=Fields!PALLET_C1.Value</Value>
+                              <Style>
+                                <FontFamily>Ubuntu Mono</FontFamily>
+                                <FontSize>8pt</FontSize>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>PALLET_C1</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="PALLET_C2">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>=Fields!PALLET_C2.Value</Value>
+                              <Style>
+                                <FontFamily>Ubuntu Mono</FontFamily>
+                                <FontSize>8pt</FontSize>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>PALLET_C2</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+              </TablixCells>
+            </TablixRow>
+          </TablixRows>
+        </TablixBody>
+        <TablixColumnHierarchy>
+          <TablixMembers>
+            <TablixMember />
+            <TablixMember />
+          </TablixMembers>
+        </TablixColumnHierarchy>
+        <TablixRowHierarchy>
+          <TablixMembers>
+            <TablixMember>
+              <KeepWithGroup>After</KeepWithGroup>
+            </TablixMember>
+            <TablixMember>
+              <Group Name="Detalles1" />
+            </TablixMember>
+          </TablixMembers>
+        </TablixRowHierarchy>
+        <DataSetName>cd_Exportaciones_PackingList_T3</DataSetName>
+        <Top>6.62271cm</Top>
+        <Left>0.22784cm</Left>
+        <Height>1cm</Height>
+        <Width>5cm</Width>
+        <ZIndex>2</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <FontFamily>Ubuntu Mono</FontFamily>
+        </Style>
+      </Tablix>
+      <Tablix Name="Tablix4">
+        <TablixBody>
+          <TablixColumns>
+            <TablixColumn>
+              <Width>2.59169cm</Width>
+            </TablixColumn>
+            <TablixColumn>
+              <Width>3cm</Width>
+            </TablixColumn>
+            <TablixColumn>
+              <Width>1.1cm</Width>
+            </TablixColumn>
+            <TablixColumn>
+              <Width>1.1cm</Width>
+            </TablixColumn>
+            <TablixColumn>
+              <Width>1.1cm</Width>
+            </TablixColumn>
+            <TablixColumn>
+              <Width>1.1cm</Width>
+            </TablixColumn>
+            <TablixColumn>
+              <Width>1.1cm</Width>
+            </TablixColumn>
+            <TablixColumn>
+              <Width>1.1cm</Width>
+            </TablixColumn>
+            <TablixColumn>
+              <Width>1.1cm</Width>
+            </TablixColumn>
+          </TablixColumns>
+          <TablixRows>
+            <TablixRow>
+              <Height>0.5cm</Height>
+              <TablixCells>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox130">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>GROWER</Value>
+                              <Style>
+                                <FontFamily>Ubuntu Mono</FontFamily>
+                                <FontSize>8pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox130</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox132">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>ENVASE</Value>
+                              <Style>
+                                <FontFamily>Ubuntu Mono</FontFamily>
+                                <FontSize>8pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox132</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox24">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>J</Value>
+                              <Style>
+                                <FontFamily>Ubuntu Mono</FontFamily>
+                                <FontSize>8pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox24</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox26">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>JJ</Value>
+                              <Style>
+                                <FontFamily>Ubuntu Mono</FontFamily>
+                                <FontSize>8pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox26</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox28">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>M</Value>
+                              <Style>
+                                <FontFamily>Ubuntu Mono</FontFamily>
+                                <FontSize>8pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox28</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox30">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>L</Value>
+                              <Style>
+                                <FontFamily>Ubuntu Mono</FontFamily>
+                                <FontSize>8pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox30</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox34">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>XL</Value>
+                              <Style>
+                                <FontFamily>Ubuntu Mono</FontFamily>
+                                <FontSize>8pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox34</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox36">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>XXL</Value>
+                              <Style>
+                                <FontFamily>Ubuntu Mono</FontFamily>
+                                <FontSize>8pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox36</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox38">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>TOTAL</Value>
+                              <Style>
+                                <FontFamily>Ubuntu Mono</FontFamily>
+                                <FontSize>8pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox38</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+              </TablixCells>
+            </TablixRow>
+            <TablixRow>
+              <Height>0.5cm</Height>
+              <TablixCells>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="GROWER1">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>=Fields!GROWER.Value</Value>
+                              <Style>
+                                <FontFamily>Ubuntu Mono</FontFamily>
+                                <FontSize>8pt</FontSize>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>GROWER1</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="ENVASE1">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>=Fields!ENVASE.Value</Value>
+                              <Style>
+                                <FontFamily>Ubuntu Mono</FontFamily>
+                                <FontSize>8pt</FontSize>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>ENVASE1</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="J1">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>=IIF(Fields!J.Value&lt;=0,"",Fields!J.Value)</Value>
+                              <Style>
+                                <FontFamily>Ubuntu Mono</FontFamily>
+                                <FontSize>8pt</FontSize>
+                                <Format>#,0;(#,0)</Format>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>J1</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="JJ1">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>=IIF(Fields!JJ.Value&lt;=0,"",Fields!JJ.Value)</Value>
+                              <Style>
+                                <FontFamily>Ubuntu Mono</FontFamily>
+                                <FontSize>8pt</FontSize>
+                                <Format>#,0;(#,0)</Format>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>JJ1</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="M1">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>=IIF(Fields!M.Value&lt;=0,"",Fields!M.Value)</Value>
+                              <Style>
+                                <FontFamily>Ubuntu Mono</FontFamily>
+                                <FontSize>8pt</FontSize>
+                                <Format>#,0;(#,0)</Format>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>M1</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="L1">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>=IIF(Fields!L.Value&lt;=0,"",Fields!L.Value)</Value>
+                              <Style>
+                                <FontFamily>Ubuntu Mono</FontFamily>
+                                <FontSize>8pt</FontSize>
+                                <Format>#,0;(#,0)</Format>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>L1</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="XL1">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>=IIF(Fields!XL.Value&lt;=0,"",Fields!XL.Value)</Value>
+                              <Style>
+                                <FontFamily>Ubuntu Mono</FontFamily>
+                                <FontSize>8pt</FontSize>
+                                <Format>#,0;(#,0)</Format>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>XL1</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="XXL1">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>=IIF(Fields!XXL.Value&lt;=0,"",Fields!XXL.Value)</Value>
+                              <Style>
+                                <FontFamily>Ubuntu Mono</FontFamily>
+                                <FontSize>8pt</FontSize>
+                                <Format>#,0;(#,0)</Format>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>XXL1</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="TOTAL1">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>=IIF(Fields!TOTAL.Value&lt;=0,"",Fields!TOTAL.Value)</Value>
+                              <Style>
+                                <FontFamily>Ubuntu Mono</FontFamily>
+                                <FontSize>8pt</FontSize>
+                                <Format>#,0;(#,0)</Format>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>TOTAL1</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+              </TablixCells>
+            </TablixRow>
+          </TablixRows>
+        </TablixBody>
+        <TablixColumnHierarchy>
+          <TablixMembers>
+            <TablixMember />
+            <TablixMember />
+            <TablixMember />
+            <TablixMember />
+            <TablixMember />
+            <TablixMember />
+            <TablixMember />
+            <TablixMember />
+            <TablixMember />
+          </TablixMembers>
+        </TablixColumnHierarchy>
+        <TablixRowHierarchy>
+          <TablixMembers>
+            <TablixMember>
+              <KeepWithGroup>After</KeepWithGroup>
+            </TablixMember>
+            <TablixMember>
+              <Group Name="Detalles2" />
+            </TablixMember>
+          </TablixMembers>
+        </TablixRowHierarchy>
+        <DataSetName>cd_Exportaciones_PackingList_T4</DataSetName>
+        <Top>6.62271cm</Top>
+        <Left>5.40641cm</Left>
+        <Height>1cm</Height>
+        <Width>13.29169cm</Width>
+        <ZIndex>3</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+        </Style>
+      </Tablix>
+      <Textbox Name="Textbox1">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>RESPONSABLE</Value>
+                <Style>
+                  <FontFamily>Consolas</FontFamily>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox1</rd:DefaultName>
+        <Top>9.08334cm</Top>
+        <Left>7.92392cm</Left>
+        <Height>0.6cm</Height>
+        <Width>2.5cm</Width>
+        <ZIndex>4</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Line Name="Line1">
+        <Top>8.87167cm</Top>
+        <Left>6.25705cm</Left>
+        <Height>0cm</Height>
+        <Width>5.83374cm</Width>
+        <ZIndex>5</ZIndex>
+        <Style>
+          <Border>
+            <Style>Solid</Style>
+          </Border>
+        </Style>
+      </Line>
+      <Textbox Name="Textbox22">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>Net Weight:</Value>
+                <Style>
+                  <FontFamily>Consolas</FontFamily>
+                  <FontSize>8pt</FontSize>
+                  <FontWeight>Bold</FontWeight>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox22</rd:DefaultName>
+        <Top>7.72854cm</Top>
+        <Left>12.92683cm</Left>
+        <Height>0.6cm</Height>
+        <Width>1.94438cm</Width>
+        <ZIndex>6</ZIndex>
+        <Style>
+          <Border>
+            <Style>Solid</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="Textbox23">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>=First(Fields!PESONETO_REF.Value, "cd_Exportaciones_PackingList_T1")</Value>
+                <Style>
+                  <FontFamily>Consolas</FontFamily>
+                  <FontSize>8pt</FontSize>
+                  <FontWeight>Bold</FontWeight>
+                  <Format>#,0.00;(#,0.00)</Format>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style>
+              <TextAlign>Right</TextAlign>
+            </Style>
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox22</rd:DefaultName>
+        <Top>7.72854cm</Top>
+        <Left>14.8712cm</Left>
+        <Height>0.6cm</Height>
+        <Width>3.82689cm</Width>
+        <ZIndex>7</ZIndex>
+        <Style>
+          <Border>
+            <Style>Solid</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+    </ReportItems>
+    <Height>100.29374mm</Height>
+    <Style />
+  </Body>
+  <Width>188.46052mm</Width>
+  <Page>
+    <PageHeader>
+      <Height>2.13182cm</Height>
+      <PrintOnFirstPage>true</PrintOnFirstPage>
+      <PrintOnLastPage>true</PrintOnLastPage>
+      <ReportItems>
+        <Image Name="Image1">
+          <Source>Embedded</Source>
+          <Value>descargar</Value>
+          <Sizing>FitProportional</Sizing>
+          <Height>1.81432cm</Height>
+          <Width>1.8175cm</Width>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+          </Style>
+        </Image>
+        <Textbox Name="Textbox97">
+          <CanGrow>true</CanGrow>
+          <KeepTogether>true</KeepTogether>
+          <Paragraphs>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>Packing List</Value>
+                  <Style>
+                    <FontFamily>Courier New</FontFamily>
+                    <FontSize>20pt</FontSize>
+                    <FontWeight>Bold</FontWeight>
+                  </Style>
+                </TextRun>
+              </TextRuns>
+              <Style>
+                <TextAlign>Center</TextAlign>
+              </Style>
+            </Paragraph>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>Fresh Grapes</Value>
+                  <Style>
+                    <FontFamily>Courier New</FontFamily>
+                    <FontSize>20pt</FontSize>
+                    <FontWeight>Bold</FontWeight>
+                  </Style>
+                </TextRun>
+              </TextRuns>
+              <Style>
+                <TextAlign>Center</TextAlign>
+              </Style>
+            </Paragraph>
+          </Paragraphs>
+          <rd:DefaultName>Textbox97</rd:DefaultName>
+          <Top>0.14111cm</Top>
+          <Left>6.55849cm</Left>
+          <Height>1.81432cm</Height>
+          <Width>6.09833cm</Width>
+          <ZIndex>1</ZIndex>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+            <PaddingLeft>2pt</PaddingLeft>
+            <PaddingRight>2pt</PaddingRight>
+            <PaddingTop>2pt</PaddingTop>
+            <PaddingBottom>2pt</PaddingBottom>
+          </Style>
+        </Textbox>
+        <Textbox Name="Textbox98">
+          <CanGrow>true</CanGrow>
+          <KeepTogether>true</KeepTogether>
+          <Paragraphs>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>="Pagina: " &amp; Globals!PageNumber &amp; " De: " &amp; Globals!TotalPages</Value>
+                  <Style>
+                    <FontFamily>Ubuntu Mono</FontFamily>
+                  </Style>
+                </TextRun>
+              </TextRuns>
+              <Style />
+            </Paragraph>
+          </Paragraphs>
+          <rd:DefaultName>Textbox98</rd:DefaultName>
+          <Top>1.21432cm</Top>
+          <Left>13.0123cm</Left>
+          <Height>0.6cm</Height>
+          <Width>5.54271cm</Width>
+          <ZIndex>2</ZIndex>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+            <PaddingLeft>2pt</PaddingLeft>
+            <PaddingRight>2pt</PaddingRight>
+            <PaddingTop>2pt</PaddingTop>
+            <PaddingBottom>2pt</PaddingBottom>
+          </Style>
+        </Textbox>
+      </ReportItems>
+      <Style>
+        <Border>
+          <Style>None</Style>
+        </Border>
+      </Style>
+    </PageHeader>
+    <PageFooter>
+      <Height>0.9175cm</Height>
+      <PrintOnFirstPage>true</PrintOnFirstPage>
+      <PrintOnLastPage>true</PrintOnLastPage>
+      <ReportItems>
+        <Textbox Name="Textbox121">
+          <CanGrow>true</CanGrow>
+          <KeepTogether>true</KeepTogether>
+          <Paragraphs>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>PROHIBIDA LA REPRODUCCION PARCIAL O TOTAL DE ESTE DOCUMENTO, SIN LA AUTORIZACION DEL GERENTE GENERAL</Value>
+                  <Style>
+                    <FontFamily>Consolas</FontFamily>
+                    <FontSize>8pt</FontSize>
+                  </Style>
+                </TextRun>
+              </TextRuns>
+              <Style />
+            </Paragraph>
+          </Paragraphs>
+          <rd:DefaultName>Textbox121</rd:DefaultName>
+          <Top>0.3175cm</Top>
+          <Left>1.12951cm</Left>
+          <Height>0.6cm</Height>
+          <Width>16.24378cm</Width>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+            <PaddingLeft>2pt</PaddingLeft>
+            <PaddingRight>2pt</PaddingRight>
+            <PaddingTop>2pt</PaddingTop>
+            <PaddingBottom>2pt</PaddingBottom>
+          </Style>
+        </Textbox>
+      </ReportItems>
+      <Style>
+        <Border>
+          <Style>None</Style>
+        </Border>
+      </Style>
+    </PageFooter>
+    <PageHeight>29.7cm</PageHeight>
+    <PageWidth>21cm</PageWidth>
+    <LeftMargin>1cm</LeftMargin>
+    <RightMargin>0.5cm</RightMargin>
+    <TopMargin>0.5cm</TopMargin>
+    <BottomMargin>0.5cm</BottomMargin>
+    <ColumnSpacing>0.13cm</ColumnSpacing>
+    <Style />
+  </Page>
+  <AutoRefresh>0</AutoRefresh>
+  <DataSources>
+    <DataSource Name="ds_Dg_Reportes">
+      <ConnectionProperties>
+        <DataProvider>System.Data.DataSet</DataProvider>
+        <ConnectString>/* Local Connection */</ConnectString>
+      </ConnectionProperties>
+      <rd:DataSourceID>ed04c424-4f4a-49b3-a997-4052e5d1cd8b</rd:DataSourceID>
+    </DataSource>
+  </DataSources>
+  <DataSets>
+    <DataSet Name="cd_Exportaciones_PackingList_T2">
+      <Query>
+        <DataSourceName>ds_Dg_Reportes</DataSourceName>
+        <CommandText>/* Local Query */</CommandText>
+      </Query>
+      <Fields>
+        <Field Name="NROPALETA">
+          <DataField>NROPALETA</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="VARIEDAD">
+          <DataField>VARIEDAD</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="ENVASE">
+          <DataField>ENVASE</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="GROWER">
+          <DataField>GROWER</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="ETIQUETA">
+          <DataField>ETIQUETA</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="CATEGORIA">
+          <DataField>CATEGORIA</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="CANTIDAD">
+          <DataField>CANTIDAD</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="J">
+          <DataField>J</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="JJ">
+          <DataField>JJ</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="M">
+          <DataField>M</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="L">
+          <DataField>L</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="XL">
+          <DataField>XL</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="XXL">
+          <DataField>XXL</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="TOTAL">
+          <DataField>TOTAL</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+      </Fields>
+      <rd:DataSetInfo>
+        <rd:DataSetName>ds_Dg_Reportes</rd:DataSetName>
+        <rd:SchemaPath>D:\BackUp\TestEnviroment\DataGreen-20210811 - 2\Presentacion\Reportes\ds_Dg_Reportes.xsd</rd:SchemaPath>
+        <rd:TableName>sp_Dg_Exportaciones_Reportes_PackingList_T2</rd:TableName>
+        <rd:TableAdapterFillMethod>Fill</rd:TableAdapterFillMethod>
+        <rd:TableAdapterGetDataMethod>GetData</rd:TableAdapterGetDataMethod>
+        <rd:TableAdapterName>sp_Dg_Exportaciones_Reportes_PackingList_T2TableAdapter</rd:TableAdapterName>
+      </rd:DataSetInfo>
+    </DataSet>
+    <DataSet Name="cd_Exportaciones_PackingList_T3">
+      <Query>
+        <DataSourceName>ds_Dg_Reportes</DataSourceName>
+        <CommandText>/* Local Query */</CommandText>
+      </Query>
+      <Fields>
+        <Field Name="FILA">
+          <DataField>FILA</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="PALLET_C1">
+          <DataField>PALLET_C1</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="PALLET_C2">
+          <DataField>PALLET_C2</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+      </Fields>
+      <rd:DataSetInfo>
+        <rd:DataSetName>ds_Dg_Reportes</rd:DataSetName>
+        <rd:SchemaPath>D:\BackUp\TestEnviroment\DataGreen-20210811\Presentacion\Reportes\ds_Dg_Reportes.xsd</rd:SchemaPath>
+        <rd:TableName>sp_Dg_Exportaciones_Reportes_PackingList_T3</rd:TableName>
+        <rd:TableAdapterFillMethod>Fill</rd:TableAdapterFillMethod>
+        <rd:TableAdapterGetDataMethod>GetData</rd:TableAdapterGetDataMethod>
+        <rd:TableAdapterName>sp_Dg_Exportaciones_Reportes_PackingList_T3TableAdapter</rd:TableAdapterName>
+      </rd:DataSetInfo>
+    </DataSet>
+    <DataSet Name="cd_Exportaciones_PackingList_T4">
+      <Query>
+        <DataSourceName>ds_Dg_Reportes</DataSourceName>
+        <CommandText>/* Local Query */</CommandText>
+      </Query>
+      <Fields>
+        <Field Name="GROWER">
+          <DataField>GROWER</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="ENVASE">
+          <DataField>ENVASE</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="CANTIDAD">
+          <DataField>CANTIDAD</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="J">
+          <DataField>J</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="JJ">
+          <DataField>JJ</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="M">
+          <DataField>M</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="L">
+          <DataField>L</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="XL">
+          <DataField>XL</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="XXL">
+          <DataField>XXL</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="TOTAL">
+          <DataField>TOTAL</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+      </Fields>
+      <rd:DataSetInfo>
+        <rd:DataSetName>ds_Dg_Reportes</rd:DataSetName>
+        <rd:SchemaPath>D:\BackUp\TestEnviroment\DataGreen-20210811 - 2\Presentacion\Reportes\ds_Dg_Reportes.xsd</rd:SchemaPath>
+        <rd:TableName>sp_Dg_Exportaciones_Reportes_PackingList_T4</rd:TableName>
+        <rd:TableAdapterFillMethod>Fill</rd:TableAdapterFillMethod>
+        <rd:TableAdapterGetDataMethod>GetData</rd:TableAdapterGetDataMethod>
+        <rd:TableAdapterName>sp_Dg_Exportaciones_Reportes_PackingList_T4TableAdapter</rd:TableAdapterName>
+      </rd:DataSetInfo>
+    </DataSet>
+    <DataSet Name="cd_Exportaciones_PackingList_T1">
+      <Query>
+        <DataSourceName>ds_Dg_Reportes</DataSourceName>
+        <CommandText>/* Local Query */</CommandText>
+      </Query>
+      <Fields>
+        <Field Name="NROPACKINGLIST">
+          <DataField>NROPACKINGLIST</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="PRODUCTOR">
+          <DataField>PRODUCTOR</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="CONSIGNATARIO">
+          <DataField>CONSIGNATARIO</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="CONTAINER">
+          <DataField>CONTAINER</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="GUIA_REMISION">
+          <DataField>GUIA_REMISION</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="FDA">
+          <DataField>FDA</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="PRECINTOADUANA">
+          <DataField>PRECINTOADUANA</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="BOXES">
+          <DataField>BOXES</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="THERMOREGISTRO">
+          <DataField>THERMOREGISTRO</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="LOADING_DATE">
+          <DataField>LOADING_DATE</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="NRO_BOOKING">
+          <DataField>NRO_BOOKING</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="PAIS_DESTINO">
+          <DataField>PAIS_DESTINO</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="PUERTO_DESTINO">
+          <DataField>PUERTO_DESTINO</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="CIUDAD_ORIGEN">
+          <DataField>CIUDAD_ORIGEN</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="PUERTO_CARGA">
+          <DataField>PUERTO_CARGA</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="VESSEL">
+          <DataField>VESSEL</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="DATE_DEPARTURE">
+          <DataField>DATE_DEPARTURE</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="TERMOGRAPH_LOCATION">
+          <DataField>TERMOGRAPH_LOCATION</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="CIUDADDESTINO">
+          <DataField>CIUDADDESTINO</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="INVOICE_NUMBER">
+          <DataField>INVOICE_NUMBER</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="PRECINTOSENASA">
+          <DataField>PRECINTOSENASA</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="SHIPPING_LINE">
+          <DataField>SHIPPING_LINE</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="DATE_ARRIVAL">
+          <DataField>DATE_ARRIVAL</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="PESOBRUTO_REF">
+          <DataField>PESOBRUTO_REF</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="PESONETO_REF">
+          <DataField>PESONETO_REF</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+      </Fields>
+      <rd:DataSetInfo>
+        <rd:DataSetName>ds_Dg_Reportes</rd:DataSetName>
+        <rd:SchemaPath>D:\BackUp\TestEnviroment\DataGreen-20210811 - 2\Presentacion\Reportes\ds_Dg_Reportes.xsd</rd:SchemaPath>
+        <rd:TableName>sp_Dg_Exportaciones_Reportes_PackingList_T1</rd:TableName>
+        <rd:TableAdapterFillMethod>Fill</rd:TableAdapterFillMethod>
+        <rd:TableAdapterGetDataMethod>GetData</rd:TableAdapterGetDataMethod>
+        <rd:TableAdapterName>sp_Dg_Exportaciones_Reportes_PackingList_T1TableAdapter</rd:TableAdapterName>
+      </rd:DataSetInfo>
+    </DataSet>
+  </DataSets>
+  <EmbeddedImages>
+    <EmbeddedImage Name="descargar">
+      <MIMEType>image/jpeg</MIMEType>
+      <ImageData>/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBxMSEhUTExMVFhUXGB0XFxcYGBkbHxodGhcXHRgXGB0dHSggHR0lHhUXITIhJSorLi4uGR8zODMtNygtLisBCgoKDg0OGxAQGy0mICUtLS8tLi8vLTUtLS0tLy0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLf/AABEIAOEA4QMBIgACEQEDEQH/xAAcAAEAAgMBAQEAAAAAAAAAAAAABQYDBAcCAQj/xABKEAACAQMCAgcFBQQGCAUFAAABAgMABBESIQUxBhMiQVFhcQcygZGhFCNyscFCUmLRM0NTgpKiFVRjk8Lh8PEWssPS4iQ0RHOj/8QAGgEBAAMBAQEAAAAAAAAAAAAAAAIEBQEDBv/EADYRAAEDAgQDCAEDAwQDAAAAAAEAAhEDIQQSMUFRYYEFEyJxkaHB8LEy0eGS0vEUI6KyFXLC/9oADAMBAAIRAxEAPwDuNKUoiUpSiJSlKIlKUoiUr5mq70i6Q9QRFGgkmYasE4VFzjW5wT44A3ODy51F72saXOMALhMKx1HcV4tDbANNIEzso5lj4KoyWPoKqCdIr4HJa3f+Dq3T4B+sbHqQfSomC5NwzXMg7chIAznq0DELGp8NsnxJJrOq9q0W0y9hzaD18/5US4kwBdXW26X2jsF6xkJ2XrY5IwSeQBdQCfKvHF+lMcLmKNGmlGNQXAVM7jW52Bx3DJ35VVJUDKQQGBG4O4PkfnWnwRALePHMgMT4lhlifPNUT2y80iQ0ZpHMXn9uqQ6Ynr6fenNWqDpqAR9ogaJe+RWEir5vsGA88EDvqR4p0phhbQNUsmAdEYDYBGQWYkKuRuMneqbcyaUdsZwpOPHAJxWHhFsscKKv7oJPiSBk/wDXdiuDtioKRLmjNNuG+vpxXIdMT+6uVj0vgZgkiyQsxwvWAaSTyGtWZQT3AkZqyiuXXejQ/WYKaTqz4Y3rzbXV
+1JEgluJVAUAIjFDgDYyOp1M5GM4IHlVjD9rtNMurCCOG/r8nguy4GNfu/wALqlK5pa8TuLbtrJJNGN3ikbWSO8xu3aD45Akg8tuYvkfFYCqN1qBXUMmWAyCAQRk+BFaWGxVPENzMXQ7jZb9K8qwIyCCK9VYUkpSlESlKURKUpREpSlESlKURKUpREpSvhoiZqF6TcY+zRAqoaR20RKTsWIJJbH7KqGY+mOZFQvGOlMhkaK1CBUJV5nBYah7yxqCM45FicZ2wcGq7xe+nZoXnlDojEEhAunWunUSDjGcDltk1QxGPpsJY0y+DAvrw4fYXm59revytmWSdzqkuZi38DmNR5KqEDHrk+dadkzGWfrHZ31L2nwWKdWujkBsCGHwPfW9WpJZtLPCkTaZmPvYyBGN3LjO68gOW7DFfOsrVsSe6c4nN6TqPII5oZ4gPvyfNbdRlqWjeVAjvGpD6kUt1ZkLHQ4GTjIJBAOARnG1SfFbF7fae7t4/wxuzEeUedvU5Fa1p0xS3j6qyt2fJLNJId3Y83bTtnYd4wABgYq5huzHNzd+YHIieR5fyvGtiGNIkwfU+glIrrrDphR5XPJUVvqxGlR5k/OpBOit3AgKaZs5ZowQhRmJJWMt2WTfvKn54EJc9JuIy85ljHggUfXBP1qPkmuX9+6lP95v/AHVYZh8HTaWGXTx+I6rxOKJMhp/4j5PurXDwK8m7PU9Qp2Z5GRiB36EQtk/iIHrXm54DPa9hY3nhGyOmC6juWRNiccgy5yOYFVPqpP7aX5n+dZorq6T3LuUepY/8VBRwfdmnl5zeZ844IcS6ZymfMffnmFN3PC7q4jdI7eRcqctINA5cgD2iTy5Y33NLa4Eihh38x3gjmpHcQcgjyrTtulnEY+bpKPBlGfmNJ+te24/azSFriGW2kb3pIX2Y+LoRgnzwxqFTs+jUphtF0ETrvP3YKTcYwOl0jzsPUSNzqb8Vk4i7dlEOGkbGr90AEsw88Dbz
+Ir5b8LhQaVjXljJAYnHiTuakLrgsDRLc2csly8TZcF9TFCpDKqAABhkNjSCdOO+tW3nVxqRgw8R+R8D5GqGKw9TDNDZsbkiYmdOcCI6qywtc6T08uXWZhbHBrs2k0eg4gkdUeP8AZUudKSKP2TqIBA2IOeYrpOfOuQsn2hmBP3SMBgHGtxgkkjfSpxgDvB8KzJw2NTqRerbmHjJRs+ORz+OavYXtMUGCnVknpYbC5vHtxXROrRb7Oxt9Fl1jNfarfRDizzI8cpzLEwUtjGtWGUfA5E7g+amrJW+x4e0OboVNpkSlKUqS6lKUoiUpSiJSlKIlKUoi+ZquX3S63RmRC8rKcN1SFgpHMFtlyO8ZzXrpvculqwRipkZItQ2Kh3CsQe44JwfHFVKKNVUKoAUDAA5AeFZnaGPOGhrRJPHQeijcmAtPgjZgTxGQ2eeoE68+ecn41usoIwRkHYio/iURjEk8baWClmUjKvpHNh3NgY1DyzmpLi3DhbxCS7uQUblFEhRpNvdLliVXxIx61h08I/EuL6ZtN52m/XeI1tovPvO7bDthyiPj3XzgvB4PszXEtxLDF1jBArKRpU6QFDKx3IbAXyxUTJx7TqSwQxq2zzsdUj45do5wPADlnurQuriS5KtLhY1GIoV2CLyAA7tu/mfpWzwnhs925jt1CqhwztsF9B+gHyrbBg5KIE7nc+azXVXOgNkDaNT/AGj0tGi0RaqDqkbWx3LE8z478/jmtkVYrTo7w6OcWtw8j3Bx2m1opJGQEx+pO+R5VEdIOC/YrgRKxaKRdSZ5jHNT/wBd4qFbCvDcxMrjWupj9IiYMGSDz59Vh4bw97q4WBH0ZUszYzgDyyPL51k45wZ7GZY2cyJIuVcjG4OCMZPl8xWz0WLA30yatSQhF0gk6pDsRjfIKVaeP2bX3Dw+hlmC6wpUghl99cHfffH92venQa6hEXhSazO0ub+q5FzEAxHC6ocFsstxDE5YI7aSVxnJ2GM7
+cyPhmrHf9CEjdIkvNLyaurVkzq04yAQQM71DdEB119a/wlmPwVj+YFXHpDw+aXiVoyoeqjGtn7gckkeuy/Ou4ekDSuN/lKbGva5+WZcANZgxOh5lUa9s5raXqZwNWMqw5MPEfKtWW7TJVuXI7ZGfCrV7TL1GuIEUgtEGL47tejAPn2eXmK3uhHDESxkluVUxSEyFWUEBV/b8cnBPyqBwrXVSBouZXd4aTDpNzwjfrbpobqkRQ6WEkDmNhyZT9Nvy+lTnDuP27uBxK1iZjt1/VqSfxaRv6j5VqXdjavbyXdrI8OggPA2+7cgpzvnfnnkeVaYXUoDDmNxUC59CJMgqFMkGWQN7XafvQqw3EKQTOi6RFKxlt2XGhlYAsi42yrZ28CDXm8uBGuogkkhVUc2Y8lH/AFyzUHYX5tso6Ce1Y5eJwCBv7wzyYePz7jU/xSxtALW5tQerd2QkvI2lmQ6QQ7EIdmXbG5FUsRgmVC6uw2uSP2+224K/RxGYZdCPYE7WuPSNOZw8MluYneRZURpAoKqgcAJq0jLHf3232q09H+kjvIsFwEDtnq5EyFfAyV0kkq+ATjJBAO+2Kr9atzdpHJBqkVCJ42yzAYCuCxOeQ0hh8a8cBj6wqtp6tNojQct1Yc0MGafX76Lq1K17S5SRQ0bq6nkykEH4itivqF6JSlKIlKUoiUpSiJWjxXiCW8LzSHCouTjc+QA7yTgAd5IrdNVjp8hNoWAyscsUj/gSVSzeijtei1F5IaSBK44wCVWOL311eIVkcQxkhliRVYjSQV1uwOWBAPZC+GTzrQ/0loGJ0ZSNtSqzIfNSAcZ8Dg1JVo8aGYHUe846tB4s/ZUD4kV8c7EvxNQCpeTA5TsP53UXMygkG/5jkslyjGPrJkeK2GC5caXl32ijRu12iMFiBgZ9RC3d3Jdymeb+4nco7gPL8+db3SnixvbjSDmCHsjwdu9viR8vWtCYsSqICZHOlQOeTWy5jaQ7ij1O5WXW
+qd4S4/pHuf8ANmjjdZa8Wt09rMtxGTswLrnZhuCD6gn0zmt3ivRqa3mt4VcM9wACSMhSCNePEKCDnnjNYOJcIu7bImhLJuOsTcEeJxy+OKm2hVpOluyhULr5mkEHXWDrt79Qr5x7hsN0Le96zQsX3hcKSWjHaxtuCCB6dqtLpjwCS8KXNtKr6VwqEjSQcnUjcsnPf4cxjeF6HdK4ra1kjmJcA/dxgZyG94Z93Tnx8TUHLxCQq6oTbW7tnqVYkDYDA798ZI5EnlV59SmB4t9l6OxFJ7Ji7rmDcEaGTb1upfg16LaznIuViuWbOkDU33eRoxggajnB8DWfov04WJHN1JLK7N2VwDgY5g5AGcnbyqt2lkX/AKGAuP3icD5napOPgVwebxp9T/L61Qf2jTo2JAjYn4En8JQo4p8Gk0kARYEgzN5OVpNzdZeDces7e7kuBFMqt/RgAHTq9/IzyzjGDsK8dI+OCe512txOquuHUFkC6RgbA7555869f+Hp/wC3T/BWGTgtwu69W/xI/MAV5f8AlaLhlD2+4/7AD3Xo7B4sNyuYYmbATzjK4m/kVqcG4K91P1MYJXKmaQncKTvz5/Dvq8dOekZsliit9IbmQRkBFGAuPM7egNUCQPE4Y9ZBJ3NuR8MfpU3b9LWGDdW8Vwyj7ubC6gRuudsEZxywfWr1Cq3JE3O/HyVam8U2uZ+kk6wbDhGoPmLndaXFuJR3TRdXCkQUapdKganbGcfw9kfM1qT3SpzO9bvRvo9c3iySRyRrh8NrByWIyTsp8atfQHhka2r3AVJJWaTDEfuEhQM8gcZ+NQdh3VXy7TZKAqVLxBdeSLWtYA/tdUiG5V+Rz5V6s7r7MWV16y2lwssfx2KnuZTupHeMeBqb4za/aOHxX6xKkwY9ZoXAZRIyaiPLAOfDPwhFIdfJhXi9pw7gW6FduTreAWniDy9iFZOMcMeGBZoLpZY3KLHrjy3bYAHUrAHAJO657Na1rYpHyGSf
+edt2Y+LGo/gtw5VrEkdphJbFjga0bUFJ7g+CvkT51Irep2gx0Mnvo3ZZMc9QP58j3VQ7RpQGupNhp1idef5C0MPUbUEmx0gnQjUCf4t7fRObVvtMXZK7yqNhIg94MORYDJDcwR4ZFdRU5xXIbq761NCxylHIVnCfsE9sqCQzHTnG3fXTuD8WhuE1QtqA7LAghlOPddSAyn1FaPZDn90WvOhsN+fuvZrhmMafZj+FJ0pStZeiUpSiJSlKIsVxIFVmJwFBJPkBk1zS7u5Lz7yYt1bbpCCQFB5awD22I55yByFWzpLxyCINBP1iLJER1uhig1BlwzLnB799txVJ4VdrIgwyll2bSQRkbZHipxkHwNY/a9ao2kO7Npgke0xoouYS4Zhb2K+Pw0KMwfdsOQGdJ8mXljzG9feJiOGzjuNbS3EwIj1YHV7aZNCrsGG6atz2tjWxcThBlvQAblieSqO8nwqv3SsZFif+oBBGcgSMzPIPg8jL/cFUuzXnK+o8TEQTrzEqniyGDI2xPtz4TGb04r7bQ6FC/P1763ej0yx8Qtmc4XLLk9xZWVfqy1r1huYA4wfgfCvalUy1A4qs5sNGXaCOhlWCeHiFrMXkSW5CiQQuuG0lxgPgAsMD9k7b7VO9GuKX8kMxuU6sKjFJWTQxYA7lTsQOecAetQfCenVxAoSeIzAbB1OGx/Ftg+u3xrx0g6ZyXUbRRRGNGGHdjkle8Ad2fjWsKtMDNmsu06lOmZa52/hIvPMxPWbDdVmCRnOvGuaViQMDnnc7bAfKrNwzgCrh5sSSf5V8gO/1NYeiVgAnXEbtsue4Db6kH6VYK+Q7Tx7+8dSpmIsTueI5D86mdFsdk9nN7ptWqJJuAduZ4uOsnQRHFYrqcRxs55KM7eXcPyqHhaeW2e5MpjwGZEAXGFzzJBJzip+WyE0bRtnDbZHMeY9Nq04uj03UC3e4RYRzYIQ5Gc4yW0j13rnZ1FjmbZsw1APh5Ag67qxjzVNS
+BOXKYgx4tpuD5cFD3PFpWtYXjOmWRiuwBzpYjIBHedNS1jFIWLF5CoypWRVB1DQQw0gbYJ8e7xr5eWdsk0DfaoFigGFi1ZJ55JIPPODy7q2Zekls20bPIf8AZxu36VoYjAOLIpU+J04nSY5cVDCMrF5fVJtlGtjA1sYuSdeAXuRAwKsMg8wRkVXeJ8DMeZLfOObRc8+nn5f9qmftcr/0dncn8SKn/mavEj3I5xRR/wD7JwPyBrOw+FxtB3hAA4EiD5iZ6wCNldxNChiGw/XY7jyPwbFRnQTpBHA8sUraIpt1c8lbkQ3hz5+Qqw9G5o+G2brPPG/bZkCOGLA6QAo55JBPlmqje8MRnZ3uLNNW5VWLDPeRy3rS/wBH2qnP2uMnyidv1r6qniIaLGY2Dj0kC6waXZ+LZplMTBkix5AH0tCQTztFo651jOfuwTp3PLGcY3rLGmAAO7asbyw/603whP6msRuIv9Zb/c//ACqs9lR+s/0v/sXrT7IqtGonTU/It0Xq+iJXUuQyHUpHMY8Pz+FWfifFFvVsyyqTod32GdUZRcZ547ZbHmtVXrk7rof3oGH5Zr7aDRjq7q2OGLDUXXmMMNxyOBt/CvhQhzaL2SRIt4X+8tC6zsyu18iCDrfhpt5gq2Vk4TIY7yB12MjGFx+8pR2GfNWQEHuBbxqBivrg8vskn4JgPzNSHCLyRLhZprWVljB6sRGN8MwwXbtDOFJAA/ePljLwdPuq7Xue0Aa+IDpEg300VqphqsaT91++W66qK+1F8I4ulxnSsileYkQqd88u48u41KV9W1zXCWkEcrryIIMFKUpUlxKUpRFxbpr0hnj4jOI5CFXSuk7rsi52PLcnliogcZgc5ltgrf2luxQ+uOXzNafSWbXd3LeM0n0cgflUbVZ+DovdmiDxBIJ8yInrK1WSGAcgrdwriUUUglhu2D932uLrMZ7g43X4EV4htZSzsr20xc5JSUAknc7EeJPzqqVZOi3Qya+7
+QIjiG3WMM5/Cu2fmB515OwTy2BUtzAI/45D7rxqUMPEvaLdPwt029wOdtJ/d0N+RrxiTvguP90f0q2w+y6MD/wC7nB/h0qPlv+dfZfZw/wDV8QnH4st+TrXgcBU2LfR39xVQ0MITv6qogSd0Fx/ujXqS0uGUhbafcYyVA/M1p9JraeznMDXLyHSG1BnXnnbBY+Hj31bugXRiG5h6651TFj2VZ2wo9M7n1qbMA4XcW9Mx/wDoKT8HhgySCQea0ILm7jjROpiTSoXMkyDkOeNQrFLfz/tXlnH+Bi5+QVq8e0HorHZmOWHIjkYoUJzpbBIKk74IB2PLFVEVNnZOGmSxv9M/9i5aFJ0sGU2Vqa+j/rOIXD+UKFPqWA+la7X9iNzBcTnxmn0/+QfrUAKBt8Dc+A3PyFaVOi1n6beg/AC9MnEn1j8QrCOkip/RWdonmUMjf4mNeJel1623XlR4IqKB6YXP1qEJwcEEHwYEH615dsbmvQtadk7tmsfK27jiUz+/NK34nY/ma0XcDmRV36K9AmuAJbktHGd1jXZmHix/ZHkN/MVcnTh3DgMrDCTyJxrPnk5Y+tRzBtgq78Sxpholcbjt3b3Y5G9EY/kKxzxsnvq6fiVl/MV+heH3sc0YkiYMh5EcjVe9ovFjb2baca5T1aeWQdTfBQfjiuZpXm3FOJjKuNxWsj+5HI/4UZvyFbT8CugjSG3lVFBZmZSoAG5PaxXSvZPfM9sYmORGSF8gTnH1q2ca6nqJPtGnqdJ6zVy094PryrhK4/FODssL8+29tJJ/RxvJ46EZvyFeLiF0Ol0ZD4OpU/Iiut8K6fWZkWCONkQnSh0hV8gBzHxAq1cT4bFcxmOZA6EciOXmp5g+YrkwuuxLmnxNhfnUivisRyOPSpDpDww2tzLATnQ2x8VIDKT56WGfPNRxoSVZBkSFcPZrxaRb+NGdysiumCxIzpLg4J55THxrtQr8/wDQlsX9sf8AaAfPI/Wv0ADUA0DR
+UcUPHPJfaUpXVWSlK8tyNEX5oun1O58WY/NiaxV6k5n1rzRay9xpkgeJA+Zr9D9HbZY7aJVGBpFfnUGu59AuPJcW6rka1GCK7squKBgHZQ/tP43d25jWHsRMN5AATryexk7LtgjxyfCqNZdMLyM564t5MB+mK7rcW6SKVdQynmrAEH1Bqg9JvZvG4L2n3b8+rJ7DeS53Q/T0510KFKpTjK4dVQ+P8Ta+uTKsbamVQEUFj2VAOMbnfJq5dBeJXVpGyS2N0yfslYyCPIq2M+orngDwyDIKSRuMg7EEHlX6H4XIWiRjzKjNCvTEENAbFlyj2icVnmeFJYeoj3ZFkYajyHWSachRvgDu3zWbhHs4nlAaSeJUO46vMhI8icAeu9a3tXn1X2nuSFR8SXY/Qiuk9DI9NnEP4a7MBRc9zKbctpUBL7N7XMQDOqpqMhz25M6dILclAweQ79sc6tXCuHW8K6YERAP3QMn1PMn1qj+1TjcqNHbRsUVk6xypwWGogLnuGxJ8fziPZrxJ0uhDqJRhnBJON8bfOkEiVA03up5yV07jfCIrqJopVBBGx71PcynuIrl3QPo4Z7hmkGUt20t4NICR9AufiK6/IwAJPIbn4VVPZoytaNKOcs8sjepcgfQCuA2UGPLWOA5fKsfEbpYIZJT7saM5Hkqk4+lcBvrt5neaU6pH3J8PBR4AcgK73xqy6+3lhzjrI2TPhqUgH61wviHBbqFXElvKugHU2k6Nu8P7pHxqTLL3wjmiZ1XXvZ9EVsYgfD9BVQ9r8xM1vHnZUd/izAf8J+ddG4La9VCieAqr+0XgMU0YuZJjF1KnJwDqBxhcZHazsPWoA3XjRcBUBK0vZEn3Mp8WP5/8q3vaxcabHR/aSovyy/8A6db3s94f1NjDkYZ11tn+IlgPkwqC9sZ+5tx/tSf8h/ma7uut8VbqudcDTVcwj+MfTJ/Sv0MgwAPKuC9DLcyXsIG+CSfTGP1rvlHKWKPj6Lg/tAm1
+8RuT4Mq/4Y0B+oNV01I9IJtd1cP4zSH/ADtj6VHGhVxghoCm+g6Z4hbD/aZ+QJ/Su/iuGezO318RhP7gd/8A+bL+biu5gVFU8UfEByX2lKUVZKUr4aIvzZxOLRNKn7sjr8mI/StWrd086OzR3c0ioWjdtYK741AE5HPmT5VUKi17XzlMxIPIixB4dVqtMgHktm3s3kV2RSwQamxvgZxqxzwO891euH38kLB42Kny7/Xxqe9nN31d6pJwCCD8SK6LxroFZ3RLoDE531R4wfMr7vywfOvReL6wa7K4WUH0Y9pGSsdwMZ2D93x8K6TGwYAjkd65jH7KGDjVcqUzviMhiPD3sD1roVzdxWsWqRwiIOZPyA8T5CuKrVDJ8C557S+Fob60KjDTsqP54kRQfk+PgK6dbwhFCjkBiuQJxs3/ABaCUKQiN92p5hVDHUfMtg/Id1djrpXaoIDWnYLhPTx9fEbn8aqPhGi/mDXZuBJpt4x/DXHelFuTxSVMbmdfkwRh9DXa7FMRoPBR+VHbKVc+Fg5LkftPm1cQ0jJIiRQBuSSWbAA3PvCrB7Oui8kTG5nUoxGEQ8wPFvAnw8q0bvpP9k4rclgDGxRCcbqVjXBB545g/DwqbvPaRaov3YeRu5VBA+LEYFdMxCm8vyCmBaFu+0Pi4t7R1B+8m+6Qfi95vgufjiufdD+kxsWKtkwsc/hJAB/IVHca4vLeSmaYjOMIg91F8B4nxPf8gNA1MMtdWKeG/wBstduuvt7QLILqMvwAJPyFc/6YdLHviEVTHADkKTu57i/dgdy/H0ioOFzv7kMjeYQ4+eMVvQ9Ebxv6rT+JlH65ryc+lT/U4BGYemwyTK3OC9PLi3QRlRIBsCWx89jUTxzpHcXbq0rLpU5WLHYB8SM9o+v6mpH/AMGzD35IU9WP8qwydHI1968tx6EH/iqucdhgbOnyBP4Cm2jTBkBYz0yvf7b/ACitTifSC5uE6uaTWoYMAVXII7wcZGxI
++NbD8Jtx/wDmx/BCfyasL8Lg7rqM+quP50bjKLrgO/of/apdy0aBYeCcbltGLRBMnmSDnHhz5VZoPadcqe1GjD1x+lVhuFZ92e3by63Sf8wFYbjhkyDLRtj94dofNcipjFUXGMwngbH0MH75qDqLXGSFj4tcJJNJJGpRXYvpJB0lt2AI5jJOPKtQ16rya9ipRAhX/wBjdrm4ml/ciCf42z/6ddcqheyGy0Wjyn+tkOPRAFH+bXV9qKzq5moUpSlF4pSlKIq70m4TrR50aRZUjbTpOzaQzBWVgVO+2cA78659JbrOqvLbxy6lDa4fu33GeROD/i+FdiPKqFxDoxNCWNvoeHdurdtBj7yEYgqU8jjHiRWVj8G5xFSiBmGsWJHmCNOZhejcRUp6XHqqLPwGDOVnkhPhOhH+cYX5E1J8PfiMQ+5uIZl7sPn6nH517h625TVqMMbDsquC7A95YjCg9wAzjvr1LYhEw0aTIF04McayqoGMxSIqkso3AbOcYyKpUcbVacj6sHS4Dh1cI/J816f6trh4mSPuxXq547xjGNGPNRq/4jVZ4lDezNqnWdyOWpWIHoAMD4VtWwZWKddJ3MjLIwDKQCrAZxgggjyPlU3wyyaRT/8AVXIZWwQJAduY5irGI7Rr4cePLHk4fJXMPjcM/wDSCDfhtqNSqzwx7m3bXHE4blqMbEgeA22qVbpBxNv2pfhF/wDGpz/RUv8Arlz/AIl/lXw8IkPO8uv8eK8m9vs1cW+j/wC1WTUokz8KBsmuXvbeW5WQtrADOmnOkEgchnGa7io2rivC7iH7Wskly5iizvM+WZjkdheYXHfirzN7R7MHCl3/AAo38q3WOc5oLhHKCPY3HVeFYFzoaNuCo3E7BZ7q5la5t4h17rh2OvsnGQoU7beNfI+H2K+/dSyn92GEr9XOKy8MubZpZmdRoZ2dJJVwcsxLI25UEE4zt6VYIZ4QOw0QH8JX9KycZ2ycNUNMU3HqI9QDpvpC
+kcU1vgnSNwPgqKhS0H9Fw+4lPjM2kfELlakIry5G0NrZ249Mn5r/ACr1ccVgT3pkH94E/Ib1B8Q6WoToiyM7GQjl5qDzPrVJvaWPxRinSAHE5iPWQFAVnVLMGb1PzA6rFxLpNcicwyXLgA4YxhQB6YwSRnl5VJw8ISUazcTyg9/WbfzrnlyjK7BjlsnJ8e/PxBBrc4LdukgCsyg88EitHE4au9g7mplMXgNAPoJHSfLjadQqhgLXCYuNuhAPvryV8To7bD+rz6sT+tZl4Nbj+pT/AA5/OqVB0uuQN2RvMp/Iit226SzyDdlXtKvZQcicHmTWNV7P7TcfFVt/7u/H8Ku9mIALiDHmP3Vok4fbqMtHCAO8ov8AKoC7iidyViRV5AaQM/xEd2c/ICvsjFjljqPiTnHp4fCldw9F9IlxeSfMwPf3WTUxD36GOv30Wjc2kQUkry8CR6D51n/0SsFolx9paKdyGWIHdo9QBfC9rlqbwwBWKVDKXwCUhRpJPRFJ058zhfU+VWKxtdAyd3beRv3jj6KOQXkAAK0amMNCl/ueLNoCf8/i67hq9d7yWuMC3KZ16fuq/eWkmMzQrMv9rDgPjxOBhvip9aiLjh/ZMkLdag3OBh0/GncP4hkedXAcOZNoZWjHcmAyj8IO6jyBx5VN9GeicM8UF4zy9c2mQkFVG3vR6VABUkEZO58al2fXfVnIQI84Pm3QebXAcQVqsxhnK9vp/lW3ozw/7Pawxd6oNX4ju31JqVr4K+1sqsTJkpSlKLiUpSiJUb0htWltLiKP33hkRe7tMjAfU1JV8NFwibLldhMHjRl5EDbwxsVI7iDkEeVerm7SMAuwUZwM958AOZPkKtnFOiMckjSxSPA7HL6QrI5/eZGBGrzXBPfmqNweHUOvc63fOliAMJk6VA/ZyACccyTXyWLwH+m8TjLZtx/jzuohzrNi/skltBPZwiKRVvI02jYFGYambQuoDUV1bYz3jvqOsLwntIQr
+jY/8weYqfuIFkUq41A9x/MeB8xUc3AZZYnuIcvLC7RzL3yABWEg8WKOuod5BI353qVduNBblgjbUEdfdUq9FzCHtE8eNt/OPX84Lzpc0LKjxatQyGXCj0wSa0LzplKwxGip5+8fh3VgurdLpMZ0su4Pep/lUJe2MsIy+kjOAQefwqWHwGCJGZgzc5joJhaeBdh6zBnMnzsfSPdYJZS0naPdn1JOSTXtTisEqEkMOY/Lwr0sniMVs7LbbDbafj2W8jPcTLGo3OnI8Wx7x+AG/gK6hNaq6FGGQV0k/DGTXPeCcbitSXMBZ22LhhsPADFbV70sZp1kiY9WoHZPfn39Q+lYHaOFxOKrBtMZWtBIPE9NNteZWTWa+pULcmx43HGYi+3G28rR45wV7aQnT92x2Ycs+Hl6GokNvVu4n0t15RExGdjqAJPwOw+tVme109tTlWPPGMH90ju/71qYN+IfTnENAd79Rt05q7hX1coDxbYnX08vLmJufckTSsWUqzHHZ5HYAbZ58q1YpG3C7HGMnuzXqJiCCOeay3+OtcjvOfiQCfrmrSsxeNlrLrHND4ZG4qe4RZNszjSBuAeZPcT4AZNaHDJMOFO6t2WHiDzqwWTkxqScnTjPjjbPxxmquLqOayBus7tKtUp04GhtzWxWvcynIRBl2OAB599Li4wQiDU7bBRvueX/apKGC3gtrnVJ1t48UiDQrsIyUI0a0UqHOcE525cs5p0KObxO0XzZJecrT5nh/J9l64Tr+zPDHoWOZSJJWUs8oIIOgZAVME4JyTnOBmvsPEBGAlwdDDbWdkfH7QbkCe9TuK34HVkUr7pAK48MbV9kkCgsxAUAk55YHPNY9fFurO8YtsNx99DygLSZSFNoDdvv33nVYLeVrg9XajrHO2sZMcf8AE78tv3QcmukcJsVghjhXOmNAgJ5nAxk+Z51o9Do2WxtlYEEQpseY7IwD5gYFTlfUYPBswzYbqdSVJoOpSlKVbU0pSlES
+lKURKUpRF8Ncz4lYNZOyOp+zli0UoBKqrEnRJj3SpJAJ2I075yK6bXw1XxOGZiGZH/4USJuFyCXiYkKx28iM7ZJYEMEUYyxxtncAA958qzQ8LRc4aXUTkt1sgJO3a7LAA7DkByqwdN4OrmhnxiLS0LnGyszK0ZPgCQVz4lfGo2vmcYx+DfkY4gRrcT94AnylcDcx8Vz+Pv21lCScFeSYIsn3rhmidsDUyjLRyEc2IyQ2N9LBs86rnSqKVVCSxskiNkgjmPEf8sirVCrTssuto0ViYtBwzbMpkLcwCCwAHcc99Z7yzZ1xreQD9iVmkU+QY9tPxKdvA8qu0cdTZlFYnMNTH5+bKuyiWVO9pcdNj01HIj0K5sjAjIrFIe2vx+dWzpF0WijtBfwOerJAMT4yjFirJkbMVYEHly76qhjBUA+ua3Avo6NcV25mhZay3UOY49K5bJJwN8bc8VqBiCATnNbCyEHOTmi9yM1l8zWaGQlGQY7RBBJxjB/6FOKtqjWTkxOh/Pwb15/SsAFNkBzWXp0dCAwAzuDzB8weVYTqBP7QJz51II+YXB/ZKsvkdQB+YJrTFdQAnVblhbOxzjQBzZttO3h44NTkDFwEh0qi4BkZgqqOW7NsPz8Aaz9H4LSR2e8kkRVCgAK+liFJbVIBhdtIxkHzqV4bbKyrKyKGYalXG0StuEQdxAxlubHc1m42symMz73sB8r5zHGtiK5YSA1vDXafL8+S+yWFtFHGkE8c0szkTSo4OlFUsyLg5XUdKk8yC3LkN2NAoAUAAbADYD0rV4haE6ZIwvWIcrnbUMEMhPgQT6HBrFFxqEjLNoOSNLgg5BwQO5sEEdkmsbFVX4qCwGBaLmDOvXiRy1UaTWUvDpw+nedZK+S2zxMvUuFWSREKOupVMsirqXBBG7AkA458qtlj0MYsGuplkUHIijQohI5dZlmZx5ZA8QajeBcMkuZo5CjJbxOJNTqVMrqewFU9rSGwxYgZwAM7mui1
+s9nYTwCpVb4ptOsfvzMnmVINBnh7L5ivtKVrL0SlKURKUpREpSlESlKURKUpRFhuIVdSjqGVhhlIyCDzBHeKrcnQe1309cin9lZpAo9Bq2HkMVaqVFzGu1E+a4Wg6hcn4UpWMRNtJD91IvgyDHLwIww8QRWW7nEaO55KpY48hyq7cY6NwXLdYwdJAMdZG2lsdwbuYDPJgcVE3vQOJ4pFMs0jlSEMjDSrY7LaUVQSDjmDWDU7GLqsh3hJ5zrccPdRlzRAVIuuAdbA6ufvXy4yTpRmOohByAzsTzNUYhkJSQFXGxBFdPtbjVlGGiVNpIzzVu/1HgRsRioHp5MqwAdnWWAGcagNySO/GQK88DjKzK3c1Bqf6fLkreDqinDRofyqcItZByBjvPfWW4iKAFuR5Ebg/wDPyNYxW3C2YpVblp1DyIO38vjW+tcyBIWuGDKFfOnngY+dZLm30qHU6kzjzU9wP86wg1sxSYikzyOkD11A/pRcIi4WKIrjDasHngipThfA+tkx1uFxqU43IzhgO4EEj5ioerD0aL60Co76dbsEUsQuNJOBuRqZeW9eVfP3Tu7/AFQY81513ZKZcDCtdvZokfVqMLgjHjnmSe8nPOtLh96seLeVgsiAAZIHWKNldfHIG45gg1tJfKx0osjt3IsblviNPZ+OBVs6NdHtKSPdRozzY1RsA4RFzoQ5GCe0xJ8WONhWBhMDVrlwqAgaydZ6681hOdLpab/H2FVZL1dQRPvJW9yJN2Y+g5L4sdhV+6NcNNtbRxNu4yzkctbsXfHlqY4rbs+GwwjEUUcYPMIirn/CBW7W3gsC3DAwZJ3XYJMlfBX2lKvKSUpSiJSlKIlKUoiUpSiJSlKIlKUoiUpSiJSlKIoviXBLe4wZoUkI5Mw3Ho3MfA1H33Q2ze3lgWFIxKMMyqNWQcqSx3OCAcE1ZKVyAuAQZGq/N/SPo5ccPdY5gpVs9W6n3gMZ25g7jY1HBzjHceY8fWuue2Pg
+ck8EU8Slmt2JZRzKMBqI8caQfTJ7q4+koblUSIWxhqveMuvGjSQqk7jOPCspXIwdxXy6QDS65ONmB/MUWUHvrmy92xMKf6LdFTeSrEs+jKM+Smr3GQFeY3+8B+BrsnRfovDYoRHlnbGuRubY5DbYKPAfU1UfZLwd8m6ZSE0GOLP7WtlLuB+792oB7+1XThUmiyy8TVJcWA2C+EV6pSpKqlKUoiUpSiJSlKIlKUoiUpSiJSlKIlKUoiUpSiJSlKIlKUoiUpSiLywr8txFtcmv3w7avXJz9a/UprlfTz2bSSzNdWRUO+8kTHAJ72Q8snvBxv391cIVnC1W03XXNk5jFdR9nPBbeYzSSW8T6GjClkBw2jLY7uRQ/Gqrwv2ecRkcB41hHe7up+QUkn029a7F0e4MlpAsMeSBksx5sx95m8z9Bgd1RAurGLrtc2GlSYXHKvVKVNZyUpSiJSlKIlKUoiUpSiJSlKIlKUoiUpSiJSlKIlKUoiUpSiJSlKIlKUoiV4POlKLhQV7pSgQJSlKLqUpSiJSlKIlKUoiUpSiJSlKIlKUoi//Z</ImageData>
+    </EmbeddedImage>
+  </EmbeddedImages>
+  <rd:ReportUnitType>Cm</rd:ReportUnitType>
+  <rd:ReportID>2b42bc8b-5142-401a-95d2-3627562b38fa</rd:ReportID>
+</Report>

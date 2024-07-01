@@ -1,0 +1,3 @@
+﻿Public Class frmContabilidad_Reportes_SaldoCuentaVarios
+
+End Class

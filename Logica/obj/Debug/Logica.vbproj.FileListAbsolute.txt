@@ -1,0 +1,120 @@
+D:\Proyectos\Visual Basic\DataGreen\Logica\bin\Debug\Logica.dll
+D:\Proyectos\Visual Basic\DataGreen\Logica\bin\Debug\Logica.pdb
+D:\Proyectos\Visual Basic\DataGreen\Logica\bin\Debug\Logica.xml
+D:\Proyectos\Visual Basic\DataGreen\Logica\bin\Debug\Datos.dll
+D:\Proyectos\Visual Basic\DataGreen\Logica\bin\Debug\Entidades.dll
+D:\Proyectos\Visual Basic\DataGreen\Logica\bin\Debug\Datos.pdb
+D:\Proyectos\Visual Basic\DataGreen\Logica\bin\Debug\Datos.xml
+D:\Proyectos\Visual Basic\DataGreen\Logica\bin\Debug\Entidades.pdb
+D:\Proyectos\Visual Basic\DataGreen\Logica\bin\Debug\Entidades.xml
+D:\Proyectos\Visual Basic\DataGreen\Logica\obj\Debug\Logica.vbprojResolveAssemblyReference.cache
+D:\Proyectos\Visual Basic\DataGreen\Logica\obj\Debug\Logica.Resources.resources
+D:\Proyectos\Visual Basic\DataGreen\Logica\obj\Debug\Logica.vbproj.GenerateResource.Cache
+D:\Proyectos\Visual Basic\DataGreen\Logica\obj\Debug\Logica.dll
+D:\Proyectos\Visual Basic\DataGreen\Logica\obj\Debug\Logica.xml
+D:\Proyectos\Visual Basic\DataGreen\Logica\obj\Debug\Logica.pdb
+D:\Proyectos\Visual Basic\DataGreen\Logica\bin\Debug\SQLite.NET.dll
+D:\DataGreen\Logica\bin\Debug\Logica.dll
+D:\DataGreen\Logica\bin\Debug\Logica.pdb
+D:\DataGreen\Logica\bin\Debug\Logica.xml
+D:\DataGreen\Logica\bin\Debug\Datos.dll
+D:\DataGreen\Logica\bin\Debug\Entidades.dll
+D:\DataGreen\Logica\bin\Debug\SQLite.NET.dll
+D:\DataGreen\Logica\bin\Debug\Datos.pdb
+D:\DataGreen\Logica\bin\Debug\Datos.xml
+D:\DataGreen\Logica\bin\Debug\Entidades.pdb
+D:\DataGreen\Logica\bin\Debug\Entidades.xml
+D:\DataGreen\Logica\obj\Debug\Logica.vbprojAssemblyReference.cache
+D:\DataGreen\Logica\obj\Debug\Logica.vbproj.ResolveComReference.cache
+D:\DataGreen\Logica\obj\Debug\Logica.Resources.resources
+D:\DataGreen\Logica\obj\Debug\Logica.vbproj.GenerateResource.cache
+D:\DataGreen\Logica\obj\Debug\Logica.vbproj.CopyComplete
+D:\DataGreen\Logica\obj\Debug\Logica.dll
+D:\DataGreen\Logica\obj\Debug\Logica.xml
+D:\DataGreen\Logica\obj\Debug\Logica.pdb
+D:\PROGRAMACION\Codigo Fuente Sistemas ASJ 2023\DataGreen_20230710 Jonathan\DataGreen\Logica\bin\Debug\Logica.dll
+D:\PROGRAMACION\Codigo Fuente Sistemas ASJ 2023\DataGreen_20230710 Jonathan\DataGreen\Logica\bin\Debug\Logica.pdb
+D:\PROGRAMACION\Codigo Fuente Sistemas ASJ 2023\DataGreen_20230710 Jonathan\DataGreen\Logica\bin\Debug\Logica.xml
+D:\PROGRAMACION\Codigo Fuente Sistemas ASJ 2023\DataGreen_20230710 Jonathan\DataGreen\Logica\bin\Debug\ClosedXML.dll
+D:\PROGRAMACION\Codigo Fuente Sistemas ASJ 2023\DataGreen_20230710 Jonathan\DataGreen\Logica\bin\Debug\Datos.dll
+D:\PROGRAMACION\Codigo Fuente Sistemas ASJ 2023\DataGreen_20230710 Jonathan\DataGreen\Logica\bin\Debug\DocumentFormat.OpenXml.dll
+D:\PROGRAMACION\Codigo Fuente Sistemas ASJ 2023\DataGreen_20230710 Jonathan\DataGreen\Logica\bin\Debug\Entidades.dll
+D:\PROGRAMACION\Codigo Fuente Sistemas ASJ 2023\DataGreen_20230710 Jonathan\DataGreen\Logica\bin\Debug\ExcelNumberFormat.dll
+D:\PROGRAMACION\Codigo Fuente Sistemas ASJ 2023\DataGreen_20230710 Jonathan\DataGreen\Logica\bin\Debug\System.IO.Packaging.dll
+D:\PROGRAMACION\Codigo Fuente Sistemas ASJ 2023\DataGreen_20230710 Jonathan\DataGreen\Logica\bin\Debug\SQLite.NET.dll
+D:\PROGRAMACION\Codigo Fuente Sistemas ASJ 2023\DataGreen_20230710 Jonathan\DataGreen\Logica\bin\Debug\Datos.pdb
+D:\PROGRAMACION\Codigo Fuente Sistemas ASJ 2023\DataGreen_20230710 Jonathan\DataGreen\Logica\bin\Debug\Datos.xml
+D:\PROGRAMACION\Codigo Fuente Sistemas ASJ 2023\DataGreen_20230710 Jonathan\DataGreen\Logica\bin\Debug\Entidades.pdb
+D:\PROGRAMACION\Codigo Fuente Sistemas ASJ 2023\DataGreen_20230710 Jonathan\DataGreen\Logica\bin\Debug\Entidades.xml
+D:\PROGRAMACION\Codigo Fuente Sistemas ASJ 2023\DataGreen_20230710 Jonathan\DataGreen\Logica\bin\Debug\ClosedXML.pdb
+D:\PROGRAMACION\Codigo Fuente Sistemas ASJ 2023\DataGreen_20230710 Jonathan\DataGreen\Logica\bin\Debug\ClosedXML.xml
+D:\PROGRAMACION\Codigo Fuente Sistemas ASJ 2023\DataGreen_20230710 Jonathan\DataGreen\Logica\bin\Debug\DocumentFormat.OpenXml.xml
+D:\PROGRAMACION\Codigo Fuente Sistemas ASJ 2023\DataGreen_20230710 Jonathan\DataGreen\Logica\bin\Debug\ExcelNumberFormat.xml
+D:\PROGRAMACION\Codigo Fuente Sistemas ASJ 2023\DataGreen_20230710 Jonathan\DataGreen\Logica\obj\Debug\Logica.vbproj.AssemblyReference.cache
+D:\PROGRAMACION\Codigo Fuente Sistemas ASJ 2023\DataGreen_20230710 Jonathan\DataGreen\Logica\obj\Debug\Logica.vbproj.ResolveComReference.cache
+D:\PROGRAMACION\Codigo Fuente Sistemas ASJ 2023\DataGreen_20230710 Jonathan\DataGreen\Logica\obj\Debug\Logica.Resources.resources
+D:\PROGRAMACION\Codigo Fuente Sistemas ASJ 2023\DataGreen_20230710 Jonathan\DataGreen\Logica\obj\Debug\Logica.vbproj.GenerateResource.cache
+D:\PROGRAMACION\Codigo Fuente Sistemas ASJ 2023\DataGreen_20230710 Jonathan\DataGreen\Logica\obj\Debug\Logica.vbproj.CoreCompileInputs.cache
+D:\PROGRAMACION\Codigo Fuente Sistemas ASJ 2023\DataGreen_20230710 Jonathan\DataGreen\Logica\obj\Debug\Logica.vbproj.CopyComplete
+D:\PROGRAMACION\Codigo Fuente Sistemas ASJ 2023\DataGreen_20230710 Jonathan\DataGreen\Logica\obj\Debug\Logica.dll
+D:\PROGRAMACION\Codigo Fuente Sistemas ASJ 2023\DataGreen_20230710 Jonathan\DataGreen\Logica\obj\Debug\Logica.xml
+D:\PROGRAMACION\Codigo Fuente Sistemas ASJ 2023\DataGreen_20230710 Jonathan\DataGreen\Logica\obj\Debug\Logica.pdb
+D:\PROGRAMACION\Codigo Fuente Sistemas ASJ 2023\DataGreen_2023_10_21_V5.3.0 Jonathan\DataGreen\Logica\bin\Debug\Logica.dll
+D:\PROGRAMACION\Codigo Fuente Sistemas ASJ 2023\DataGreen_2023_10_21_V5.3.0 Jonathan\DataGreen\Logica\bin\Debug\Logica.pdb
+D:\PROGRAMACION\Codigo Fuente Sistemas ASJ 2023\DataGreen_2023_10_21_V5.3.0 Jonathan\DataGreen\Logica\bin\Debug\Logica.xml
+D:\PROGRAMACION\Codigo Fuente Sistemas ASJ 2023\DataGreen_2023_10_21_V5.3.0 Jonathan\DataGreen\Logica\bin\Debug\ClosedXML.dll
+D:\PROGRAMACION\Codigo Fuente Sistemas ASJ 2023\DataGreen_2023_10_21_V5.3.0 Jonathan\DataGreen\Logica\bin\Debug\Datos.dll
+D:\PROGRAMACION\Codigo Fuente Sistemas ASJ 2023\DataGreen_2023_10_21_V5.3.0 Jonathan\DataGreen\Logica\bin\Debug\DocumentFormat.OpenXml.dll
+D:\PROGRAMACION\Codigo Fuente Sistemas ASJ 2023\DataGreen_2023_10_21_V5.3.0 Jonathan\DataGreen\Logica\bin\Debug\Entidades.dll
+D:\PROGRAMACION\Codigo Fuente Sistemas ASJ 2023\DataGreen_2023_10_21_V5.3.0 Jonathan\DataGreen\Logica\bin\Debug\ExcelNumberFormat.dll
+D:\PROGRAMACION\Codigo Fuente Sistemas ASJ 2023\DataGreen_2023_10_21_V5.3.0 Jonathan\DataGreen\Logica\bin\Debug\Newtonsoft.Json.dll
+D:\PROGRAMACION\Codigo Fuente Sistemas ASJ 2023\DataGreen_2023_10_21_V5.3.0 Jonathan\DataGreen\Logica\bin\Debug\System.IO.Packaging.dll
+D:\PROGRAMACION\Codigo Fuente Sistemas ASJ 2023\DataGreen_2023_10_21_V5.3.0 Jonathan\DataGreen\Logica\bin\Debug\SQLite.NET.dll
+D:\PROGRAMACION\Codigo Fuente Sistemas ASJ 2023\DataGreen_2023_10_21_V5.3.0 Jonathan\DataGreen\Logica\bin\Debug\Datos.pdb
+D:\PROGRAMACION\Codigo Fuente Sistemas ASJ 2023\DataGreen_2023_10_21_V5.3.0 Jonathan\DataGreen\Logica\bin\Debug\Datos.xml
+D:\PROGRAMACION\Codigo Fuente Sistemas ASJ 2023\DataGreen_2023_10_21_V5.3.0 Jonathan\DataGreen\Logica\bin\Debug\Entidades.pdb
+D:\PROGRAMACION\Codigo Fuente Sistemas ASJ 2023\DataGreen_2023_10_21_V5.3.0 Jonathan\DataGreen\Logica\bin\Debug\Entidades.xml
+D:\PROGRAMACION\Codigo Fuente Sistemas ASJ 2023\DataGreen_2023_10_21_V5.3.0 Jonathan\DataGreen\Logica\bin\Debug\ClosedXML.pdb
+D:\PROGRAMACION\Codigo Fuente Sistemas ASJ 2023\DataGreen_2023_10_21_V5.3.0 Jonathan\DataGreen\Logica\bin\Debug\ClosedXML.xml
+D:\PROGRAMACION\Codigo Fuente Sistemas ASJ 2023\DataGreen_2023_10_21_V5.3.0 Jonathan\DataGreen\Logica\bin\Debug\DocumentFormat.OpenXml.xml
+D:\PROGRAMACION\Codigo Fuente Sistemas ASJ 2023\DataGreen_2023_10_21_V5.3.0 Jonathan\DataGreen\Logica\bin\Debug\ExcelNumberFormat.xml
+D:\PROGRAMACION\Codigo Fuente Sistemas ASJ 2023\DataGreen_2023_10_21_V5.3.0 Jonathan\DataGreen\Logica\bin\Debug\Newtonsoft.Json.xml
+D:\PROGRAMACION\Codigo Fuente Sistemas ASJ 2023\DataGreen_2023_10_21_V5.3.0 Jonathan\DataGreen\Logica\obj\Debug\Logica.vbproj.AssemblyReference.cache
+D:\PROGRAMACION\Codigo Fuente Sistemas ASJ 2023\DataGreen_2023_10_21_V5.3.0 Jonathan\DataGreen\Logica\obj\Debug\Logica.vbproj.ResolveComReference.cache
+D:\PROGRAMACION\Codigo Fuente Sistemas ASJ 2023\DataGreen_2023_10_21_V5.3.0 Jonathan\DataGreen\Logica\obj\Debug\Logica.Resources.resources
+D:\PROGRAMACION\Codigo Fuente Sistemas ASJ 2023\DataGreen_2023_10_21_V5.3.0 Jonathan\DataGreen\Logica\obj\Debug\Logica.vbproj.GenerateResource.cache
+D:\PROGRAMACION\Codigo Fuente Sistemas ASJ 2023\DataGreen_2023_10_21_V5.3.0 Jonathan\DataGreen\Logica\obj\Debug\Logica.vbproj.CoreCompileInputs.cache
+D:\PROGRAMACION\Codigo Fuente Sistemas ASJ 2023\DataGreen_2023_10_21_V5.3.0 Jonathan\DataGreen\Logica\obj\Debug\Logica.vbproj.CopyComplete
+D:\PROGRAMACION\Codigo Fuente Sistemas ASJ 2023\DataGreen_2023_10_21_V5.3.0 Jonathan\DataGreen\Logica\obj\Debug\Logica.dll
+D:\PROGRAMACION\Codigo Fuente Sistemas ASJ 2023\DataGreen_2023_10_21_V5.3.0 Jonathan\DataGreen\Logica\obj\Debug\Logica.xml
+D:\PROGRAMACION\Codigo Fuente Sistemas ASJ 2023\DataGreen_2023_10_21_V5.3.0 Jonathan\DataGreen\Logica\obj\Debug\Logica.pdb
+D:\PROGRAMACION\Codigo Fuente Sistemas ASJ 2023\DataGreen_2023_10_21_V5.4\DataGreen\Logica\bin\Debug\Logica.dll
+D:\PROGRAMACION\Codigo Fuente Sistemas ASJ 2023\DataGreen_2023_10_21_V5.4\DataGreen\Logica\bin\Debug\Logica.pdb
+D:\PROGRAMACION\Codigo Fuente Sistemas ASJ 2023\DataGreen_2023_10_21_V5.4\DataGreen\Logica\bin\Debug\Logica.xml
+D:\PROGRAMACION\Codigo Fuente Sistemas ASJ 2023\DataGreen_2023_10_21_V5.4\DataGreen\Logica\bin\Debug\ClosedXML.dll
+D:\PROGRAMACION\Codigo Fuente Sistemas ASJ 2023\DataGreen_2023_10_21_V5.4\DataGreen\Logica\bin\Debug\Datos.dll
+D:\PROGRAMACION\Codigo Fuente Sistemas ASJ 2023\DataGreen_2023_10_21_V5.4\DataGreen\Logica\bin\Debug\DocumentFormat.OpenXml.dll
+D:\PROGRAMACION\Codigo Fuente Sistemas ASJ 2023\DataGreen_2023_10_21_V5.4\DataGreen\Logica\bin\Debug\Entidades.dll
+D:\PROGRAMACION\Codigo Fuente Sistemas ASJ 2023\DataGreen_2023_10_21_V5.4\DataGreen\Logica\bin\Debug\ExcelNumberFormat.dll
+D:\PROGRAMACION\Codigo Fuente Sistemas ASJ 2023\DataGreen_2023_10_21_V5.4\DataGreen\Logica\bin\Debug\Newtonsoft.Json.dll
+D:\PROGRAMACION\Codigo Fuente Sistemas ASJ 2023\DataGreen_2023_10_21_V5.4\DataGreen\Logica\bin\Debug\System.IO.Packaging.dll
+D:\PROGRAMACION\Codigo Fuente Sistemas ASJ 2023\DataGreen_2023_10_21_V5.4\DataGreen\Logica\bin\Debug\WebSocket4Net.dll
+D:\PROGRAMACION\Codigo Fuente Sistemas ASJ 2023\DataGreen_2023_10_21_V5.4\DataGreen\Logica\bin\Debug\SQLite.NET.dll
+D:\PROGRAMACION\Codigo Fuente Sistemas ASJ 2023\DataGreen_2023_10_21_V5.4\DataGreen\Logica\bin\Debug\Datos.pdb
+D:\PROGRAMACION\Codigo Fuente Sistemas ASJ 2023\DataGreen_2023_10_21_V5.4\DataGreen\Logica\bin\Debug\Datos.xml
+D:\PROGRAMACION\Codigo Fuente Sistemas ASJ 2023\DataGreen_2023_10_21_V5.4\DataGreen\Logica\bin\Debug\Entidades.pdb
+D:\PROGRAMACION\Codigo Fuente Sistemas ASJ 2023\DataGreen_2023_10_21_V5.4\DataGreen\Logica\bin\Debug\Entidades.xml
+D:\PROGRAMACION\Codigo Fuente Sistemas ASJ 2023\DataGreen_2023_10_21_V5.4\DataGreen\Logica\bin\Debug\ClosedXML.pdb
+D:\PROGRAMACION\Codigo Fuente Sistemas ASJ 2023\DataGreen_2023_10_21_V5.4\DataGreen\Logica\bin\Debug\ClosedXML.xml
+D:\PROGRAMACION\Codigo Fuente Sistemas ASJ 2023\DataGreen_2023_10_21_V5.4\DataGreen\Logica\bin\Debug\DocumentFormat.OpenXml.xml
+D:\PROGRAMACION\Codigo Fuente Sistemas ASJ 2023\DataGreen_2023_10_21_V5.4\DataGreen\Logica\bin\Debug\ExcelNumberFormat.xml
+D:\PROGRAMACION\Codigo Fuente Sistemas ASJ 2023\DataGreen_2023_10_21_V5.4\DataGreen\Logica\bin\Debug\Newtonsoft.Json.xml
+D:\PROGRAMACION\Codigo Fuente Sistemas ASJ 2023\DataGreen_2023_10_21_V5.4\DataGreen\Logica\obj\Debug\Logica.vbproj.AssemblyReference.cache
+D:\PROGRAMACION\Codigo Fuente Sistemas ASJ 2023\DataGreen_2023_10_21_V5.4\DataGreen\Logica\obj\Debug\Logica.vbproj.ResolveComReference.cache
+D:\PROGRAMACION\Codigo Fuente Sistemas ASJ 2023\DataGreen_2023_10_21_V5.4\DataGreen\Logica\obj\Debug\Logica.Resources.resources
+D:\PROGRAMACION\Codigo Fuente Sistemas ASJ 2023\DataGreen_2023_10_21_V5.4\DataGreen\Logica\obj\Debug\Logica.vbproj.GenerateResource.cache
+D:\PROGRAMACION\Codigo Fuente Sistemas ASJ 2023\DataGreen_2023_10_21_V5.4\DataGreen\Logica\obj\Debug\Logica.vbproj.CoreCompileInputs.cache
+D:\PROGRAMACION\Codigo Fuente Sistemas ASJ 2023\DataGreen_2023_10_21_V5.4\DataGreen\Logica\obj\Debug\Logica.vbproj.Up2Date
+D:\PROGRAMACION\Codigo Fuente Sistemas ASJ 2023\DataGreen_2023_10_21_V5.4\DataGreen\Logica\obj\Debug\Logica.dll
+D:\PROGRAMACION\Codigo Fuente Sistemas ASJ 2023\DataGreen_2023_10_21_V5.4\DataGreen\Logica\obj\Debug\Logica.xml
+D:\PROGRAMACION\Codigo Fuente Sistemas ASJ 2023\DataGreen_2023_10_21_V5.4\DataGreen\Logica\obj\Debug\Logica.pdb

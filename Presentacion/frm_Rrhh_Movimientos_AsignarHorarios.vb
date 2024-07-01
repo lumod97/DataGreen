@@ -1,0 +1,3 @@
+﻿Public Class frm_Rrhh_Movimientos_AsignarHorarios
+
+End Class
