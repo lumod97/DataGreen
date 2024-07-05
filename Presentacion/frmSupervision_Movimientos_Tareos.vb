@@ -172,13 +172,22 @@ Public Class frmSupervision_Movimientos_Tareos
 
         ''HATCH
         'DEFINIMOS UNA LISTA DE USUARIOS QUE PUEDAN APROBAR TAREOS
-        Dim usuariosPermitidos As String() = {"JMERA", "JSIESQUEN", "JCRUZ", "JMOROCHO"}
+        'Dim usuariosPermitidos As String() = {"JMERA", "JSIESQUEN", "JCRUZ", "JMOROCHO"}
+        'Dim usuariosPermitidos As String() = doItBaby("obtenerUsuariosConPermisosTareos", Nothing, TipoQuery.Scalar)
+        Dim usuariosPermitidos As DataTable = doItBaby("obtenerUsuariosConPermisosTareos", Nothing, TipoQuery.DataTable)
+        Dim filasUsuariosPermitidos() As DataRow = usuariosPermitidos.Select("ALLOW_UPDATE =" & 1)
+
+        Dim supervisorTareador As DataTable = doItBaby("obtenerRelacionSupervisorTareadorEditar", Nothing, TipoQuery.DataTable)
+        'Dim filassupervisorTareador() As DataRow = supervisorTareador.Select("IDUSUARIO_TAREADOR = '" & tareoActual.IdResponsable & "' AND IDUSUARIO = '" & usuarioActual & "'")
+        Dim filassupervisorTareador() As DataRow = supervisorTareador.Select("IDUSUARIO = '" & usuarioActual & "'")
 
         If dgvResultado.SelectedRows Is Nothing Or lblDin_IdTareo.Text = "000000000000" Then
             MessageBox.Show("Para editar un registro debe seleccionarlo primero.")
 
             'ElseIf tareoActual.IdResponsable <> usuarioActual And usuarioActual <> "JMERA" And usuarioActual <> "JSIESQUEN" And usuarioActual <> "JCRUZ" Then
-        ElseIf tareoActual.IdResponsable <> usuarioActual AndAlso Not usuariosPermitidos.Contains(usuarioActual) Then
+        ElseIf tareoActual.IdResponsable <> usuarioActual AndAlso filassupervisorTareador.Length = 0 Then
+            'ElseIf tareoActual.IdResponsable <> usuarioActual AndAlso Not usuariosPermitidos.Contains(usuarioActual) Then
+
             MessageBox.Show("No tiene permisos para editar este registro")
         Else
             bloquearControl(btnNuevo)
@@ -530,9 +539,16 @@ Public Class frmSupervision_Movimientos_Tareos
             Exit Sub
         End If
 
+        Dim usuariosPermitidos As DataTable = doItBaby("obtenerUsuariosConPermisosTareos", Nothing, TipoQuery.DataTable)
+        Dim filasUsuariosPermitidos() As DataRow = usuariosPermitidos.Select("ALLOW_UPDATE =" & 1)
+
+        Dim supervisorTareador As DataTable = doItBaby("obtenerRelacionSupervisorTareadorAprobar", Nothing, TipoQuery.DataTable)
+        'Dim filassupervisorTareador() As DataRow = supervisorTareador.Select("IDUSUARIO_TAREADOR = '" & tareoActual.IdResponsable & "' AND IDUSUARIO = '" & usuarioActual & "'")
+        Dim filassupervisorTareador() As DataRow = supervisorTareador.Select("IDUSUARIO = '" & usuarioActual & "'")
         If dgvResultado.SelectedRows Is Nothing Or lblDin_IdTareo.Text = "000000000000" Then
             MessageBox.Show("Para Aprobar un registro debe seleccionarlo primero.")
-        ElseIf usuarioActual <> "JMERA" And usuarioActual <> "JSIESQUEN" And usuarioActual <> "JCRUZ" Then
+            'ElseIf usuarioActual <> "JMERA" And usuarioActual <> "JSIESQUEN" And usuarioActual <> "JCRUZ" Then
+        ElseIf tareoActual.IdResponsable <> usuarioActual AndAlso filassupervisorTareador.Length = 0 Then
 
             MessageBox.Show("No tiene permisos para aprobar este registro")
         Else
@@ -592,10 +608,18 @@ Public Class frmSupervision_Movimientos_Tareos
             MessageBox.Show("No se puede desaprobar el tareo porque el dia se encuentra cerrado.")
             Exit Sub
         End If
+        Dim usuariosPermitidos As DataTable = doItBaby("obtenerUsuariosConPermisosTareos", Nothing, TipoQuery.DataTable)
+        Dim filasUsuariosPermitidos() As DataRow = usuariosPermitidos.Select("ALLOW_UPDATE =" & 1)
+
+        Dim supervisorTareador As DataTable = doItBaby("obtenerRelacionSupervisorTareadorAprobar", Nothing, TipoQuery.DataTable)
+        'Dim filassupervisorTareador() As DataRow = supervisorTareador.Select("IDUSUARIO_TAREADOR = '" & tareoActual.IdResponsable & "' AND IDUSUARIO = '" & usuarioActual & "'")
+        Dim filassupervisorTareador() As DataRow = supervisorTareador.Select("IDUSUARIO = '" & usuarioActual & "'")
 
         If dgvResultado.SelectedRows Is Nothing Or lblDin_IdTareo.Text = "000000000000" Then
             MessageBox.Show("Para Desaprobar un registro debe seleccionarlo primero.")
-        ElseIf usuarioActual <> "JMERA" And usuarioActual <> "JSIESQUEN" And usuarioActual <> "JCRUZ" Then
+            'ElseIf usuarioActual <> "JMERA" And usuarioActual <> "JSIESQUEN" And usuarioActual <> "JCRUZ" Then
+        ElseIf tareoActual.IdResponsable <> usuarioActual AndAlso filassupervisorTareador.Length = 0 Then
+
             MessageBox.Show("No tiene permisos para desaprobar este registro")
         Else
             bloquearFilas(dgvResultado)
