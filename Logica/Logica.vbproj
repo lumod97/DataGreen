@@ -74,21 +74,6 @@
     <Reference Include="RawPrint, Version=0.5.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\RawPrint.0.5.0\lib\net40\RawPrint.dll</HintPath>
     </Reference>
-    <Reference Include="SdkApi.Card.Core, Version=2.15.2634.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Zebra.Printer.Card.SDK.2.15.2634\lib\net471\SdkApi.Card.Core.dll</HintPath>
-    </Reference>
-    <Reference Include="SdkApi.Card.Desktop, Version=2.15.2634.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Zebra.Printer.Card.SDK.2.15.2634\lib\net471\SdkApi.Card.Desktop.dll</HintPath>
-    </Reference>
-    <Reference Include="SdkApi.Core, Version=2.15.2634.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Zebra.Printer.Card.SDK.2.15.2634\lib\net471\SdkApi.Core.dll</HintPath>
-    </Reference>
-    <Reference Include="SdkApi.Desktop, Version=2.15.2634.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Zebra.Printer.Card.SDK.2.15.2634\lib\net471\SdkApi.Desktop.dll</HintPath>
-    </Reference>
-    <Reference Include="SdkApi.Desktop.Usb, Version=2.15.2634.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Zebra.Printer.Card.SDK.2.15.2634\lib\net471\SdkApi.Desktop.Usb.dll</HintPath>
-    </Reference>
     <Reference Include="SharpSnmpLib, Version=10.0.9.0, Culture=neutral, PublicKeyToken=4c00852d3788e005, processorArchitecture=MSIL">
       <HintPath>..\packages\Lextm.SharpSnmpLib.10.0.9\lib\net452\SharpSnmpLib.dll</HintPath>
     </Reference>
@@ -130,9 +115,6 @@
       <Private>True</Private>
       <Private>True</Private>
     </Reference>
-    <Reference Include="System.Runtime.WindowsRuntime, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\Zebra.Printer.Card.SDK.2.15.2634\lib\net471\System.Runtime.WindowsRuntime.dll</HintPath>
-    </Reference>
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
@@ -155,9 +137,6 @@
     </Reference>
     <Reference Include="WebSocket4Net, Version=0.14.1.0, Culture=neutral, PublicKeyToken=eb4e154b696bf72a, processorArchitecture=MSIL">
       <HintPath>..\packages\WebSocket4Net.0.14.1\lib\net45\WebSocket4Net.dll</HintPath>
-    </Reference>
-    <Reference Include="Windows, Version=255.255.255.255, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Zebra.Printer.Card.SDK.2.15.2634\lib\net471\Windows.winmd</HintPath>
     </Reference>
     <Reference Include="WindowsBase" />
   </ItemGroup>

@@ -180,6 +180,14 @@ Public Class frmRrhh_Reportes_GenerarFotocheck
         End Try
     End Function
 
+
+
+
+
+
+
+
+
     'Funcion para generar el combobox desde la BD
     'Private Sub obtenerDataParaComboTipoFotocheck()
     '    Dim aux As New DataTable

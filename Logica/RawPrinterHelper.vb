@@ -2,6 +2,17 @@
 Imports System.Net
 Imports System.Windows.Forms
 Imports RawPrint
+Imports Zebra.Sdk.Card.Printer
+Imports Zebra.Sdk.Card.Containers.Job
+Imports Zebra.Sdk.Card.Containers.Template.Graphics
+Imports Zebra.Sdk.Card.Graphics
+Imports Zebra.Sdk.Card.JobOptions
+Imports Zebra.Sdk.Card.Graphics.Converters
+Imports Zebra.Sdk.Comm
+Imports Zebra.Sdk.Printer.Discovery
+Imports Zebra.Sdk.Printer
+Imports Zebra.Sdk.Card.Enumerations
+Imports System.Text
 
 
 'Public Class pdfprinter
@@ -38,7 +49,6 @@ Imports RawPrint
 
 
 'End Class
-
 Public Class PDFPrinter
 
     Private printerName As String = "Zebra ZC300 Network Card Printer"
@@ -70,4 +80,42 @@ Public Class PDFPrinter
         End Try
     End Function
 
+
+    'Private printerIpAddress As String = "56.20.1.243" ' Dirección IP de la impresora Zebra ZC300
+
+    'Public Sub PrintPDF(zplCommands As String)
+    '    Try
+    '        ' Configura la conexión con la impresora
+    '        Dim printerUri As New Uri($"http://{printerIpAddress}/")
+    '        Dim request As WebRequest = WebRequest.Create(printerUri)
+    '        request.Method = "POST"
+    '        request.ContentType = "application/x-www-form-urlencoded"
+
+    '        ' Codifica los comandos ZPL en UTF-8
+    '        Dim zplData As Byte() = Encoding.UTF8.GetBytes(zplCommands)
+
+    '        ' Configura la longitud de los datos a enviar
+    '        request.ContentLength = zplData.Length
+
+    '        ' Escribe los datos ZPL en el cuerpo de la solicitud
+    '        Using requestStream As Stream = request.GetRequestStream()
+    '            requestStream.Write(zplData, 0, zplData.Length)
+    '        End Using
+
+    '        ' Envía la solicitud a la impresora
+    '        Using response As WebResponse = request.GetResponse()
+    '            ' Si necesitas leer la respuesta de la impresora, puedes hacerlo así:
+    '            ' Dim responseStream As Stream = response.GetResponseStream()
+    '            ' ...
+    '        End Using
+
+    '        MessageBox.Show("Impresión ZPL enviada correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information)
+    '    Catch ex As Exception
+    '        MessageBox.Show($"Error al imprimir con ZPL: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+    '    End Try
+    'End Sub
+
+
 End Class
+
+
