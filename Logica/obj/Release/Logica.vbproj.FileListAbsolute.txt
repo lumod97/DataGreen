@@ -477,3 +477,34 @@ D:\PROGRAMACION\Codigo Fuente Sistemas ASJ 2023\DataGreen_2023_10_21_V5.4\DataGr
 D:\PROGRAMACION\Codigo Fuente Sistemas ASJ 2023\DataGreen_2023_10_21_V5.4\DataGreen\Logica\obj\Release\Logica.dll
 D:\PROGRAMACION\Codigo Fuente Sistemas ASJ 2023\DataGreen_2023_10_21_V5.4\DataGreen\Logica\obj\Release\Logica.xml
 D:\PROGRAMACION\Codigo Fuente Sistemas ASJ 2023\DataGreen_2023_10_21_V5.4\DataGreen\Logica\obj\Release\Logica.pdb
+C:\Users\Programador02\Documents\GH\DataGreen\Logica\bin\Release\Logica.dll
+C:\Users\Programador02\Documents\GH\DataGreen\Logica\bin\Release\Logica.pdb
+C:\Users\Programador02\Documents\GH\DataGreen\Logica\bin\Release\Logica.xml
+C:\Users\Programador02\Documents\GH\DataGreen\Logica\bin\Release\ClosedXML.dll
+C:\Users\Programador02\Documents\GH\DataGreen\Logica\bin\Release\Datos.dll
+C:\Users\Programador02\Documents\GH\DataGreen\Logica\bin\Release\DocumentFormat.OpenXml.dll
+C:\Users\Programador02\Documents\GH\DataGreen\Logica\bin\Release\Entidades.dll
+C:\Users\Programador02\Documents\GH\DataGreen\Logica\bin\Release\ExcelNumberFormat.dll
+C:\Users\Programador02\Documents\GH\DataGreen\Logica\bin\Release\Newtonsoft.Json.dll
+C:\Users\Programador02\Documents\GH\DataGreen\Logica\bin\Release\System.IO.Packaging.dll
+C:\Users\Programador02\Documents\GH\DataGreen\Logica\bin\Release\WebSocket4Net.dll
+C:\Users\Programador02\Documents\GH\DataGreen\Logica\bin\Release\SQLite.NET.dll
+C:\Users\Programador02\Documents\GH\DataGreen\Logica\bin\Release\Datos.pdb
+C:\Users\Programador02\Documents\GH\DataGreen\Logica\bin\Release\Datos.xml
+C:\Users\Programador02\Documents\GH\DataGreen\Logica\bin\Release\Entidades.pdb
+C:\Users\Programador02\Documents\GH\DataGreen\Logica\bin\Release\Entidades.xml
+C:\Users\Programador02\Documents\GH\DataGreen\Logica\bin\Release\ClosedXML.pdb
+C:\Users\Programador02\Documents\GH\DataGreen\Logica\bin\Release\ClosedXML.xml
+C:\Users\Programador02\Documents\GH\DataGreen\Logica\bin\Release\DocumentFormat.OpenXml.xml
+C:\Users\Programador02\Documents\GH\DataGreen\Logica\bin\Release\ExcelNumberFormat.xml
+C:\Users\Programador02\Documents\GH\DataGreen\Logica\bin\Release\Newtonsoft.Json.xml
+C:\Users\Programador02\Documents\GH\DataGreen\Logica\obj\Release\Logica.vbproj.AssemblyReference.cache
+C:\Users\Programador02\Documents\GH\DataGreen\Logica\obj\Release\Logica.vbproj.ResolveComReference.cache
+C:\Users\Programador02\Documents\GH\DataGreen\Logica\obj\Release\Logica.Resources.resources
+C:\Users\Programador02\Documents\GH\DataGreen\Logica\obj\Release\Logica.vbproj.GenerateResource.cache
+C:\Users\Programador02\Documents\GH\DataGreen\Logica\obj\Release\Logica.vbproj.CoreCompileInputs.cache
+C:\Users\Programador02\Documents\GH\DataGreen\Logica\obj\Release\Logica.vbproj.CopyComplete
+C:\Users\Programador02\Documents\GH\DataGreen\Logica\obj\Release\Logica.dll
+C:\Users\Programador02\Documents\GH\DataGreen\Logica\obj\Release\Logica.xml
+C:\Users\Programador02\Documents\GH\DataGreen\Logica\obj\Release\Logica.pdb
+C:\Users\Programador02\Documents\GH\DataGreen\Logica\bin\Release\Datos.dll.config

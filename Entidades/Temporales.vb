@@ -4,7 +4,7 @@ Imports System.IO
 
 Public Class Temporales
     Public Shared Aplicativo As String = "DataGreen" '2021-07-28
-    Public Shared versionActual As String = "6.0.2" '2024-06-06
+    Public Shared versionActual As String = "6.0.2" '2024-06-06cls
     Public Shared versionDisponible As String = ""
     Public Shared modulosPermitidos As New Dictionary(Of String, Boolean)
     Public Shared nTotalModulos As Integer = 0
