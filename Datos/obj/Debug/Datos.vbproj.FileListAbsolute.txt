@@ -75,3 +75,30 @@ D:\PROGRAMACION\Codigo Fuente Sistemas ASJ 2023\DataGreen_2023_10_21_V5.4\DataGr
 D:\PROGRAMACION\Codigo Fuente Sistemas ASJ 2023\DataGreen_2023_10_21_V5.4\DataGreen\Datos\obj\Debug\Datos.dll
 D:\PROGRAMACION\Codigo Fuente Sistemas ASJ 2023\DataGreen_2023_10_21_V5.4\DataGreen\Datos\obj\Debug\Datos.xml
 D:\PROGRAMACION\Codigo Fuente Sistemas ASJ 2023\DataGreen_2023_10_21_V5.4\DataGreen\Datos\obj\Debug\Datos.pdb
+C:\Users\Programador02\Documents\GH\DataGreen\Datos\bin\Debug\Datos.dll
+C:\Users\Programador02\Documents\GH\DataGreen\Datos\bin\Debug\Datos.pdb
+C:\Users\Programador02\Documents\GH\DataGreen\Datos\bin\Debug\Datos.xml
+C:\Users\Programador02\Documents\GH\DataGreen\Datos\bin\Debug\Entidades.dll
+C:\Users\Programador02\Documents\GH\DataGreen\Datos\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Programador02\Documents\GH\DataGreen\Datos\bin\Debug\SQLite.NET.dll
+C:\Users\Programador02\Documents\GH\DataGreen\Datos\bin\Debug\WebSocket4Net.dll
+C:\Users\Programador02\Documents\GH\DataGreen\Datos\bin\Debug\Entidades.pdb
+C:\Users\Programador02\Documents\GH\DataGreen\Datos\bin\Debug\Entidades.xml
+C:\Users\Programador02\Documents\GH\DataGreen\Datos\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Programador02\Documents\GH\DataGreen\Datos\obj\Debug\Datos.vbproj.AssemblyReference.cache
+C:\Users\Programador02\Documents\GH\DataGreen\Datos\obj\Debug\Datos.Resources.resources
+C:\Users\Programador02\Documents\GH\DataGreen\Datos\obj\Debug\Datos.vbproj.GenerateResource.cache
+C:\Users\Programador02\Documents\GH\DataGreen\Datos\obj\Debug\Datos.vbproj.CoreCompileInputs.cache
+C:\Users\Programador02\Documents\GH\DataGreen\Datos\obj\Debug\Datos.vbproj.CopyComplete
+C:\Users\Programador02\Documents\GH\DataGreen\Datos\obj\Debug\Datos.dll
+C:\Users\Programador02\Documents\GH\DataGreen\Datos\obj\Debug\Datos.xml
+C:\Users\Programador02\Documents\GH\DataGreen\Datos\obj\Debug\Datos.pdb
+C:\Users\Programador02\Documents\GH\DataGreen\Datos\bin\Debug\Datos.dll.config
+C:\Users\Programador02\Documents\GH\DataGreen\Datos\bin\Debug\EntityFramework.dll
+C:\Users\Programador02\Documents\GH\DataGreen\Datos\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Programador02\Documents\GH\DataGreen\Datos\bin\Debug\System.Data.SQLite.dll
+C:\Users\Programador02\Documents\GH\DataGreen\Datos\bin\Debug\System.Data.SQLite.EF6.dll
+C:\Users\Programador02\Documents\GH\DataGreen\Datos\bin\Debug\System.Data.SQLite.Linq.dll
+C:\Users\Programador02\Documents\GH\DataGreen\Datos\bin\Debug\EntityFramework.xml
+C:\Users\Programador02\Documents\GH\DataGreen\Datos\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Programador02\Documents\GH\DataGreen\Datos\bin\Debug\System.Data.SQLite.xml

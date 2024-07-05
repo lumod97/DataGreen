@@ -394,6 +394,7 @@ Public Class Conexion
 
     'doItBaby SE CONECTA A UNA BASE Y EJECUTA UN SP
     Public Shared Function doItBaby(nombreSP As String, parametros As Dictionary(Of String, Object), t As TipoQuery) As Object
+        Console.WriteLine(credenciales("BLNomCon"))
         'Try
         conectarBD(credenciales("BLNomCon"))
         Dim cm As New SqlCommand
