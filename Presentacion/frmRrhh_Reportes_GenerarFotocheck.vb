@@ -9,6 +9,10 @@ Imports AxAcroPDFLib
 Imports System.CodeDom
 Imports DocumentFormat.OpenXml.Spreadsheet
 Imports System.Web
+Imports RawPrint
+Imports System.Drawing.Printing
+Imports Logica.RawPrinterHelper
+Imports Logica
 
 Public Class frmRrhh_Reportes_GenerarFotocheck
 
@@ -20,10 +24,12 @@ Public Class frmRrhh_Reportes_GenerarFotocheck
     Dim bsFiltroSeleccionados As New BindingSource()
     Dim filasAfectasResultadoGeneral, filasAfectasCodigosSeleccionado As List(Of Integer)
     Dim dtTablaExcel As New DataTable
+    Dim dsParaCombos As DataSet = New DataSet
 
     Private Sub frmRrhh_Reportes_GenerarFotocheck_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Me.WindowState = FormWindowState.Maximized
         obtenerDataGeneral()
+        'obtenerDataParaComboTipoFotocheck()
         aplicarTema(Me)
     End Sub
 
@@ -87,9 +93,15 @@ Public Class frmRrhh_Reportes_GenerarFotocheck
             For Each fila As DataRow In dtSeleccionados.Rows
                 Dim codigo As String
                 Dim dni As String
+
+
+
                 codigo = fila.Item("T_IdCodigoGeneral")
+
                 dni = fila.Item("T_Dni")
+
                 Dim movimientos As New Dictionary(Of String, String)()
+
                 movimientos.Add("codigo", codigo)
                 movimientos.Add("encriptado", EncriptarCodigo(dni))
                 codigos.Add(movimientos)
@@ -121,23 +133,13 @@ Public Class frmRrhh_Reportes_GenerarFotocheck
 
         parametros.Add("codigos", codigos)
         parametros.Add("vista", "vista_pdf")
+
         If cbTipoEmpleado.Checked Then
-
-            apiUrl = "http://192.168.30.94:8080/api/get_pdf_test"
-            ' Crear diccionario para los parámetros
+            apiUrl = "http://56.10.3.24:8000/api/get_pdf_test"
             parametros.Item("vista") += "_emp"
-            Dim prueba As String = parametros.Item("vista")
-            MessageBox.Show(prueba)
         Else
-
-            ' URL del punto final de la API
-            apiUrl = "http://192.168.30.94:8080/api/get_pdf_barras_cu"
-            'Dim apiUrl As String = "http://192.168.30.23:8000/api/get_pdf_barras_cu"
-
-
+            apiUrl = "http://56.10.3.24:8000/api/get_pdf_barras_cu"
         End If
-
-
 
         ' Convertir el diccionario a JSON
         Dim jsonData As String = JsonConvert.SerializeObject(parametros)
@@ -145,32 +147,45 @@ Public Class frmRrhh_Reportes_GenerarFotocheck
         ' Crear la solicitud HTTP
         Dim request As HttpWebRequest = WebRequest.Create(apiUrl)
         request.Method = "POST"
-
-        ' Datos a enviar en la solicitud (JSON)
-        Dim byteArray As Byte() = Encoding.UTF8.GetBytes(jsonData)
         request.ContentType = "application/json"
-        request.ContentLength = byteArray.Length
 
-        ' Escribir los datos en el cuerpo de la solicitud
-        Using dataStream As Stream = Await request.GetRequestStreamAsync()
-            Await dataStream.WriteAsync(byteArray, 0, byteArray.Length)
-        End Using
-
-        ' Obtener la respuesta
         Try
-            Dim response As WebResponse = Await request.GetResponseAsync()
-            Using responseStream As Stream = response.GetResponseStream()
-                Using reader As New StreamReader(responseStream)
-                    Dim textResponse As String = Await reader.ReadToEndAsync()
-                    wbrImprimible.Navigate(textResponse)
+            ' Escribir los datos en el cuerpo de la solicitud
+            Using dataStream As Stream = Await request.GetRequestStreamAsync()
+                Dim byteArray As Byte() = Encoding.UTF8.GetBytes(jsonData)
+                Await dataStream.WriteAsync(byteArray, 0, byteArray.Length)
+            End Using
+
+            ' Obtener la respuesta
+            Using response As WebResponse = Await request.GetResponseAsync()
+                Using responseStream As Stream = response.GetResponseStream()
+                    Using reader As New StreamReader(responseStream)
+                        Dim textResponse As String = Await reader.ReadToEndAsync()
+                        wbrImprimible.Navigate(textResponse)
+
+                        Dim printer As New PDFPrinter()
+                        'printer.PrintPDF("D:\\Kevin.pdf")
+                        printer.PrintPDF(textResponse)
+
+
+
+                    End Using
                 End Using
             End Using
         Catch ex As Exception
-            MessageBox.Show(ex.Message)
+            MessageBox.Show($"Error al obtener respuesta desde API: {ex.Message}")
         Finally
+            ' Realizar cualquier limpieza necesaria aquí
             apagarControlesDeEspera(barProgreso, lblDin_Resultado)
         End Try
     End Function
+
+    'Funcion para generar el combobox desde la BD
+    'Private Sub obtenerDataParaComboTipoFotocheck()
+    '    Dim aux As New DataTable
+    '    aux = doItBaby("sp_ObtenerTipoFotocheck", Nothing, TipoQuery.DataTable)
+    '    dsParaCombos.Tables.Add(aux.Copy)
+    'End Sub
 
     Private Function EncriptarCodigo(cadenaACifrar As String) As String
         'PASO 0: CREACION DE VARIABLES
@@ -383,6 +398,37 @@ Public Class frmRrhh_Reportes_GenerarFotocheck
 
         End Try
     End Sub
+
+    Private Sub dgvSeleccionados_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvSeleccionados.CellContentClick
+
+    End Sub
+
+    Private Sub wbrImprimible_DocumentCompleted(sender As Object, e As WebBrowserDocumentCompletedEventArgs) Handles wbrImprimible.DocumentCompleted
+
+    End Sub
+
+    Private Sub txtFiltroSeleccionados_TextChanged(sender As Object, e As EventArgs) Handles txtFiltroSeleccionados.TextChanged
+
+    End Sub
+
+    'Private Sub btnImprimir_Click(sender As Object, e As EventArgs) Handles btnImprimir_Click
+    'ver la forma de incluir la impresion de fotochecks con el dispositivo Zebra ZC300
+
+    'Try
+    ' Abrir el archivo PDF
+    'Using pdfFileStream As New FileStream(pdfFilePath, FileMode.Open, FileAccess.Read)
+    ' Leer el contenido del PDF
+    'Dim pdfBytes(pdfFileStream.Length - 1) As Byte
+    'pdfFileStream.Read(pdfBytes, 0, pdfBytes.Length)
+    'pdfFileStream.Close()
+
+    ' Enviar los bytes del PDF a la impresora Zebra ZC300
+    'RawPrinterHelper.SendBytesToPrinter("IMP_CONTABILIDAD", pdfBytes)
+    'End Using
+    'Catch ex As Exception
+    'MessageBox.Show($"Error al imprimir fotocheck: {ex.Message}")
+    'End Try
+    'End Sub
 
     Private Sub dgvSeleccionados_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvSeleccionados.CellDoubleClick
         If e.RowIndex >= 0 Then

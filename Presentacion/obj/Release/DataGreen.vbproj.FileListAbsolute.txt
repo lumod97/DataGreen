@@ -3500,3 +3500,4 @@ D:\PROGRAMACION\Codigo Fuente Sistemas ASJ 2023\DataGreen_2023_10_21_V5.4\DataGr
 D:\PROGRAMACION\Codigo Fuente Sistemas ASJ 2023\DataGreen_2023_10_21_V5.4\DataGreen\Presentacion\obj\Release\DataGreen.exe
 D:\PROGRAMACION\Codigo Fuente Sistemas ASJ 2023\DataGreen_2023_10_21_V5.4\DataGreen\Presentacion\obj\Release\DataGreen.xml
 D:\PROGRAMACION\Codigo Fuente Sistemas ASJ 2023\DataGreen_2023_10_21_V5.4\DataGreen\Presentacion\obj\Release\DataGreen.pdb
+D:\PROGRAMACION\Codigo Fuente Sistemas ASJ 2023\DataGreen_2023_10_21_V5.4\DataGreen\Presentacion\bin\Release\RawPrint.dll

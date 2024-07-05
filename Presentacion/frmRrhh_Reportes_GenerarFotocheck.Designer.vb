@@ -342,8 +342,8 @@ Partial Class frmRrhh_Reportes_GenerarFotocheck
         Me.TableLayoutPanel7.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
         Me.TableLayoutPanel7.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle())
         Me.TableLayoutPanel7.Controls.Add(Me.Label1, 0, 0)
-        Me.TableLayoutPanel7.Controls.Add(Me.btnGenerar, 2, 0)
         Me.TableLayoutPanel7.Controls.Add(Me.txtFiltroSeleccionados, 1, 0)
+        Me.TableLayoutPanel7.Controls.Add(Me.btnGenerar, 2, 0)
         Me.TableLayoutPanel7.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TableLayoutPanel7.Location = New System.Drawing.Point(3, 592)
         Me.TableLayoutPanel7.Name = "TableLayoutPanel7"
