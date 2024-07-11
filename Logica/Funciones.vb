@@ -67,9 +67,9 @@ Public Class Funciones
             q = "SELECT Valor FROM SqliteConfiguracion WHERE Clave='BLNomCon'"
             credenciales("BLNomCon") = ejecutarSqlite(q, tipoProceso.Scalar)
             'MODIFICACIONES HATCH 2024-06-05
-            'q = "SELECT Valor FROM SqliteConfiguracion WHERE Clave='BLServid'"
-            'credenciales("BLServid") = ejecutarSqlite(q, tipoProceso.Scalar)
-            credenciales("BLServid") = "TINAJONES"
+            q = "SELECT Valor FROM SqliteConfiguracion WHERE Clave='BLServid'"
+            credenciales("BLServid") = ejecutarSqlite(q, tipoProceso.Scalar)
+            'credenciales("BLServid") = "TINAJONES"
             q = "SELECT Valor FROM SqliteConfiguracion WHERE Clave='BLUsuari'"
             credenciales("BLUsuari") = ejecutarSqlite(q, tipoProceso.Scalar)
             q = "SELECT Valor FROM SqliteConfiguracion WHERE Clave='BLPasswo'"
@@ -79,9 +79,9 @@ Public Class Funciones
 
             q = "SELECT Valor FROM SqliteConfiguracion WHERE Clave='BENomCon'"
             credenciales("BENomCon") = ejecutarSqlite(q, tipoProceso.Scalar)
-            'q = "SELECT Valor FROM SqliteConfiguracion WHERE Clave='BEServid'"
-            'credenciales("BEServid") = ejecutarSqlite(q, tipoProceso.Scalar)
-            credenciales("BEServid") = "TINAJONES"
+            q = "SELECT Valor FROM SqliteConfiguracion WHERE Clave='BEServid'"
+            credenciales("BEServid") = ejecutarSqlite(q, tipoProceso.Scalar)
+            'credenciales("BEServid") = "TINAJONES"
             q = "SELECT Valor FROM SqliteConfiguracion WHERE Clave='BEUsuari'"
             credenciales("BEUsuari") = ejecutarSqlite(q, tipoProceso.Scalar)
             q = "SELECT Valor FROM SqliteConfiguracion WHERE Clave='BEPasswo'"
@@ -103,7 +103,6 @@ Public Class Funciones
     '        parametros(0).Value = CType(Usuario, String)
     '        parametros(1) = New SqlClient.SqlParameter("@Clave", SqlDbType.VarChar)
     '        parametros(1).Value = CType(Clave, String)
-    '        Dim Resultado As New DataTable
     '        Resultado = EjecutarProcedure(Base,
     '                                      "spValidarUsuario",
     '                                      parametros,
