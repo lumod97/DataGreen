@@ -257,4 +257,8 @@ Public Class frmRrhh_Reportes_ImpresionFormatos
         End Try
 
     End Sub
+
+    Private Sub cboPlanilla_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cboPlanilla.SelectedIndexChanged
+
+    End Sub
 End Class

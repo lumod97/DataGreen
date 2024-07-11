@@ -1019,4 +1019,7 @@ Public Class frmLogistica_Movimientos_ServiciosTransporte_Detalle
 
     End Sub
 
+    Private Sub dgvResultadoPersonas_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvResultadoPersonas.CellContentClick
+
+    End Sub
 End Class
