@@ -9,7 +9,12 @@ Imports AxAcroPDFLib
 Imports System.CodeDom
 Imports DocumentFormat.OpenXml.Spreadsheet
 Imports System.Web
-
+Imports RawPrint
+Imports System.Drawing.Printing
+Imports System.IO.Compression
+Imports Logica
+Imports System.Net.Http
+Imports System.Drawing
 Public Class frmRrhh_Reportes_GenerarFotocheck
 
     Dim dtResultado As New DataTable
@@ -20,13 +25,26 @@ Public Class frmRrhh_Reportes_GenerarFotocheck
     Dim bsFiltroSeleccionados As New BindingSource()
     Dim filasAfectasResultadoGeneral, filasAfectasCodigosSeleccionado As List(Of Integer)
     Dim dtTablaExcel As New DataTable
+    Dim dsParaCombos As DataSet = New DataSet
+    Private generarFotoCheckExitoso As Boolean = False
+    Private rutaFotocheck As String
+    Private imagenes As List(Of Image) ' Lista para almacenar todas las imágenes encontradas
+    Private indiceActual As Integer ' Índice de la imagen actualmente mostrada
 
     Private Sub frmRrhh_Reportes_GenerarFotocheck_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Me.WindowState = FormWindowState.Maximized
+        obtenerDataParaComboTipoFotocheck() 'Funcion para obtener la data del combobox -> Agregado el 05/07/2024 Kevin Salazar
         obtenerDataGeneral()
+        cargarCombo(cboTipoFotocheck, dsParaCombos.Tables(0), 0, 2) 'Funcion para cargar el combobox -> Agregado el 05/07/2024 Kevin Salazar
         aplicarTema(Me)
     End Sub
 
+    'Funcion para generar el combobox desde la BD (sp)-> Agregado el 05/07/2024 Kevin Salazar
+    Private Sub obtenerDataParaComboTipoFotocheck()
+        Dim aux As New DataTable
+        aux = doItBaby("sp_ObtenerTipoFotocheck", Nothing, TipoQuery.DataTable)
+        dsParaCombos.Tables.Add(aux.Copy)
+    End Sub
     Private Sub cargarDataGeneral()
         dvResultado = New DataView(dtResultado)
         bsFiltro.DataSource = dvResultado
@@ -79,27 +97,35 @@ Public Class frmRrhh_Reportes_GenerarFotocheck
     End Function
 
     Private Sub btnGenerar_Click(sender As Object, e As EventArgs) Handles btnGenerar.Click
-        Try
-            encenderControlesDeEspera(barProgreso, lblDin_Resultado)
-            Dim seleccionados As New DataTable()
-            Dim codigos As New List(Of Object)
-            'obtenemos los codigos
-            For Each fila As DataRow In dtSeleccionados.Rows
-                Dim codigo As String
-                Dim dni As String
-                codigo = fila.Item("T_IdCodigoGeneral")
-                dni = fila.Item("T_Dni")
-                Dim movimientos As New Dictionary(Of String, String)()
-                movimientos.Add("codigo", codigo)
-                movimientos.Add("encriptado", EncriptarCodigo(dni))
-                codigos.Add(movimientos)
-            Next
+        rutaFotocheck = ""
+        If cboTipoFotocheck.SelectedIndex <> -1 Then
+            Try
+                encenderControlesDeEspera(barProgreso, lblDin_Resultado)
+                Dim seleccionados As New DataTable()
+                Dim codigos As New List(Of Object)
+                'obtenemos los codigos
+                For Each fila As DataRow In dtSeleccionados.Rows
+                    Dim codigo As String
+                    Dim dni As String
 
-            generarPDF(codigos)
+                    codigo = fila.Item("T_IdCodigoGeneral")
+                    dni = fila.Item("T_Dni")
 
-        Catch ex As Exception
-            MessageBox.Show(ex.Message)
-        End Try
+                    Dim movimientos As New Dictionary(Of String, String)()
+
+                    movimientos.Add("codigo", codigo)
+                    movimientos.Add("encriptado", EncriptarCodigo(dni))
+                    codigos.Add(movimientos)
+                Next
+
+                generarFotoCheck(codigos)
+            Catch ex As Exception
+                MessageBox.Show(ex.Message)
+            End Try
+        Else
+            MessageBox.Show("Debe seleccionar un tipo de fotocheck antes de Generar los FotoCheck.")
+        End If
+
     End Sub
 
     Private Sub dgvResultado_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvResultado.CellDoubleClick
@@ -114,63 +140,172 @@ Public Class frmRrhh_Reportes_GenerarFotocheck
             formatearDataGridView(dgvSeleccionados)
         End If
     End Sub
-
-    Private Async Function generarPDF(codigos As List(Of Object)) As Task
+    Private Async Function generarFotoCheck(codigos As List(Of Object)) As Task 'Se modifico la funcionalidad para generarPDF a los fotocheck que llaman a otras funciones -> Agregado el 10/07/2024 Kevin Salazar
         Dim apiUrl As String
         Dim parametros As New Dictionary(Of String, Object)()
+        Dim tipoImpresionIndex As String = cboTipoFotocheck.SelectedIndex
 
         parametros.Add("codigos", codigos)
         parametros.Add("vista", "vista_pdf")
+
         If cbTipoEmpleado.Checked Then
-
             apiUrl = "http://192.168.30.94:8080/api/get_pdf_test"
-            ' Crear diccionario para los parámetros
-            parametros.Item("vista") += "_emp"
-            Dim prueba As String = parametros.Item("vista")
-            MessageBox.Show(prueba)
+            parametros("vista") += "_emp"
         Else
-
-            ' URL del punto final de la API
             apiUrl = "http://192.168.30.94:8080/api/get_pdf_barras_cu"
-            'Dim apiUrl As String = "http://192.168.30.23:8000/api/get_pdf_barras_cu"
-
-
         End If
 
-
-
-        ' Convertir el diccionario a JSON
         Dim jsonData As String = JsonConvert.SerializeObject(parametros)
 
-        ' Crear la solicitud HTTP
-        Dim request As HttpWebRequest = WebRequest.Create(apiUrl)
-        request.Method = "POST"
-
-        ' Datos a enviar en la solicitud (JSON)
-        Dim byteArray As Byte() = Encoding.UTF8.GetBytes(jsonData)
-        request.ContentType = "application/json"
-        request.ContentLength = byteArray.Length
-
-        ' Escribir los datos en el cuerpo de la solicitud
-        Using dataStream As Stream = Await request.GetRequestStreamAsync()
-            Await dataStream.WriteAsync(byteArray, 0, byteArray.Length)
-        End Using
-
-        ' Obtener la respuesta
         Try
-            Dim response As WebResponse = Await request.GetResponseAsync()
-            Using responseStream As Stream = response.GetResponseStream()
-                Using reader As New StreamReader(responseStream)
-                    Dim textResponse As String = Await reader.ReadToEndAsync()
-                    wbrImprimible.Navigate(textResponse)
-                End Using
-            End Using
+            ' Descargar el ZIP de imágenes
+            Dim zipFilePath As String = Await DescargarArchivoAsync(apiUrl, jsonData) 'Llamado a la funcion que recibe la URL de la api y la data en formato Json
+            Dim extractPath As String = zipFilePath.Replace("Fotocheck_Comprimidos", "Fotocheck") 'Funcion que cambia la ruta del archivo descomprimido hacia la ruta de las imagenes y lo guarda en una variable local
+            ' Verificar si se descargó correctamente el ZIP
+            If Not String.IsNullOrEmpty(zipFilePath) Then
+                ' Carpeta local donde se guardarán los archivos descomprimidos
+                Dim numImages As Integer = DescomprimirZIP(rutaFotocheck + ".zip", extractPath) '
+                ' Mostrar las imágenes en un PictureBox o cualquier otro control adecuado
+                MostrarImagenesDescargadas(extractPath) 'Funcion que deberia mostrar las imagenes extraidas en un PictureBox -> Se debe mejorar porque no lo hace
+                generarFotoCheckExitoso = True 'Variable global que indica que generacion del fotocheck fue exitosa
+            Else
+                generarFotoCheckExitoso = False 'Variable global que indica que generacion del fotocheck fue erronea
+            End If
+
         Catch ex As Exception
-            MessageBox.Show(ex.Message)
+            MessageBox.Show($"Error al obtener respuesta desde API: {ex.Message}")
+            generarFotoCheckExitoso = False
         Finally
+            ' Realizar cualquier limpieza necesaria aquí
             apagarControlesDeEspera(barProgreso, lblDin_Resultado)
         End Try
     End Function
+    Private Sub MostrarImagenesDescargadas(extractPath As String) 'Se agrego la funcionalidad para mostrar las imagenes en un PictureBox (Falta arreglar) -> Agregado el 10/07/2024 Kevin Salazar
+        'Se debe mejorar esta funcion porque no muestra las imagenes
+        Try
+            Dim files As String() = Directory.GetFiles(extractPath, "*.jpg")
+
+            If files.Length > 0 Then
+                ' Inicializar la lista de imágenes
+                imagenes = New List(Of Image)()
+                ' Iterar sobre cada archivo encontrado
+                For Each filePath As String In files
+                    ' Cargar la imagen desde el archivo
+                    Using fs As New FileStream(filePath, FileMode.Open, FileAccess.Read)
+                        Dim img As Image = Image.FromStream(fs)
+                        imagenes.Add(img)
+                    End Using
+                Next
+                ' Verificar si se encontraron imágenes
+                If imagenes.Count > 0 Then
+                    ' Mostrar la primera imagen
+                    indiceActual = 0
+                Else
+                    MessageBox.Show("No se encontraron imágenes en el directorio especificado.")
+                End If
+            Else
+                MessageBox.Show("No se encontraron imágenes en el directorio especificado.")
+            End If
+        Catch ex As Exception
+            MessageBox.Show($"Error al mostrar imágenes: {ex.Message}")
+        End Try
+    End Sub
+
+    Private Async Function DescargarArchivoAsync(apiUrl As String, jsonData As String) As Task(Of String) 'Se agrego la funcionalidad para descargar -> Agregado el 10/07/2024 Kevin Salazar
+        Try
+            Dim folderId = Guid.NewGuid().ToString() 'Identificador único para la carpeta en cada descarga de archivos
+            rutaFotocheck = "D:\Fotocheck_Comprimidos\" + folderId 'Ruta del archivo zip
+            Dim rutafotocheckImagenes As String = "D:\Fotocheck\" + folderId 'Ruta de los archivos donde se van a descomprimir
+
+            Using client As New HttpClient()
+                Dim content As New StringContent(jsonData, Encoding.UTF8, "application/json")
+                ' Realizar la solicitud POST
+                Dim response As HttpResponseMessage = Await client.PostAsync(apiUrl, content)
+                response.EnsureSuccessStatusCode() ' Verificar que la solicitud fue exitosa
+                ' Leer y guardar el archivo ZIP, si no existe la unidad D, se descarga el zip en Documentos de la unidad C
+                If Directory.Exists("D:\") Then 'Validacion en caso no exista el directorio D:\
+                    If Not Directory.Exists(rutaFotocheck) Then
+                        Directory.CreateDirectory(rutaFotocheck)
+                    End If
+                    If Not Directory.Exists(rutafotocheckImagenes) Then
+                        Directory.CreateDirectory(rutafotocheckImagenes)
+                    End If
+                Else 'Caso contrario se crea directorio C:\Usuario\Documentos
+                    If Not Directory.Exists(rutaFotocheck) Then
+                        Directory.CreateDirectory(rutaFotocheck)
+                    End If
+                    If Not Directory.Exists(rutafotocheckImagenes) Then
+                        Directory.CreateDirectory(rutafotocheckImagenes)
+                    End If
+                End If
+                Using fileStream As FileStream = File.Create(rutaFotocheck + ".zip")
+                    Await response.Content.CopyToAsync(fileStream)
+                End Using
+                Return rutaFotocheck ' Devolver la ruta del archivo descargado
+            End Using
+        Catch ex As Exception
+            MessageBox.Show($"Error al descargar archivo: {ex.Message}")
+            Return Nothing
+        End Try
+    End Function
+
+    Private Function DescomprimirZIP(zipFilePath As String, extractPath As String) As Integer 'Se agrego la funcionalidad para descomprimir y guardar las imagenes en un directorio local -> Agregado el 10/07/2024 Kevin Salazar
+        Dim numImages As Integer = 0
+        Try
+            ' Crear directorio si no existe
+            If Not Directory.Exists(extractPath) Then
+                Directory.CreateDirectory(extractPath)
+            End If
+            ' Descomprimir el archivo ZIP
+            Using archive As ZipArchive = ZipFile.OpenRead(zipFilePath)
+                For Each entry As ZipArchiveEntry In archive.Entries
+                    If Not entry.FullName.EndsWith("/") Then ' Evitar directorios en el nivel superior
+                        Dim fullPath As String = Path.Combine(extractPath, entry.FullName)
+                        entry.ExtractToFile(fullPath, True)
+                        ' Contar archivos de imagen descomprimidos
+                        If fullPath.EndsWith(".jpg", StringComparison.OrdinalIgnoreCase) OrElse
+                       fullPath.EndsWith(".jpeg", StringComparison.OrdinalIgnoreCase) OrElse
+                       fullPath.EndsWith(".png", StringComparison.OrdinalIgnoreCase) OrElse
+                       fullPath.EndsWith(".gif", StringComparison.OrdinalIgnoreCase) Then
+                            numImages += 1
+                        End If
+                    End If
+                Next
+            End Using
+        Catch ex As Exception
+            MessageBox.Show($"Error al descomprimir archivo ZIP: {ex.Message}")
+        Finally
+            File.Delete(zipFilePath)
+        End Try
+        Return numImages
+    End Function
+
+    Private Async Sub btnImprimir_Click(sender As Object, e As EventArgs) Handles btnImprimir.Click 'Se agrego la funcionalidad de evento para el btnClickImprimir  -> Agregado el 06/07/2024 Kevin Salazar
+        Try
+            ' Carpeta donde se guardaron las imágenes
+            Dim fotochechkPrinter As New FotoCheckPrinter()
+            Dim tipoImpresionIndex As String = cboTipoFotocheck.SelectedIndex
+            Dim rutaImagenes As String = rutaFotocheck.Replace("Fotocheck_Comprimidos", "FotoCheck")
+            ' Validar si se seleccionó un ítem en el ComboBox  
+            If tipoImpresionIndex >= 0 Then 'Validacion de que se haya seleccionado al menos un tipo de impresion en el ComboBox
+                Dim tipoImpresion As String = tipoImpresionIndex.ToString() 'Variable que obtiene el indice del comboBox
+                If generarFotoCheckExitoso Then 'Validacion ee la variable global para ver si la generación del Fotocheck fue exitosa antes de imprimir
+                    ' Imprimir las imágenes
+                    fotochechkPrinter.PrintFotoCheck(rutaImagenes, tipoImpresion) 'Llamado a la clase FotoCheckPrinter() que se envia como parametros la ruta de imagenes descomprimidas y el tipo de impresion del comboBox
+                Else
+                    MessageBox.Show("Debe generar el FotoCheck correctamente antes de imprimir.")
+                End If
+            Else
+                MessageBox.Show("Debe seleccionar el tipo de FotoCheck que desea generar .")
+
+            End If
+
+            rutaFotocheck = ""
+
+        Catch ex As Exception
+            MessageBox.Show($"Error al imprimir documentos: {ex.Message}")
+        End Try
+    End Sub
 
     Private Function EncriptarCodigo(cadenaACifrar As String) As String
         'PASO 0: CREACION DE VARIABLES
@@ -384,6 +519,43 @@ Public Class frmRrhh_Reportes_GenerarFotocheck
         End Try
     End Sub
 
+    Private Sub dgvSeleccionados_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvSeleccionados.CellContentClick
+
+    End Sub
+
+    Private Sub wbrImprimible_DocumentCompleted(sender As Object, e As WebBrowserDocumentCompletedEventArgs)
+
+    End Sub
+
+    Private Sub txtFiltroSeleccionados_TextChanged(sender As Object, e As EventArgs) Handles txtFiltroSeleccionados.TextChanged
+
+    End Sub
+
+    Private Sub TableLayoutPanel7_Paint(sender As Object, e As PaintEventArgs) Handles TableLayoutPanel7.Paint
+
+    End Sub
+
+
+
+    'Private Sub btnImprimir_Click(sender As Object, e As EventArgs) Handles btnImprimir_Click
+    'ver la forma de incluir la impresion de fotochecks con el dispositivo Zebra ZC300
+
+    'Try
+    ' Abrir el archivo PDF
+    'Using pdfFileStream As New FileStream(pdfFilePath, FileMode.Open, FileAccess.Read)
+    ' Leer el contenido del PDF
+    'Dim pdfBytes(pdfFileStream.Length - 1) As Byte
+    'pdfFileStream.Read(pdfBytes, 0, pdfBytes.Length)
+    'pdfFileStream.Close()
+
+    ' Enviar los bytes del PDF a la impresora Zebra ZC300
+    'RawPrinterHelper.SendBytesToPrinter("IMP_CONTABILIDAD", pdfBytes)
+    'End Using
+    'Catch ex As Exception
+    'MessageBox.Show($"Error al imprimir fotocheck: {ex.Message}")
+    'End Try
+    'End Sub
+
     Private Sub dgvSeleccionados_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvSeleccionados.CellDoubleClick
         If e.RowIndex >= 0 Then
             filasAfectasCodigosSeleccionado = New List(Of Integer)
@@ -402,6 +574,10 @@ Public Class frmRrhh_Reportes_GenerarFotocheck
             Next
             formatearDataGridView(dgvSeleccionados)
         End If
+    End Sub
+
+    Private Sub TreeView1_AfterSelect(sender As Object, e As TreeViewEventArgs) Handles TreeView1.AfterSelect
+
     End Sub
 
     Private Sub TextBox1_TextChanged(sender As Object, e As EventArgs) Handles txtFiltro.TextChanged
@@ -423,5 +599,7 @@ Public Class frmRrhh_Reportes_GenerarFotocheck
                                         txtFiltro.Text,
                                         txtFiltro.Text)
     End Sub
+    Private Sub cboTipoFotocheck_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cboTipoFotocheck.SelectedIndexChanged
 
+    End Sub
 End Class

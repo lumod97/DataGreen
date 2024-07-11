@@ -101,7 +101,7 @@ Partial Class frmRrhh_Reportes_ImpresionFormatos
         Me.lblDin_Resultado.Location = New System.Drawing.Point(18, 500)
         Me.lblDin_Resultado.Margin = New System.Windows.Forms.Padding(3)
         Me.lblDin_Resultado.Name = "lblDin_Resultado"
-        Me.lblDin_Resultado.Size = New System.Drawing.Size(829, 13)
+        Me.lblDin_Resultado.Size = New System.Drawing.Size(797, 13)
         Me.lblDin_Resultado.TabIndex = 11
         Me.lblDin_Resultado.Text = "Listo"
         '
@@ -179,7 +179,7 @@ Partial Class frmRrhh_Reportes_ImpresionFormatos
         '
         Me.Label2.Anchor = System.Windows.Forms.AnchorStyles.Right
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(524, 24)
+        Me.Label2.Location = New System.Drawing.Point(492, 24)
         Me.Label2.Margin = New System.Windows.Forms.Padding(3)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(41, 13)
@@ -190,7 +190,7 @@ Partial Class frmRrhh_Reportes_ImpresionFormatos
         '
         Me.pkrDesde.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.pkrDesde.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.pkrDesde.Location = New System.Drawing.Point(571, 21)
+        Me.pkrDesde.Location = New System.Drawing.Point(539, 21)
         Me.pkrDesde.Name = "pkrDesde"
         Me.pkrDesde.Size = New System.Drawing.Size(113, 20)
         Me.pkrDesde.TabIndex = 17
@@ -199,7 +199,7 @@ Partial Class frmRrhh_Reportes_ImpresionFormatos
         '
         Me.Label4.Anchor = System.Windows.Forms.AnchorStyles.Right
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(690, 24)
+        Me.Label4.Location = New System.Drawing.Point(658, 24)
         Me.Label4.Margin = New System.Windows.Forms.Padding(3)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(38, 13)
@@ -210,7 +210,7 @@ Partial Class frmRrhh_Reportes_ImpresionFormatos
         '
         Me.pkrHasta.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.pkrHasta.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.pkrHasta.Location = New System.Drawing.Point(734, 21)
+        Me.pkrHasta.Location = New System.Drawing.Point(702, 21)
         Me.pkrHasta.Name = "pkrHasta"
         Me.pkrHasta.Size = New System.Drawing.Size(113, 20)
         Me.pkrHasta.TabIndex = 19

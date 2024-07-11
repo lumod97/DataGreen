@@ -46,7 +46,9 @@ Partial Class frmRrhh_Reportes_GenerarFotocheck
         Me.TableLayoutPanel7 = New System.Windows.Forms.TableLayoutPanel()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.txtFiltroSeleccionados = New System.Windows.Forms.TextBox()
-        Me.wbrImprimible = New System.Windows.Forms.WebBrowser()
+        Me.btnImprimir = New System.Windows.Forms.Button()
+        Me.cboTipoFotocheck = New System.Windows.Forms.ComboBox()
+        Me.TreeView1 = New System.Windows.Forms.TreeView()
         CType(Me.dgvResultado, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TableLayoutPanel1.SuspendLayout()
         Me.TableLayoutPanel2.SuspendLayout()
@@ -61,7 +63,7 @@ Partial Class frmRrhh_Reportes_GenerarFotocheck
         'btnGenerar
         '
         Me.btnGenerar.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnGenerar.Location = New System.Drawing.Point(671, 3)
+        Me.btnGenerar.Location = New System.Drawing.Point(396, 3)
         Me.btnGenerar.Name = "btnGenerar"
         Me.btnGenerar.Size = New System.Drawing.Size(76, 26)
         Me.btnGenerar.TabIndex = 14
@@ -120,7 +122,7 @@ Partial Class frmRrhh_Reportes_GenerarFotocheck
         Me.TableLayoutPanel1.Controls.Add(Me.TableLayoutPanel2, 1, 1)
         Me.TableLayoutPanel1.Controls.Add(Me.barProgreso, 1, 3)
         Me.TableLayoutPanel1.Controls.Add(Me.lblDin_Resultado, 1, 2)
-        Me.TableLayoutPanel1.Controls.Add(Me.wbrImprimible, 2, 1)
+        Me.TableLayoutPanel1.Controls.Add(Me.TreeView1, 2, 1)
         Me.TableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TableLayoutPanel1.Location = New System.Drawing.Point(0, 0)
         Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
@@ -337,13 +339,17 @@ Partial Class frmRrhh_Reportes_GenerarFotocheck
         '
         Me.TableLayoutPanel7.AutoSize = True
         Me.TableLayoutPanel7.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
-        Me.TableLayoutPanel7.ColumnCount = 3
+        Me.TableLayoutPanel7.ColumnCount = 5
         Me.TableLayoutPanel7.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle())
         Me.TableLayoutPanel7.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
         Me.TableLayoutPanel7.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle())
+        Me.TableLayoutPanel7.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle())
+        Me.TableLayoutPanel7.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle())
         Me.TableLayoutPanel7.Controls.Add(Me.Label1, 0, 0)
-        Me.TableLayoutPanel7.Controls.Add(Me.btnGenerar, 2, 0)
         Me.TableLayoutPanel7.Controls.Add(Me.txtFiltroSeleccionados, 1, 0)
+        Me.TableLayoutPanel7.Controls.Add(Me.btnGenerar, 2, 0)
+        Me.TableLayoutPanel7.Controls.Add(Me.btnImprimir, 3, 0)
+        Me.TableLayoutPanel7.Controls.Add(Me.cboTipoFotocheck, 4, 0)
         Me.TableLayoutPanel7.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TableLayoutPanel7.Location = New System.Drawing.Point(3, 592)
         Me.TableLayoutPanel7.Name = "TableLayoutPanel7"
@@ -367,17 +373,34 @@ Partial Class frmRrhh_Reportes_GenerarFotocheck
         Me.txtFiltroSeleccionados.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.txtFiltroSeleccionados.Location = New System.Drawing.Point(131, 6)
         Me.txtFiltroSeleccionados.Name = "txtFiltroSeleccionados"
-        Me.txtFiltroSeleccionados.Size = New System.Drawing.Size(534, 20)
+        Me.txtFiltroSeleccionados.Size = New System.Drawing.Size(259, 20)
         Me.txtFiltroSeleccionados.TabIndex = 35
         '
-        'wbrImprimible
+        'btnImprimir
         '
-        Me.wbrImprimible.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.wbrImprimible.Location = New System.Drawing.Point(780, 18)
-        Me.wbrImprimible.MinimumSize = New System.Drawing.Size(20, 20)
-        Me.wbrImprimible.Name = "wbrImprimible"
-        Me.wbrImprimible.Size = New System.Drawing.Size(502, 628)
-        Me.wbrImprimible.TabIndex = 38
+        Me.btnImprimir.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnImprimir.Location = New System.Drawing.Point(478, 3)
+        Me.btnImprimir.Name = "btnImprimir"
+        Me.btnImprimir.Size = New System.Drawing.Size(75, 27)
+        Me.btnImprimir.TabIndex = 36
+        Me.btnImprimir.Text = "Imprimir"
+        Me.btnImprimir.UseVisualStyleBackColor = True
+        '
+        'cboTipoFotocheck
+        '
+        Me.cboTipoFotocheck.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.cboTipoFotocheck.FormattingEnabled = True
+        Me.cboTipoFotocheck.Location = New System.Drawing.Point(559, 6)
+        Me.cboTipoFotocheck.Name = "cboTipoFotocheck"
+        Me.cboTipoFotocheck.Size = New System.Drawing.Size(188, 21)
+        Me.cboTipoFotocheck.TabIndex = 37
+        '
+        'TreeView1
+        '
+        Me.TreeView1.Location = New System.Drawing.Point(780, 18)
+        Me.TreeView1.Name = "TreeView1"
+        Me.TreeView1.Size = New System.Drawing.Size(502, 628)
+        Me.TreeView1.TabIndex = 37
         '
         'frmRrhh_Reportes_GenerarFotocheck
         '
@@ -427,7 +450,9 @@ Partial Class frmRrhh_Reportes_GenerarFotocheck
     Friend WithEvents TableLayoutPanel5 As TableLayoutPanel
     Friend WithEvents TableLayoutPanel6 As TableLayoutPanel
     Friend WithEvents TableLayoutPanel7 As TableLayoutPanel
-    Friend WithEvents wbrImprimible As WebBrowser
     Friend WithEvents btnRefresh As Button
     Friend WithEvents cbTipoEmpleado As CheckBox
+    Friend WithEvents btnImprimir As Button
+    Friend WithEvents cboTipoFotocheck As ComboBox
+    Friend WithEvents TreeView1 As TreeView
 End Class

@@ -4,7 +4,6 @@ Imports System.Drawing
 Imports System.Windows.Forms
 Imports System.Windows.Forms.Control
 Imports Datos.ConexionSqlite
-
 Public Class Utiles
 
     'Public Shared Sub guardarConf(ByVal BLNomCon As String, ByVal BLServid As String, ByVal BLUsuari As String, ByVal BLPasswo As String, ByVal BLNomBas As String, ByVal BENomCon As String, ByVal BEServid As String, ByVal BEUsuari As String, ByVal BEPasswo As String, ByVal BENomBas As String)
@@ -283,7 +282,7 @@ Public Class Utiles
         'etiqueta.BackColor = Await task.Run(Function() Color.FromArgb(255, 80, 80))
         'etiqueta.ForeColor = Await task.Run(Function() Color.FromArgb(255, 255, 255))
         'etiqueta.BackColor = Await task.Run(Function() temaClaroLili)
-        etiqueta.ForeColor = Await task.Run(Function() rojoAmarath)
+        etiqueta.ForeColor = Await Task.Run(Function() rojoAmarath)
         'etiqueta.ForeColor = rojoAmarath
     End Sub
     Public Shared Sub resetearEtiqueta(etiqueta As Windows.Forms.Label, Optional filas As Integer = 0)

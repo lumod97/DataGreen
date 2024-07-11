@@ -113,7 +113,7 @@ Public Class frmRrhh_Reportes_ImpresionFormatos
     Private Async Function generarPDF(movimientos As List(Of String), formato As String) As Task
         ' URL del punto final de la API
         'Dim apiUrl As String = "http://192.168.30.23:8000/api/get_pdf"
-        Dim apiUrl As String = "http://192.168.30.94:8080/api/get_pdf"
+        Dim apiUrl As String = "http://56.10.3.24:8000/api/get_pdf"
 
         ' Crear diccionario para los parámetros
         Dim parametros As New Dictionary(Of String, Object)()
@@ -255,6 +255,10 @@ Public Class frmRrhh_Reportes_ImpresionFormatos
         Catch ex As Exception
             MessageBox.Show("Error en la busqueda")
         End Try
+
+    End Sub
+
+    Private Sub cboPlanilla_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cboPlanilla.SelectedIndexChanged
 
     End Sub
 End Class
