@@ -1,17 +1,34 @@
-﻿'PENDIENTE DE IMPLEMENTAR NUEVA ESTRUCTURA DE CONSULTA ASINCRONA
-
-Imports Datos.Conexion
+﻿Imports Datos.Conexion
 Imports Logica.Utiles
 Imports Logica.Funciones
 Imports Entidades.Temporales
 
-Public Class frmRrhh_Reportes_CostoPersonal_DetalleHorasPersonaActividadConsumidor
+Public Class frmRrhh_Reportes_ComparativaUltimoMovimientoPlanilla
     Dim arrayDeParametros As String = String.Empty
     Dim tablaResultado As DataTable
+    Dim datosParaCombos As New Dictionary(Of String, DataTable)
 
-    Private Sub frmRrhh_Reportes_CostoPersonal_DetalleHorasPersonaActividadConsumidor_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+    Private Sub FormularioTestX_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        tlpPrincipal.Visible = False
+        Me.WindowState = FormWindowState.Maximized
+        obtenerDataParaCombos()
+        cargarCombo(cboPlanilla, datosParaCombos("Planillas"), 0, 2)
+        cargarCombo(cboDocumento, datosParaCombos("Documentos"), 0, 2)
+        cargarCombo(cboPeriodo, datosParaCombos("Periodos"), 0, 1)
+        aplicarTema(Me)
+        tlpPrincipal.Visible = True
         Me.WindowState = FormWindowState.Maximized
         aplicarTema(Me)
+    End Sub
+
+    Private Sub obtenerDataParaCombos()
+        datosParaCombos.Add("Planillas", doItBaby("sp_ObtenerPlanillas", Nothing, TipoQuery.DataTable))
+        datosParaCombos.Add("Documentos", doItBaby("sp_ObtenerDocumentosPlanilla", Nothing, TipoQuery.DataTable))
+        datosParaCombos.Add("Periodos", doItBaby("sp_ObtenerPeriodos", Nothing, TipoQuery.DataTable))
+    End Sub
+
+    Private Sub TableLayoutPanel1_Paint(sender As Object, e As PaintEventArgs)
+
     End Sub
 
     Private Async Sub btnConsultar_Click(sender As Object, e As EventArgs) Handles btnConsultar.Click
@@ -25,23 +42,16 @@ Public Class frmRrhh_Reportes_CostoPersonal_DetalleHorasPersonaActividadConsumid
         corregirCeldas(dgvResultado)
         formatearDataGridView(dgvResultado)
     End Sub
-
     Private Async Function consultarAsync() As Task(Of DataTable)
         Try
             Dim aux As New DataTable
             Dim p As New Dictionary(Of String, Object)
-            Dim planilla As String = cboPlanilla.SelectedItem
-            If planilla = "Todas" Then
-                planilla = String.Empty
-            End If
-            Dim detalleF As Integer
-            detalleF = IIf(cbxDetalleF.Checked, 1, 0)
-            p.Add("@Fecha_A", pkrDesde.Value.ToString("yyyy-MM-dd"))
-            p.Add("@Fecha_Z", pkrHasta.Value.ToString("yyyy-MM-dd"))
-            p.Add("@CodPlanilla", planilla)
-            p.Add("@Detalle_F", detalleF)
+            p.Add("@IdPlanilla", cboPlanilla.SelectedValue)
+            p.Add("@IdDocumento", cboDocumento.SelectedValue)
+            p.Add("@HastaPeriodo", cboPeriodo.SelectedValue)
+            p.Add("@HastaSemana", IIf(cboPlanilla.SelectedValue = "PAS", cboSemana.SelectedValue, ""))
             arrayDeParametros = obtenerCadenaParametros(p)
-            aux = Await Task.Run(Function() doItBaby("sp_Dg_Rrhh_Reportes_CostoPersonal_DetalleHorasPersonaActividadConsumidor", p, TipoQuery.DataTable))
+            aux = Await Task.Run(Function() doItBaby("sp_Dg_Rrhh_Reportes_ComparativoUltimosMovimientosPlanilla", p, TipoQuery.DataTable))
             tablaResultado = aux
             Return aux
         Catch ex As Exception
@@ -50,16 +60,21 @@ Public Class frmRrhh_Reportes_CostoPersonal_DetalleHorasPersonaActividadConsumid
         End Try
     End Function
 
+    'Private Sub obtenerDataParaComboPlanilla()
+    '    Dim aux As New DataTable
+    '    aux = doItBaby("sp_ObtenerPlanillas", Nothing, TipoQuery.DataTable)
+    '    datosParaCombos.Tables.Add(aux.Copy)
+
+    'End Sub
     Private Sub dgvResultado_DataError(sender As Object, e As DataGridViewDataErrorEventArgs) Handles dgvResultado.DataError
-        'MessageBox.Show("Error happened " & e.Context.ToString())
         If (e.Context = DataGridViewDataErrorContexts.Commit) Then
             'MessageBox.Show("Commit error")
         End If
         If (e.Context = DataGridViewDataErrorContexts.CurrentCellChange) Then
-            MessageBox.Show("Cell change")
+            MessageBox.Show("Cell changed")
         End If
         If (e.Context = DataGridViewDataErrorContexts.Parsing) Then
-            MessageBox.Show("parsing error")
+            MessageBox.Show("Parsing error")
         End If
         If (e.Context = DataGridViewDataErrorContexts.LeaveControl) Then
             MessageBox.Show("leave control error")
@@ -71,16 +86,7 @@ Public Class frmRrhh_Reportes_CostoPersonal_DetalleHorasPersonaActividadConsumid
             e.ThrowException = False
         End If
     End Sub
-
     Private Async Sub btnExportar_Click(sender As Object, e As EventArgs) Handles btnExportar.Click
-        'If dgvResultado.RowCount < 1 Then
-        '    MessageBox.Show("Error, no hay registros para exportar")
-        'Else
-        '    'exportarExcel(dgvResultado, Me.Text, arrayDeParametros)
-        '    Dim dDgvs As New Dictionary(Of String, DataGridView)
-        '    dDgvs.Add("Reporte", dgvResultado)
-        '    excelling(dDgvs, Me.Text, arrayDeParametros)
-        'End If
         Try
             If dgvResultado.RowCount < 1 Then
                 MessageBox.Show("Error, no hay registros para exportar")
@@ -96,7 +102,14 @@ Public Class frmRrhh_Reportes_CostoPersonal_DetalleHorasPersonaActividadConsumid
         End Try
     End Sub
 
-    Private Sub lblDin_Resultado_Click(sender As Object, e As EventArgs) Handles lblDin_Resultado.Click
-
+    Private Sub cboPeriodo_SelectionChangeCommitted(sender As Object, e As EventArgs) Handles cboPeriodo.SelectionChangeCommitted
+        If datosParaCombos.ContainsKey("Semanas") Then
+            datosParaCombos.Remove("Semanas")
+        End If
+        Dim p As New Dictionary(Of String, Object)
+        p.Add("@Periodo", cboPeriodo.SelectedValue)
+        p.Add("@SeleccionMultiple", "0")
+        datosParaCombos.Add("Semanas", doItBaby("sp_Dg_ObtenerSemanas", p, TipoQuery.DataTable))
+        cargarCombo(cboSemana, datosParaCombos("Semanas"), 0, 1)
     End Sub
 End Class

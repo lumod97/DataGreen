@@ -275,7 +275,7 @@ Public Class frmMantenimientoUsuarios
     End Sub
 
     Private Sub cargarMenusEnArbol()
-        'AGREGARMENU:PASO 4: AGREGAR EL MENU AQUI PARA PODER USARLO EN EL MANTENIMIENTO DE USUARIOS
+        'AGREGARMENU PASO 4: AGREGAR EL MENU AQUI PARA PODER USARLO EN EL MANTENIMIENTO DE USUARIOS
         'ESTE ES EL PASO FINAL PARA AGREGAR MENUS
 
         'Menus
@@ -465,6 +465,7 @@ Public Class frmMantenimientoUsuarios
 
         tviModulosPermitidos.Nodes(1).Nodes(1).Nodes.Add("mnu2_2_29_GenerarFotocheks", "Generar Fotochecks") '12-04-2024
         tviModulosPermitidos.Nodes(1).Nodes(1).Nodes.Add("mnu2_2_30_ReporteMarcaciones", "Reporte de Marcaciones") '12-04-2024
+        tviModulosPermitidos.Nodes(1).Nodes(1).Nodes.Add("mnu2_2_31_ComparativaUltimosMovimientosPlanilla", "Comparativa de Ultimos Movimientos de Planilla") '11-07-2024
 
         tviModulosPermitidos.Nodes(1).Nodes(2).Nodes.Add("mnu2_3_8_CalculoConceptosRemunerativos", "Calculo de Conceptos Remunerativos") '2024-05-07
     End Sub

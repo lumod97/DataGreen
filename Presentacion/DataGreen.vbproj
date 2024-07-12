@@ -203,6 +203,12 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="frmRrhh_Reportes_ComparativaUltimoMovimientoPlanilla.Designer.vb">
+      <DependentUpon>frmRrhh_Reportes_ComparativaUltimoMovimientoPlanilla.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmRrhh_Reportes_ComparativaUltimoMovimientoPlanilla.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="frmAlmacenes_Movimientos_CargarPedidosCompra.Designer.vb">
       <DependentUpon>frmAlmacenes_Movimientos_CargarPedidosCompra.vb</DependentUpon>
     </Compile>
@@ -1100,6 +1106,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="frmRrhh_Reportes_ComparativaUltimoMovimientoPlanilla.resx">
+      <DependentUpon>frmRrhh_Reportes_ComparativaUltimoMovimientoPlanilla.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmAlmacenes_Movimientos_CargarPedidosCompra.resx">
       <DependentUpon>frmAlmacenes_Movimientos_CargarPedidosCompra.vb</DependentUpon>
     </EmbeddedResource>

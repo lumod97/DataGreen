@@ -254,6 +254,7 @@ Public Class Utiles
         modulosPermitidos.Add("mnu2_2_30_ReporteMarcaciones", False) '2024-04-12
 
         modulosPermitidos.Add("mnu2_3_8_CalculoConceptosRemunerativos", False) '2024-05-07
+        modulosPermitidos.Add("mnu2_2_31_ComparativaUltimosMovimientosPlanilla", False) '2024-07-11
 
 
 
