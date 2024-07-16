@@ -144,15 +144,20 @@ Public Class frmRrhh_Reportes_GenerarFotocheck
         Dim apiUrl As String
         Dim parametros As New Dictionary(Of String, Object)()
         Dim tipoImpresionIndex As String = cboTipoFotocheck.SelectedIndex
+        Dim tipoFotocheck As String = cboTipoFotocheck.SelectedValue.ToString.Split("|")(0).Trim
 
         parametros.Add("codigos", codigos)
         parametros.Add("vista", "vista_pdf")
+        parametros.Add("tipo_fotocheck", tipoFotocheck)
+
 
         If cbTipoEmpleado.Checked Then
-            apiUrl = "http://192.168.30.94:8080/api/get_pdf_test"
+            'apiUrl = "http://192.168.30.94:8080/api/get_pdf_test" 'url funcional
+            apiUrl = "http://56.10.3.24:8000/api/get_pdf_test" 'url del servidor de pruebas
             parametros("vista") += "_emp"
         Else
-            apiUrl = "http://192.168.30.94:8080/api/get_pdf_barras_cu"
+            'apiUrl = "http://192.168.30.94:8080/api/get_pdf_barras_cu" 'url funcional
+            apiUrl = "http://56.10.3.24:8000/api/get_pdf_barras_cu" 'url del servidor de pruebas
         End If
 
         Dim jsonData As String = JsonConvert.SerializeObject(parametros)
@@ -213,11 +218,13 @@ Public Class frmRrhh_Reportes_GenerarFotocheck
 
     Private Async Function DescargarArchivoAsync(apiUrl As String, jsonData As String) As Task(Of String) 'Se agrego la funcionalidad para descargar -> Agregado el 10/07/2024 Kevin Salazar
         Try
+
             Dim folderId = Guid.NewGuid().ToString() 'Identificador único para la carpeta en cada descarga de archivos
             rutaFotocheck = "D:\Fotocheck_Comprimidos\" + folderId 'Ruta del archivo zip
             Dim rutafotocheckImagenes As String = "D:\Fotocheck\" + folderId 'Ruta de los archivos donde se van a descomprimir
 
             Using client As New HttpClient()
+                client.Timeout = TimeSpan.FromMinutes(30) 'Cambio del tiempo para descargar el archivo (por defecto estaba en 100 segundos)
                 Dim content As New StringContent(jsonData, Encoding.UTF8, "application/json")
                 ' Realizar la solicitud POST
                 Dim response As HttpResponseMessage = Await client.PostAsync(apiUrl, content)
@@ -272,6 +279,7 @@ Public Class frmRrhh_Reportes_GenerarFotocheck
                     End If
                 Next
             End Using
+
         Catch ex As Exception
             MessageBox.Show($"Error al descomprimir archivo ZIP: {ex.Message}")
         Finally
@@ -281,6 +289,7 @@ Public Class frmRrhh_Reportes_GenerarFotocheck
     End Function
 
     Private Async Sub btnImprimir_Click(sender As Object, e As EventArgs) Handles btnImprimir.Click 'Se agrego la funcionalidad de evento para el btnClickImprimir  -> Agregado el 06/07/2024 Kevin Salazar
+
         Try
             ' Carpeta donde se guardaron las imágenes
             Dim fotochechkPrinter As New FotoCheckPrinter()
@@ -491,15 +500,16 @@ Public Class frmRrhh_Reportes_GenerarFotocheck
             barProgreso.Style = ProgressBarStyle.Continuous
 
             'armando el dt con los dni de dtTablaExcel
-            Dim listaDNI = New List(Of Integer)
+            Dim listaDNI = New List(Of String)
             If dtTablaExcel.Rows.Count > 0 Then
-                listaDNI = New List(Of Integer)
+                listaDNI = New List(Of String)
                 For Each f As DataRow In dtTablaExcel.Rows
                     listaDNI.Add(f("T_Dni").ToString())
                 Next
-                For Each i As Integer In listaDNI
+                For Each i As String In listaDNI
                     For Each j As DataRow In dtResultado.Rows
                         If (j("T_Dni").Equals(i.ToString())) Then
+                            MessageBox.Show("Encontrado")
                             dtSeleccionados.ImportRow(dtResultado.Rows(j("T_Fila") - 1))
                         End If
                     Next

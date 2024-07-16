@@ -466,6 +466,8 @@ Public Class frmMantenimientoUsuarios
         tviModulosPermitidos.Nodes(1).Nodes(1).Nodes.Add("mnu2_2_29_GenerarFotocheks", "Generar Fotochecks") '12-04-2024
         tviModulosPermitidos.Nodes(1).Nodes(1).Nodes.Add("mnu2_2_30_ReporteMarcaciones", "Reporte de Marcaciones") '12-04-2024
         tviModulosPermitidos.Nodes(1).Nodes(1).Nodes.Add("mnu2_2_31_ComparativaUltimosMovimientosPlanilla", "Comparativa de Ultimos Movimientos de Planilla") '11-07-2024
+        tviModulosPermitidos.Nodes(1).Nodes(1).Nodes.Add("mnu2_2_32_CheckListCalculoPlanilla", "Check List de Calculo de Planilla") '16-07-2024
+
 
         tviModulosPermitidos.Nodes(1).Nodes(2).Nodes.Add("mnu2_3_8_CalculoConceptosRemunerativos", "Calculo de Conceptos Remunerativos") '2024-05-07
     End Sub

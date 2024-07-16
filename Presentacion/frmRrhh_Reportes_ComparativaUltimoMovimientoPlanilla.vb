@@ -27,10 +27,6 @@ Public Class frmRrhh_Reportes_ComparativaUltimoMovimientoPlanilla
         datosParaCombos.Add("Periodos", doItBaby("sp_ObtenerPeriodos", Nothing, TipoQuery.DataTable))
     End Sub
 
-    Private Sub TableLayoutPanel1_Paint(sender As Object, e As PaintEventArgs)
-
-    End Sub
-
     Private Async Sub btnConsultar_Click(sender As Object, e As EventArgs) Handles btnConsultar.Click
         dgvResultado.DataSource = Nothing
         dgvResultado.Columns.Clear()
@@ -112,4 +108,6 @@ Public Class frmRrhh_Reportes_ComparativaUltimoMovimientoPlanilla
         datosParaCombos.Add("Semanas", doItBaby("sp_Dg_ObtenerSemanas", p, TipoQuery.DataTable))
         cargarCombo(cboSemana, datosParaCombos("Semanas"), 0, 1)
     End Sub
+
+
 End Class

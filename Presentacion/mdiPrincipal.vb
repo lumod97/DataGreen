@@ -320,6 +320,7 @@ Public Class mdiPrincipal
         mnu2_2_29_GenerarFotocheks.Enabled = modulosPermitidos.Item("mnu2_2_29_GenerarFotocheks") '2024-04-12
         mnu2_2_30_ReporteMarcaciones.Enabled = modulosPermitidos.Item("mnu2_2_30_ReporteMarcaciones") '2024-04-12
         mnu2_2_31_ComparativaUltimosMovimientosPlanilla.Enabled = modulosPermitidos.Item("mnu2_2_31_ComparativaUltimosMovimientosPlanilla") '2024-07-11
+        mnu2_2_32_CheckListCalculoPlanilla.Enabled = modulosPermitidos.Item("mnu2_2_32_CheckListCalculoPlanilla") '2024-07-16
 
 
         mnu2_3_8_CalculoConceptosRemunerativos.Enabled = modulosPermitidos.Item("mnu2_3_8_CalculoConceptosRemunerativos") '2024-05-07 @Jota

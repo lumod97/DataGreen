@@ -3507,3 +3507,6 @@ D:\PROGRAMACION\Codigo Fuente Sistemas ASJ 2023\DataGreen_2023_10_21_V5.4\DataGr
 D:\PROGRAMACION\Codigo Fuente Sistemas ASJ 2023\DataGreen_2023_10_21_V5.4\DataGreen\Presentacion\bin\Release\libSkiaSharp.dylib
 D:\PROGRAMACION\Codigo Fuente Sistemas ASJ 2023\DataGreen_2023_10_21_V5.4\DataGreen\Presentacion\bin\Release\x86\libSkiaSharp.dll
 D:\PROGRAMACION\Codigo Fuente Sistemas ASJ 2023\DataGreen_2023_10_21_V5.4\DataGreen\Presentacion\bin\Release\x64\libSkiaSharp.dll
+D:\PROGRAMACION\Codigo Fuente Sistemas ASJ 2023\DataGreen_2023_10_21_V5.4\DataGreen\Presentacion\bin\Release\Datos.dll.config
+D:\PROGRAMACION\Codigo Fuente Sistemas ASJ 2023\DataGreen_2023_10_21_V5.4\DataGreen\Presentacion\obj\Release\DataGreen.frmRrhh_Reportes_ComparativaUltimoMovimientoPlanilla.resources
+D:\PROGRAMACION\Codigo Fuente Sistemas ASJ 2023\DataGreen_2023_10_21_V5.4\DataGreen\Presentacion\obj\Release\DataGreen.frmRrhh_Reportes_CheckListCalculoPlanilla.resources
