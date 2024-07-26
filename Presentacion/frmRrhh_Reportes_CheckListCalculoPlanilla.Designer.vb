@@ -83,7 +83,7 @@ Partial Class frmRrhh_Reportes_CheckListCalculoPlanilla
         Me.tlpPrincipal.RowStyles.Add(New System.Windows.Forms.RowStyle())
         Me.tlpPrincipal.RowStyles.Add(New System.Windows.Forms.RowStyle())
         Me.tlpPrincipal.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 15.0!))
-        Me.tlpPrincipal.Size = New System.Drawing.Size(1169, 498)
+        Me.tlpPrincipal.Size = New System.Drawing.Size(1254, 497)
         Me.tlpPrincipal.TabIndex = 0
         '
         'Label1
@@ -110,7 +110,7 @@ Partial Class frmRrhh_Reportes_CheckListCalculoPlanilla
         '
         Me.Label3.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(415, 23)
+        Me.Label3.Location = New System.Drawing.Point(519, 23)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(46, 13)
         Me.Label3.TabIndex = 2
@@ -120,7 +120,7 @@ Partial Class frmRrhh_Reportes_CheckListCalculoPlanilla
         '
         Me.Label4.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(594, 23)
+        Me.Label4.Location = New System.Drawing.Point(698, 23)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(83, 13)
         Me.Label4.TabIndex = 3
@@ -130,7 +130,7 @@ Partial Class frmRrhh_Reportes_CheckListCalculoPlanilla
         '
         Me.Label5.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(810, 23)
+        Me.Label5.Location = New System.Drawing.Point(914, 23)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(80, 13)
         Me.Label5.TabIndex = 4
@@ -141,7 +141,7 @@ Partial Class frmRrhh_Reportes_CheckListCalculoPlanilla
         Me.lblDin_Resultado.AutoSize = True
         Me.tlpPrincipal.SetColumnSpan(Me.lblDin_Resultado, 2)
         Me.lblDin_Resultado.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.lblDin_Resultado.Location = New System.Drawing.Point(18, 470)
+        Me.lblDin_Resultado.Location = New System.Drawing.Point(18, 469)
         Me.lblDin_Resultado.Name = "lblDin_Resultado"
         Me.lblDin_Resultado.Size = New System.Drawing.Size(215, 13)
         Me.lblDin_Resultado.TabIndex = 5
@@ -150,9 +150,9 @@ Partial Class frmRrhh_Reportes_CheckListCalculoPlanilla
         '
         Me.tlpPrincipal.SetColumnSpan(Me.barProgreso, 13)
         Me.barProgreso.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.barProgreso.Location = New System.Drawing.Point(18, 444)
+        Me.barProgreso.Location = New System.Drawing.Point(18, 443)
         Me.barProgreso.Name = "barProgreso"
-        Me.barProgreso.Size = New System.Drawing.Size(1133, 23)
+        Me.barProgreso.Size = New System.Drawing.Size(1218, 23)
         Me.barProgreso.TabIndex = 6
         '
         'cboTipoMovimiento
@@ -170,14 +170,14 @@ Partial Class frmRrhh_Reportes_CheckListCalculoPlanilla
         Me.cboPlanilla.FormattingEnabled = True
         Me.cboPlanilla.Location = New System.Drawing.Point(288, 19)
         Me.cboPlanilla.Name = "cboPlanilla"
-        Me.cboPlanilla.Size = New System.Drawing.Size(121, 21)
+        Me.cboPlanilla.Size = New System.Drawing.Size(225, 21)
         Me.cboPlanilla.TabIndex = 8
         '
         'cboPeriodo
         '
         Me.cboPeriodo.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.cboPeriodo.FormattingEnabled = True
-        Me.cboPeriodo.Location = New System.Drawing.Point(467, 19)
+        Me.cboPeriodo.Location = New System.Drawing.Point(571, 19)
         Me.cboPeriodo.Name = "cboPeriodo"
         Me.cboPeriodo.Size = New System.Drawing.Size(121, 21)
         Me.cboPeriodo.TabIndex = 9
@@ -186,7 +186,7 @@ Partial Class frmRrhh_Reportes_CheckListCalculoPlanilla
         '
         Me.cboSemanaDesde.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.cboSemanaDesde.FormattingEnabled = True
-        Me.cboSemanaDesde.Location = New System.Drawing.Point(683, 19)
+        Me.cboSemanaDesde.Location = New System.Drawing.Point(787, 19)
         Me.cboSemanaDesde.Name = "cboSemanaDesde"
         Me.cboSemanaDesde.Size = New System.Drawing.Size(121, 21)
         Me.cboSemanaDesde.TabIndex = 10
@@ -195,7 +195,7 @@ Partial Class frmRrhh_Reportes_CheckListCalculoPlanilla
         '
         Me.cboSemanaHasta.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.cboSemanaHasta.FormattingEnabled = True
-        Me.cboSemanaHasta.Location = New System.Drawing.Point(896, 19)
+        Me.cboSemanaHasta.Location = New System.Drawing.Point(1000, 19)
         Me.cboSemanaHasta.Name = "cboSemanaHasta"
         Me.cboSemanaHasta.Size = New System.Drawing.Size(121, 21)
         Me.cboSemanaHasta.TabIndex = 11
@@ -207,13 +207,13 @@ Partial Class frmRrhh_Reportes_CheckListCalculoPlanilla
         Me.dgvResultado.Dock = System.Windows.Forms.DockStyle.Fill
         Me.dgvResultado.Location = New System.Drawing.Point(18, 47)
         Me.dgvResultado.Name = "dgvResultado"
-        Me.dgvResultado.Size = New System.Drawing.Size(1133, 391)
+        Me.dgvResultado.Size = New System.Drawing.Size(1218, 390)
         Me.dgvResultado.TabIndex = 12
         '
         'btnConsultar
         '
         Me.btnConsultar.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnConsultar.Location = New System.Drawing.Point(1049, 18)
+        Me.btnConsultar.Location = New System.Drawing.Point(1161, 18)
         Me.btnConsultar.Name = "btnConsultar"
         Me.btnConsultar.Size = New System.Drawing.Size(75, 23)
         Me.btnConsultar.TabIndex = 13
@@ -224,7 +224,7 @@ Partial Class frmRrhh_Reportes_CheckListCalculoPlanilla
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1169, 498)
+        Me.ClientSize = New System.Drawing.Size(1254, 497)
         Me.Controls.Add(Me.tlpPrincipal)
         Me.Name = "frmRrhh_Reportes_CheckListCalculoPlanilla"
         Me.Text = "Rrhh / Reportes / Check List de Calculo Planilla"

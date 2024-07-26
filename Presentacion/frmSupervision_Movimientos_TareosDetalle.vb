@@ -170,6 +170,8 @@ Public Class frmSupervision_Movimientos_TareosDetalle
     'End Sub
 
     Private Sub listarDetalle()
+
+        Dim usuario As String = Temporales.usuarioActual
         dgvResultado.DataSource = Nothing
         'If tareoActual.Estado = "D" Or tareoActual.Estado = "TR" Then
         'OBTENER DATOS DEL DETALLE
@@ -207,7 +209,17 @@ Public Class frmSupervision_Movimientos_TareosDetalle
         dgvResultado.AutoResizeRows()
 
         ''agregar un chek
-
+        If usuario = "JCRUZ" Then
+            dgvResultado.Columns("T_IdTareo").Visible = False
+            dgvResultado.Columns("T_IdTransferencia").Visible = False
+            dgvResultado.Columns("T_IdPlanilla").Visible = False
+            dgvResultado.Columns("T_Campana").Visible = False
+            dgvResultado.Columns("T_IdCultivo").Visible = False
+            dgvResultado.Columns("T_IdVariedad").Visible = False
+            dgvResultado.Columns("H1Ingreso").Visible = False
+            dgvResultado.Columns("H1Salida").Visible = False
+            dgvResultado.Columns(0).Visible = False
+        End If
 
 
         'Dim chekMasivo As DataGridViewCheckBoxColumn = New DataGridViewCheckBoxColumn()

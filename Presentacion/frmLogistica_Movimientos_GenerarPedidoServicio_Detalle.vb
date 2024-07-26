@@ -526,6 +526,10 @@ Public Class frmLogistica_Movimientos_GenerarPedidoServicio_Detalle
 
     End Sub
 
+    Private Sub dgvConsolidados_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvConsolidados.CellContentClick
+
+    End Sub
+
     Private Sub txtNroFactura_Leave(sender As Object, e As EventArgs) Handles txtNroFactura.Leave
         miPedido.NroFactura = txtNroFactura.Text
     End Sub

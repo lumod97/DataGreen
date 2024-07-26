@@ -5,246 +5,97 @@ Imports System.Drawing
 Imports RawPrint
 Imports System.Net
 Imports System.Text
-Imports Neodynamic.SDK.ZPLPrinter
 Imports Lextm.SharpSnmpLib.Objects
 Imports System.Drawing.Imaging
 'Se creo la clase para la impresion directa de Fotochecks desde DataGreen -> Agregado el 03/07/2024 Kevin Salazar - Luiggi Moretti
 Public Class FotoCheckPrinter
+
+    Private printerIP As String = ""
+    Private alreadyPrintedSuccessMessage As Boolean = False ' Variable para controlar el mensaje de éxito
+    Private printedCodes As HashSet(Of String) = New HashSet(Of String)() ' HashSet para almacenar códigos impresos
+    Public Sub New() 'Funcion inicial que realiza la configuración de la impresora a utilizar -> 16/07/2024 Luiggi  Kevin Salazar
+        Me.printerIP = GetPrinterName()
+    End Sub
     Public Sub PrintFotoCheck(PathFotoCheck As String, tipoImpresion As String)
 
         Try
-            ' Configurar la impresora seleccionada (opcional, dependiendo de cómo se seleccione la impresora)
-            Dim p As New PrintDocument()
-            Dim printDialog As New PrintDialog()
-
-            If printDialog.ShowDialog() = DialogResult.OK Then
-                p.PrinterSettings = printDialog.PrinterSettings
-            Else
-                Exit Sub ' Salir si el usuario cancela la selección de impresora
-            End If
             ' Carpeta donde se guardaron las imágenes
             Dim carpeta As New DirectoryInfo(PathFotoCheck)
+            Dim p As New PrintDocument()
+            'Dim printDialog As New PrintDialog()
             Dim files As FileInfo() = carpeta.GetFiles("*.jpg") ' Filtrar archivos JPG (puedes ajustar según el tipo de archivo)
+
 
             If files.Length > 0 Then
 
+                Dim arrayTest As List(Of String) = New List(Of String)
 
+                If tipoImpresion = 0 Then
+                    arrayTest.Add("00000000") 'Solucion temporal, se debe revisar para que no repita la impresion por cada archivo
+                ElseIf tipoImpresion = 1 Then
 
-                For Each file As FileInfo In files
-                    Select Case tipoImpresion 'verificar porque no recibe el valor del cboTipoFotocheck
-                        Case 1 '0 para Impresion de FotoCheck Solo -> Agregado el 06/07/2024 Kevin Salazar FUNCIONA OK
-                            Try
-                                ImprimirFotoCheck(file.FullName)
-                            Catch ex As Exception
-                                MessageBox.Show($"Error durante la impresión: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
-                            End Try
+                    For Each file As FileInfo In files
+                        Dim codigo As String = file.Name.Replace("fotocheck_", "").Replace("_Front.jpg", "").Replace("_Back.jpg", "") 'Variable que extrae solo el codigo de la persona
 
-                        Case 0 '1 para Impresion de FotoCheck de ambos lados -> Agregado el 06/07/2024 Kevin Salazar
-                            Dim codigo As String = file.Name.Replace("fotocheck_", "").Replace("_Front.jpg", "").Replace("_Back.jpg", "")
-                            'MessageBox.Show(codigo)
-                            Dim frontSide As String = file.Directory.ToString + "\fotocheck_" + codigo + "_Front.jpg"
-                            Dim backSide As String = file.Directory.ToString + "\fotocheck_" + codigo + "_Back.jpg"
-                            'codigo = codigo("_Front.jpg", "")
-                            'codigo = codigo("_Back.jpg", "")
-                            'MessageBox.Show(frontSide)
-                            'MessageBox.Show(backSide)
+                        If Not arrayTest.Contains(codigo) Then
+                            arrayTest.Add(codigo) 'Lista que contendrá el codigo por persona una sola vez
+                        End If
 
-                            ImprimirAmbosLados(frontSide, backSide)
+                    Next
+                End If
+                'MessageBox.Show(arrayTest.Count)
+                For Each code As String In arrayTest
+                    If Not printedCodes.Contains(code) Then
 
-                            'ImprimirAmbosLados(frontSide, backSide)
-                            'ImprimirFotoCheck(file.Directory.ToString + "fotocheck_" + codigo + "_Front.jpg")
-                            'ImprimirFotoCheck(file.Directory.ToString + "fotocheck_" + codigo + "_Back.jpg")
-                            ' Configurar impresión dúplex si es posible
-                            'If p.PrinterSettings.CanDuplex Then
-                            '    p.PrinterSettings.Duplex = Duplex.Vertical ' Puede ser Vertical o Horizontal, dependiendo de la impresora
-                            'Else
-                            '    MessageBox.Show("La impresora seleccionada no admite impresión dúplex.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning)
-                            '    Exit Sub
-                            'End If
-                            'For i As Integer = 0 To files.Length - 1 Step 2
-                            '    Dim imagenFrontal As String = files(i).FullName ' Imagen frontal
-                            '    Dim imagenPosterior As String = files(i + 1).FullName ' Imagen posterior (en caso de impresión dúplex)
+                        Dim frontSide As String = carpeta.FullName + "\fotocheck_" + code + "_Front.jpg" 'Variable que contendrá la imagen frontal del fotocheck cuando termine en _Front
+                        Dim backSide As String = carpeta.FullName + "\fotocheck_" + code + "_Back.jpg" 'Variable que contendrá la imagen posterior del fotocheck cuando termine en _Backt
 
+                        Select Case tipoImpresion
+                            Case 0 ' Impresión de FotoCheck Solo
 
-                            '' Asignar el controlador de evento para la impresión
-                            'AddHandler p.PrintPage, Sub(sender As Object, e As PrintPageEventArgs)
-                            '                            ' Cargar el PDF o imagen desde el archivo
-                            '                            Using image As Image = Image.FromFile(pdfPath)
-                            '                                ' Dibujar la imagen en el área de impresión
-                            '                                e.Graphics.DrawImage(image, e.MarginBounds)
-                            '                            End Using
-                            '                        End Sub
+                                'MessageBox.Show(code)
+                                If Not alreadyPrintedSuccessMessage Then
+                                    alreadyPrintedSuccessMessage = True ' Marcar que se mostró el mensaje
+                                End If
 
-                            '' Iniciar la impresión
-                            '' Imprimir la imagen frontal y posterior
-                            'ImprimirFotoCheck(imagenFrontal)
-                            'ImprimirFotoCheck(imagenPosterior)
-
-                            '---------------------------- verificar este método con varias imagenes ----------------------------
-                            'ImprimirFotoCheckDobleCara(p, file.FullName)
-                            '---------------------------------------------------------------------------------------------------
-
-                            '---------------------------- verificar tambien este otro método ----------------------------
-                            ' Se espera que los archivos tengan nombres como PersonaA_1.jpg, PersonaA_2.jpg, PersonaB_1.jpg, PersonaB_2.jpg, etc.
-                            'Dim identifier = Path.GetFileNameWithoutExtension(file.Name).Split("_"c)(0) ' Obtener el identificador (PersonaA, PersonaB, etc.)
-                            'Dim filesForIdentifier = files.Where(Function(f) f.Name.StartsWith(identifier) AndAlso f.FullName <> file.FullName).ToList()
-
-                            '' Imprimir la imagen actual y su contraparte
-                            'ImprimirFotoCheck(file.FullName, p)
-                            'For Each fileBack As FileInfo In filesForIdentifier
-                            '    ImprimirFotoCheck(fileBack.FullName, p)
-                            'Next
-                            '---------------------------------------------------------------------------------------------------
-
-                            '---------------------------- verificar este método con varias imagenes ----------------------------
-                            'ImprimirAmbosLados(files) -> este llamada se hace a otra funcion
-                            ' Filtrar archivos por nombres que terminen en "_1.jpg" o "_2.jpg"
-                            'Dim filesToPrint As New List(Of FileInfo)
-                            'For Each fileD As FileInfo In files
-                            '    If fileD.Name.EndsWith("_Front.jpg") OrElse fileD.Name.EndsWith("_Back.jpg") Then
-                            '        filesToPrint.Add(fileD)
-                            '    End If
-                            'Next
-
-                            '' Ordenar archivos para imprimir en el orden correcto (si es necesario)
-                            'filesToPrint.Sort(Function(x, y) String.Compare(x.Name, y.Name))
-
-                            'For i As Integer = 0 To filesToPrint.Count - 2 Step 2
-                            '    Try
-                            '        ImprimirFotoCheck(filesToPrint(i).FullName)
-                            '        ImprimirFotoCheck(filesToPrint(i + 1).FullName)
-                            '    Catch ex As Exception
-                            '        MessageBox.Show($"Error durante la impresión: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
-                            '    End Try
-                            'Next
-                            '---------------------------------------------------------------------------------------------------
-
-                            ' MessageBox.Show("Impresión de FotoCheck de ambos lados")
-                        Case Else
-                            Throw New ArgumentException("Tipo de impresión no válido.")
-                    End Select
+                                For Each imagen As FileInfo In files
+                                    'MessageBox.Show(imagen.FullName)
+                                    ImprimirFotoCheck(imagen.FullName, p) ' Imprimir cada foto
+                                Next
+                            Case 1 ' Impresión de FotoCheck de ambos lados
+                                If Not alreadyPrintedSuccessMessage Then
+                                    alreadyPrintedSuccessMessage = True ' Marcar que se mostró el mensaje
+                                End If
+                                ImprimirAmbosLados(frontSide, backSide, p)
+                            Case Else
+                                Throw New ArgumentException("Tipo de impresión no válido.")
+                        End Select
+                        printedCodes.Add(code) ' Agregar el código al HashSet después de imprimir
+                    End If
                 Next
-                MessageBox.Show("Impresión de FotoCheck enviada correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                If alreadyPrintedSuccessMessage Then 'Condicion que solo imprimira una vez el mensaje independientemente de la cantidad de imagenes en el bucle
+                    MessageBox.Show("Impresión de FotoCheck enviada correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                End If
             Else
-                ' MessageBox.Show("No se encontraron archivos de imágenes en la carpeta especificada.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                MessageBox.Show("No se encontraron archivos de imágenes en la carpeta especificada.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning)
             End If
         Catch ex As Exception
             MessageBox.Show($"Error al imprimir FotoCheck: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
     End Sub
-    Public Sub ImprimirFotoCheck(FotoChechkFilePath As String)
+    Public Sub ImprimirFotoCheck(FotoChechkFilePath As String, p As PrintDocument)
         Try
-            Dim p As New PrintDocument()
+
+            p.PrinterSettings.PrinterName = printerIP
             AddHandler p.PrintPage, Sub(sender As Object, e As PrintPageEventArgs)
                                         PrintImage(sender, e, FotoChechkFilePath)
                                     End Sub
             p.Print()
-            RemoveHandler p.PrintPage, Sub(sender As Object, e As PrintPageEventArgs)
-                                           PrintImage(sender, e, FotoChechkFilePath)
-                                       End Sub
+
         Catch ex As Exception
             MessageBox.Show($"Error durante la impresión: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
     End Sub
-
-    Private Sub ImprimirAmbosLados(front As String, back As String)
-        ' Filtrar archivos por nombres que terminen en "_1.jpg" o "_2.jpg"
-        'Dim filesToPrint As New List(Of FileInfo)
-        Try
-            Dim p As New PrintDocument()
-
-            p.PrinterSettings.Duplex = Duplex.Horizontal
-            ' Variable para controlar qué imagen se está imprimiendo
-            Dim isPrintingFront As Boolean = True
-
-            AddHandler p.PrintPage, Sub(sender As Object, e As PrintPageEventArgs)
-                                        ' Obtener el tamaño de la página
-                                        Dim pageWidth As Integer = e.PageBounds.Width
-                                        Dim pageHeight As Integer = e.PageBounds.Height
-
-                                        ' Cargar las imágenes
-                                        Using frontImage As Image = Image.FromFile(front)
-                                            Using backImage As Image = Image.FromFile(back)
-                                                ' Dibujar la imagen del frente
-                                                If isPrintingFront Then
-                                                    e.Graphics.DrawImage(frontImage, 0, 0)
-                                                    e.HasMorePages = True ' Indicar que hay más páginas para imprimir
-                                                Else
-                                                    ' Dibujar la imagen de atrás
-                                                    e.Graphics.DrawImage(backImage, 0, 0)
-                                                    e.HasMorePages = False ' No hay más páginas
-                                                End If
-                                            End Using
-                                        End Using
-
-                                        ' Cambiar a la siguiente imagen para la próxima página
-                                        isPrintingFront = Not isPrintingFront
-                                    End Sub
-
-            p.Print()
-        Catch ex As Exception
-            MessageBox.Show($"Error durante la impresión: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
-        End Try
-        'For Each file As FileInfo In files
-        '    If file.Name.EndsWith("_Front.jpg") OrElse file.Name.EndsWith("_Back.jpg") Then
-        'filesToPrint.Add(file)
-        'End If
-        'Next
-        'filesToPrint(FileInfo)
-        ' Ordenar archivos para imprimir en el orden correcto (si es necesario)
-        'filesToPrint.Sort(Function(x, y) String.Compare(x.Name, y.Name))
-
-        ' Crear un documento de impresión para imprimir ambos lados de la hoja
-        'Dim p As New PrintDocument()
-        'p.PrinterSettings.Duplex = Duplex.Vertical
-
-
-        '' Contador para controlar la impresión delantera y trasera
-        'Dim contador As Integer = 0
-
-        '' Manejar evento para imprimir la página
-        'AddHandler p.PrintPage, Sub(sender As Object, e As PrintPageEventArgs)
-        '                            ' Imprimir imagen delantera (si hay al menos una imagen)
-        '                            If contador < filesToPrint.Count Then
-        '                                PrintImage(sender, e, filesToPrint(contador).FullName)
-        '                                contador += 1
-        '                            End If
-
-        '                            ' Imprimir imagen trasera (si hay al menos una imagen adicional)
-        '                            If contador < filesToPrint.Count Then
-        '                                ' Ajusta la posición y el tamaño de acuerdo a tu diseño
-        '                                Dim rect As New RectangleF(100, 100, e.PageBounds.Width - 200, e.PageBounds.Height - 200)
-        '                                e.Graphics.DrawImage(Image.FromFile(filesToPrint(contador).FullName), rect)
-        '                                contador += 1
-        '                            End If
-
-        '                            ' Indicar que hay más páginas para imprimir si quedan imágenes
-        '                            e.HasMorePages = contador < filesToPrint.Count
-        '                        End Sub
-
-        '' Iniciar impresión
-        'p.Print()
-    End Sub
-
-    'Private Sub ImprimirFotoCheckDobleCara(ByVal p As PrintDocument, ByVal FotoChechkFilePath As String)
-    '    Try
-    '        AddHandler p.PrintPage, Sub(sender As Object, e As PrintPageEventArgs)
-    '                                    PrintImage(sender, e, FotoChechkFilePath)
-    '                                End Sub
-    '        ' Primera cara (página)
-    '        p.Print()
-
-    '        ' Segunda cara (página)
-    '        p.Print()
-
-    '        RemoveHandler p.PrintPage, Sub(sender As Object, e As PrintPageEventArgs)
-    '                                       PrintImage(sender, e, FotoChechkFilePath)
-    '                                   End Sub
-    '    Catch ex As Exception
-    '        MessageBox.Show($"Error durante la impresión: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
-    '    End Try
-    'End Sub
-
     Private Sub PrintImage(ByVal sender As Object, ByVal ppea As PrintPageEventArgs, ByVal filePath As String)
         Try
             Using image As Image = Image.FromFile(filePath)
@@ -254,4 +105,41 @@ Public Class FotoCheckPrinter
             MessageBox.Show($"Error al imprimir la imagen {filePath}: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
     End Sub
+    Private Sub ImprimirAmbosLados(frontSideFile As String, backSideFile As String, p As PrintDocument)
+        Try
+            p.PrinterSettings.Duplex = Duplex.Vertical
+            p.PrinterSettings.PrinterName = printerIP
+            Dim printedFront As Boolean = False ' Variable para controlar si ya se imprimió el lado frontal
+
+            AddHandler p.PrintPage, Sub(sender As Object, e As PrintPageEventArgs)
+                                        If Not printedFront Then
+                                            PrintImage(sender, e, frontSideFile)
+                                            printedFront = True ' Marcar que se imprimió el lado frontal
+                                            e.HasMorePages = True ' Indicar que hay más páginas por imprimir
+                                        Else
+                                            PrintImage(sender, e, backSideFile)
+                                            e.HasMorePages = False ' Indicar que no hay más páginas por imprimir
+                                        End If
+                                    End Sub
+            p.Print()
+        Catch ex As Exception
+            MessageBox.Show($"Error durante la impresión: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Try
+    End Sub
+
+    Private Function GetPrinterName() As String 'función que permite configurar la impresora -> 16/07/2024 Luiggi Moretti - Kevin Salazar
+
+        Dim nombreImpresora As String = ""
+        Dim impresoras As PrinterSettings.StringCollection = PrinterSettings.InstalledPrinters
+        Dim textoExtraido As String = "ZC300" 'ZC300 / IMP_CONTABILIDAD /Variable que se usa para comparar las coincidencias con todas las impresoras instaladas
+
+        For Each impresora As String In impresoras
+
+            If impresora.Contains(textoExtraido) Then 'Condicion para comparar el nombre de todas las impresoras y la del textoExtradido (impresora que se desea utilizar)
+                nombreImpresora = impresora 'Cuando la variable coincide se guarda el nombre de la impresora
+            End If
+
+        Next
+        Return nombreImpresora
+    End Function
 End Class

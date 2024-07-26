@@ -4,6 +4,7 @@ Imports Entidades.Temporales
 Imports Entidades
 Imports Datos.Conexion
 Imports DocumentFormat.OpenXml.Office2010.Excel
+Imports System.Web.Services.Description
 
 Public Class frmSupervision_Movimientos_Tareos
     Dim tareoActual As New Tareo
@@ -415,7 +416,7 @@ Public Class frmSupervision_Movimientos_Tareos
 
     Private Sub listarTareos()
         'dgvResultado.Columns.Clear()
-
+        Dim usuario As String = Temporales.usuarioActual
         tablaTareos = Nothing
         If onLine Then
             'tablaTareos = doItBaby("sp_Dg_Packing_Movimientos_TareosPacking_ListarTareosPacking",
@@ -429,18 +430,11 @@ Public Class frmSupervision_Movimientos_Tareos
 
         dgvResultado.Columns.Clear()
 
-
-
-
         dgvResultado.DataSource = Nothing
         Dim dvResultado As New DataView(tablaTareos)
         'Dim dvResultado As New DataView(dataParaDgvResultado)
         bsResultado.DataSource = dvResultado
         dgvResultado.DataSource = dvResultado
-
-
-
-
 
         Dim dgvColumnCheck As DataGridViewCheckBoxColumn
         dgvColumnCheck = New DataGridViewCheckBoxColumn()
@@ -452,13 +446,21 @@ Public Class frmSupervision_Movimientos_Tareos
         dgvResultado.AutoResizeColumns()
         dgvResultado.AutoResizeRows()
 
-        dgvResultado.Columns("T_DniResponsable").Visible = False
-        dgvResultado.Columns(0).Visible = False
-
         ''Dim filas As Integer = dgvResultado.RowCount
         ''lblDin_Resultado.Text = filas.ToString
         'lblCoincidencias.Text = "Coincidencias: " + filas.ToString
 
+        If usuario = "JCRUZ" Then
+            dgvResultado.Columns("T_anio").Visible = False
+            dgvResultado.Columns("T_DniResponsable").Visible = False
+            dgvResultado.Columns("T_IdResponsable").Visible = False
+            dgvResultado.Columns("T_Periodo").Visible = False
+            dgvResultado.Columns("T_Semana").Visible = False
+            dgvResultado.Columns(0).Visible = False
+        Else
+            dgvResultado.Columns("T_DniResponsable").Visible = False
+            dgvResultado.Columns(0).Visible = False
+        End If
 
         apagarControlesDeEspera(barProgreso, lblDin_Resultado, dgvResultado.RowCount)
 

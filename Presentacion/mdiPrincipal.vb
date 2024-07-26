@@ -1114,4 +1114,10 @@ Public Class mdiPrincipal
         VenActual.MdiParent = Me
         VenActual.Show()
     End Sub
+
+    Private Sub mnu2_2_32_CheckListCalculoPlanilla_Click(sender As Object, e As EventArgs) Handles mnu2_2_32_CheckListCalculoPlanilla.Click
+        Dim VenActual As New frmRrhh_Reportes_CheckListCalculoPlanilla
+        VenActual.MdiParent = Me
+        VenActual.Show()
+    End Sub
 End Class

@@ -113,6 +113,7 @@ Partial Class mdiPrincipal
         Me.mnu2_2_28_FormatoBoletas = New System.Windows.Forms.ToolStripMenuItem()
         Me.mnu2_2_29_GenerarFotocheks = New System.Windows.Forms.ToolStripMenuItem()
         Me.mnu2_2_31_ComparativaUltimosMovimientosPlanilla = New System.Windows.Forms.ToolStripMenuItem()
+        Me.mnu2_2_32_CheckListCalculoPlanilla = New System.Windows.Forms.ToolStripMenuItem()
         Me.mnu2_3_Movimientos = New System.Windows.Forms.ToolStripMenuItem()
         Me.mnu2_3_1_RegistrarAltasMasivas = New System.Windows.Forms.ToolStripMenuItem()
         Me.mnu2_3_2_ConfiguracionGruposLabores = New System.Windows.Forms.ToolStripMenuItem()
@@ -234,7 +235,6 @@ Partial Class mdiPrincipal
         Me.mnu3_2_Movimientos = New System.Windows.Forms.ToolStripMenuItem()
         Me.mnu3_2_1_ActualizarRequerimientosProgramaSemanalDiario = New System.Windows.Forms.ToolStripMenuItem()
         Me.mnu3_2_1_CrearProgramasSemanales = New System.Windows.Forms.ToolStripMenuItem()
-        Me.mnu2_2_32_CheckListCalculoPlanilla = New System.Windows.Forms.ToolStripMenuItem()
         Me.mnuComandos.SuspendLayout()
         Me.ToolStrip.SuspendLayout()
         Me.StatusStrip.SuspendLayout()
@@ -834,6 +834,12 @@ Partial Class mdiPrincipal
         Me.mnu2_2_31_ComparativaUltimosMovimientosPlanilla.Name = "mnu2_2_31_ComparativaUltimosMovimientosPlanilla"
         Me.mnu2_2_31_ComparativaUltimosMovimientosPlanilla.Size = New System.Drawing.Size(358, 22)
         Me.mnu2_2_31_ComparativaUltimosMovimientosPlanilla.Text = "Comparativa de Ultimos Movimientos de Planilla"
+        '
+        'mnu2_2_32_CheckListCalculoPlanilla
+        '
+        Me.mnu2_2_32_CheckListCalculoPlanilla.Name = "mnu2_2_32_CheckListCalculoPlanilla"
+        Me.mnu2_2_32_CheckListCalculoPlanilla.Size = New System.Drawing.Size(358, 22)
+        Me.mnu2_2_32_CheckListCalculoPlanilla.Text = "Check List de Calculo de Planilla"
         '
         'mnu2_3_Movimientos
         '
@@ -1594,12 +1600,6 @@ Partial Class mdiPrincipal
         Me.mnu3_2_1_CrearProgramasSemanales.Name = "mnu3_2_1_CrearProgramasSemanales"
         Me.mnu3_2_1_CrearProgramasSemanales.Size = New System.Drawing.Size(351, 22)
         Me.mnu3_2_1_CrearProgramasSemanales.Text = "Crear Programas Semanales"
-        '
-        'mnu2_2_32_CheckListCalculoPlanilla
-        '
-        Me.mnu2_2_32_CheckListCalculoPlanilla.Name = "mnu2_2_32_CheckListCalculoPlanilla"
-        Me.mnu2_2_32_CheckListCalculoPlanilla.Size = New System.Drawing.Size(358, 22)
-        Me.mnu2_2_32_CheckListCalculoPlanilla.Text = "Check List de Calculo de Planilla"
         '
         'mdiPrincipal
         '

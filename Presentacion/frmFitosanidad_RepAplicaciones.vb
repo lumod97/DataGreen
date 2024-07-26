@@ -169,4 +169,6 @@ Public Class frmFitosanidad_RepAplicaciones
         dsDataParaCombo.Tables.Add(doItBaby("sp_Dg_ObtenerConsumidoresXTipoCampanaYAnioCampanaYCultivoYDivision", p, TipoQuery.DataTable))
         cargarCombo(cboConsumidor, dsDataParaCombo.Tables(4), "", True)
     End Sub
+
+
 End Class

@@ -15,6 +15,7 @@ Imports System.IO.Compression
 Imports Logica
 Imports System.Net.Http
 Imports System.Drawing
+Imports Entidades
 Public Class frmRrhh_Reportes_GenerarFotocheck
 
     Dim dtResultado As New DataTable
@@ -149,15 +150,16 @@ Public Class frmRrhh_Reportes_GenerarFotocheck
         parametros.Add("codigos", codigos)
         parametros.Add("vista", "vista_pdf")
         parametros.Add("tipo_fotocheck", tipoFotocheck)
+        parametros.Add("usuario", Temporales.usuarioActual)
 
 
         If cbTipoEmpleado.Checked Then
-            'apiUrl = "http://192.168.30.94:8080/api/get_pdf_test" 'url funcional
-            apiUrl = "http://56.10.3.24:8000/api/get_pdf_test" 'url del servidor de pruebas
+            apiUrl = "http://192.168.30.94:8080/api/get_pdf_test" 'url funcional
+            'apiUrl = "http://56.10.3.24:8000/api/get_pdf_test" 'url del servidor de pruebas
             parametros("vista") += "_emp"
         Else
-            'apiUrl = "http://192.168.30.94:8080/api/get_pdf_barras_cu" 'url funcional
-            apiUrl = "http://56.10.3.24:8000/api/get_pdf_barras_cu" 'url del servidor de pruebas
+            apiUrl = "http://192.168.30.94:8080/api/get_pdf_barras_cu" 'url funcional
+            'apiUrl = "http://56.10.3.24:8000/api/get_pdf_barras_cu" 'url del servidor de pruebas
         End If
 
         Dim jsonData As String = JsonConvert.SerializeObject(parametros)
@@ -170,8 +172,7 @@ Public Class frmRrhh_Reportes_GenerarFotocheck
             If Not String.IsNullOrEmpty(zipFilePath) Then
                 ' Carpeta local donde se guardarán los archivos descomprimidos
                 Dim numImages As Integer = DescomprimirZIP(rutaFotocheck + ".zip", extractPath) '
-                ' Mostrar las imágenes en un PictureBox o cualquier otro control adecuado
-                MostrarImagenesDescargadas(extractPath) 'Funcion que deberia mostrar las imagenes extraidas en un PictureBox -> Se debe mejorar porque no lo hace
+                'MostrarImagenesDescargadas(extractPath) 'Funcion que deberia mostrar las imagenes extraidas en un PictureBox -> Se debe mejorar porque no lo hace
                 generarFotoCheckExitoso = True 'Variable global que indica que generacion del fotocheck fue exitosa
             Else
                 generarFotoCheckExitoso = False 'Variable global que indica que generacion del fotocheck fue erronea
@@ -185,36 +186,36 @@ Public Class frmRrhh_Reportes_GenerarFotocheck
             apagarControlesDeEspera(barProgreso, lblDin_Resultado)
         End Try
     End Function
-    Private Sub MostrarImagenesDescargadas(extractPath As String) 'Se agrego la funcionalidad para mostrar las imagenes en un PictureBox (Falta arreglar) -> Agregado el 10/07/2024 Kevin Salazar
-        'Se debe mejorar esta funcion porque no muestra las imagenes
-        Try
-            Dim files As String() = Directory.GetFiles(extractPath, "*.jpg")
+    'Private Sub MostrarImagenesDescargadas(extractPath As String) 'Se agrego la funcionalidad para mostrar las imagenes en un PictureBox (se debe modificar porque no lo hace) -> Agregado el 10/07/2024 Kevin Salazar
+    '    'Se debe mejorar esta funcion porque no muestra las imagenes
+    '    Try
+    '        Dim files As String() = Directory.GetFiles(extractPath, "*.jpg")
 
-            If files.Length > 0 Then
-                ' Inicializar la lista de imágenes
-                imagenes = New List(Of Image)()
-                ' Iterar sobre cada archivo encontrado
-                For Each filePath As String In files
-                    ' Cargar la imagen desde el archivo
-                    Using fs As New FileStream(filePath, FileMode.Open, FileAccess.Read)
-                        Dim img As Image = Image.FromStream(fs)
-                        imagenes.Add(img)
-                    End Using
-                Next
-                ' Verificar si se encontraron imágenes
-                If imagenes.Count > 0 Then
-                    ' Mostrar la primera imagen
-                    indiceActual = 0
-                Else
-                    MessageBox.Show("No se encontraron imágenes en el directorio especificado.")
-                End If
-            Else
-                MessageBox.Show("No se encontraron imágenes en el directorio especificado.")
-            End If
-        Catch ex As Exception
-            MessageBox.Show($"Error al mostrar imágenes: {ex.Message}")
-        End Try
-    End Sub
+    '        If files.Length > 0 Then
+    '            ' Inicializar la lista de imágenes
+    '            imagenes = New List(Of Image)()
+    '            ' Iterar sobre cada archivo encontrado
+    '            For Each filePath As String In files
+    '                ' Cargar la imagen desde el archivo
+    '                Using fs As New FileStream(filePath, FileMode.Open, FileAccess.Read)
+    '                    Dim img As Image = Image.FromStream(fs)
+    '                    imagenes.Add(img)
+    '                End Using
+    '            Next
+    '            ' Verificar si se encontraron imágenes
+    '            If imagenes.Count > 0 Then
+    '                ' Mostrar la primera imagen
+    '                indiceActual = 0
+    '            Else
+    '                MessageBox.Show("No se encontraron imágenes en el directorio especificado.")
+    '            End If
+    '        Else
+    '            MessageBox.Show("No se encontraron imágenes en el directorio especificado.")
+    '        End If
+    '    Catch ex As Exception
+    '        MessageBox.Show($"Error al mostrar imágenes: {ex.Message}")
+    '    End Try
+    'End Sub
 
     Private Async Function DescargarArchivoAsync(apiUrl As String, jsonData As String) As Task(Of String) 'Se agrego la funcionalidad para descargar -> Agregado el 10/07/2024 Kevin Salazar
         Try
@@ -226,10 +227,9 @@ Public Class frmRrhh_Reportes_GenerarFotocheck
             Using client As New HttpClient()
                 client.Timeout = TimeSpan.FromMinutes(30) 'Cambio del tiempo para descargar el archivo (por defecto estaba en 100 segundos)
                 Dim content As New StringContent(jsonData, Encoding.UTF8, "application/json")
-                ' Realizar la solicitud POST
                 Dim response As HttpResponseMessage = Await client.PostAsync(apiUrl, content)
                 response.EnsureSuccessStatusCode() ' Verificar que la solicitud fue exitosa
-                ' Leer y guardar el archivo ZIP, si no existe la unidad D, se descarga el zip en Documentos de la unidad C
+
                 If Directory.Exists("D:\") Then 'Validacion en caso no exista el directorio D:\
                     If Not Directory.Exists(rutaFotocheck) Then
                         Directory.CreateDirectory(rutaFotocheck)
@@ -245,9 +245,11 @@ Public Class frmRrhh_Reportes_GenerarFotocheck
                         Directory.CreateDirectory(rutafotocheckImagenes)
                     End If
                 End If
+
                 Using fileStream As FileStream = File.Create(rutaFotocheck + ".zip")
                     Await response.Content.CopyToAsync(fileStream)
                 End Using
+
                 Return rutaFotocheck ' Devolver la ruta del archivo descargado
             End Using
         Catch ex As Exception
@@ -271,9 +273,9 @@ Public Class frmRrhh_Reportes_GenerarFotocheck
                         entry.ExtractToFile(fullPath, True)
                         ' Contar archivos de imagen descomprimidos
                         If fullPath.EndsWith(".jpg", StringComparison.OrdinalIgnoreCase) OrElse
-                       fullPath.EndsWith(".jpeg", StringComparison.OrdinalIgnoreCase) OrElse
-                       fullPath.EndsWith(".png", StringComparison.OrdinalIgnoreCase) OrElse
-                       fullPath.EndsWith(".gif", StringComparison.OrdinalIgnoreCase) Then
+                           fullPath.EndsWith(".jpeg", StringComparison.OrdinalIgnoreCase) OrElse
+                           fullPath.EndsWith(".png", StringComparison.OrdinalIgnoreCase) OrElse
+                           fullPath.EndsWith(".gif", StringComparison.OrdinalIgnoreCase) Then
                             numImages += 1
                         End If
                     End If
@@ -291,15 +293,13 @@ Public Class frmRrhh_Reportes_GenerarFotocheck
     Private Async Sub btnImprimir_Click(sender As Object, e As EventArgs) Handles btnImprimir.Click 'Se agrego la funcionalidad de evento para el btnClickImprimir  -> Agregado el 06/07/2024 Kevin Salazar
 
         Try
-            ' Carpeta donde se guardaron las imágenes
             Dim fotochechkPrinter As New FotoCheckPrinter()
             Dim tipoImpresionIndex As String = cboTipoFotocheck.SelectedIndex
             Dim rutaImagenes As String = rutaFotocheck.Replace("Fotocheck_Comprimidos", "FotoCheck")
-            ' Validar si se seleccionó un ítem en el ComboBox  
+
             If tipoImpresionIndex >= 0 Then 'Validacion de que se haya seleccionado al menos un tipo de impresion en el ComboBox
-                Dim tipoImpresion As String = tipoImpresionIndex.ToString() 'Variable que obtiene el indice del comboBox
+                Dim tipoImpresion As String = tipoImpresionIndex.ToString()
                 If generarFotoCheckExitoso Then 'Validacion ee la variable global para ver si la generación del Fotocheck fue exitosa antes de imprimir
-                    ' Imprimir las imágenes
                     fotochechkPrinter.PrintFotoCheck(rutaImagenes, tipoImpresion) 'Llamado a la clase FotoCheckPrinter() que se envia como parametros la ruta de imagenes descomprimidas y el tipo de impresion del comboBox
                 Else
                     MessageBox.Show("Debe generar el FotoCheck correctamente antes de imprimir.")
@@ -509,7 +509,7 @@ Public Class frmRrhh_Reportes_GenerarFotocheck
                 For Each i As String In listaDNI
                     For Each j As DataRow In dtResultado.Rows
                         If (j("T_Dni").Equals(i.ToString())) Then
-                            MessageBox.Show("Encontrado")
+                            'MessageBox.Show("Encontrado")
                             dtSeleccionados.ImportRow(dtResultado.Rows(j("T_Fila") - 1))
                         End If
                     Next

@@ -1009,7 +1009,7 @@ Public Class frmLogistica_Movimientos_ServiciosTransporte_Detalle
                         'MessageBox.Show(r.Rows(0).Item(1).ToString)
                         MessageBox.Show("Registros actualizados correctamente.")
                     Else
-                        'MessageBox.Show(r.Rows(0).Item(1).ToString)
+                        MessageBox.Show(r.Rows(0).Item(1).ToString)
                     End If
                 Catch ex As Exception
                     MessageBox.Show(ex.Message)
