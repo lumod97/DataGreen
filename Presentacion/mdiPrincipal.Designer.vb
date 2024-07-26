@@ -121,6 +121,7 @@ Partial Class mdiPrincipal
         Me.mnu2_3_5_ObservacionesMarcacion = New System.Windows.Forms.ToolStripMenuItem()
         Me.mnu2_3_6_ProgramacionVacaciones = New System.Windows.Forms.ToolStripMenuItem()
         Me.mnu2_3_7_DistribucionHoras = New System.Windows.Forms.ToolStripMenuItem()
+        Me.mnu2_3_8_CalculoConceptosRemunerativos = New System.Windows.Forms.ToolStripMenuItem()
         Me.mnu4_Supervision = New System.Windows.Forms.ToolStripMenuItem()
         Me.mnu4_2_Reportes = New System.Windows.Forms.ToolStripMenuItem()
         Me.mnu4_2_1_FormatoTransferencia = New System.Windows.Forms.ToolStripMenuItem()
@@ -232,7 +233,6 @@ Partial Class mdiPrincipal
         Me.mnu3_2_Movimientos = New System.Windows.Forms.ToolStripMenuItem()
         Me.mnu3_2_1_ActualizarRequerimientosProgramaSemanalDiario = New System.Windows.Forms.ToolStripMenuItem()
         Me.mnu3_2_1_CrearProgramasSemanales = New System.Windows.Forms.ToolStripMenuItem()
-        Me.mnu2_3_8_CalculoConceptosRemunerativos = New System.Windows.Forms.ToolStripMenuItem()
         Me.mnuComandos.SuspendLayout()
         Me.ToolStrip.SuspendLayout()
         Me.StatusStrip.SuspendLayout()
@@ -242,7 +242,7 @@ Partial Class mdiPrincipal
         'mnuComandos
         '
         Me.mnuComandos.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.mnuArchivo, Me.mnuEditar, Me.mnuVer, Me.mnuVentanas})
-        Me.mnuComandos.Location = New System.Drawing.Point(0, 46)
+        Me.mnuComandos.Location = New System.Drawing.Point(0, 27)
         Me.mnuComandos.MdiWindowListItem = Me.mnuVentanas
         Me.mnuComandos.Name = "mnuComandos"
         Me.mnuComandos.Size = New System.Drawing.Size(1181, 24)
@@ -569,7 +569,7 @@ Partial Class mdiPrincipal
         Me.mnuStripModulos.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.Flow
         Me.mnuStripModulos.Location = New System.Drawing.Point(0, 0)
         Me.mnuStripModulos.Name = "mnuStripModulos"
-        Me.mnuStripModulos.Size = New System.Drawing.Size(1181, 46)
+        Me.mnuStripModulos.Size = New System.Drawing.Size(1181, 27)
         Me.mnuStripModulos.TabIndex = 9
         Me.mnuStripModulos.Text = "MenuStrip1"
         '
@@ -620,7 +620,7 @@ Partial Class mdiPrincipal
         '
         Me.mnu2_1_Indices.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.mnu2_1_1_DefinicionDeHorarios})
         Me.mnu2_1_Indices.Name = "mnu2_1_Indices"
-        Me.mnu2_1_Indices.Size = New System.Drawing.Size(180, 22)
+        Me.mnu2_1_Indices.Size = New System.Drawing.Size(144, 22)
         Me.mnu2_1_Indices.Text = "Indices"
         '
         'mnu2_1_1_DefinicionDeHorarios
@@ -633,7 +633,7 @@ Partial Class mdiPrincipal
         '
         Me.mnu2_2_Reportes.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.mnu2_2_1_ReporteAsistencia, Me.mnu2_2_2_UltimoDiaAsistencia, Me.mnu2_2_3_ReporteFaltas, Me.mnu2_2_4_ReporteAsistenciaChronos, Me.mnu2_2_30_ReporteMarcaciones, Me.ToolStripSeparator9, Me.mnu2_2_5_ValidarEstandares, Me.ToolStripSeparator10, Me.mnu2_2_6_DetalleDeHorasPersonaPorActividadYConsumidor, Me.mnu2_2_7_CatalogoDePersonal, Me.mnu2_2_8_ReporteDeAusentismo, Me.mnu2_2_9_ReporteDeCeses, Me.mnu2_2_10_ReporteDeConceptosXLiquidaciones, Me.mnu2_2_11_AntecedentesInternos, Me.mnu2_2_12_CalculoBonos, Me.mnu2_2_13_ResumenPlanillas, Me.mnu2_2_14_PlanillaAsistencia, Me.mnu2_2_15_IngresosPersonal, Me.mnu2_2_16_CorrespondenciaVacacional, Me.mnu2_2_17_ControlIntermitencia, Me.mnu2_2_18_SupervisionSSO, Me.mnu2_2_19_VacacionesGeneradas, Me.mnu2_2_20_GeneradordeCodigodeBarras, Me.mnu2_2_21_SincronizarBoletas, Me.mnu2_2_22_Amonestaciones, Me.mnu2_2_23_ControlReclutamiento, Me.mnu2_2_26_RenovacionContratos, Me.mnu2_2_24_ControlPersonal, Me.mnu2_2_25_InformeDirectorio, Me.mnu2_2_27_ImpresionFormatos, Me.mnu2_2_28_FormatoBoletas, Me.mnu2_2_29_GenerarFotocheks})
         Me.mnu2_2_Reportes.Name = "mnu2_2_Reportes"
-        Me.mnu2_2_Reportes.Size = New System.Drawing.Size(180, 22)
+        Me.mnu2_2_Reportes.Size = New System.Drawing.Size(144, 22)
         Me.mnu2_2_Reportes.Text = "Reportes"
         '
         'mnu2_2_1_ReporteAsistencia
@@ -831,7 +831,7 @@ Partial Class mdiPrincipal
         '
         Me.mnu2_3_Movimientos.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.mnu2_3_1_RegistrarAltasMasivas, Me.mnu2_3_2_ConfiguracionGruposLabores, Me.mnu2_3_3_ConfiguracionBonos, Me.mnu2_3_4_AsistenciasGmos, Me.mnu2_3_8_AsistenciaDataGreen, Me.mnu2_3_5_ObservacionesMarcacion, Me.mnu2_3_6_ProgramacionVacaciones, Me.mnu2_3_7_DistribucionHoras, Me.mnu2_3_8_CalculoConceptosRemunerativos})
         Me.mnu2_3_Movimientos.Name = "mnu2_3_Movimientos"
-        Me.mnu2_3_Movimientos.Size = New System.Drawing.Size(180, 22)
+        Me.mnu2_3_Movimientos.Size = New System.Drawing.Size(144, 22)
         Me.mnu2_3_Movimientos.Text = "Movimientos"
         '
         'mnu2_3_1_RegistrarAltasMasivas
@@ -881,6 +881,12 @@ Partial Class mdiPrincipal
         Me.mnu2_3_7_DistribucionHoras.Name = "mnu2_3_7_DistribucionHoras"
         Me.mnu2_3_7_DistribucionHoras.Size = New System.Drawing.Size(272, 22)
         Me.mnu2_3_7_DistribucionHoras.Text = "Distribucion de Horas"
+        '
+        'mnu2_3_8_CalculoConceptosRemunerativos
+        '
+        Me.mnu2_3_8_CalculoConceptosRemunerativos.Name = "mnu2_3_8_CalculoConceptosRemunerativos"
+        Me.mnu2_3_8_CalculoConceptosRemunerativos.Size = New System.Drawing.Size(272, 22)
+        Me.mnu2_3_8_CalculoConceptosRemunerativos.Text = "Calculo de Conceptos Remunerativos"
         '
         'mnu4_Supervision
         '
@@ -1580,12 +1586,6 @@ Partial Class mdiPrincipal
         Me.mnu3_2_1_CrearProgramasSemanales.Name = "mnu3_2_1_CrearProgramasSemanales"
         Me.mnu3_2_1_CrearProgramasSemanales.Size = New System.Drawing.Size(351, 22)
         Me.mnu3_2_1_CrearProgramasSemanales.Text = "Crear Programas Semanales"
-        '
-        'mnu2_3_8_CalculoConceptosRemunerativos
-        '
-        Me.mnu2_3_8_CalculoConceptosRemunerativos.Name = "mnu2_3_8_CalculoConceptosRemunerativos"
-        Me.mnu2_3_8_CalculoConceptosRemunerativos.Size = New System.Drawing.Size(272, 22)
-        Me.mnu2_3_8_CalculoConceptosRemunerativos.Text = "Calculo de Conceptos Remunerativos"
         '
         'mdiPrincipal
         '

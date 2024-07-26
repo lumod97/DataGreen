@@ -147,12 +147,15 @@ Public Class frmRrhh_Reportes_GenerarFotocheck
 
         parametros.Add("codigos", codigos)
         parametros.Add("vista", "vista_pdf")
+        parametros.Add("tipo_fotocheck", "F03")
 
         If cbTipoEmpleado.Checked Then
-            apiUrl = "http://192.168.30.94:8080/api/get_pdf_test"
+            'apiUrl = "http://192.168.30.94:8080/api/get_pdf_test"
+            apiUrl = "http://56.10.3.24:8000/api/get_pdf_test"
             parametros("vista") += "_emp"
         Else
-            apiUrl = "http://192.168.30.94:8080/api/get_pdf_barras_cu"
+            'apiUrl = "http://192.168.30.94:8080/api/get_pdf_barras_cu"
+            apiUrl = "http://56.10.3.24:8000/api/get_pdf_barras_cu"
         End If
 
         Dim jsonData As String = JsonConvert.SerializeObject(parametros)
@@ -218,6 +221,7 @@ Public Class frmRrhh_Reportes_GenerarFotocheck
             Dim rutafotocheckImagenes As String = "D:\Fotocheck\" + folderId 'Ruta de los archivos donde se van a descomprimir
 
             Using client As New HttpClient()
+                client.Timeout = TimeSpan.FromMinutes(10)
                 Dim content As New StringContent(jsonData, Encoding.UTF8, "application/json")
                 ' Realizar la solicitud POST
                 Dim response As HttpResponseMessage = Await client.PostAsync(apiUrl, content)

@@ -31,9 +31,10 @@ Partial Class frmLogistica_Movimientos_ServiciosTransporte_Moviles
         Me.dgvResultadoDetalle = New System.Windows.Forms.DataGridView()
         Me.lblResultado = New System.Windows.Forms.Label()
         Me.barProgreso = New System.Windows.Forms.ProgressBar()
-        Me.btnAprobar = New System.Windows.Forms.Button()
         Me.btnConsultar = New System.Windows.Forms.Button()
         Me.btnEliminar = New System.Windows.Forms.Button()
+        Me.btnAprobar = New System.Windows.Forms.Button()
+        Me.btnObtenerLocalidades = New System.Windows.Forms.Button()
         Me.tlpPrincipal.SuspendLayout()
         CType(Me.dgvResultado, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.dgvResultadoDetalle, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -51,9 +52,9 @@ Partial Class frmLogistica_Movimientos_ServiciosTransporte_Moviles
         Me.tlpPrincipal.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle())
         Me.tlpPrincipal.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle())
         Me.tlpPrincipal.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle())
-        Me.tlpPrincipal.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle())
-        Me.tlpPrincipal.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle())
         Me.tlpPrincipal.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
+        Me.tlpPrincipal.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle())
+        Me.tlpPrincipal.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle())
         Me.tlpPrincipal.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 15.0!))
         Me.tlpPrincipal.Controls.Add(Me.Label1, 1, 1)
         Me.tlpPrincipal.Controls.Add(Me.dtpDesde, 2, 1)
@@ -66,6 +67,7 @@ Partial Class frmLogistica_Movimientos_ServiciosTransporte_Moviles
         Me.tlpPrincipal.Controls.Add(Me.btnAprobar, 9, 1)
         Me.tlpPrincipal.Controls.Add(Me.btnConsultar, 5, 1)
         Me.tlpPrincipal.Controls.Add(Me.btnEliminar, 6, 1)
+        Me.tlpPrincipal.Controls.Add(Me.btnObtenerLocalidades, 8, 1)
         Me.tlpPrincipal.Dock = System.Windows.Forms.DockStyle.Fill
         Me.tlpPrincipal.Location = New System.Drawing.Point(0, 0)
         Me.tlpPrincipal.Name = "tlpPrincipal"
@@ -94,6 +96,7 @@ Partial Class frmLogistica_Movimientos_ServiciosTransporte_Moviles
         '
         'dtpDesde
         '
+        Me.dtpDesde.Anchor = System.Windows.Forms.AnchorStyles.Left
         Me.dtpDesde.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.dtpDesde.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
         Me.dtpDesde.Location = New System.Drawing.Point(78, 18)
@@ -115,6 +118,7 @@ Partial Class frmLogistica_Movimientos_ServiciosTransporte_Moviles
         '
         'dtpHasta
         '
+        Me.dtpHasta.Anchor = System.Windows.Forms.AnchorStyles.Left
         Me.dtpHasta.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.dtpHasta.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
         Me.dtpHasta.Location = New System.Drawing.Point(248, 18)
@@ -162,19 +166,9 @@ Partial Class frmLogistica_Movimientos_ServiciosTransporte_Moviles
         Me.barProgreso.Size = New System.Drawing.Size(881, 12)
         Me.barProgreso.TabIndex = 10
         '
-        'btnAprobar
-        '
-        Me.btnAprobar.Dock = System.Windows.Forms.DockStyle.Right
-        Me.btnAprobar.Enabled = False
-        Me.btnAprobar.Location = New System.Drawing.Point(782, 18)
-        Me.btnAprobar.Name = "btnAprobar"
-        Me.btnAprobar.Size = New System.Drawing.Size(117, 23)
-        Me.btnAprobar.TabIndex = 11
-        Me.btnAprobar.Text = "Aprobar"
-        Me.btnAprobar.UseVisualStyleBackColor = True
-        '
         'btnConsultar
         '
+        Me.btnConsultar.Anchor = System.Windows.Forms.AnchorStyles.Left
         Me.btnConsultar.Location = New System.Drawing.Point(367, 18)
         Me.btnConsultar.Name = "btnConsultar"
         Me.btnConsultar.Size = New System.Drawing.Size(114, 23)
@@ -184,12 +178,37 @@ Partial Class frmLogistica_Movimientos_ServiciosTransporte_Moviles
         '
         'btnEliminar
         '
+        Me.btnEliminar.Anchor = System.Windows.Forms.AnchorStyles.Left
         Me.btnEliminar.Location = New System.Drawing.Point(487, 18)
         Me.btnEliminar.Name = "btnEliminar"
         Me.btnEliminar.Size = New System.Drawing.Size(115, 23)
         Me.btnEliminar.TabIndex = 12
         Me.btnEliminar.Text = "Eliminar"
         Me.btnEliminar.UseVisualStyleBackColor = True
+        '
+        'btnAprobar
+        '
+        Me.btnAprobar.Anchor = System.Windows.Forms.AnchorStyles.Left
+        Me.btnAprobar.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
+        Me.btnAprobar.Enabled = False
+        Me.btnAprobar.Location = New System.Drawing.Point(782, 18)
+        Me.btnAprobar.Name = "btnAprobar"
+        Me.btnAprobar.Size = New System.Drawing.Size(117, 23)
+        Me.btnAprobar.TabIndex = 11
+        Me.btnAprobar.Text = "Aprobar"
+        Me.btnAprobar.UseVisualStyleBackColor = True
+        '
+        'btnObtenerLocalidades
+        '
+        Me.btnObtenerLocalidades.Anchor = System.Windows.Forms.AnchorStyles.Left
+        Me.btnObtenerLocalidades.AutoSize = True
+        Me.btnObtenerLocalidades.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
+        Me.btnObtenerLocalidades.Location = New System.Drawing.Point(661, 18)
+        Me.btnObtenerLocalidades.Name = "btnObtenerLocalidades"
+        Me.btnObtenerLocalidades.Size = New System.Drawing.Size(115, 23)
+        Me.btnObtenerLocalidades.TabIndex = 13
+        Me.btnObtenerLocalidades.Text = "Obtener Localidades"
+        Me.btnObtenerLocalidades.UseVisualStyleBackColor = True
         '
         'frmLogistica_Movimientos_ServiciosTransporte_Moviles
         '
@@ -218,6 +237,7 @@ Partial Class frmLogistica_Movimientos_ServiciosTransporte_Moviles
     Friend WithEvents lblResultado As Label
     Friend WithEvents barProgreso As ProgressBar
     Friend WithEvents dtpDesde As DateTimePicker
-    Friend WithEvents btnAprobar As Button
     Friend WithEvents btnEliminar As Button
+    Friend WithEvents btnAprobar As Button
+    Friend WithEvents btnObtenerLocalidades As Button
 End Class

@@ -3,6 +3,10 @@ Imports Logica.Funciones
 Imports Datos.Conexion
 Imports Entidades
 Imports Entidades.Temporales
+Imports Newtonsoft.Json.Linq
+Imports System.Net.Http
+Imports Newtonsoft.Json
+Imports System.Text
 'Imports DocumentFormat.OpenXml.Wordprocessing
 Public Class frmLogistica_Movimientos_ServiciosTransporte_Moviles
 
@@ -158,6 +162,53 @@ Public Class frmLogistica_Movimientos_ServiciosTransporte_Moviles
             End If
         End If
 
+    End Sub
+
+    Private Async Sub btnObtenerLocalidades_Click(sender As Object, e As EventArgs) Handles btnObtenerLocalidades.Click
+        If dgvResultado.RowCount < 1 Then
+            MessageBox.Show("Error, no hay registros para procesar")
+        Else
+            Dim apiUrl As String = "http://192.168.30.94:8080/api/transportes/obtener_localidades"
+            Dim a As Integer
+            a = MsgBox("Desea iniciar el proceso de localización con los registro(s) seleccionados", 36, "Mensaje del Sistema")
+            If a = 6 Then
+                Try
+                    encenderControlesDeEspera(barProgreso, lblResultado)
+                    Dim payload As New List(Of Object)
+                    For Each fila As DataGridViewRow In dgvResultado.SelectedRows
+                        Dim serviciosTransporte As New Dictionary(Of String, String)()
+                        serviciosTransporte.Add("id_servicio_transporte", fila.Cells(1).Value)
+                        serviciosTransporte.Add("id_usuario", usuarioActual)
+                        serviciosTransporte.Add("aplicativo", "DataGreen")
+                        serviciosTransporte.Add("mac", CType(getMac(), String))
+                        serviciosTransporte.Add("momento", CType(Now.ToString, DateTime))
+                        serviciosTransporte.Add("descripcion", "Actualización de trx_ServiciosTransporte_Detalle: localidad_marca")
+                        payload.Add(serviciosTransporte)
+                    Next
+
+                    Dim jsonData As String = JsonConvert.SerializeObject(payload)
+                    Clipboard.SetText(jsonData)
+                    MessageBox.Show(jsonData)
+
+                    Using client As New HttpClient()
+                        Dim content As New StringContent(jsonData, Encoding.UTF8, "application/json")
+                        ' Realizar la solicitud POST
+                        Dim response As HttpResponseMessage = Await client.PostAsync(apiUrl, content)
+                        'response.EnsureSuccessStatusCode() ' Verificar que la solicitud fue exitosa
+                        MessageBox.Show(response.ToString)
+                    End Using
+
+                    btnAprobar.Enabled = False
+                    MessageBox.Show("Registros guardados correctamente.")
+                Catch ex As Exception
+                    MessageBox.Show(ex.Message)
+                Finally
+                    apagarControlesDeEspera(barProgreso, lblResultado, dgvResultado.RowCount)
+                End Try
+            Else
+                Return
+            End If
+        End If
     End Sub
 
     Private Async Sub btnConsultar_Click(sender As Object, e As EventArgs) Handles btnConsultar.Click

@@ -323,7 +323,8 @@ Public Class mdiPrincipal
 
         mnu2_3_8_CalculoConceptosRemunerativos.Enabled = modulosPermitidos.Item("mnu2_3_8_CalculoConceptosRemunerativos") '2024-05-07 @Jota
 
-
+        'Dim spid As String = doItBaby("sp_obtenerSPID", Nothing, TipoQuery.Scalar)
+        'MessageBox.Show(spid)
         'Implentenacion para entrar a mantenimiento de usuarios por defecto 
         'mnu1_Mantenimiento.Enabled = True
         'mnu1_1_ConfigBases.Enabled = True
@@ -332,6 +333,7 @@ Public Class mdiPrincipal
         'Inhabilitacion Temporal hasta implementacion
         mnuArchivo.Enabled = False
         stdEstado.Text = "Usuario: " + usuarioActual
+        'stdEstado.Text = "Usuario: " + usuarioActual + " | SPID: " + spid
     End Sub
 
     Private Sub mnu2_2_2_UltimoDiaAsistencia_Click(sender As Object, e As EventArgs) Handles mnu2_2_2_UltimoDiaAsistencia.Click
@@ -1106,4 +1108,9 @@ Public Class mdiPrincipal
         VenActual.MdiParent = Me
         VenActual.Show()
     End Sub
+
+    Private Sub mdiPrincipal_KeyPress(sender As Object, e As KeyPressEventArgs) Handles MyBase.KeyPress
+        MessageBox.Show("finaso")
+    End Sub
+
 End Class
