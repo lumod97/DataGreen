@@ -6,6 +6,7 @@ Imports Datos.Conexion
 Imports System.IO
 Imports Microsoft.ReportingServices.Diagnostics.Internal
 Imports DocumentFormat.OpenXml.Spreadsheet
+Imports Microsoft.Reporting.Map.WebForms.BingMaps
 
 Public Class frmSupervision_Movimientos_TareosDetalle
     Dim tareoActual As New Tareo
@@ -22,9 +23,10 @@ Public Class frmSupervision_Movimientos_TareosDetalle
     Dim changeHoras As Boolean = False
     Dim changeRendimiento As Boolean = False
 
-
+    Dim filaSeleccionada As Integer = -1
 
     Dim indicadorParaBGW As Integer = 0
+    Dim showToolstrip As Boolean = False
 
     Public Sub New(tareoSeleccionado As Tareo)
         ' This call is required by the designer.
@@ -208,18 +210,18 @@ Public Class frmSupervision_Movimientos_TareosDetalle
         dgvResultado.AutoResizeColumns()
         dgvResultado.AutoResizeRows()
 
-        ''agregar un chek
-        If usuario = "JCRUZ" Then
-            dgvResultado.Columns("T_IdTareo").Visible = False
-            dgvResultado.Columns("T_IdTransferencia").Visible = False
-            dgvResultado.Columns("T_IdPlanilla").Visible = False
-            dgvResultado.Columns("T_Campana").Visible = False
-            dgvResultado.Columns("T_IdCultivo").Visible = False
-            dgvResultado.Columns("T_IdVariedad").Visible = False
-            dgvResultado.Columns("H1Ingreso").Visible = False
-            dgvResultado.Columns("H1Salida").Visible = False
-            dgvResultado.Columns(0).Visible = False
-        End If
+        ''VISTA SIMPLIFICADA
+        'If usuario = "JCRUZ" Then
+        '    dgvResultado.Columns("T_IdTareo").Visible = False
+        '    dgvResultado.Columns("T_IdTransferencia").Visible = False
+        '    dgvResultado.Columns("T_IdPlanilla").Visible = False
+        '    dgvResultado.Columns("T_Campana").Visible = False
+        '    dgvResultado.Columns("T_IdCultivo").Visible = False
+        '    dgvResultado.Columns("T_IdVariedad").Visible = False
+        '    dgvResultado.Columns("H1Ingreso").Visible = False
+        '    dgvResultado.Columns("H1Salida").Visible = False
+        '    dgvResultado.Columns(0).Visible = False
+        'End If
 
 
         'Dim chekMasivo As DataGridViewCheckBoxColumn = New DataGridViewCheckBoxColumn()
@@ -342,6 +344,9 @@ Public Class frmSupervision_Movimientos_TareosDetalle
         desbloquearControl(btnEliminar)
         desbloquearControl(btnCancelar)
         dgvResultado.ClearSelection()
+        'ESTA VARIABLE SIRVE PARA MOSTRAR EL TOOLSTRIP EN LA GRILLA DE DETALLES AL MOMENTO DE PRESIONAR
+        'CLICK DERECHO
+        showToolstrip = True
         'desbloquearControl(gboDetalle)
         pkrFin.Value = tareoActual.Fecha
     End Sub
@@ -560,8 +565,12 @@ Public Class frmSupervision_Movimientos_TareosDetalle
         fila.Item("T_IdVariedad") = detalleTareoActual.Variedad
         fila.Item("T_IdActividad") = detalleTareoActual.Actividad
         fila.Item("T_IdLabor") = detalleTareoActual.Labor
-        'fila.Item("H1Inicio") = detalleTareoActual.Inicio
-        'fila.Item("H1Fin") = detalleTareoActual.Fin
+        'If fila.Item("H1Ingreso") Then
+        fila.Item("H1Ingreso") = detalleTareoActual.Inicio
+        'End If
+        'If fila.Item("H1Salida") Is Nothing Then
+        fila.Item("H1Salida") = detalleTareoActual.Fin
+        'End If
         fila.Item("D3Horas") = detalleTareoActual.SubTotalHoras
         fila.Item("D3Rdto") = detalleTareoActual.SubTotalRendimiento
         fila.Item("T_Observacion") = detalleTareoActual.Observacion
@@ -778,9 +787,11 @@ Public Class frmSupervision_Movimientos_TareosDetalle
                     bloquearControl(btnImportar)
                     bloquearControl(btnEliminar)
                     ''bloquearControl(gboDetalle)
+                    'ESTA VARIABLE SIRVE PARA DEJAR DE MOSTRAR EL TOOLTIP AL MOMENTO
+                    'DE PRESIONA EL CLICK DERECHO EN LA GRILLA DE DETALLES
+                    showToolstrip = False
                     gboDetalle.Enabled = False
                     bloquearControl(btnAgregar)
-
                     'volvems los flags a false
                     changeActividad = False
                     changeLabor = False
@@ -1215,7 +1226,6 @@ Public Class frmSupervision_Movimientos_TareosDetalle
         p.Add("@IdActividad", cboActividad.SelectedValue)
         'dataParaControles.Add("Variedades", doItBaby("sp_Dg_ObtenerVariedades", p, Datos.Conexion.TipoQuery.DataTable))
         cargarCombo(cboLabor, doItBaby("sp_Dg_ObtenerLabores", p, Datos.Conexion.TipoQuery.DataTable), 0, 2)
-
         'cargarCombo(cboLabor, dataParaControles.Tables(3), cboActividad.SelectedValue.ToString, True)
         'cargarCombo(cboLabor, dataParaControles.Tables(3), 0, 2)
         'cboLabor.Focus()
@@ -1643,6 +1653,7 @@ Public Class frmSupervision_Movimientos_TareosDetalle
         bloquearControl(btnImportar)
         bloquearControl(btnEliminar)
         bloquearControl(btnCancelar)
+        showToolstrip = False
         ''bloquearControl(gboDetalle)
         gboDetalle.Enabled = False
         bloquearControl(btnAgregar)
@@ -1696,7 +1707,7 @@ Public Class frmSupervision_Movimientos_TareosDetalle
         Dim p As New Dictionary(Of String, Object)
         p.Add("@IdVariedad", cboVariedad.SelectedValue)
 
-        cargarCombo(cboVariedad, doItBaby("sp_Dg_ObtenerVariedades", p, Datos.Conexion.TipoQuery.DataTable), 0, 2)
+        'cargarCombo(cboVariedad, doItBaby("sp_Dg_ObtenerVariedades", p, Datos.Conexion.TipoQuery.DataTable), 0, 2)
     End Sub
 
     'Private Sub cbxSeleccionMultiple_CheckedChanged(sender As Object, e As EventArgs)
@@ -1839,7 +1850,7 @@ Public Class frmSupervision_Movimientos_TareosDetalle
         '    End If
 
         'End If
-        End Sub
+    End Sub
 
     Private Sub cboLabor_KeyUp(sender As Object, e As KeyEventArgs) Handles cboLabor.KeyUp
         Try
@@ -1860,6 +1871,61 @@ Public Class frmSupervision_Movimientos_TareosDetalle
 
         End Try
 
+    End Sub
+
+    Private Sub dgvResultado_MouseDown(sender As Object, e As MouseEventArgs) Handles dgvResultado.MouseDown
+        If e.Button = MouseButtons.Right Then
+            Dim hit As DataGridView.HitTestInfo = dgvResultado.HitTest(e.X, e.Y)
+            If showToolstrip Then
+                ' Obtén la celda o fila en la que se hizo clic
+                If hit.RowIndex >= 0 AndAlso hit.ColumnIndex >= 0 Then
+                    ' Opcional: Selecciona la celda en la que se hizo clic
+                    dgvResultado.CurrentCell = dgvResultado.Rows(hit.RowIndex).Cells(hit.ColumnIndex)
+                    filaSeleccionada = hit.RowIndex
+                    ' Muestra el menú contextual en la posición del mouse
+                    tsMenudgvDetalles.Show(dgvResultado, e.Location)
+                End If
+            End If
+        End If
+    End Sub
+
+    Private Sub tsMenuItemEditarDNI_Click(sender As Object, e As EventArgs) Handles tsMenuItemEditarDNI.Click
+        Dim tareoSeleccionado As String = dgvResultado.Rows(filaSeleccionada).Cells(0).Value.ToString
+        Dim itemSeleccionado As Integer = dgvResultado.Rows(filaSeleccionada).Cells(1).Value
+        Dim dniSeleccionado As String = dgvResultado.Rows(filaSeleccionada).Cells(3).Value.ToString
+        Dim nombreSeleccionado As String = dgvResultado.Rows(filaSeleccionada).Cells(4).Value.ToString
+        'MessageBox.Show(dniSeleccionado)
+        Dim dialogEditarDNI As New frmSupervision_Movimientos_TareosDetalle_DialogEditarDNI(dniSeleccionado, nombreSeleccionado)
+        dialogEditarDNI.StartPosition = FormStartPosition.CenterScreen
+        If dialogEditarDNI.ShowDialog() = DialogResult.OK Then
+            Dim dniActualizado As String = dialogEditarDNI.txtDni.Text.ToString
+            Dim p As New Dictionary(Of String, Object)
+            'MessageBox.Show(tareoSeleccionado)
+            p.Add("@idTareo", tareoSeleccionado)
+            p.Add("@item", itemSeleccionado)
+            p.Add("@dni", dniActualizado)
+            p.Add("@idUsuario", Temporales.usuarioActual)
+            Dim response As DataTable = doItBaby("sp_Tareos_Detalle_Editar_DNI", p, Datos.Conexion.TipoQuery.DataTable)
+            Dim filaResponse As DataRow = response.Rows(0)
+            Dim linea As String = ""
+            Dim mensaje As String = ""
+            Dim procedimiento As String = ""
+            If filaResponse.Item("code") = 1 Then
+                linea = filaResponse.Item("linea")
+                mensaje = filaResponse.Item("mensaje")
+                procedimiento = filaResponse.Item("procedimiento")
+                MessageBox.Show(Me, mensaje, procedimiento)
+            ElseIf filaResponse.Item("code") = -1 Then
+                linea = filaResponse.Item("linea")
+                mensaje = filaResponse.Item("mensaje")
+                procedimiento = filaResponse.Item("procedimiento")
+                MessageBox.Show(Me, "procedimiento: " + procedimiento + " N°linea:" + linea + ":" + mensaje, "Error")
+            Else
+                MessageBox.Show("Ha ocurrido un error inesperado en el procedimiento sp_Tareos_Detalle_Editar_DNI.")
+            End If
+            listarDetalle()
+            filaSeleccionada = -1
+        End If
     End Sub
 
 

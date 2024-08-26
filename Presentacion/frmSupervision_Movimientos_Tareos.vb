@@ -416,7 +416,6 @@ Public Class frmSupervision_Movimientos_Tareos
 
     Private Sub listarTareos()
         'dgvResultado.Columns.Clear()
-        Dim usuario As String = Temporales.usuarioActual
         tablaTareos = Nothing
         If onLine Then
             'tablaTareos = doItBaby("sp_Dg_Packing_Movimientos_TareosPacking_ListarTareosPacking",
@@ -450,17 +449,8 @@ Public Class frmSupervision_Movimientos_Tareos
         ''lblDin_Resultado.Text = filas.ToString
         'lblCoincidencias.Text = "Coincidencias: " + filas.ToString
 
-        If usuario = "JCRUZ" Then
-            dgvResultado.Columns("T_anio").Visible = False
-            dgvResultado.Columns("T_DniResponsable").Visible = False
-            dgvResultado.Columns("T_IdResponsable").Visible = False
-            dgvResultado.Columns("T_Periodo").Visible = False
-            dgvResultado.Columns("T_Semana").Visible = False
-            dgvResultado.Columns(0).Visible = False
-        Else
-            dgvResultado.Columns("T_DniResponsable").Visible = False
-            dgvResultado.Columns(0).Visible = False
-        End If
+        dgvResultado.Columns("T_DniResponsable").Visible = False
+        dgvResultado.Columns(0).Visible = False
 
         apagarControlesDeEspera(barProgreso, lblDin_Resultado, dgvResultado.RowCount)
 
@@ -682,5 +672,20 @@ Public Class frmSupervision_Movimientos_Tareos
         End If
         actualizarFiltro()
         listarTareos()
+    End Sub
+
+    Private Sub cbVistaSimplificada_CheckedChanged(sender As Object, e As EventArgs) Handles cbVistaSimplificada.CheckedChanged
+        'Dim usuario As String = Temporales.usuarioActual
+        Dim isChecked As Boolean = CType(sender, CheckBox).Checked
+        Dim usuariosPermitidos As String() = {"JCRUZ"}
+        AlternarVista(Not isChecked)
+    End Sub
+
+    Private Sub AlternarVista(checkboxValue As Boolean)
+        dgvResultado.Columns("T_anio").Visible = checkboxValue
+        dgvResultado.Columns("T_DniResponsable").Visible = checkboxValue
+        dgvResultado.Columns("T_IdResponsable").Visible = checkboxValue
+        dgvResultado.Columns("T_Periodo").Visible = checkboxValue
+        dgvResultado.Columns("T_Semana").Visible = checkboxValue
     End Sub
 End Class

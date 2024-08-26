@@ -278,8 +278,6 @@ Public Class frmRrhh_Movimientos_AsistenciaGmo
 
     Private Async Sub btnRegistrarAsistencia_Click(sender As Object, e As EventArgs) Handles btnRegistrarAsistencia.Click
         Try
-
-
             If idTareoConsolidado.Length > 0 And idTgTareo = "" Then
 
                 'Cambiar a funcion nueva
@@ -292,7 +290,6 @@ Public Class frmRrhh_Movimientos_AsistenciaGmo
                     MessageBox.Show("No se pueden crear tareos para el dia seleccionado porque se encuentra cerrado para Nisira en la fecha: " + dgvT2.Rows(1).Cells(1).Value)
                     Exit Sub
                 End If
-
 
                 Dim r As DialogResult
                 r = MessageBox.Show("¿Seguro que desea registrar en Nisira el tareo consolidado: " & idTareoConsolidado & "?", "Registrar en Nisira", MessageBoxButtons.YesNo)
@@ -342,7 +339,7 @@ Public Class frmRrhh_Movimientos_AsistenciaGmo
     Private Async Sub btnGenerarAsistencia_Click(sender As Object, e As EventArgs) Handles btnGenerarAsistencia.Click
         Try
 
-            Clipboard.SetText(idTgTareo)
+
             If idTareoConsolidado.Length > 0 And idTgTareo.Length > 0 And idTareoHoras = "" And idTareoRendimientos = "" Then
 
                 'cambiar a funcion nueva
@@ -385,14 +382,12 @@ Public Class frmRrhh_Movimientos_AsistenciaGmo
     End Sub
 
     Private Async Function generarAsistenciaAsync() As Task(Of DataTable)
-
         Try
             Dim r As New DataSet
             Dim p As New Dictionary(Of String, Object)
             CheckForIllegalCrossThreadCalls = False
             p.Add("@__idempresa", "001")
             p.Add("@__id_tareo", idTgTareo)
-
             'arrayDeParametros = obtenerCadenaParametros(p)
             r = Await Task.Run(Function() doItBaby("AgricolaSanJuan_2020.dbo.generarasistencia_bytareo", p, TipoQuery.DataSet))
             If r.Tables(0).Rows(0).Item(0) <> "OK" Then
@@ -403,7 +398,6 @@ Public Class frmRrhh_Movimientos_AsistenciaGmo
             MessageBox.Show(ex.Message)
             Return Nothing
         End Try
-
     End Function
 
     Private Function consultarEstadoDia(dia As Date) As Boolean
