@@ -2,6 +2,8 @@
 Imports System.IO
 Imports System.Windows.Forms
 Imports System.Drawing
+Imports System.Threading.Tasks ' Asegúrate de importar el espacio de nombres para Task
+
 'Se creo la clase para la impresion directa de Fotochecks desde DataGreen -> Agregado el 03/07/2024 Kevin Salazar - Luiggi Moretti
 Public Class FotoCheckPrinter
 
@@ -11,7 +13,7 @@ Public Class FotoCheckPrinter
     Public Sub New() 'Funcion inicial que realiza la configuración de la impresora a utilizar -> 16/07/2024 Luiggi  Kevin Salazar
         Me.printerIP = GetPrinterName()
     End Sub
-    Public Sub PrintFotoCheck(PathFotoCheck As String, tipoImpresion As String)
+    Public Async Function PrintFotoCheckAsync(PathFotoCheck As String, tipoImpresion As String) As Task
 
         Try
             ' Carpeta donde se guardaron las imágenes
@@ -19,7 +21,6 @@ Public Class FotoCheckPrinter
             Dim p As New PrintDocument()
             'Dim printDialog As New PrintDialog()
             Dim files As FileInfo() = carpeta.GetFiles("*.jpg") ' Filtrar archivos JPG (puedes ajustar según el tipo de archivo)
-
 
             If files.Length > 0 Then
 
@@ -55,13 +56,16 @@ Public Class FotoCheckPrinter
 
                                 For Each imagen As FileInfo In files
                                     'MessageBox.Show(imagen.FullName)
-                                    ImprimirFotoCheck(imagen.FullName, p) ' Imprimir cada foto
+                                    ImprimirFotoCheck(imagen.FullName, p)
+                                    ' Agregar un delay de 20 segundos entre impresiones
+                                    Await Task.Delay(20000)
                                 Next
                             Case 1 ' Impresión de FotoCheck de ambos lados
                                 If Not alreadyPrintedSuccessMessage Then
                                     alreadyPrintedSuccessMessage = True ' Marcar que se mostró el mensaje
                                 End If
                                 ImprimirAmbosLados(frontSide, backSide, p)
+                                Await Task.Delay(20000)
                             Case Else
                                 Throw New ArgumentException("Tipo de impresión no válido.")
                         End Select
@@ -77,26 +81,16 @@ Public Class FotoCheckPrinter
         Catch ex As Exception
             MessageBox.Show($"Error al imprimir FotoCheck: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
-    End Sub
+    End Function
     Public Sub ImprimirFotoCheck(FotoChechkFilePath As String, p As PrintDocument)
-        Dim handler As PrintPageEventHandler = Sub(sender As Object, e As PrintPageEventArgs)
-                                                   PrintImage(sender, e, FotoChechkFilePath)
-                                               End Sub
         Try
             p.PrinterSettings.PrinterName = printerIP
-
-
-            ' Agregar los manejadores de eventos
-            AddHandler p.PrintPage, handler
-
-            ' Iniciar la impresión
+            AddHandler p.PrintPage, Sub(sender As Object, e As PrintPageEventArgs)
+                                        PrintImage(sender, e, FotoChechkFilePath)
+                                    End Sub
             p.Print()
-
         Catch ex As Exception
             MessageBox.Show($"Error durante la impresión: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
-        Finally
-            ' Remover los manejadores de eventos
-            RemoveHandler p.PrintPage, handler
         End Try
     End Sub
 
@@ -110,30 +104,27 @@ Public Class FotoCheckPrinter
         End Try
     End Sub
 
-    Private Sub ImprimirAmbosLados(frontSideFile As String, backSideFile As String, p As PrintDocument)
-        p.PrinterSettings.Duplex = Duplex.Vertical
-        p.PrinterSettings.PrinterName = printerIP
-        Dim printedFront As Boolean = False ' Variable para controlar si ya se imprimió el lado frontal
-        Dim handler As PrintPageEventHandler = Sub(sender As Object, e As PrintPageEventArgs)
-                                                   If Not printedFront Then
-                                                       PrintImage(sender, e, frontSideFile)
-                                                       printedFront = True ' Marcar que se imprimió el lado frontal
-                                                       e.HasMorePages = True ' Indicar que hay más páginas por imprimir
-                                                   Else
-                                                       PrintImage(sender, e, backSideFile)
-                                                       e.HasMorePages = False ' Indicar que no hay más páginas por imprimir
-                                                       RemoveHandler p.PrintPage, handler
-                                                   End If
-                                               End Sub
+    Public Sub ImprimirAmbosLados(frontSideFile As String, backSideFile As String, p As PrintDocument)
         Try
-            AddHandler p.PrintPage, handler
-            p.Print()
+            p.PrinterSettings.Duplex = Duplex.Vertical
+            p.PrinterSettings.PrinterName = printerIP
+            Dim printedFront As Boolean = False
 
+            AddHandler p.PrintPage, Sub(sender As Object, e As PrintPageEventArgs)
+                                        If Not printedFront Then
+                                            PrintImage(sender, e, frontSideFile)
+                                            printedFront = True
+                                            e.HasMorePages = True
+                                        Else
+                                            PrintImage(sender, e, backSideFile)
+                                            e.HasMorePages = False
+                                        End If
+                                    End Sub
+            p.Print()
         Catch ex As Exception
             MessageBox.Show($"Error durante la impresión: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
     End Sub
-
 
     Private Function GetPrinterName() As String 'función que permite configurar la impresora -> 16/07/2024 Luiggi Moretti - Kevin Salazar
 
