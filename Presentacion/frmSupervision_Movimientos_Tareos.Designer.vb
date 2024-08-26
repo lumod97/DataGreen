@@ -56,6 +56,7 @@ Partial Class frmSupervision_Movimientos_Tareos
         Me.Label17 = New System.Windows.Forms.Label()
         Me.lblDin_Semana = New System.Windows.Forms.Label()
         Me.btnCancelar = New System.Windows.Forms.Button()
+        Me.cbVistaSimplificada = New System.Windows.Forms.CheckBox()
         Me.TableLayoutPanel2 = New System.Windows.Forms.TableLayoutPanel()
         Me.btnTransferir = New System.Windows.Forms.Button()
         Me.btnEliminar = New System.Windows.Forms.Button()
@@ -288,7 +289,7 @@ Partial Class frmSupervision_Movimientos_Tareos
         '
         Me.TableLayoutPanel3.AutoSize = True
         Me.TableLayoutPanel3.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
-        Me.TableLayoutPanel3.ColumnCount = 12
+        Me.TableLayoutPanel3.ColumnCount = 13
         Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle())
         Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle())
         Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle())
@@ -300,6 +301,7 @@ Partial Class frmSupervision_Movimientos_Tareos
         Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle())
         Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle())
         Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
+        Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle())
         Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle())
         Me.TableLayoutPanel3.Controls.Add(Me.lblDin_NroTareo, 5, 0)
         Me.TableLayoutPanel3.Controls.Add(Me.Label9, 4, 0)
@@ -319,6 +321,7 @@ Partial Class frmSupervision_Movimientos_Tareos
         Me.TableLayoutPanel3.Controls.Add(Me.Label17, 8, 1)
         Me.TableLayoutPanel3.Controls.Add(Me.lblDin_Semana, 9, 1)
         Me.TableLayoutPanel3.Controls.Add(Me.btnCancelar, 10, 1)
+        Me.TableLayoutPanel3.Controls.Add(Me.cbVistaSimplificada, 12, 1)
         Me.TableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TableLayoutPanel3.Location = New System.Drawing.Point(2, 19)
         Me.TableLayoutPanel3.Margin = New System.Windows.Forms.Padding(2)
@@ -410,7 +413,7 @@ Partial Class frmSupervision_Movimientos_Tareos
         'btnGuardar
         '
         Me.btnGuardar.Anchor = System.Windows.Forms.AnchorStyles.Left
-        Me.btnGuardar.Location = New System.Drawing.Point(1013, 22)
+        Me.btnGuardar.Location = New System.Drawing.Point(864, 22)
         Me.btnGuardar.Margin = New System.Windows.Forms.Padding(2)
         Me.btnGuardar.Name = "btnGuardar"
         Me.btnGuardar.Size = New System.Drawing.Size(100, 30)
@@ -548,13 +551,25 @@ Partial Class frmSupervision_Movimientos_Tareos
         'btnCancelar
         '
         Me.btnCancelar.Anchor = System.Windows.Forms.AnchorStyles.Right
-        Me.btnCancelar.Location = New System.Drawing.Point(909, 22)
+        Me.btnCancelar.Location = New System.Drawing.Point(760, 22)
         Me.btnCancelar.Margin = New System.Windows.Forms.Padding(2)
         Me.btnCancelar.Name = "btnCancelar"
         Me.btnCancelar.Size = New System.Drawing.Size(100, 30)
         Me.btnCancelar.TabIndex = 17
         Me.btnCancelar.Text = "Cancelar"
         Me.btnCancelar.UseVisualStyleBackColor = True
+        '
+        'cbVistaSimplificada
+        '
+        Me.cbVistaSimplificada.AutoSize = True
+        Me.cbVistaSimplificada.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.cbVistaSimplificada.Location = New System.Drawing.Point(969, 23)
+        Me.cbVistaSimplificada.Name = "cbVistaSimplificada"
+        Me.cbVistaSimplificada.Size = New System.Drawing.Size(143, 28)
+        Me.cbVistaSimplificada.TabIndex = 18
+        Me.cbVistaSimplificada.Text = "Vista Simplificada"
+        Me.cbVistaSimplificada.UseVisualStyleBackColor = True
+        Me.cbVistaSimplificada.Visible = False
         '
         'TableLayoutPanel2
         '
@@ -750,4 +765,5 @@ Partial Class frmSupervision_Movimientos_Tareos
     Friend WithEvents btnAprobar As Button
     Friend WithEvents btnDesaprobar As Button
     Friend WithEvents BtnConsultar As Button
+    Friend WithEvents cbVistaSimplificada As CheckBox
 End Class

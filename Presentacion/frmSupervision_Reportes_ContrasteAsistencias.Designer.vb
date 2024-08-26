@@ -28,11 +28,14 @@ Partial Class frmSupervision_Reportes_ContrasteAsistencias
         Me.lblDin_Resultado = New System.Windows.Forms.Label()
         Me.dtpDesde = New System.Windows.Forms.DateTimePicker()
         Me.dtpHasta = New System.Windows.Forms.DateTimePicker()
-        Me.btnConsultar = New System.Windows.Forms.Button()
-        Me.btnExportar = New System.Windows.Forms.Button()
         Me.dgvResultado_Resumen = New System.Windows.Forms.DataGridView()
         Me.barProgreso = New System.Windows.Forms.ProgressBar()
         Me.dgvResultado_Detalle = New System.Windows.Forms.DataGridView()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.btnExportar = New System.Windows.Forms.Button()
+        Me.btnConsultar = New System.Windows.Forms.Button()
+        Me.btnLimpiar = New System.Windows.Forms.Button()
+        Me.cboTrabajador = New System.Windows.Forms.ComboBox()
         Me.tlpPrincipal.SuspendLayout()
         CType(Me.dgvResultado_Resumen, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.dgvResultado_Detalle, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -40,13 +43,15 @@ Partial Class frmSupervision_Reportes_ContrasteAsistencias
         '
         'tlpPrincipal
         '
-        Me.tlpPrincipal.ColumnCount = 9
+        Me.tlpPrincipal.ColumnCount = 11
         Me.tlpPrincipal.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 15.0!))
         Me.tlpPrincipal.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle())
         Me.tlpPrincipal.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle())
         Me.tlpPrincipal.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle())
         Me.tlpPrincipal.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle())
+        Me.tlpPrincipal.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle())
         Me.tlpPrincipal.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
+        Me.tlpPrincipal.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle())
         Me.tlpPrincipal.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle())
         Me.tlpPrincipal.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle())
         Me.tlpPrincipal.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 15.0!))
@@ -55,11 +60,14 @@ Partial Class frmSupervision_Reportes_ContrasteAsistencias
         Me.tlpPrincipal.Controls.Add(Me.lblDin_Resultado, 1, 5)
         Me.tlpPrincipal.Controls.Add(Me.dtpDesde, 2, 1)
         Me.tlpPrincipal.Controls.Add(Me.dtpHasta, 4, 1)
-        Me.tlpPrincipal.Controls.Add(Me.btnConsultar, 6, 1)
-        Me.tlpPrincipal.Controls.Add(Me.btnExportar, 7, 1)
         Me.tlpPrincipal.Controls.Add(Me.dgvResultado_Resumen, 1, 2)
         Me.tlpPrincipal.Controls.Add(Me.barProgreso, 1, 4)
         Me.tlpPrincipal.Controls.Add(Me.dgvResultado_Detalle, 1, 3)
+        Me.tlpPrincipal.Controls.Add(Me.Label4, 5, 1)
+        Me.tlpPrincipal.Controls.Add(Me.btnExportar, 9, 1)
+        Me.tlpPrincipal.Controls.Add(Me.btnConsultar, 8, 1)
+        Me.tlpPrincipal.Controls.Add(Me.btnLimpiar, 7, 1)
+        Me.tlpPrincipal.Controls.Add(Me.cboTrabajador, 6, 1)
         Me.tlpPrincipal.Dock = System.Windows.Forms.DockStyle.Fill
         Me.tlpPrincipal.Location = New System.Drawing.Point(0, 0)
         Me.tlpPrincipal.Name = "tlpPrincipal"
@@ -125,15 +133,46 @@ Partial Class frmSupervision_Reportes_ContrasteAsistencias
         Me.dtpHasta.Size = New System.Drawing.Size(101, 20)
         Me.dtpHasta.TabIndex = 4
         '
-        'btnConsultar
+        'dgvResultado_Resumen
         '
-        Me.btnConsultar.Anchor = System.Windows.Forms.AnchorStyles.Left
-        Me.btnConsultar.Location = New System.Drawing.Point(798, 18)
-        Me.btnConsultar.Name = "btnConsultar"
-        Me.btnConsultar.Size = New System.Drawing.Size(75, 23)
-        Me.btnConsultar.TabIndex = 5
-        Me.btnConsultar.Text = "Consultar"
-        Me.btnConsultar.UseVisualStyleBackColor = True
+        Me.dgvResultado_Resumen.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.tlpPrincipal.SetColumnSpan(Me.dgvResultado_Resumen, 9)
+        Me.dgvResultado_Resumen.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.dgvResultado_Resumen.Location = New System.Drawing.Point(18, 47)
+        Me.dgvResultado_Resumen.Name = "dgvResultado_Resumen"
+        Me.dgvResultado_Resumen.Size = New System.Drawing.Size(936, 183)
+        Me.dgvResultado_Resumen.TabIndex = 7
+        '
+        'barProgreso
+        '
+        Me.tlpPrincipal.SetColumnSpan(Me.barProgreso, 6)
+        Me.barProgreso.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.barProgreso.Location = New System.Drawing.Point(18, 425)
+        Me.barProgreso.Name = "barProgreso"
+        Me.barProgreso.Size = New System.Drawing.Size(693, 23)
+        Me.barProgreso.TabIndex = 8
+        '
+        'dgvResultado_Detalle
+        '
+        Me.dgvResultado_Detalle.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.tlpPrincipal.SetColumnSpan(Me.dgvResultado_Detalle, 9)
+        Me.dgvResultado_Detalle.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.dgvResultado_Detalle.Location = New System.Drawing.Point(18, 236)
+        Me.dgvResultado_Detalle.Name = "dgvResultado_Detalle"
+        Me.dgvResultado_Detalle.Size = New System.Drawing.Size(936, 183)
+        Me.dgvResultado_Detalle.TabIndex = 9
+        '
+        'Label4
+        '
+        Me.Label4.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Label4.AutoSize = True
+        Me.Label4.Location = New System.Drawing.Point(323, 23)
+        Me.Label4.Margin = New System.Windows.Forms.Padding(3)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(58, 13)
+        Me.Label4.TabIndex = 11
+        Me.Label4.Text = "Trabajador"
+        Me.Label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'btnExportar
         '
@@ -145,34 +184,34 @@ Partial Class frmSupervision_Reportes_ContrasteAsistencias
         Me.btnExportar.Text = "Exportar"
         Me.btnExportar.UseVisualStyleBackColor = True
         '
-        'dgvResultado_Resumen
+        'btnConsultar
         '
-        Me.dgvResultado_Resumen.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.tlpPrincipal.SetColumnSpan(Me.dgvResultado_Resumen, 7)
-        Me.dgvResultado_Resumen.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.dgvResultado_Resumen.Location = New System.Drawing.Point(18, 47)
-        Me.dgvResultado_Resumen.Name = "dgvResultado_Resumen"
-        Me.dgvResultado_Resumen.Size = New System.Drawing.Size(936, 183)
-        Me.dgvResultado_Resumen.TabIndex = 7
+        Me.btnConsultar.Anchor = System.Windows.Forms.AnchorStyles.Left
+        Me.btnConsultar.Location = New System.Drawing.Point(798, 18)
+        Me.btnConsultar.Name = "btnConsultar"
+        Me.btnConsultar.Size = New System.Drawing.Size(75, 23)
+        Me.btnConsultar.TabIndex = 5
+        Me.btnConsultar.Text = "Consultar"
+        Me.btnConsultar.UseVisualStyleBackColor = True
         '
-        'barProgreso
+        'btnLimpiar
         '
-        Me.tlpPrincipal.SetColumnSpan(Me.barProgreso, 7)
-        Me.barProgreso.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.barProgreso.Location = New System.Drawing.Point(18, 425)
-        Me.barProgreso.Name = "barProgreso"
-        Me.barProgreso.Size = New System.Drawing.Size(936, 23)
-        Me.barProgreso.TabIndex = 8
+        Me.btnLimpiar.Location = New System.Drawing.Point(717, 18)
+        Me.btnLimpiar.Name = "btnLimpiar"
+        Me.btnLimpiar.Size = New System.Drawing.Size(75, 23)
+        Me.btnLimpiar.TabIndex = 13
+        Me.btnLimpiar.Text = "Limpiar"
+        Me.btnLimpiar.UseVisualStyleBackColor = True
         '
-        'dgvResultado_Detalle
+        'cboTrabajador
         '
-        Me.dgvResultado_Detalle.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.tlpPrincipal.SetColumnSpan(Me.dgvResultado_Detalle, 7)
-        Me.dgvResultado_Detalle.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.dgvResultado_Detalle.Location = New System.Drawing.Point(18, 236)
-        Me.dgvResultado_Detalle.Name = "dgvResultado_Detalle"
-        Me.dgvResultado_Detalle.Size = New System.Drawing.Size(936, 183)
-        Me.dgvResultado_Detalle.TabIndex = 9
+        Me.cboTrabajador.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.cboTrabajador.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.cboTrabajador.FormattingEnabled = True
+        Me.cboTrabajador.Location = New System.Drawing.Point(387, 18)
+        Me.cboTrabajador.Name = "cboTrabajador"
+        Me.cboTrabajador.Size = New System.Drawing.Size(324, 21)
+        Me.cboTrabajador.TabIndex = 14
         '
         'frmSupervision_Reportes_ContrasteAsistencias
         '
@@ -194,10 +233,13 @@ Partial Class frmSupervision_Reportes_ContrasteAsistencias
     Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents lblDin_Resultado As System.Windows.Forms.Label
     Friend WithEvents dtpDesde As System.Windows.Forms.DateTimePicker
-    Friend WithEvents dtpHasta As System.Windows.Forms.DateTimePicker
     Friend WithEvents btnConsultar As System.Windows.Forms.Button
     Friend WithEvents btnExportar As System.Windows.Forms.Button
     Friend WithEvents dgvResultado_Resumen As System.Windows.Forms.DataGridView
     Friend WithEvents barProgreso As System.Windows.Forms.ProgressBar
     Friend WithEvents dgvResultado_Detalle As System.Windows.Forms.DataGridView
+    Friend WithEvents dtpHasta As DateTimePicker
+    Friend WithEvents Label4 As Label
+    Friend WithEvents btnLimpiar As Button
+    Friend WithEvents cboTrabajador As ComboBox
 End Class

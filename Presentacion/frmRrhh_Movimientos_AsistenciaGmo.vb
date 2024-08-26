@@ -278,8 +278,6 @@ Public Class frmRrhh_Movimientos_AsistenciaGmo
 
     Private Async Sub btnRegistrarAsistencia_Click(sender As Object, e As EventArgs) Handles btnRegistrarAsistencia.Click
         Try
-
-
             If idTareoConsolidado.Length > 0 And idTgTareo = "" Then
 
                 'Cambiar a funcion nueva
@@ -292,8 +290,6 @@ Public Class frmRrhh_Movimientos_AsistenciaGmo
                     MessageBox.Show("No se pueden crear tareos para el dia seleccionado porque se encuentra cerrado para Nisira en la fecha: " + dgvT2.Rows(1).Cells(1).Value)
                     Exit Sub
                 End If
-
-
 
                 Dim r As DialogResult
                 r = MessageBox.Show("¿Seguro que desea registrar en Nisira el tareo consolidado: " & idTareoConsolidado & "?", "Registrar en Nisira", MessageBoxButtons.YesNo)

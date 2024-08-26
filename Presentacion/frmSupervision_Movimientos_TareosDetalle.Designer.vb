@@ -22,6 +22,7 @@ Partial Class frmSupervision_Movimientos_TareosDetalle
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Me.tlpPrincipal = New System.Windows.Forms.TableLayoutPanel()
         Me.gboFiltrar = New System.Windows.Forms.GroupBox()
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
@@ -92,6 +93,8 @@ Partial Class frmSupervision_Movimientos_TareosDetalle
         Me.dgvResultado = New System.Windows.Forms.DataGridView()
         Me.barProgreso = New System.Windows.Forms.ProgressBar()
         Me.lblDin_Resultado = New System.Windows.Forms.Label()
+        Me.tsMenudgvDetalles = New System.Windows.Forms.ContextMenuStrip(Me.components)
+        Me.tsMenuItemEditarDNI = New System.Windows.Forms.ToolStripMenuItem()
         Me.tlpPrincipal.SuspendLayout()
         Me.gboFiltrar.SuspendLayout()
         Me.TableLayoutPanel1.SuspendLayout()
@@ -100,6 +103,7 @@ Partial Class frmSupervision_Movimientos_TareosDetalle
         Me.TableLayoutPanel4.SuspendLayout()
         Me.TableLayoutPanel2.SuspendLayout()
         CType(Me.dgvResultado, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.tsMenudgvDetalles.SuspendLayout()
         Me.SuspendLayout()
         '
         'tlpPrincipal
@@ -1004,6 +1008,18 @@ Partial Class frmSupervision_Movimientos_TareosDetalle
         Me.lblDin_Resultado.TabIndex = 100
         Me.lblDin_Resultado.Text = "Label19"
         '
+        'tsMenudgvDetalles
+        '
+        Me.tsMenudgvDetalles.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.tsMenuItemEditarDNI})
+        Me.tsMenudgvDetalles.Name = "tsMenudgvDetalles"
+        Me.tsMenudgvDetalles.Size = New System.Drawing.Size(128, 26)
+        '
+        'tsMenuItemEditarDNI
+        '
+        Me.tsMenuItemEditarDNI.Name = "tsMenuItemEditarDNI"
+        Me.tsMenuItemEditarDNI.Size = New System.Drawing.Size(127, 22)
+        Me.tsMenuItemEditarDNI.Text = "Editar DNI"
+        '
         'frmSupervision_Movimientos_TareosDetalle
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -1027,6 +1043,7 @@ Partial Class frmSupervision_Movimientos_TareosDetalle
         Me.TableLayoutPanel2.ResumeLayout(False)
         Me.TableLayoutPanel2.PerformLayout()
         CType(Me.dgvResultado, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.tsMenudgvDetalles.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub
@@ -1100,4 +1117,6 @@ Partial Class frmSupervision_Movimientos_TareosDetalle
     Friend WithEvents cbxDistribucionAutomatica As System.Windows.Forms.CheckBox
     Friend WithEvents btnCancelar As System.Windows.Forms.Button
     Friend WithEvents btnAprobar As Button
+    Friend WithEvents tsMenudgvDetalles As ContextMenuStrip
+    Friend WithEvents tsMenuItemEditarDNI As ToolStripMenuItem
 End Class

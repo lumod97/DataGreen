@@ -79,9 +79,6 @@
     <Reference Include="Microsoft.ReportViewer.ProcessingObjectModel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1576.0\lib\net40\Microsoft.ReportViewer.ProcessingObjectModel.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.ReportViewer.WebForms, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
-      <Private>True</Private>
-    </Reference>
     <Reference Include="Microsoft.ReportViewer.WinForms, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1576.0\lib\net40\Microsoft.ReportViewer.WinForms.dll</HintPath>
     </Reference>
@@ -203,6 +200,12 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="dlgBuscarPersona.Designer.vb">
+      <DependentUpon>dlgBuscarPersona.vb</DependentUpon>
+    </Compile>
+    <Compile Include="dlgBuscarPersona.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="frmRrhh_Reportes_CheckListCalculoPlanilla.Designer.vb">
       <DependentUpon>frmRrhh_Reportes_CheckListCalculoPlanilla.vb</DependentUpon>
     </Compile>
@@ -1041,6 +1044,12 @@
     <Compile Include="frmSupervision_Movimientos_TareosDetalle.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="frmSupervision_Movimientos_TareosDetalle_DialogEditarDNI.Designer.vb">
+      <DependentUpon>frmSupervision_Movimientos_TareosDetalle_DialogEditarDNI.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmSupervision_Movimientos_TareosDetalle_DialogEditarDNI.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="frmSupervision_Reportes_ContrasteAsistencias.Designer.vb">
       <DependentUpon>frmSupervision_Reportes_ContrasteAsistencias.vb</DependentUpon>
     </Compile>
@@ -1112,6 +1121,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="dlgBuscarPersona.resx">
+      <DependentUpon>dlgBuscarPersona.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmRrhh_Reportes_CheckListCalculoPlanilla.resx">
       <DependentUpon>frmRrhh_Reportes_CheckListCalculoPlanilla.vb</DependentUpon>
     </EmbeddedResource>
@@ -1529,6 +1541,10 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmSupervision_Movimientos_TareosDetalle.resx">
       <DependentUpon>frmSupervision_Movimientos_TareosDetalle.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmSupervision_Movimientos_TareosDetalle_DialogEditarDNI.resx">
+      <DependentUpon>frmSupervision_Movimientos_TareosDetalle_DialogEditarDNI.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmSupervision_Reportes_ContrasteAsistencias.resx">
       <DependentUpon>frmSupervision_Reportes_ContrasteAsistencias.vb</DependentUpon>
