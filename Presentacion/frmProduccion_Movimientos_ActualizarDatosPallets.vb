@@ -571,4 +571,5 @@ Public Class frmProduccion_Movimientos_ActualizarDatosPallets
             txtNro.Enabled = False
         End If
     End Sub
+
 End Class
