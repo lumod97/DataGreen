@@ -941,28 +941,28 @@ Public Class frmSupervision_Movimientos_TareosDetalle
     End Function
 
     Private Sub btnGuardar_Click(sender As Object, e As EventArgs) Handles btnGuardar.Click
-            Try
+        Try
 
 
             ' listarDetalle()
             'AGREGADO
             barProgreso.Value = 0
-                barProgreso.Maximum = dgvResultado.RowCount
-                barProgreso.Style = ProgressBarStyle.Continuous
-                'FIN AGREGADO
+            barProgreso.Maximum = dgvResultado.RowCount
+            barProgreso.Style = ProgressBarStyle.Continuous
+            'FIN AGREGADO
 
-                'Dim j As Integer = 1
-                'For Each fila As DataRow In tablaParaDgvResultado.Rows
-                '    fila.Item("Item") = j
-                '    j += 1
-                'Next
+            'Dim j As Integer = 1
+            'For Each fila As DataRow In tablaParaDgvResultado.Rows
+            '    fila.Item("Item") = j
+            '    j += 1
+            'Next
 
-                tareoActual.Detalle = New List(Of DetalleTareo)
-                For Each fila As DataRow In tablaParaDgvResultado.Rows
-                    detalleTareoActual = obtenerDetalleDesdeFila(fila)
-                    tareoActual.AgregarDetalle(detalleTareoActual)
-                Next
-                If tareoActual.ContarTareos > 0 Then
+            tareoActual.Detalle = New List(Of DetalleTareo)
+            For Each fila As DataRow In tablaParaDgvResultado.Rows
+                detalleTareoActual = obtenerDetalleDesdeFila(fila)
+                tareoActual.AgregarDetalle(detalleTareoActual)
+            Next
+            If tareoActual.ContarTareos > 0 Then
                 ' Primero, elimina los detalles seleccionados
                 ' If eliminarDetalles() Then ESTE SI FUNCIONA PARA 1 ITEM
                 Dim cadenaItems As String = String.Join(",", dgvResultado.SelectedRows.Cast(Of DataGridViewRow)().Select(Function(row) row.Cells(1).Value.ToString()))
@@ -989,15 +989,15 @@ Public Class frmSupervision_Movimientos_TareosDetalle
                     End If
                 Else
                     MessageBox.Show("Error al eliminar los detalles.")
-                    End If
-                    'MessageBox.Show("total detalles:" + tareoActual.TotalDetalles.ToString)
-                Else
-                        MessageBox.Show("No se puede guardar un tareo vacio")
                 End If
-            Catch ex As Exception
-                MessageBox.Show(ex.Message)
-            End Try
-        End Sub
+                'MessageBox.Show("total detalles:" + tareoActual.TotalDetalles.ToString)
+            Else
+                MessageBox.Show("No se puede guardar un tareo vacio")
+            End If
+        Catch ex As Exception
+            MessageBox.Show(ex.Message)
+        End Try
+    End Sub
 
     'Private Sub btnEliminar_Click(sender As Object, e As EventArgs) Handles btnEliminar.Click
     '    Dim item As String = detalleTareoActual.Item
