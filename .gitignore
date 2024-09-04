@@ -1,3 +1,11 @@
 .vs
 /bin/
 /obj/
+/Datos/bin/Debug
+/Datos/obj/Debug
+/Entidades/bin/Debug
+/Entidades/obj/Debug
+/Logica/bin/Debug
+/Logica/obj/Debug
+/Presentacion/bin/Debug
+/Presentacion/obj/Debug
