@@ -144,6 +144,7 @@ Public Class frmSupervision_Movimientos_Tareos
         ''listarTareos()
     End Sub
 
+
     Private Sub dgvResultado_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvResultado.CellClick
         If e.RowIndex >= 0 AndAlso e.ColumnIndex >= 0 Then
             tareoActual.Id = dgvResultado.Rows(e.RowIndex).Cells("T_IdTareo").Value
@@ -333,13 +334,19 @@ Public Class frmSupervision_Movimientos_Tareos
 
     Private Sub abrirDetalleTareo(tareo As Tareo)
         Dim VenActual As New frmSupervision_Movimientos_TareosDetalle(tareo)
+
         'VenActual.Parent = Me
         'Me.Parent
         VenActual.MdiParent = Me.MdiParent
         'VenDetalle = New frmSupervision_Movimientos_TareosDetalle(tareoActual, dataSetParaControlesDetalle)
         'VenDetalle.MdiParent = Me.MdiParent
         VenActual.Show()
+        AddHandler VenActual.FormClosed, AddressOf VenActual_FormClosed
+    End Sub
 
+    Private Sub VenActual_FormClosed(sender As Object, e As FormClosedEventArgs)
+        listarTareos()
+        'MessageBox.Show("fino")
     End Sub
     Private Sub determinarModoTrabajo()
         If probarConexionDG() Then

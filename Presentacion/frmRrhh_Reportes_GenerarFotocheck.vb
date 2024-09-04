@@ -300,7 +300,7 @@ Public Class frmRrhh_Reportes_GenerarFotocheck
             If tipoImpresionIndex >= 0 Then 'Validacion de que se haya seleccionado al menos un tipo de impresion en el ComboBox
                 Dim tipoImpresion As String = tipoImpresionIndex.ToString()
                 If generarFotoCheckExitoso Then 'Validacion ee la variable global para ver si la generación del Fotocheck fue exitosa antes de imprimir
-                    fotochechkPrinter.PrintFotoCheck(rutaImagenes, tipoImpresion) 'Llamado a la clase FotoCheckPrinter() que se envia como parametros la ruta de imagenes descomprimidas y el tipo de impresion del comboBox
+                    fotochechkPrinter.PrintFotoCheckAsync(rutaImagenes, tipoImpresion) 'Llamado a la clase FotoCheckPrinter() que se envia como parametros la ruta de imagenes descomprimidas y el tipo de impresion del comboBox
                 Else
                     MessageBox.Show("Debe generar el FotoCheck correctamente antes de imprimir.")
                 End If

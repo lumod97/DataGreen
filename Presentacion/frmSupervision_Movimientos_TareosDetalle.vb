@@ -13,6 +13,8 @@ Public Class frmSupervision_Movimientos_TareosDetalle
     Dim detalleTareoActual As DetalleTareo
     'Dim detalleTareoActual As New Dictionary(Of String, String)
     Dim dataParaControles As New Dictionary(Of String, DataTable)
+    Dim itemEliminar As Integer
+    Dim valorItem As String = String.Empty
     Dim dscontroles As DataSet
     Dim tablaParaDgvResultado As New DataTable
     Dim tablaPersonalJustificado As New DataTable
@@ -318,6 +320,7 @@ Public Class frmSupervision_Movimientos_TareosDetalle
         gboDetalle.Enabled = False
         bloquearControl(btnActualizar)
         bloquearControl(btnAgregar)
+
     End Sub
 
     Private Sub btnEditar_Click(sender As Object, e As EventArgs) Handles btnEditar.Click
@@ -614,7 +617,7 @@ Public Class frmSupervision_Movimientos_TareosDetalle
 
     Private Sub txtHoras_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtHoras.KeyPress
         'If e.KeyChar = vbTab Then
-        '    txtRendimiento.Focus()
+        '    txtRendimiento.Focus() 
         'End If
         If Not Char.IsNumber(e.KeyChar) AndAlso Not Char.IsControl(e.KeyChar) AndAlso Not e.KeyChar = "." Then
             e.Handled = True
@@ -639,7 +642,6 @@ Public Class frmSupervision_Movimientos_TareosDetalle
             bloquearControl(btnGuardar)
             bloquearControl(btnAgregar)
             bloquearControl(txtDni)
-
             'MsgBox("aaaa")
 
         End If
@@ -728,7 +730,6 @@ Public Class frmSupervision_Movimientos_TareosDetalle
 
         'dataParaDgvResultado.Rows.Add(fila)
         'dgvResultado.Rows.Add(fila)
-
 
     End Sub
 
@@ -846,59 +847,157 @@ Public Class frmSupervision_Movimientos_TareosDetalle
         '    End Try
 
         'End If
-
-
-
-
-
     End Sub
+
+    ''Nuevo procedimiento para eliminar
+    'Private Function eliminarDetalles() As Boolean 'Funcion que eliminaba 1 item seleccionado
+
+    '    Dim p As New Dictionary(Of String, Object)
+
+
+    '    ' Asegúrate de que se haya seleccionado una fila
+    '    'If dgvResultado.SelectedRows.Count = 0 Then
+    '    '    MessageBox.Show("No se ha seleccionado ningún ítem para eliminar.")
+    '    '    Return False
+    '    'End If
+
+    '    ' Verifica que tareoActual.Id tenga un valor válido
+    '    If String.IsNullOrEmpty(tareoActual.Id) Then
+    '        MessageBox.Show("ID de tareo no válido.")
+    '        Return False
+    '    End If
+
+    '    ' Agrega los parámetros al diccionario 
+    '    p.Add("@IdTareo", tareoActual.Id)
+
+    '    p.Add("@valorItem", valorItem)
+    '    ' MessageBox.Show(valorItem)
+    '    Try
+    '        ' Llama al procedimiento almacenado
+    '        doItBaby("sp_Dg_Supervision_Movimientos_Tareos_EliminarDetalle", p, Datos.Conexion.TipoQuery.Scalar)
+    '        Return True
+    '    Catch ex As Exception
+    '        ' Muestra el mensaje de error
+    '        MessageBox.Show("Error al eliminar detalles: " & ex.Message)
+    '        Return False
+    '    End Try
+    'End Function
+
+    Private Function eliminarDetallesV2(cadenaItems As String) As Boolean 'Funcion para eliminar una lista de items seleccionados
+        Dim p As New Dictionary(Of String, Object)
+        p.Add("@IdTareo", tareoActual.Id)
+        p.Add("@valorItem", cadenaItems)
+
+        Try
+            ' Llamar al procedimiento almacenado
+            doItBaby("sp_Dg_Supervision_Movimientos_Tareos_EliminarDetalle", p, Datos.Conexion.TipoQuery.Scalar)
+            Return True
+        Catch ex As Exception
+            ' Mostrar el mensaje de error
+            MessageBox.Show("Error al eliminar detalles: " & ex.Message)
+            Return False
+        End Try
+    End Function
+
+    'Nueva función para guardar el detalle
+    Private Function guardarDetalles() As Boolean
+
+        Dim p As New Dictionary(Of String, Object)
+        Dim cadena As String = String.Empty
+        Dim formato As String = "yyyy-MM-dd HH:mm:ss.fff"
+
+        ' Construye la cadena de parámetros para cada detalle
+        For Each d As DetalleTareo In tareoActual.Detalle
+            cadena = cadena + d.Id + ","
+            cadena = cadena + d.Item.ToString + ","
+            cadena = cadena + d.Dni + ","
+            cadena = cadena + d.Planilla + ","
+            cadena = cadena + d.Consumidor + ","
+            cadena = cadena + d.Campana + ","
+            cadena = cadena + "," ' d.Cultivo + ","
+            cadena = cadena + "," ' d.Variedad + ","
+            cadena = cadena + d.IdActividad + ","
+            cadena = cadena + d.IdLabor + ","
+            cadena = cadena + Now.ToString(formato) + "," ' d.Inicio.ToString(formato) + ","
+            cadena = cadena + Now.ToString(formato) + "," ' d.Fin.ToString(formato) + ","
+            cadena = cadena + d.SubTotalHoras.ToString + ","
+            cadena = cadena + d.SubTotalRendimiento.ToString + ","
+            cadena = cadena + d.Observacion
+
+            p("@CadenaParametros") = cadena
+
+            Try
+                ' Llama al procedimiento almacenado para guardar los detalles
+                doItBaby("sp_Dg_Supervision_Movimientos_Tareos_InsertarDetalle", p, Datos.Conexion.TipoQuery.Scalar)
+            Catch ex As Exception
+                MessageBox.Show("Error al guardar detalles: " & ex.Message)
+                Return False
+            End Try
+
+            cadena = String.Empty
+        Next
+
+        Return True
+    End Function
 
     Private Sub btnGuardar_Click(sender As Object, e As EventArgs) Handles btnGuardar.Click
-        Try
+            Try
 
 
+            ' listarDetalle()
             'AGREGADO
             barProgreso.Value = 0
-            barProgreso.Maximum = dgvResultado.RowCount
-            barProgreso.Style = ProgressBarStyle.Continuous
-            'FIN AGREGADO
+                barProgreso.Maximum = dgvResultado.RowCount
+                barProgreso.Style = ProgressBarStyle.Continuous
+                'FIN AGREGADO
 
-            Dim j As Integer = 1
-            For Each fila As DataRow In tablaParaDgvResultado.Rows
-                fila.Item("Item") = j
-                j += 1
-            Next
+                'Dim j As Integer = 1
+                'For Each fila As DataRow In tablaParaDgvResultado.Rows
+                '    fila.Item("Item") = j
+                '    j += 1
+                'Next
 
-            tareoActual.Detalle = New List(Of DetalleTareo)
-            For Each fila As DataRow In tablaParaDgvResultado.Rows
-                detalleTareoActual = obtenerDetalleDesdeFila(fila)
-                tareoActual.AgregarDetalle(detalleTareoActual)
-            Next
-            If tareoActual.ContarTareos > 0 Then
-                'tareoActual.GuardarDetalle()
-                If guardarDetalle() Then
-                    listarDetalle()
-                    resaltarObservaciones()
-                    desbloquearControl(btnEditar)
-                    bloquearControl(btnGuardar)
-                    bloquearControl(btnPuntitos)
-                    bloquearControl(txtRutaExcel)
-                    bloquearControl(btnImportar)
-                    bloquearControl(btnEliminar)
-                    ''bloquearControl(gboDetalle)
-                    gboDetalle.Enabled = False
-                    bloquearControl(btnAgregar)
-                    lblDin_Resultado.Text = "Registros: " + tablaParaDgvResultado.Rows.Count.ToString
-                    MessageBox.Show("Detalle guardado correctamente.")
+                tareoActual.Detalle = New List(Of DetalleTareo)
+                For Each fila As DataRow In tablaParaDgvResultado.Rows
+                    detalleTareoActual = obtenerDetalleDesdeFila(fila)
+                    tareoActual.AgregarDetalle(detalleTareoActual)
+                Next
+                If tareoActual.ContarTareos > 0 Then
+                ' Primero, elimina los detalles seleccionados
+                ' If eliminarDetalles() Then ESTE SI FUNCIONA PARA 1 ITEM
+                Dim cadenaItems As String = String.Join(",", dgvResultado.SelectedRows.Cast(Of DataGridViewRow)().Select(Function(row) row.Cells(1).Value.ToString()))
+
+                ' Eliminar los detalles seleccionados
+                If eliminarDetallesV2(cadenaItems) Then 'funcion para eliminar una lista de items seleccionados
+                    'tareoActual.GuardarDetalle()
+                    If guardarDetalles() Then 'La funcion anterior es GuardarDetalle()
+                        listarDetalle()
+                        resaltarObservaciones()
+                        desbloquearControl(btnEditar)
+                        bloquearControl(btnGuardar)
+                        bloquearControl(btnPuntitos)
+                        bloquearControl(txtRutaExcel)
+                        bloquearControl(btnImportar)
+                        bloquearControl(btnEliminar)
+                        ''bloquearControl(gboDetalle)
+                        gboDetalle.Enabled = False
+                        bloquearControl(btnAgregar)
+                        lblDin_Resultado.Text = "Registros: " + tablaParaDgvResultado.Rows.Count.ToString
+                        MessageBox.Show("Detalle guardado correctamente.")
+                    Else
+                        MessageBox.Show("Error al guardar los detalles.")
+                    End If
+                Else
+                    MessageBox.Show("Error al eliminar los detalles.")
+                    End If
+                    'MessageBox.Show("total detalles:" + tareoActual.TotalDetalles.ToString)
+                Else
+                        MessageBox.Show("No se puede guardar un tareo vacio")
                 End If
-                'MessageBox.Show("total detalles:" + tareoActual.TotalDetalles.ToString)
-            Else
-                MessageBox.Show("No se puede guardar un tareo vacio")
-            End If
-        Catch ex As Exception
-            MessageBox.Show(ex.Message)
-        End Try
-    End Sub
+            Catch ex As Exception
+                MessageBox.Show(ex.Message)
+            End Try
+        End Sub
 
     'Private Sub btnEliminar_Click(sender As Object, e As EventArgs) Handles btnEliminar.Click
     '    Dim item As String = detalleTareoActual.Item
@@ -934,108 +1033,156 @@ Public Class frmSupervision_Movimientos_TareosDetalle
     '    End If
     'End Sub
 
-    Private Sub btnEliminar_Click(sender As Object, e As EventArgs) Handles btnEliminar.Click
-        'If Not cbxSeleccionMultiple.Checked Then
-        Dim item As String = detalleTareoActual.Item
-        If item > 0 Then
+    'Codigo original del btnEliminar_Click
+    'Private Sub btnEliminar_Click(sender As Object, e As EventArgs) Handles btnEliminar.Click
+    '    'If Not cbxSeleccionMultiple.Checked Then
+    '    Dim item As String = detalleTareoActual.Item
+    '    If item > 0 Then
+    '        bloquearFilas(dgvResultado)
+    '        Dim respuesta As DialogResult ' = 'MessageBox.Show("Esta seguro de eliminar el item: " + item, "Eliminar", MessageBoxButtons.YesNo)
+    '        'If cbxSeleccionMultiple.Checked Then
+    '        '    respuesta = MessageBox.Show("Esta seguro de eliminar el item los registros seleccionados? ", "Eliminar", MessageBoxButtons.YesNo)
+    '        'Else
+    '        '    respuesta = MessageBox.Show("Esta seguro de eliminar el item: " + item, "Eliminar", MessageBoxButtons.YesNo)
+    '        'End If
+
+    '        respuesta = MessageBox.Show("Esta seguro de eliminar el item los registros seleccionados? ", "Eliminar", MessageBoxButtons.YesNo)
+
+    '        If respuesta = Windows.Forms.DialogResult.Yes Then
+    '            bloquearFilas(dgvResultado)
+    '            For Each detalle As DataGridViewRow In dgvResultado.SelectedRows
+    '                'Dim item As String = detalle.Cells(1).Value 'detalleTareoActual.Item
+    '                'If item > 0 Then
+    '                '    For i As Integer = 0 To tablaParaDgvResultado.Rows.Count - 1 Step 1
+    '                '        If tablaParaDgvResultado.Rows(i).Item(1) = item Then
+    '                '            'tablaParaDgvResultado.Rows(i).Delete()
+    '                tablaParaDgvResultado.Rows.RemoveAt(detalle.Cells("Item").RowIndex)
+    '                'Exit For
+    '                '        End If
+    '            Next
+    '            'dataParaDgvResultado.Rows(dgvResultado.CurrentRow.Index).Delete()
+    '            Dim j As Integer = 0
+    '            For Each fila As DataRow In tablaParaDgvResultado.Rows
+    '                fila.Item("Item") = j + 1
+    '                'dataParaDgvResultado.Rows(j).Item(1) = j + 1
+    '                j += 1
+    '            Next
+    '            'Next
+
+    '            '--------------------------
+    '            '    For i As Integer = 0 To tablaParaDgvResultado.Rows.Count - 1 Step 1
+    '            '        If tablaParaDgvResultado.Rows(i).Item(1) = item Then
+    '            '            'tablaParaDgvResultado.Rows(i).Delete()
+    '            '            tablaParaDgvResultado.Rows.RemoveAt(i)
+    '            '            Exit For
+    '            '        End If
+    '            '    Next
+    '            '    'dataParaDgvResultado.Rows(dgvResultado.CurrentRow.Index).Delete()
+    '            '    Dim j As Integer = 0
+    '            '    For Each fila As DataRow In tablaParaDgvResultado.Rows
+    '            '        fila.Item(1) = j + 1
+    '            '        'dataParaDgvResultado.Rows(j).Item(1) = j + 1
+    '            '        j += 1
+    '            '    Next
+    '            '    MessageBox.Show("Item: " + item + " eliminado correctamente.")
+    '        End If
+    '        desbloquearFilas(dgvResultado)
+    '        bloquearControl(btnActualizar)
+    '        desbloquearControl(txtDni)
+    '        desbloquearControl(btnAgregar)
+    '        desbloquearControl(btnGuardar)
+    '        txtDni.Text = ""
+    '        txtDni.Focus()
+    '        lblDin_Resultado.Text = "Registros: " + tablaParaDgvResultado.Rows.Count.ToString
+    '    Else
+    '        MessageBox.Show("No ha seleccionado ningun detalle.")
+    '    End If
+    '    'Else
+    '    'Dim respuesta As DialogResult = MessageBox.Show("Esta seguro de eliminar los registros seleccionados", "Eliminar", MessageBoxButtons.YesNo)
+    '    'If respuesta = Windows.Forms.DialogResult.Yes Then
+    '    '    bloquearFilas(dgvResultado)
+    '    '    For Each detalle As DataGridViewRow In dgvResultado.SelectedRows
+    '    '        Dim item As String = detalle.Cells(1).Value 'detalleTareoActual.Item
+    '    '        If item > 0 Then
+    '    '            For i As Integer = 0 To tablaParaDgvResultado.Rows.Count - 1 Step 1
+    '    '                If tablaParaDgvResultado.Rows(i).Item(1) = item Then
+    '    '                    'tablaParaDgvResultado.Rows(i).Delete()
+    '    '                    tablaParaDgvResultado.Rows.RemoveAt(i)
+    '    '                    Exit For
+    '    '                End If
+    '    '            Next
+    '    '            'dataParaDgvResultado.Rows(dgvResultado.CurrentRow.Index).Delete()
+    '    '            Dim j As Integer = 0
+    '    '            For Each fila As DataRow In tablaParaDgvResultado.Rows
+    '    '                fila.Item(1) = j + 1
+    '    '                'dataParaDgvResultado.Rows(j).Item(1) = j + 1
+    '    '                j += 1
+    '    '            Next
+
+    '    '        Else
+    '    '            MessageBox.Show("No ha seleccionado ningun detalle.")
+    '    '        End If
+    '    '    Next
+    '    '    desbloquearFilas(dgvResultado)
+    '    '    bloquearControl(btnActualizar)
+    '    '    desbloquearControl(txtDni)
+    '    '    desbloquearControl(btnAgregar)
+    '    '    desbloquearControl(btnGuardar)
+    '    '    txtDni.Text = ""
+    '    '    txtDni.Focus()
+    '    '    lblDin_Resultado.Text = "Registros: " + tablaParaDgvResultado.Rows.Count.ToString
+    '    '    MessageBox.Show("Detalles eliminados correctamente.")
+    '    'End If
+    '    'End If
+
+    'End Sub
+    Private Sub btnEliminar_Click(sender As Object, e As EventArgs) Handles btnEliminar.Click ' funcion modificada del boton eliminar_click
+        ' Verificar que se haya seleccionado al menos una fila
+        If dgvResultado.SelectedRows.Count = 0 Then
+            MessageBox.Show("No se ha seleccionado ningún ítem para eliminar.")
+            Return
+        End If
+
+        ' Verificar que tareoActual.Id tenga un valor válido
+        If String.IsNullOrEmpty(tareoActual.Id) Then
+            MessageBox.Show("ID de tareo no válido.")
+            Return
+        End If
+
+        ' Construir la cadena de ítems separados por comas
+        Dim cadenaItems As String = String.Join(",", dgvResultado.SelectedRows.Cast(Of DataGridViewRow)().Select(Function(row) row.Cells(1).Value.ToString()))
+
+        ' Confirmar eliminación
+        Dim respuesta As DialogResult = MessageBox.Show("¿Está seguro de eliminar los registros seleccionados?", "Eliminar", MessageBoxButtons.YesNo)
+        If respuesta = Windows.Forms.DialogResult.Yes Then
+            ' Bloquear filas para evitar cambios mientras se eliminan
             bloquearFilas(dgvResultado)
-            Dim respuesta As DialogResult ' = 'MessageBox.Show("Esta seguro de eliminar el item: " + item, "Eliminar", MessageBoxButtons.YesNo)
-            'If cbxSeleccionMultiple.Checked Then
-            '    respuesta = MessageBox.Show("Esta seguro de eliminar el item los registros seleccionados? ", "Eliminar", MessageBoxButtons.YesNo)
-            'Else
-            '    respuesta = MessageBox.Show("Esta seguro de eliminar el item: " + item, "Eliminar", MessageBoxButtons.YesNo)
-            'End If
 
-            respuesta = MessageBox.Show("Esta seguro de eliminar el item los registros seleccionados? ", "Eliminar", MessageBoxButtons.YesNo)
-
-            If respuesta = Windows.Forms.DialogResult.Yes Then
-                bloquearFilas(dgvResultado)
-                For Each detalle As DataGridViewRow In dgvResultado.SelectedRows
-                    'Dim item As String = detalle.Cells(1).Value 'detalleTareoActual.Item
-                    'If item > 0 Then
-                    '    For i As Integer = 0 To tablaParaDgvResultado.Rows.Count - 1 Step 1
-                    '        If tablaParaDgvResultado.Rows(i).Item(1) = item Then
-                    '            'tablaParaDgvResultado.Rows(i).Delete()
-                    tablaParaDgvResultado.Rows.RemoveAt(detalle.Cells("Item").RowIndex)
-                    'Exit For
-                    '        End If
+            ' Llamar a la función para eliminar detalles
+            If eliminarDetallesV2(cadenaItems) Then
+                ' Si la eliminación es exitosa, eliminar las filas del DataGridView
+                For Each detalle As DataGridViewRow In dgvResultado.SelectedRows.Cast(Of DataGridViewRow)().ToList()
+                    tablaParaDgvResultado.Rows.RemoveAt(detalle.Index)
                 Next
-                'dataParaDgvResultado.Rows(dgvResultado.CurrentRow.Index).Delete()
-                Dim j As Integer = 0
-                For Each fila As DataRow In tablaParaDgvResultado.Rows
-                    fila.Item("Item") = j + 1
-                    'dataParaDgvResultado.Rows(j).Item(1) = j + 1
-                    j += 1
-                Next
-                'Next
 
-                '--------------------------
-                '    For i As Integer = 0 To tablaParaDgvResultado.Rows.Count - 1 Step 1
-                '        If tablaParaDgvResultado.Rows(i).Item(1) = item Then
-                '            'tablaParaDgvResultado.Rows(i).Delete()
-                '            tablaParaDgvResultado.Rows.RemoveAt(i)
-                '            Exit For
-                '        End If
-                '    Next
-                '    'dataParaDgvResultado.Rows(dgvResultado.CurrentRow.Index).Delete()
-                '    Dim j As Integer = 0
-                '    For Each fila As DataRow In tablaParaDgvResultado.Rows
-                '        fila.Item(1) = j + 1
-                '        'dataParaDgvResultado.Rows(j).Item(1) = j + 1
-                '        j += 1
-                '    Next
-                '    MessageBox.Show("Item: " + item + " eliminado correctamente.")
+                ' Actualizar la interfaz
+                lblDin_Resultado.Text = "Registros: " + tablaParaDgvResultado.Rows.Count.ToString()
+            Else
+                MessageBox.Show("Error al eliminar los detalles.")
             End If
+
+            ' Restablecer controles
             desbloquearFilas(dgvResultado)
             bloquearControl(btnActualizar)
             desbloquearControl(txtDni)
             desbloquearControl(btnAgregar)
             desbloquearControl(btnGuardar)
+
             txtDni.Text = ""
             txtDni.Focus()
-            lblDin_Resultado.Text = "Registros: " + tablaParaDgvResultado.Rows.Count.ToString
-        Else
-            MessageBox.Show("No ha seleccionado ningun detalle.")
         End If
-        'Else
-        'Dim respuesta As DialogResult = MessageBox.Show("Esta seguro de eliminar los registros seleccionados", "Eliminar", MessageBoxButtons.YesNo)
-        'If respuesta = Windows.Forms.DialogResult.Yes Then
-        '    bloquearFilas(dgvResultado)
-        '    For Each detalle As DataGridViewRow In dgvResultado.SelectedRows
-        '        Dim item As String = detalle.Cells(1).Value 'detalleTareoActual.Item
-        '        If item > 0 Then
-        '            For i As Integer = 0 To tablaParaDgvResultado.Rows.Count - 1 Step 1
-        '                If tablaParaDgvResultado.Rows(i).Item(1) = item Then
-        '                    'tablaParaDgvResultado.Rows(i).Delete()
-        '                    tablaParaDgvResultado.Rows.RemoveAt(i)
-        '                    Exit For
-        '                End If
-        '            Next
-        '            'dataParaDgvResultado.Rows(dgvResultado.CurrentRow.Index).Delete()
-        '            Dim j As Integer = 0
-        '            For Each fila As DataRow In tablaParaDgvResultado.Rows
-        '                fila.Item(1) = j + 1
-        '                'dataParaDgvResultado.Rows(j).Item(1) = j + 1
-        '                j += 1
-        '            Next
-
-        '        Else
-        '            MessageBox.Show("No ha seleccionado ningun detalle.")
-        '        End If
-        '    Next
-        '    desbloquearFilas(dgvResultado)
-        '    bloquearControl(btnActualizar)
-        '    desbloquearControl(txtDni)
-        '    desbloquearControl(btnAgregar)
-        '    desbloquearControl(btnGuardar)
-        '    txtDni.Text = ""
-        '    txtDni.Focus()
-        '    lblDin_Resultado.Text = "Registros: " + tablaParaDgvResultado.Rows.Count.ToString
-        '    MessageBox.Show("Detalles eliminados correctamente.")
-        'End If
-        'End If
-
     End Sub
+
     Private Function obtenerDetalleDesdeFila(fila As DataRow) As DetalleTareo
         'fila.Item("T_IdTareo") = detalleTareoActual.Id
         'fila.Item("Item") = dgvResultado.Rows.Count + 1
@@ -1092,8 +1239,13 @@ Public Class frmSupervision_Movimientos_TareosDetalle
     Private Function guardarDetalle() As Boolean
         'If Microsoft.VisualBasic.Left(tareoActual.Id, 3) <> "000" Then
         Dim p As New Dictionary(Of String, Object)
-        p.Add("@Id", tareoActual.Id)
-        doItBaby("sp_Dg_Supervision_Movimientos_Tareos_EliminarDetalle", p, Datos.Conexion.TipoQuery.Scalar)
+        Dim item As String = dgvResultado.Rows(filaSeleccionada).Cells(1).Value
+        Dim itemsParaEliminar As New List(Of String)()
+
+        p.Add("@IdTareo", tareoActual.Id)
+        p.Add("@Item", valorItem)
+        'doItBaby("sp_Dg_Supervision_Movimientos_Tareos_EliminarDetalle", p, Datos.Conexion.TipoQuery.Scalar)
+
         Dim cadena As String = String.Empty
         'Dim p As New Dictionary(Of String, Object)
         '00000000002L,4,80370233,EMA,611,S/C,0002,043,U01,002,2020-08-19 00:08:00.000,2020-08-19 00:00:00.000,12,83'
