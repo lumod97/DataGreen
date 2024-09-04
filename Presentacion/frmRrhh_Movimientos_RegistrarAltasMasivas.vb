@@ -38,7 +38,7 @@ Public Class frmRrhh_Movimientos_RegistrarAltasMasivas
     End Sub
 
     Private Sub obtenerMetaDatos()
-        dsMetaDatos = doItBaby("sp_Dg_Rrhh_Movimientos_AltasMasivas_ObtenerMetaDatos", Nothing, TipoQuery.DataSet)
+        dsMetaDatos = doItBaby("DataGreenTest..sp_Dg_Rrhh_Movimientos_AltasMasivas_ObtenerMetaDatos", Nothing, TipoQuery.DataSet)
     End Sub
 
     Private Sub btnConsultar_Click(sender As Object, e As EventArgs) Handles btnConsultar.Click

@@ -361,6 +361,7 @@ Public Class frmPacking_Movimientos_GenerarCodigosPacking
             MessageBox.Show(ex.Message)
         End Try
     End Sub
+
     Private Function descifradoSanJuan2024(cadenaADescifrar As String) As String
         'PASO 0: CREACION DE VARIABLES
         Dim maximoIndiceCadena As Integer
@@ -506,6 +507,10 @@ Public Class frmPacking_Movimientos_GenerarCodigosPacking
     End Sub
 
     Private Sub dgvPersonas_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvPersonas.CellContentClick
+
+    End Sub
+
+    Private Sub txtFiltro_TextChanged(sender As Object, e As EventArgs) Handles txtFiltro.TextChanged
 
     End Sub
 End Class
