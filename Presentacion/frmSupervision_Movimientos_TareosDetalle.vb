@@ -1821,7 +1821,15 @@ Public Class frmSupervision_Movimientos_TareosDetalle
             Exit Sub
         End If
 
-        If usuarioActual <> "JMERA" And usuarioActual <> "JSIESQUEN" And usuarioActual <> "JCRUZ" Then
+
+        Dim usuariosPermitidos As DataTable = doItBaby("obtenerUsuariosConPermisosTareos", Nothing, TipoQuery.DataTable)
+        Dim filasUsuariosPermitidos() As DataRow = usuariosPermitidos.Select("ALLOW_UPDATE =" & 1)
+
+        Dim supervisorTareador As DataTable = doItBaby("obtenerRelacionSupervisorTareadorAprobar", Nothing, TipoQuery.DataTable)
+        'Dim filassupervisorTareador() As DataRow = supervisorTareador.Select("IDUSUARIO_TAREADOR = '" & tareoActual.IdResponsable & "' AND IDUSUARIO = '" & usuarioActual & "'")
+        Dim filassupervisorTareador() As DataRow = supervisorTareador.Select("IDUSUARIO = '" & usuarioActual & "'")
+        If tareoActual.IdResponsable <> usuarioActual AndAlso filassupervisorTareador.Length = 0 Then
+            'If usuarioActual <> "JMERA" And usuarioActual <> "JSIESQUEN" And usuarioActual <> "JCRUZ" Then
             MessageBox.Show("No tiene permisos para aprobar este registro")
         Else
             bloquearFilas(dgvResultado)
