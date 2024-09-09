@@ -19,6 +19,8 @@ Public Class frmSupervision_Movimientos_TareosDetalle
     Dim tablaParaDgvResultado As New DataTable
     Dim tablaPersonalJustificado As New DataTable
 
+    Dim changeCultivo As Boolean = False
+    Dim changeVariedad As Boolean = False
     Dim changeActividad As Boolean = False
     Dim changeLabor As Boolean = False
     Dim changeConsumidor As Boolean = False
@@ -767,6 +769,8 @@ Public Class frmSupervision_Movimientos_TareosDetalle
                 detalleTareoActual = obtenerDetalleDesdeFila(fila)
                 'Actualizar campos para editar
 
+                If (changeCultivo) Then detalleTareoActual.IdCultivo = cboCultivo.SelectedValue
+                If (changeVariedad) Then detalleTareoActual.IdVariedad = cboVariedad.SelectedValue
                 If (changeActividad) Then detalleTareoActual.IdActividad = cboActividad.SelectedValue
                 If (changeLabor) Then detalleTareoActual.IdLabor = cboLabor.SelectedValue
                 If (changeConsumidor) Then detalleTareoActual.Consumidor = cboConsumidor.SelectedValue
@@ -794,6 +798,8 @@ Public Class frmSupervision_Movimientos_TareosDetalle
                     gboDetalle.Enabled = False
                     bloquearControl(btnAgregar)
                     'volvems los flags a false
+                    changeCultivo = False
+                    changeVariedad = False
                     changeActividad = False
                     changeLabor = False
                     changeConsumidor = False
@@ -1368,6 +1374,7 @@ Public Class frmSupervision_Movimientos_TareosDetalle
     Private Sub cboCultivo_SelectionChangeCommitted(sender As Object, e As EventArgs) Handles cboCultivo.SelectionChangeCommitted
         'dataParaControles.Remove("Variedades")
         Dim p As New Dictionary(Of String, Object)
+        changeCultivo = True
         p.Add("@IdCultivo", cboCultivo.SelectedValue)
         'dataParaControles.Add("Variedades", doItBaby("sp_Dg_ObtenerVariedades", p, Datos.Conexion.TipoQuery.DataTable))
         cargarCombo(cboVariedad, doItBaby("sp_Dg_ObtenerVariedades", p, Datos.Conexion.TipoQuery.DataTable), 0, 2)
@@ -1858,6 +1865,7 @@ Public Class frmSupervision_Movimientos_TareosDetalle
 
         Dim p As New Dictionary(Of String, Object)
         p.Add("@IdVariedad", cboVariedad.SelectedValue)
+        changeVariedad = True
 
         'cargarCombo(cboVariedad, doItBaby("sp_Dg_ObtenerVariedades", p, Datos.Conexion.TipoQuery.DataTable), 0, 2)
     End Sub
