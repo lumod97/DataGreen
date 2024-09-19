@@ -38,7 +38,7 @@ Public Class frmRrhh_Movimientos_RegistrarAltasMasivas
     End Sub
 
     Private Sub obtenerMetaDatos()
-        dsMetaDatos = doItBaby("DataGreenTest..sp_Dg_Rrhh_Movimientos_AltasMasivas_ObtenerMetaDatos", Nothing, TipoQuery.DataSet)
+        dsMetaDatos = doItBaby("sp_Dg_Rrhh_Movimientos_AltasMasivas_ObtenerMetaDatos", Nothing, TipoQuery.DataSet)
     End Sub
 
     Private Sub btnConsultar_Click(sender As Object, e As EventArgs) Handles btnConsultar.Click
@@ -175,7 +175,7 @@ Public Class frmRrhh_Movimientos_RegistrarAltasMasivas
                     cadenaParametros = cadenaParametros & fila.Cells(i).Value & "█"
                 Next
                 p.Add("@Cadena", cadenaParametros)
-                resultadoQuery = doItBaby("sp_Dg_Rrhh_Movimientos_RegistrarAltasMasivas", p, TipoQuery.Scalar)
+                resultadoQuery = doItBaby("DATAGREENTEST..sp_Dg_Rrhh_Movimientos_RegistrarAltasMasivas", p, TipoQuery.Scalar)
                 CheckForIllegalCrossThreadCalls = False
                 barProgreso.Value += 1
                 barProgreso.Refresh()

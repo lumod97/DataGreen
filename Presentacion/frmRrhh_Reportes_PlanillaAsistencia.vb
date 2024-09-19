@@ -91,7 +91,7 @@ Public Class frmRrhh_Reportes_PlanillaAsistencia
             p.Add("@Hasta", dtpHasta.Value)
             p.Add("@HorasReales", cbxHorasReales.Checked)
             arrayDeParametros = obtenerCadenaParametros(p)
-            aux = Await Task.Run(Function() doItBaby("sp_Dg_Rrhh_Reportes_PlanillaAsistencia", p, TipoQuery.DataSet))
+            aux = Await Task.Run(Function() doItBaby(".", p, TipoQuery.DataSet))
             Return aux
         Catch ex As Exception
             MessageBox.Show(ex.Message)

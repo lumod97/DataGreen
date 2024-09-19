@@ -213,7 +213,7 @@ Partial Class frmRrhh_Reportes_CheckListCalculoPlanilla
         'btnConsultar
         '
         Me.btnConsultar.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnConsultar.Location = New System.Drawing.Point(1161, 18)
+        Me.btnConsultar.Location = New System.Drawing.Point(1144, 18)
         Me.btnConsultar.Name = "btnConsultar"
         Me.btnConsultar.Size = New System.Drawing.Size(75, 23)
         Me.btnConsultar.TabIndex = 13

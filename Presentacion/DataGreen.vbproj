@@ -206,6 +206,12 @@
     <Compile Include="dlgBuscarPersona.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="frmRrhh_Reportes_Reporte_CTA_CTE.Designer.vb">
+      <DependentUpon>frmRrhh_Reportes_Reporte_CTA_CTE.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmRrhh_Reportes_Reporte_CTA_CTE.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="frmRrhh_Reportes_CheckListCalculoPlanilla.Designer.vb">
       <DependentUpon>frmRrhh_Reportes_CheckListCalculoPlanilla.vb</DependentUpon>
     </Compile>
@@ -1481,6 +1487,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmRrhh_Reportes_CostoPersonal_DetalleHorasPersonaActividadConsumidor.resx">
       <DependentUpon>frmRrhh_Reportes_CostoPersonal_DetalleHorasPersonaActividadConsumidor.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmRrhh_Reportes_Reporte_CTA_CTE.resx">
+      <DependentUpon>frmRrhh_Reportes_Reporte_CTA_CTE.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmRrhh_Reportes_Faltas.resx">
       <DependentUpon>frmRrhh_Reportes_Faltas.vb</DependentUpon>

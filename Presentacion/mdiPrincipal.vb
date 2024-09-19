@@ -321,7 +321,7 @@ Public Class mdiPrincipal
         mnu2_2_30_ReporteMarcaciones.Enabled = modulosPermitidos.Item("mnu2_2_30_ReporteMarcaciones") '2024-04-12
         mnu2_2_31_ComparativaUltimosMovimientosPlanilla.Enabled = modulosPermitidos.Item("mnu2_2_31_ComparativaUltimosMovimientosPlanilla") '2024-07-11
         mnu2_2_32_CheckListCalculoPlanilla.Enabled = modulosPermitidos.Item("mnu2_2_32_CheckListCalculoPlanilla") '2024-07-16
-
+        mnu2_2_33_ReporteDelCtaCteDelPersonal.Enabled = modulosPermitidos.Item("mnu2_2_33_ReporteDelCtaCteDelPersonal") '2024-09-13
 
         mnu2_3_8_CalculoConceptosRemunerativos.Enabled = modulosPermitidos.Item("mnu2_3_8_CalculoConceptosRemunerativos") '2024-05-07 @Jota
 
@@ -1117,6 +1117,12 @@ Public Class mdiPrincipal
 
     Private Sub mnu2_2_32_CheckListCalculoPlanilla_Click(sender As Object, e As EventArgs) Handles mnu2_2_32_CheckListCalculoPlanilla.Click
         Dim VenActual As New frmRrhh_Reportes_CheckListCalculoPlanilla
+        VenActual.MdiParent = Me
+        VenActual.Show()
+    End Sub
+
+    Private Sub mnu2_2_33_ReporteDelCtaCteDelPersonal_Click(sender As Object, e As EventArgs) Handles mnu2_2_33_ReporteDelCtaCteDelPersonal.Click
+        Dim VenActual As New frmRrhh_Reportes_Reporte_CTA_CTE
         VenActual.MdiParent = Me
         VenActual.Show()
     End Sub
