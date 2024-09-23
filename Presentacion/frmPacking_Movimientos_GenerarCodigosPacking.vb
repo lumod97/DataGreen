@@ -166,15 +166,15 @@ Public Class frmPacking_Movimientos_GenerarCodigosPacking
                 'If disponible = "Si" Then
 
                 'If dgvResultado.SelectedRows.Count <= 0 And usuarioActual = "JMERA" Then
-                If filaRaiz Is Nothing And (usuarioActual = "JMERA" Or usuarioActual = "RENDIMIENTOS") Then
+                If filaRaiz Is Nothing Then 'And (usuarioActual = "JMERA" Or usuarioActual = "RENDIMIENTOS") Then
                     Dim r As DialogResult
                     r = MessageBox.Show("El trabajador no existe. Desea generar los codigos de todas formas?", "Atencion!", MessageBoxButtons.YesNo)
                     If r = Windows.Forms.DialogResult.No Then
                         Exit Sub
                     End If
-                ElseIf filaRaiz Is Nothing And usuarioActual <> "JMERA" Then
-                    MessageBox.Show("Usted no tiene permitido generar codigos a personal desconocido.")
-                    Exit Sub
+                    'ElseIf filaRaiz Is Nothing And usuarioActual <> "JMERA" Then
+                    '    MessageBox.Show("Usted no tiene permitido generar codigos a personal desconocido.")
+                    '    Exit Sub
                 End If
                 If cboLaborPacking.SelectedIndex < 0 Then
                     MessageBox.Show("Debede selecionar una labor valida")
@@ -292,7 +292,7 @@ Public Class frmPacking_Movimientos_GenerarCodigosPacking
         ElseIf e.KeyCode = Keys.Down And dgvPersonas.RowCount <= 0 Then
             txtFiltro.SelectAll()
         ElseIf e.KeyCode = Keys.Enter And dgvPersonas.RowCount <= 0 Then
-            agregarDniParaCodigo(txtFiltro.Text, Nothing)
+            agregarDniParaCodigo(IIf(txtFiltro.Text.Length = 10, descifradoSanJuan2024(txtFiltro.Text), txtFiltro.Text), Nothing)
             actualizarSumatorias()
             txtFiltro.Text = ""
             e.SuppressKeyPress = True
@@ -362,85 +362,6 @@ Public Class frmPacking_Movimientos_GenerarCodigosPacking
         End Try
     End Sub
 
-    Private Function descifradoSanJuan2024(cadenaADescifrar As String) As String
-        'PASO 0: CREACION DE VARIABLES
-        Dim maximoIndiceCadena As Integer
-        maximoIndiceCadena = cadenaADescifrar.Length - 3
-        Dim aCadena(maximoIndiceCadena) As Integer
-        Dim sumaA As Integer = 0, sumaB As Integer = 0
-        Dim claveA As Integer, claveB As Integer
-        Dim claveAEsPar As Boolean
-        Dim desplazamientoADerecha As Integer
-        Dim cadenaIzquierda As String, cadenaDerecha As String, cadenaFinal As String
-
-        'PASO 1: OBTENER CLAVES A, B Y LA CADENA SEPARADA
-        claveA = Integer.Parse(cadenaADescifrar(maximoIndiceCadena + 1))
-        claveB = Integer.Parse(cadenaADescifrar(maximoIndiceCadena + 2))
-        cadenaFinal = cadenaADescifrar.Substring(0, maximoIndiceCadena + 1)
-
-        'PASO 2: VALIDAR SUMA B
-        For Each c As Char In cadenaFinal.ToArray
-            sumaB += Integer.Parse(c)
-        Next
-        If claveB <> sumaB Mod 10 Then
-            Throw New Exception("Codigo no coincide con estructura San Juan.")
-        End If
-        'PASO 3: DESPLAZAR 
-        desplazamientoADerecha = maximoIndiceCadena - IIf(maximoIndiceCadena < claveA, claveA - maximoIndiceCadena, claveA)
-        cadenaIzquierda = String.Empty
-        cadenaDerecha = String.Empty
-        For i As Integer = 0 To maximoIndiceCadena Step 1
-            If i <= desplazamientoADerecha Then
-                cadenaIzquierda &= cadenaFinal(i).ToString
-            Else
-                cadenaDerecha &= cadenaFinal(i).ToString
-            End If
-        Next
-        cadenaFinal = cadenaDerecha & cadenaIzquierda
-        'PASO 4: INDIZAR CADENA EN ARRAY DE ENTEROS
-        For i As Integer = 0 To maximoIndiceCadena Step 1
-            aCadena(i) = Integer.Parse(cadenaFinal(i))
-        Next
-        'PASO 5: DETERMINAR SI LA CLAVE A ES PAR 
-        claveAEsPar = IIf(claveA Mod 2 <> 0, False, True)
-        'PASO 6: HALLAR EL COMPLEMENTO A DECENA DE CADA DIGITO Y REEMPLAZAR LOS DIGITOS ORIGINALES POR LOS COMPLEMENTOS
-        For i As Integer = 0 To maximoIndiceCadena Step 1
-            If aCadena(i) <> 0 Then
-                aCadena(i) = 10 - aCadena(i)
-            End If
-        Next
-
-        'PASO 7: OPERAR SOBRE LOS DIGITOS PARES SI LA CLAVE A ES PAR O VICEVERSA, LA OPERACION ES 
-        For i As Integer = 1 To maximoIndiceCadena Step 1
-            If claveAEsPar And i Mod 2 = 0 Then
-                If aCadena(i) < claveA Then
-                    aCadena(i) += 10
-                End If
-                aCadena(i) = aCadena(i) - claveA
-            ElseIf Not claveAEsPar And i Mod 2 <> 0 Then
-                If aCadena(i) < claveA Then
-                    aCadena(i) += 10
-                End If
-                aCadena(i) = aCadena(i) - claveA
-            End If
-        Next
-
-        'PASO 8: VALIDAR CLAVE A CON SUMA A
-        For Each c As Integer In aCadena
-            sumaA += c
-        Next
-
-        If claveA <> sumaA Mod 10 Then
-            Throw New Exception("Codigo no coincide con estructura San Juan.")
-        End If
-        'PASO 9: CONVERTIR RESULTADO A CADENA
-        cadenaFinal = String.Empty
-        For i As Integer = 0 To aCadena.Length - 1 Step 1
-            cadenaFinal &= aCadena(i)
-        Next
-
-        Return cadenaFinal
-    End Function
 
     Public Function buscarNombre(dni As String) As String
         For Each fila As DataRow In dtDataPersonas.Rows
@@ -510,7 +431,7 @@ Public Class frmPacking_Movimientos_GenerarCodigosPacking
 
     End Sub
 
-    Private Sub txtFiltro_TextChanged(sender As Object, e As EventArgs) Handles txtFiltro.TextChanged
+    'Private Sub txtFiltro_TextChanged(sender As Object, e As EventArgs) Handles txtFiltro.TextChanged
 
-    End Sub
+    'End Sub
 End Class

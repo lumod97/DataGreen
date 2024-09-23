@@ -11,64 +11,70 @@ Public Class frmSupervision_Movimientos_Tareos
     Dim dataSetParaControles As DataSet
     Dim dataSetParaControlesDetalle As DataSet
     Dim bsResultado As New BindingSource()
-    Dim filasSeleccionadas As Integer = 0
-    Dim onLine As Boolean = True
+    'Dim filasSeleccionadas As Integer = 0
+    'Dim onLine As Boolean = True
     Dim tablaTareos As DataTable
+    Dim dtPrivilegiosAccionesFormularios As DataTable
 
     Private Sub frmSupervision_Movimientos_Tareos_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         tlpPrincipal.Visible = False
         Me.WindowState = FormWindowState.Maximized
         aplicarTema(Me)
-        determinarModoTrabajo()
+        'determinarModoTrabajo()
         obtenerDataParaControles()
         pkrDesde.Value = Date.Now.AddDays(-Now.Day + 1)
         pkrHasta.Value = Date.Now.AddDays(-Now.Day + 1).AddMonths(1).AddDays(-1)
         'listarTareos()
-        llenarCombo(cboTurno, dataSetParaControles.Tables(0))
-        llenarCombo(cboResponsable, dataSetParaControles.Tables(1))
-        llenarCombo(cboEstado, dataSetParaControles.Tables(2))
+        'llenarCombo(cboTurno, dataSetParaControles.Tables(0))
+        cargarCombo(cboTurno, dataSetParaControles.Tables(0), 0, 2, True)
+        'llenarCombo(cboResponsable, dataSetParaControles.Tables(1))
+        cargarCombo(cboResponsable, dataSetParaControles.Tables(1), 0, 2, True)
+        'llenarCombo(cboEstado, dataSetParaControles.Tables(2))
+        cargarCombo(cboEstado, dataSetParaControles.Tables(2), 0, 2, True)
         bloquearControl(btnTransferir)
         bloquearControl(cboTurno)
         bloquearControl(pkrDia)
         bloquearControl(btnCancelar)
         bloquearControl(btnGuardar)
+        dtPrivilegiosAccionesFormularios = obtenerPrivilegiosAccionesFormularios(usuarioActual, "TAREOS")
         tlpPrincipal.Visible = True
         dgvResultado.ClearSelection()
         dgvResultado.CurrentCell = Nothing
 
     End Sub
 
-    Private Sub llenarCombo(ByRef comboBox As ComboBox, dataTable As DataTable, Optional condicion As String = "")
-        comboBox.DataSource = Nothing
-        Dim i As Integer = 0
-        If dataTable.Columns.Count = 3 Then
-            comboBox.DataSource = dataTable
-            comboBox.ValueMember = "Clave"
-            If dataTable.Rows.Count < 10 Then
-                comboBox.DisplayMember = "Valor"
-            Else
-                comboBox.DisplayMember = "Concatenado"
-            End If
-        Else
-            For Each fila As DataRow In dataTable.Rows
-                If fila.Item(0).ToString = condicion Then
-                    Dim dt As DataTable = dataTable
-                    Dim dataView As DataView = dt.DefaultView
-                    dataView.RowFilter = "Condicion = '" & condicion & "'"
-                    comboBox.DataSource = dataView
-                    comboBox.ValueMember = "Clave"
-                    If dataView.Count < 10 Then
-                        comboBox.DisplayMember = "Valor"
-                    Else
-                        comboBox.DisplayMember = "Concatenado"
-                    End If
-                End If
-                i = i + 1
-            Next
-        End If
-        comboBox.AutoCompleteMode = AutoCompleteMode.SuggestAppend
-        comboBox.AutoCompleteSource = AutoCompleteSource.ListItems
-    End Sub
+
+    'Private Sub llenarCombo(ByRef comboBox As ComboBox, dataTable As DataTable, Optional condicion As String = "")
+    '    comboBox.DataSource = Nothing
+    '    Dim i As Integer = 0
+    '    If dataTable.Columns.Count = 3 Then
+    '        comboBox.DataSource = dataTable
+    '        comboBox.ValueMember = "Clave"
+    '        If dataTable.Rows.Count < 10 Then
+    '            comboBox.DisplayMember = "Valor"
+    '        Else
+    '            comboBox.DisplayMember = "Concatenado"
+    '        End If
+    '    Else
+    '        For Each fila As DataRow In dataTable.Rows
+    '            If fila.Item(0).ToString = condicion Then
+    '                Dim dt As DataTable = dataTable
+    '                Dim dataView As DataView = dt.DefaultView
+    '                dataView.RowFilter = "Condicion = '" & condicion & "'"
+    '                comboBox.DataSource = dataView
+    '                comboBox.ValueMember = "Clave"
+    '                If dataView.Count < 10 Then
+    '                    comboBox.DisplayMember = "Valor"
+    '                Else
+    '                    comboBox.DisplayMember = "Concatenado"
+    '                End If
+    '            End If
+    '            i = i + 1
+    '        Next
+    '    End If
+    '    comboBox.AutoCompleteMode = AutoCompleteMode.SuggestAppend
+    '    comboBox.AutoCompleteSource = AutoCompleteSource.ListItems
+    'End Sub
 
 
     Private Sub dgvResultado_DataError(sender As Object, e As DataGridViewDataErrorEventArgs) Handles dgvResultado.DataError
@@ -107,7 +113,7 @@ Public Class frmSupervision_Movimientos_Tareos
                                             pkrDesde.Value,
                                             pkrHasta.Value
                                             )
-        If cboResponsable.SelectedValue <> "T" Then
+        If cboResponsable.SelectedValue <> "********" Then
             filtro = filtro + String.Format(" And T_DniResponsable = '{0}'",
                                             cboResponsable.SelectedValue.ToString
                                             )
@@ -121,7 +127,7 @@ Public Class frmSupervision_Movimientos_Tareos
         bsResultado.Filter = filtro
 
         lblDin_Resultado.Text = "Coincicidencias: " + bsResultado.Count.ToString
-        filasSeleccionadas = 0
+        'filasSeleccionadas = 0
     End Sub
 
     Private Sub cboResponsable_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cboResponsable.SelectedIndexChanged
@@ -163,6 +169,10 @@ Public Class frmSupervision_Movimientos_Tareos
     End Sub
 
     Private Sub btnEditar_Click(sender As Object, e As EventArgs) Handles btnEditar.Click
+        If Not comprobarPrivilegios(dtPrivilegiosAccionesFormularios, tareoActual.IdResponsable, "Editar") Then
+            MessageBox.Show("Usted no tiene privilegios para realizar esta accion.")
+            Exit Sub
+        End If
         Dim p As New Dictionary(Of String, Object)
         p.Add("@Modulo", "Supervision")
         p.Add("@Dia", tareoActual.Fecha)
@@ -172,25 +182,25 @@ Public Class frmSupervision_Movimientos_Tareos
             Exit Sub
         End If
 
-        ''HATCH
-        'DEFINIMOS UNA LISTA DE USUARIOS QUE PUEDAN APROBAR TAREOS
-        'Dim usuariosPermitidos As String() = {"JMERA", "JSIESQUEN", "JCRUZ", "JMOROCHO"}
-        'Dim usuariosPermitidos As String() = doItBaby("obtenerUsuariosConPermisosTareos", Nothing, TipoQuery.Scalar)
-        Dim usuariosPermitidos As DataTable = doItBaby("obtenerUsuariosConPermisosTareos", Nothing, TipoQuery.DataTable)
-        Dim filasUsuariosPermitidos() As DataRow = usuariosPermitidos.Select("ALLOW_UPDATE =" & 1)
+        '''HATCH
+        ''DEFINIMOS UNA LISTA DE USUARIOS QUE PUEDAN APROBAR TAREOS
+        ''Dim usuariosPermitidos As String() = {"JMERA", "JSIESQUEN", "JCRUZ", "JMOROCHO"}
+        ''Dim usuariosPermitidos As String() = doItBaby("obtenerUsuariosConPermisosTareos", Nothing, TipoQuery.Scalar)
+        'Dim usuariosPermitidos As DataTable = doItBaby("obtenerUsuariosConPermisosTareos", Nothing, TipoQuery.DataTable)
+        'Dim filasUsuariosPermitidos() As DataRow = usuariosPermitidos.Select("ALLOW_UPDATE =" & 1)
 
-        Dim supervisorTareador As DataTable = doItBaby("obtenerRelacionSupervisorTareadorEditar", Nothing, TipoQuery.DataTable)
-        'Dim filassupervisorTareador() As DataRow = supervisorTareador.Select("IDUSUARIO_TAREADOR = '" & tareoActual.IdResponsable & "' AND IDUSUARIO = '" & usuarioActual & "'")
-        Dim filassupervisorTareador() As DataRow = supervisorTareador.Select("IDUSUARIO = '" & usuarioActual & "'")
+        'Dim supervisorTareador As DataTable = doItBaby("obtenerRelacionSupervisorTareadorEditar", Nothing, TipoQuery.DataTable)
+        ''Dim filassupervisorTareador() As DataRow = supervisorTareador.Select("IDUSUARIO_TAREADOR = '" & tareoActual.IdResponsable & "' AND IDUSUARIO = '" & usuarioActual & "'")
+        'Dim filassupervisorTareador() As DataRow = supervisorTareador.Select("IDUSUARIO = '" & usuarioActual & "'")
 
         If dgvResultado.SelectedRows Is Nothing Or lblDin_IdTareo.Text = "000000000000" Then
             MessageBox.Show("Para editar un registro debe seleccionarlo primero.")
 
             'ElseIf tareoActual.IdResponsable <> usuarioActual And usuarioActual <> "JMERA" And usuarioActual <> "JSIESQUEN" And usuarioActual <> "JCRUZ" Then
-        ElseIf tareoActual.IdResponsable <> usuarioActual AndAlso filassupervisorTareador.Length = 0 Then
-            'ElseIf tareoActual.IdResponsable <> usuarioActual AndAlso Not usuariosPermitidos.Contains(usuarioActual) Then
+            'ElseIf tareoActual.IdResponsable <> usuarioActual AndAlso filassupervisorTareador.Length = 0 Then
+            '    'ElseIf tareoActual.IdResponsable <> usuarioActual AndAlso Not usuariosPermitidos.Contains(usuarioActual) Then
 
-            MessageBox.Show("No tiene permisos para editar este registro")
+            '    MessageBox.Show("No tiene permisos para editar este registro")
         Else
             bloquearControl(btnNuevo)
             bloquearControl(btnEditar)
@@ -209,35 +219,44 @@ Public Class frmSupervision_Movimientos_Tareos
     End Sub
 
     Private Sub btnNuevo_Click(sender As Object, e As EventArgs) Handles btnNuevo.Click
+        If Not comprobarPrivilegios(dtPrivilegiosAccionesFormularios, usuarioActual, "Crear") Then
+            MessageBox.Show("Usted no tiene privilegios para realizar esta accion.")
+            Exit Sub
+        End If
         tareoActual = New Tareo
-        tareoActual.Id = "000000000000" 'generarNuevoId(tablaTareos.Compute("MAX(IdTareo)", "IdTareo<>''"), "A")
-        tareoActual.DniResponsable = usuarioActual
-        tareoActual.Estado = "M"
-        'tareoActual("turno") = cboTurno.SelectedValue
-        'tareoActual("dia") = pkrDia.Value.ToString("yyyy-MM-dd")
-        lblDin_IdTareo.Text = tareoActual.Id
-        lblDin_Anio.Text = "0000"
-        lblDin_NroTareo.Text = "00000"
-        lblDin_Responsable.Text = tareoActual.DniResponsable
-        lblDin_Periodo.Text = "000000"
-        lblDin_Semana.Text = "00"
 
-        'gbxTareo.Enabled = True
-        'gbxFiltrar.Enabled = False
-        'dgvResultado.Enabled = False
 
-        bloquearControl(btnNuevo)
-        bloquearControl(btnEditar)
-        bloquearControl(btnEliminar)
-        bloquearControl(gbxFiltrar)
-        bloquearControl(dgvResultado)
-        'desbloquearControl(gbxTareo)
-        desbloquearControl(cboTurno)
-        desbloquearControl(pkrDia)
-        desbloquearControl(btnCancelar)
-        desbloquearControl(btnGuardar)
-        pkrDia.Value = DateAdd(DateInterval.Day, -1, Now)
+            tareoActual.Id = "000000000000" 'generarNuevoId(tablaTareos.Compute("MAX(IdTareo)", "IdTareo<>''"), "A")
+            tareoActual.DniResponsable = usuarioActual
+            tareoActual.Estado = "M"
+            'tareoActual("turno") = cboTurno.SelectedValue
+            'tareoActual("dia") = pkrDia.Value.ToString("yyyy-MM-dd")
+            lblDin_IdTareo.Text = tareoActual.Id
+            lblDin_Anio.Text = "0000"
+            lblDin_NroTareo.Text = "00000"
+            lblDin_Responsable.Text = tareoActual.DniResponsable
+            lblDin_Periodo.Text = "000000"
+            lblDin_Semana.Text = "00"
+
+            'gbxTareo.Enabled = True
+            'gbxFiltrar.Enabled = False
+            'dgvResultado.Enabled = False
+
+            bloquearControl(btnNuevo)
+            bloquearControl(btnEditar)
+            bloquearControl(btnEliminar)
+            bloquearControl(gbxFiltrar)
+            bloquearControl(dgvResultado)
+            'desbloquearControl(gbxTareo)
+            desbloquearControl(cboTurno)
+            desbloquearControl(pkrDia)
+            desbloquearControl(btnCancelar)
+            desbloquearControl(btnGuardar)
+            pkrDia.Value = DateAdd(DateInterval.Day, -1, Now)
+
+
     End Sub
+
 
     Private Sub btnCancelar_Click(sender As Object, e As EventArgs) Handles btnCancelar.Click
         'tareoActual = Nothing
@@ -292,8 +311,8 @@ Public Class frmSupervision_Movimientos_Tareos
         'parametros.Rows.Add("@Dia", tareoActual.Item("dia"), "SqlDbType.Date")
         Dim idTareoGuardado As String = String.Empty
         'If tareoActual.Estado = "D" Or tareoActual.Estado = "M" Then
-        If onLine Then
-            idTareoGuardado = doItBaby("sp_Dg_Supervision_Movimientos_Tareos_CrealizarTareo", p, Datos.Conexion.TipoQuery.Scalar)
+        'If onLine Then
+        idTareoGuardado = doItBaby("sp_Dg_Supervision_Movimientos_Tareos_CrealizarTareo", p, Datos.Conexion.TipoQuery.Scalar)
             If idTareoGuardado IsNot String.Empty Then
                 tareoActual.Id = idTareoGuardado
                 tareoActual.Estado = "D"
@@ -301,9 +320,9 @@ Public Class frmSupervision_Movimientos_Tareos
                 MessageBox.Show("Algo salió mal en el intento.")
             End If
             abrirDetalleTareo(tareoActual)
-        ElseIf tareoActual.Estado = "L" Then
-            'PENDIENTE GUARDAR EN SQLITE
-        End If
+        'ElseIf tareoActual.Estado = "L" Then
+        '    'PENDIENTE GUARDAR EN SQLITE
+        'End If
         'If Not execSP("sp_Dg_Supervision_Movimientos_Tareos_CrearTareo", parametros) Is Nothing Then
         '    ''MessageBox.Show("Correcto")
         '    obtenerDataInicial()
@@ -348,14 +367,14 @@ Public Class frmSupervision_Movimientos_Tareos
         listarTareos()
         'MessageBox.Show("fino")
     End Sub
-    Private Sub determinarModoTrabajo()
-        If probarConexionDG() Then
-            onLine = True
-        Else
-            onLine = False
-            MessageBox.Show("Modo de trabajo OFFLINE activado. La data se almacerá temporalmente en la base LOCAL.")
-        End If
-    End Sub
+    'Private Sub determinarModoTrabajo()
+    '    If probarConexionDG() Then
+    '        onLine = True
+    '    Else
+    '        onLine = False
+    '        MessageBox.Show("Modo de trabajo OFFLINE activado. La data se almacerá temporalmente en la base LOCAL.")
+    '    End If
+    'End Sub
 
     Private Sub actualizarControles(tareo As Tareo)
         lblDin_IdTareo.Text = tareoActual.Id
@@ -390,8 +409,8 @@ Public Class frmSupervision_Movimientos_Tareos
 
     Private Sub obtenerDataParaControles()
         Dim aux As DataSet = New DataSet
-        If onLine Then
-            aux = doItBaby("sp_Dg_Supervision_Movimientos_Tareos_CargarData", Nothing, TipoQuery.DataSet)
+        'If onLine Then
+        aux = doItBaby("sp_Dg_Supervision_Movimientos_Tareos_CargarData", Nothing, TipoQuery.DataSet)
             'aux = execSp_Dg_Supervision_Movimientos_Tareos_CargarData()
             dataSetParaControles = New DataSet
             dataSetParaControles.Tables.Add(aux.Tables(0).Copy)
@@ -414,25 +433,25 @@ Public Class frmSupervision_Movimientos_Tareos
             dataSetParaControlesDetalle.Tables.Add(aux.Tables(16).Copy)
             dataSetParaControlesDetalle.Tables.Add(aux.Tables(17).Copy)
 
-            'dataSetParaControles.Tables.Add(aux.Tables(3).Copy) 'DATA PARA DGVRESULTADO
-        Else
-            'PENDIENTEcargarDatasetdesdesqlite
-        End If
+        'dataSetParaControles.Tables.Add(aux.Tables(3).Copy) 'DATA PARA DGVRESULTADO
+        'Else
+        '    'PENDIENTEcargarDatasetdesdesqlite
+        'End If
         'obtener data sqlite
     End Sub
 
     Private Sub listarTareos()
         'dgvResultado.Columns.Clear()
         tablaTareos = Nothing
-        If onLine Then
-            'tablaTareos = doItBaby("sp_Dg_Packing_Movimientos_TareosPacking_ListarTareosPacking",
-            Dim p As New Dictionary(Of String, Object)
+        'If onLine Then
+        'tablaTareos = doItBaby("sp_Dg_Packing_Movimientos_TareosPacking_ListarTareosPacking",
+        Dim p As New Dictionary(Of String, Object)
             p.Add("@Desde", pkrDesde.Value.ToString("yyyy-MM-dd"))
             p.Add("@Hasta", pkrHasta.Value.ToString("yyyy-MM-dd"))
             p.Add("@TareosEscritorio", cbxEscritorio.Checked)
             p.Add("@TareosMoviles", cbxMoviles.Checked)
             tablaTareos = doItBaby("sp_Dg_Supervision_Movimientos_Tareos_ListarTareos", p, Datos.Conexion.TipoQuery.DataTable)
-        End If
+        'End If
 
         dgvResultado.Columns.Clear()
 
@@ -466,6 +485,10 @@ Public Class frmSupervision_Movimientos_Tareos
     End Sub
 
     Private Sub btnEliminar_Click(sender As Object, e As EventArgs) Handles btnEliminar.Click
+        If Not comprobarPrivilegios(dtPrivilegiosAccionesFormularios, tareoActual.IdResponsable, "Eliminar") Then
+            MessageBox.Show("Usted no tiene privilegios para realizar esta accion.")
+            Exit Sub
+        End If
         Dim p As New Dictionary(Of String, Object)
         p.Add("@Modulo", "Supervision")
         p.Add("@Dia", tareoActual.Fecha)
@@ -531,6 +554,10 @@ Public Class frmSupervision_Movimientos_Tareos
     End Sub
 
     Private Sub btnAprobar_Click(sender As Object, e As EventArgs) Handles btnAprobar.Click
+        If Not comprobarPrivilegios(dtPrivilegiosAccionesFormularios, tareoActual.IdResponsable, "Aprobar") Then
+            MessageBox.Show("Usted no tiene privilegios para realizar esta accion.")
+            Exit Sub
+        End If
         Dim p As New Dictionary(Of String, Object)
         p.Add("@Modulo", "Supervision")
         p.Add("@Dia", tareoActual.Fecha)
@@ -540,18 +567,18 @@ Public Class frmSupervision_Movimientos_Tareos
             Exit Sub
         End If
 
-        Dim usuariosPermitidos As DataTable = doItBaby("obtenerUsuariosConPermisosTareos", Nothing, TipoQuery.DataTable)
-        Dim filasUsuariosPermitidos() As DataRow = usuariosPermitidos.Select("ALLOW_UPDATE =" & 1)
+        'Dim usuariosPermitidos As DataTable = doItBaby("obtenerUsuariosConPermisosTareos", Nothing, TipoQuery.DataTable)
+        'Dim filasUsuariosPermitidos() As DataRow = usuariosPermitidos.Select("ALLOW_UPDATE =" & 1)
 
-        Dim supervisorTareador As DataTable = doItBaby("obtenerRelacionSupervisorTareadorAprobar", Nothing, TipoQuery.DataTable)
-        'Dim filassupervisorTareador() As DataRow = supervisorTareador.Select("IDUSUARIO_TAREADOR = '" & tareoActual.IdResponsable & "' AND IDUSUARIO = '" & usuarioActual & "'")
-        Dim filassupervisorTareador() As DataRow = supervisorTareador.Select("IDUSUARIO = '" & usuarioActual & "'")
+        'Dim supervisorTareador As DataTable = doItBaby("obtenerRelacionSupervisorTareadorAprobar", Nothing, TipoQuery.DataTable)
+        ''Dim filassupervisorTareador() As DataRow = supervisorTareador.Select("IDUSUARIO_TAREADOR = '" & tareoActual.IdResponsable & "' AND IDUSUARIO = '" & usuarioActual & "'")
+        'Dim filassupervisorTareador() As DataRow = supervisorTareador.Select("IDUSUARIO = '" & usuarioActual & "'")
         If dgvResultado.SelectedRows Is Nothing Or lblDin_IdTareo.Text = "000000000000" Then
             MessageBox.Show("Para Aprobar un registro debe seleccionarlo primero.")
             'ElseIf usuarioActual <> "JMERA" And usuarioActual <> "JSIESQUEN" And usuarioActual <> "JCRUZ" Then
-        ElseIf tareoActual.IdResponsable <> usuarioActual AndAlso filassupervisorTareador.Length = 0 Then
+            'ElseIf tareoActual.IdResponsable <> usuarioActual AndAlso filassupervisorTareador.Length = 0 Then
 
-            MessageBox.Show("No tiene permisos para aprobar este registro")
+            '    MessageBox.Show("No tiene permisos para aprobar este registro")
         Else
             bloquearFilas(dgvResultado)
             Dim id As String = tareoActual.Id
@@ -601,6 +628,10 @@ Public Class frmSupervision_Movimientos_Tareos
     End Sub
 
     Private Sub btnDesaprobar_Click(sender As Object, e As EventArgs) Handles btnDesaprobar.Click
+        If Not comprobarPrivilegios(dtPrivilegiosAccionesFormularios, tareoActual.IdResponsable, "Aprobar") Then
+            MessageBox.Show("Usted no tiene privilegios para realizar esta accion.")
+            Exit Sub
+        End If
         Dim p As New Dictionary(Of String, Object)
         p.Add("@Modulo", "Supervision")
         p.Add("@Dia", tareoActual.Fecha)
@@ -609,19 +640,19 @@ Public Class frmSupervision_Movimientos_Tareos
             MessageBox.Show("No se puede desaprobar el tareo porque el dia se encuentra cerrado.")
             Exit Sub
         End If
-        Dim usuariosPermitidos As DataTable = doItBaby("obtenerUsuariosConPermisosTareos", Nothing, TipoQuery.DataTable)
-        Dim filasUsuariosPermitidos() As DataRow = usuariosPermitidos.Select("ALLOW_UPDATE =" & 1)
+        'Dim usuariosPermitidos As DataTable = doItBaby("obtenerUsuariosConPermisosTareos", Nothing, TipoQuery.DataTable)
+        'Dim filasUsuariosPermitidos() As DataRow = usuariosPermitidos.Select("ALLOW_UPDATE =" & 1)
 
-        Dim supervisorTareador As DataTable = doItBaby("obtenerRelacionSupervisorTareadorAprobar", Nothing, TipoQuery.DataTable)
-        'Dim filassupervisorTareador() As DataRow = supervisorTareador.Select("IDUSUARIO_TAREADOR = '" & tareoActual.IdResponsable & "' AND IDUSUARIO = '" & usuarioActual & "'")
-        Dim filassupervisorTareador() As DataRow = supervisorTareador.Select("IDUSUARIO = '" & usuarioActual & "'")
+        'Dim supervisorTareador As DataTable = doItBaby("obtenerRelacionSupervisorTareadorAprobar", Nothing, TipoQuery.DataTable)
+        ''Dim filassupervisorTareador() As DataRow = supervisorTareador.Select("IDUSUARIO_TAREADOR = '" & tareoActual.IdResponsable & "' AND IDUSUARIO = '" & usuarioActual & "'")
+        'Dim filassupervisorTareador() As DataRow = supervisorTareador.Select("IDUSUARIO = '" & usuarioActual & "'")
 
         If dgvResultado.SelectedRows Is Nothing Or lblDin_IdTareo.Text = "000000000000" Then
             MessageBox.Show("Para Desaprobar un registro debe seleccionarlo primero.")
             'ElseIf usuarioActual <> "JMERA" And usuarioActual <> "JSIESQUEN" And usuarioActual <> "JCRUZ" Then
-        ElseIf tareoActual.IdResponsable <> usuarioActual AndAlso filassupervisorTareador.Length = 0 Then
+            'ElseIf tareoActual.IdResponsable <> usuarioActual AndAlso filassupervisorTareador.Length = 0 Then
 
-            MessageBox.Show("No tiene permisos para desaprobar este registro")
+            '    MessageBox.Show("No tiene permisos para desaprobar este registro")
         Else
             bloquearFilas(dgvResultado)
             Dim id As String = tareoActual.Id

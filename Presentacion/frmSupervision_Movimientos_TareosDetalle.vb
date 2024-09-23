@@ -26,11 +26,14 @@ Public Class frmSupervision_Movimientos_TareosDetalle
     Dim changeConsumidor As Boolean = False
     Dim changeHoras As Boolean = False
     Dim changeRendimiento As Boolean = False
-
+    Dim changeDni As Boolean = False
     Dim filaSeleccionada As Integer = -1
 
     Dim indicadorParaBGW As Integer = 0
-    Dim showToolstrip As Boolean = False
+    'Dim showToolstrip As Boolean = False
+
+
+    Dim dtPrivilegiosAccionesFormularios As DataTable
 
     Public Sub New(tareoSeleccionado As Tareo)
         ' This call is required by the designer.
@@ -69,6 +72,9 @@ Public Class frmSupervision_Movimientos_TareosDetalle
         bloquearControl(btnPuntitos)
         bloquearControl(txtRutaExcel)
         bloquearControl(btnImportar)
+
+        dtPrivilegiosAccionesFormularios = obtenerPrivilegiosAccionesFormularios(usuarioActual, "TAREOS")
+
         tlpPrincipal.Visible = True
 
 
@@ -76,14 +82,14 @@ Public Class frmSupervision_Movimientos_TareosDetalle
         ''BLOQUEO TEMPORAL HASTA DEFINIR PROCESO DE EDICION.
 
         'PENDIENTE RESOLVER ESTO PARA QUE NO ESTE EN DURO
-        If tareoActual.DniResponsable = usuarioActual Or usuarioActual = "JMERA" Or usuarioActual <> "JSIESQUEN" Or usuarioActual <> "JCRUZ" Then
-            desbloquearControl(btnEditar)
-            'desbloquearControl(btnEliminar)
-            'btnEditar.Enabled = True
-        Else
-            bloquearControl(btnEditar)
-            bloquearControl(btnEliminar)
-        End If
+        'If tareoActual.DniResponsable = usuarioActual Or usuarioActual = "JMERA" Or usuarioActual <> "JSIESQUEN" Or usuarioActual <> "JCRUZ" Then
+        '    desbloquearControl(btnEditar)
+        '    'desbloquearControl(btnEliminar)
+        '    'btnEditar.Enabled = True
+        'Else
+        '    bloquearControl(btnEditar)
+        '    bloquearControl(btnEliminar)
+        'End If
         bloquearControl(btnCancelar)
         lblDin_Resultado.Text = "Registros: " + dgvResultado.RowCount.ToString
         gboFiltrar.Visible = False
@@ -326,6 +332,10 @@ Public Class frmSupervision_Movimientos_TareosDetalle
     End Sub
 
     Private Sub btnEditar_Click(sender As Object, e As EventArgs) Handles btnEditar.Click
+        If Not comprobarPrivilegios(dtPrivilegiosAccionesFormularios, tareoActual.IdResponsable, "Editar") Then
+            MessageBox.Show("Usted no tiene privilegios para realizar esta accion.")
+            Exit Sub
+        End If
         Dim p As New Dictionary(Of String, Object)
         p.Add("@Modulo", "Supervision")
         p.Add("@Dia", tareoActual.Fecha)
@@ -351,7 +361,7 @@ Public Class frmSupervision_Movimientos_TareosDetalle
         dgvResultado.ClearSelection()
         'ESTA VARIABLE SIRVE PARA MOSTRAR EL TOOLSTRIP EN LA GRILLA DE DETALLES AL MOMENTO DE PRESIONAR
         'CLICK DERECHO
-        showToolstrip = True
+        'showToolstrip = True
         'desbloquearControl(gboDetalle)
         pkrFin.Value = tareoActual.Fecha
     End Sub
@@ -612,6 +622,7 @@ Public Class frmSupervision_Movimientos_TareosDetalle
     End Sub
 
     Private Sub txtDni_KeyDown(sender As Object, e As KeyEventArgs) Handles txtDni.KeyDown
+        changeDni = True
         If e.KeyCode = Keys.Enter Then
             btnAgregar_Click(sender, e)
         End If
@@ -643,7 +654,7 @@ Public Class frmSupervision_Movimientos_TareosDetalle
             desbloquearControl(btnEliminar)
             bloquearControl(btnGuardar)
             bloquearControl(btnAgregar)
-            bloquearControl(txtDni)
+            desbloquearControl(txtDni)
             'MsgBox("aaaa")
 
         End If
@@ -743,7 +754,7 @@ Public Class frmSupervision_Movimientos_TareosDetalle
             'barProgreso.Maximum = dgvResultado.RowCount
             'barProgreso.Style = ProgressBarStyle.Continuous
             'FIN AGREGADO
-            encenderControlesDeEspera(barProgreso, lblDin_Resultado, "Exportando...")
+            encenderControlesDeEspera(barProgreso, lblDin_Resultado, "Actualizando...")
 
 
             'Dim j As Integer = 1
@@ -776,6 +787,7 @@ Public Class frmSupervision_Movimientos_TareosDetalle
                 If (changeConsumidor) Then detalleTareoActual.Consumidor = cboConsumidor.SelectedValue
                 If (changeHoras) Then detalleTareoActual.SubTotalHoras = txtHoras.Text
                 If (changeRendimiento) Then detalleTareoActual.SubTotalRendimiento = txtRendimiento.Text
+                If (changeDni) Then detalleTareoActual.Dni = obtenerDni() 'txtDni.Text.PadLeft(8)
 
                 tareoActual.AgregarDetalle(detalleTareoActual)
             Next
@@ -791,10 +803,11 @@ Public Class frmSupervision_Movimientos_TareosDetalle
                     bloquearControl(txtRutaExcel)
                     bloquearControl(btnImportar)
                     bloquearControl(btnEliminar)
+                    bloquearControl(txtDni)
                     ''bloquearControl(gboDetalle)
                     'ESTA VARIABLE SIRVE PARA DEJAR DE MOSTRAR EL TOOLTIP AL MOMENTO
                     'DE PRESIONA EL CLICK DERECHO EN LA GRILLA DE DETALLES
-                    showToolstrip = False
+                    'showToolstrip = False
                     gboDetalle.Enabled = False
                     bloquearControl(btnAgregar)
                     'volvems los flags a false
@@ -805,6 +818,7 @@ Public Class frmSupervision_Movimientos_TareosDetalle
                     changeConsumidor = False
                     changeHoras = False
                     changeRendimiento = False
+                    changeDni = False
 
                     lblDin_Resultado.Text = "Registros: " + dgvResultado.Rows.Count.ToString
                     MessageBox.Show("Tareos Editados correctamente.")
@@ -985,6 +999,7 @@ Public Class frmSupervision_Movimientos_TareosDetalle
                         bloquearControl(txtRutaExcel)
                         bloquearControl(btnImportar)
                         bloquearControl(btnEliminar)
+                        bloquearControl(txtDni)
                         ''bloquearControl(gboDetalle)
                         gboDetalle.Enabled = False
                         bloquearControl(btnAgregar)
@@ -1143,6 +1158,10 @@ Public Class frmSupervision_Movimientos_TareosDetalle
 
     'End Sub
     Private Sub btnEliminar_Click(sender As Object, e As EventArgs) Handles btnEliminar.Click ' funcion modificada del boton eliminar_click
+        If Not comprobarPrivilegios(dtPrivilegiosAccionesFormularios, tareoActual.IdResponsable, "Eliminar") Then
+            MessageBox.Show("Usted no tiene privilegios para realizar esta accion.")
+            Exit Sub
+        End If
         ' Verificar que se haya seleccionado al menos una fila
         If dgvResultado.SelectedRows.Count = 0 Then
             MessageBox.Show("No se ha seleccionado ningún ítem para eliminar.")
@@ -1812,13 +1831,17 @@ Public Class frmSupervision_Movimientos_TareosDetalle
         bloquearControl(btnImportar)
         bloquearControl(btnEliminar)
         bloquearControl(btnCancelar)
-        showToolstrip = False
+        'showToolstrip = False
         ''bloquearControl(gboDetalle)
         gboDetalle.Enabled = False
         bloquearControl(btnAgregar)
     End Sub
 
     Private Sub btnAprobar_Click(sender As Object, e As EventArgs) Handles btnAprobar.Click
+        If Not comprobarPrivilegios(dtPrivilegiosAccionesFormularios, tareoActual.IdResponsable, "Editar") Then
+            MessageBox.Show("Usted no tiene privilegios para realizar esta accion.")
+            Exit Sub
+        End If
         Dim p As New Dictionary(Of String, Object)
         p.Add("@Modulo", "Supervision")
         p.Add("@Dia", tareoActual.Fecha)
@@ -1828,10 +1851,18 @@ Public Class frmSupervision_Movimientos_TareosDetalle
             Exit Sub
         End If
 
-        If usuarioActual <> "JMERA" And usuarioActual <> "JSIESQUEN" And usuarioActual <> "JCRUZ" Then
-            MessageBox.Show("No tiene permisos para aprobar este registro")
-        Else
-            bloquearFilas(dgvResultado)
+
+        'Dim usuariosPermitidos As DataTable = doItBaby("obtenerUsuariosConPermisosTareos", Nothing, TipoQuery.DataTable)
+        'Dim filasUsuariosPermitidos() As DataRow = usuariosPermitidos.Select("ALLOW_UPDATE =" & 1)
+
+        'Dim supervisorTareador As DataTable = doItBaby("obtenerRelacionSupervisorTareadorAprobar", Nothing, TipoQuery.DataTable)
+        ''Dim filassupervisorTareador() As DataRow = supervisorTareador.Select("IDUSUARIO_TAREADOR = '" & tareoActual.IdResponsable & "' AND IDUSUARIO = '" & usuarioActual & "'")
+        'Dim filassupervisorTareador() As DataRow = supervisorTareador.Select("IDUSUARIO = '" & usuarioActual & "'")
+        'If tareoActual.IdResponsable <> usuarioActual AndAlso filassupervisorTareador.Length = 0 Then
+        '    'If usuarioActual <> "JMERA" And usuarioActual <> "JSIESQUEN" And usuarioActual <> "JCRUZ" Then
+        '    MessageBox.Show("No tiene permisos para aprobar este registro")
+        'Else
+        bloquearFilas(dgvResultado)
             Dim id As String = tareoActual.Id
             Dim respuesta As DialogResult = Windows.Forms.DialogResult.No
             Dim mensaje As String
@@ -1854,7 +1885,7 @@ Public Class frmSupervision_Movimientos_TareosDetalle
                 End Try
             End If
             desbloquearFilas(dgvResultado)
-        End If
+        'End If
     End Sub
 
     Private Sub dgvResultado_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvResultado.CellContentClick
@@ -2033,23 +2064,23 @@ Public Class frmSupervision_Movimientos_TareosDetalle
 
     End Sub
 
-    Private Sub dgvResultado_MouseDown(sender As Object, e As MouseEventArgs) Handles dgvResultado.MouseDown
-        If e.Button = MouseButtons.Right Then
-            Dim hit As DataGridView.HitTestInfo = dgvResultado.HitTest(e.X, e.Y)
-            If showToolstrip Then
-                ' Obtén la celda o fila en la que se hizo clic
-                If hit.RowIndex >= 0 AndAlso hit.ColumnIndex >= 0 Then
-                    ' Opcional: Selecciona la celda en la que se hizo clic
-                    dgvResultado.CurrentCell = dgvResultado.Rows(hit.RowIndex).Cells(hit.ColumnIndex)
-                    filaSeleccionada = hit.RowIndex
-                    ' Muestra el menú contextual en la posición del mouse
-                    tsMenudgvDetalles.Show(dgvResultado, e.Location)
-                End If
-            End If
-        End If
-    End Sub
+    'Private Sub dgvResultado_MouseDown(sender As Object, e As MouseEventArgs) Handles dgvResultado.MouseDown
+    '    If e.Button = MouseButtons.Right Then
+    '        Dim hit As DataGridView.HitTestInfo = dgvResultado.HitTest(e.X, e.Y)
+    '        If showToolstrip Then
+    '            ' Obtén la celda o fila en la que se hizo clic
+    '            If hit.RowIndex >= 0 AndAlso hit.ColumnIndex >= 0 Then
+    '                ' Opcional: Selecciona la celda en la que se hizo clic
+    '                dgvResultado.CurrentCell = dgvResultado.Rows(hit.RowIndex).Cells(hit.ColumnIndex)
+    '                filaSeleccionada = hit.RowIndex
+    '                ' Muestra el menú contextual en la posición del mouse
+    '                tsMenudgvDetalles.Show(dgvResultado, e.Location)
+    '            End If
+    '        End If
+    '    End If
+    'End Sub
 
-    Private Sub tsMenuItemEditarDNI_Click(sender As Object, e As EventArgs) Handles tsMenuItemEditarDNI.Click
+    Private Sub tsMenuItemEditarDNI_Click(sender As Object, e As EventArgs)
         Dim tareoSeleccionado As String = dgvResultado.Rows(filaSeleccionada).Cells(0).Value.ToString
         Dim itemSeleccionado As Integer = dgvResultado.Rows(filaSeleccionada).Cells(1).Value
         Dim dniSeleccionado As String = dgvResultado.Rows(filaSeleccionada).Cells(3).Value.ToString

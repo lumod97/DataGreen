@@ -700,13 +700,15 @@ Public Class Utiles
         'End If
     End Sub
 
-    Public Shared Sub cargarCombo(ByRef combo As ComboBox, tabla As DataTable, c As Integer, v As Integer) 'c=clave, v=valor
+    Public Shared Sub cargarCombo(ByRef combo As ComboBox, tabla As DataTable, c As Integer, v As Integer, Optional preSeleccion As Boolean = False) 'c=clave, v=valor
         'combo.AutoCompleteMode = AutoCompleteMode.SuggestAppend
         'combo.AutoCompleteSource = AutoCompleteSource.ListItems
         combo.DisplayMember = tabla.Columns(v).ColumnName
         combo.ValueMember = tabla.Columns(c).ColumnName
         combo.DataSource = tabla
-        combo.SelectedIndex = -1
+        If Not preSeleccion Then
+            combo.SelectedIndex = -1
+        End If
     End Sub
 
     Public Shared Sub cargarComboConFiltrado(ByRef combo As ComboBox, tabla As DataTable, c As Integer, v As Integer) 'c=clave, v=valor

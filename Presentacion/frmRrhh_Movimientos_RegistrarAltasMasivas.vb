@@ -110,6 +110,8 @@ Public Class frmRrhh_Movimientos_RegistrarAltasMasivas
         listaColumnasAValidar.Add(42, 8)
         listaColumnasAValidar.Add(45, 9)
         dgvResultado.DataSource = dtTablaExcel
+        'Dim cantidad As Int32 = dgvResultado.Columns("IDBANCO").Index
+        'MessageBox.Show(cantidad)
         For i As Integer = 0 To dgvResultado.RowCount - 1 Step 1
             datoValido = False
             For j As Integer = 0 To dgvResultado.ColumnCount - 1 Step 1
@@ -134,11 +136,11 @@ Public Class frmRrhh_Movimientos_RegistrarAltasMasivas
                 End If
             Next
             If observaciones = "Corregir" Then
-                dgvResultado.Rows(i).Cells(54).Style.BackColor = rosaBlanco_
-                dgvResultado.Rows(i).Cells(54).Value = observaciones
+                dgvResultado.Rows(i).Cells(55).Style.BackColor = rosaBlanco_
+                dgvResultado.Rows(i).Cells(55).Value = observaciones
             Else
-                dgvResultado.Rows(i).Cells(54).Style.BackColor = verderCian_
-                dgvResultado.Rows(i).Cells(54).Value = "Listo!"
+                dgvResultado.Rows(i).Cells(55).Style.BackColor = verderCian_
+                dgvResultado.Rows(i).Cells(55).Value = "Listo!"
             End If
             observaciones = String.Empty
         Next
@@ -146,7 +148,7 @@ Public Class frmRrhh_Movimientos_RegistrarAltasMasivas
     End Sub
 
     Private Sub btnProcesar_Click(sender As Object, e As EventArgs) Handles btnProcesar.Click
-        If dgvResultado.RowCount < 1 Or dgvResultado.ColumnCount <> 55 Then
+        If dgvResultado.RowCount < 1 Or dgvResultado.ColumnCount <> 56 Then
             MessageBox.Show("La tabla no esta cargada correctamente.")
             Exit Sub
         End If
@@ -156,7 +158,7 @@ Public Class frmRrhh_Movimientos_RegistrarAltasMasivas
         Dim n As Integer = 0, m As Integer = 0
         n = dgvResultado.RowCount
         For Each fila As DataGridViewRow In dgvResultado.Rows
-            If fila.Cells(54).Value = "Listo!" Then
+            If fila.Cells(55).Value = "Listo!" Then
                 m += 1
             End If
         Next
@@ -170,7 +172,7 @@ Public Class frmRrhh_Movimientos_RegistrarAltasMasivas
         Dim cadenaParametros As String = String.Empty
         Dim p As New Dictionary(Of String, Object)
         For Each fila As DataGridViewRow In dgvResultado.Rows
-            If fila.Cells(54).Value = "Listo!" Then
+            If fila.Cells(55).Value = "Listo!" Then
                 For i As Integer = 0 To dgvResultado.ColumnCount - 1 Step 1
                     cadenaParametros = cadenaParametros & fila.Cells(i).Value & "█"
                 Next
@@ -181,11 +183,11 @@ Public Class frmRrhh_Movimientos_RegistrarAltasMasivas
                 barProgreso.Refresh()
                 If resultadoQuery.Substring(0, 2) = "Ok" Then
                     fila.Cells(1).Value = resultadoQuery.Substring(2)
-                    fila.Cells(54).Value = "Procesado!"
+                    fila.Cells(55).Value = "Procesado!"
                     n += 1
                 Else
                     'fila.Cells(1).Value = resultadoQuery.Substring(0, 5)
-                    fila.Cells(54).Value = resultadoQuery
+                    fila.Cells(55).Value = resultadoQuery
                     m += 1
                 End If
                 p.Clear()

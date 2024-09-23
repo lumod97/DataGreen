@@ -22,7 +22,6 @@ Partial Class frmSupervision_Movimientos_TareosDetalle
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Me.components = New System.ComponentModel.Container()
         Me.tlpPrincipal = New System.Windows.Forms.TableLayoutPanel()
         Me.gboFiltrar = New System.Windows.Forms.GroupBox()
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
@@ -93,8 +92,6 @@ Partial Class frmSupervision_Movimientos_TareosDetalle
         Me.dgvResultado = New System.Windows.Forms.DataGridView()
         Me.barProgreso = New System.Windows.Forms.ProgressBar()
         Me.lblDin_Resultado = New System.Windows.Forms.Label()
-        Me.tsMenudgvDetalles = New System.Windows.Forms.ContextMenuStrip(Me.components)
-        Me.tsMenuItemEditarDNI = New System.Windows.Forms.ToolStripMenuItem()
         Me.tlpPrincipal.SuspendLayout()
         Me.gboFiltrar.SuspendLayout()
         Me.TableLayoutPanel1.SuspendLayout()
@@ -103,7 +100,6 @@ Partial Class frmSupervision_Movimientos_TareosDetalle
         Me.TableLayoutPanel4.SuspendLayout()
         Me.TableLayoutPanel2.SuspendLayout()
         CType(Me.dgvResultado, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.tsMenudgvDetalles.SuspendLayout()
         Me.SuspendLayout()
         '
         'tlpPrincipal
@@ -140,7 +136,7 @@ Partial Class frmSupervision_Movimientos_TareosDetalle
         Me.gboFiltrar.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
         Me.gboFiltrar.Controls.Add(Me.TableLayoutPanel1)
         Me.gboFiltrar.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.gboFiltrar.Location = New System.Drawing.Point(21, 194)
+        Me.gboFiltrar.Location = New System.Drawing.Point(21, 182)
         Me.gboFiltrar.Margin = New System.Windows.Forms.Padding(2)
         Me.gboFiltrar.Name = "gboFiltrar"
         Me.gboFiltrar.Padding = New System.Windows.Forms.Padding(2)
@@ -266,7 +262,7 @@ Partial Class frmSupervision_Movimientos_TareosDetalle
         Me.gboDetalle.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
         Me.gboDetalle.Controls.Add(Me.TableLayoutPanel3)
         Me.gboDetalle.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.gboDetalle.Location = New System.Drawing.Point(21, 62)
+        Me.gboDetalle.Location = New System.Drawing.Point(21, 50)
         Me.gboDetalle.Margin = New System.Windows.Forms.Padding(2)
         Me.gboDetalle.Name = "gboDetalle"
         Me.gboDetalle.Padding = New System.Windows.Forms.Padding(2)
@@ -860,47 +856,55 @@ Partial Class frmSupervision_Movimientos_TareosDetalle
         Me.TableLayoutPanel2.Name = "TableLayoutPanel2"
         Me.TableLayoutPanel2.RowCount = 1
         Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle())
-        Me.TableLayoutPanel2.Size = New System.Drawing.Size(1169, 41)
+        Me.TableLayoutPanel2.Size = New System.Drawing.Size(1169, 29)
         Me.TableLayoutPanel2.TabIndex = 0
         '
         'btnGuardar
         '
+        Me.btnGuardar.Anchor = System.Windows.Forms.AnchorStyles.Left
+        Me.btnGuardar.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
         Me.btnGuardar.Enabled = False
-        Me.btnGuardar.Location = New System.Drawing.Point(180, 2)
+        Me.btnGuardar.Location = New System.Drawing.Point(160, 3)
         Me.btnGuardar.Margin = New System.Windows.Forms.Padding(2)
         Me.btnGuardar.Name = "btnGuardar"
-        Me.btnGuardar.Size = New System.Drawing.Size(85, 37)
+        Me.btnGuardar.Size = New System.Drawing.Size(75, 23)
         Me.btnGuardar.TabIndex = 2
         Me.btnGuardar.Text = "Guardar"
         Me.btnGuardar.UseVisualStyleBackColor = True
         '
         'btnEliminar
         '
-        Me.btnEliminar.Location = New System.Drawing.Point(91, 2)
+        Me.btnEliminar.Anchor = System.Windows.Forms.AnchorStyles.Left
+        Me.btnEliminar.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
+        Me.btnEliminar.Location = New System.Drawing.Point(81, 3)
         Me.btnEliminar.Margin = New System.Windows.Forms.Padding(2)
         Me.btnEliminar.Name = "btnEliminar"
-        Me.btnEliminar.Size = New System.Drawing.Size(85, 37)
+        Me.btnEliminar.Size = New System.Drawing.Size(75, 23)
         Me.btnEliminar.TabIndex = 1
         Me.btnEliminar.Text = "Eliminar"
         Me.btnEliminar.UseVisualStyleBackColor = True
         '
         'btnEditar
         '
-        Me.btnEditar.Location = New System.Drawing.Point(2, 2)
+        Me.btnEditar.Anchor = System.Windows.Forms.AnchorStyles.Left
+        Me.btnEditar.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
+        Me.btnEditar.Location = New System.Drawing.Point(2, 3)
         Me.btnEditar.Margin = New System.Windows.Forms.Padding(2)
         Me.btnEditar.Name = "btnEditar"
-        Me.btnEditar.Size = New System.Drawing.Size(85, 37)
+        Me.btnEditar.Size = New System.Drawing.Size(75, 23)
         Me.btnEditar.TabIndex = 0
         Me.btnEditar.Text = "Editar"
         Me.btnEditar.UseVisualStyleBackColor = True
         '
         'btnTransferir
         '
+        Me.btnTransferir.Anchor = System.Windows.Forms.AnchorStyles.Left
+        Me.btnTransferir.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
         Me.btnTransferir.Enabled = False
-        Me.btnTransferir.Location = New System.Drawing.Point(269, 2)
+        Me.btnTransferir.Location = New System.Drawing.Point(239, 3)
         Me.btnTransferir.Margin = New System.Windows.Forms.Padding(2)
         Me.btnTransferir.Name = "btnTransferir"
-        Me.btnTransferir.Size = New System.Drawing.Size(85, 37)
+        Me.btnTransferir.Size = New System.Drawing.Size(75, 23)
         Me.btnTransferir.TabIndex = 3
         Me.btnTransferir.Text = "Transferir"
         Me.btnTransferir.UseVisualStyleBackColor = True
@@ -910,7 +914,7 @@ Partial Class frmSupervision_Movimientos_TareosDetalle
         Me.btnImportar.Anchor = CType(((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.btnImportar.Enabled = False
-        Me.btnImportar.Location = New System.Drawing.Point(1089, 15)
+        Me.btnImportar.Location = New System.Drawing.Point(1089, 3)
         Me.btnImportar.Name = "btnImportar"
         Me.btnImportar.Size = New System.Drawing.Size(77, 23)
         Me.btnImportar.TabIndex = 4
@@ -919,12 +923,12 @@ Partial Class frmSupervision_Movimientos_TareosDetalle
         '
         'btnPuntitos
         '
-        Me.btnPuntitos.Anchor = CType(((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnPuntitos.Anchor = System.Windows.Forms.AnchorStyles.Left
+        Me.btnPuntitos.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
         Me.btnPuntitos.Enabled = False
-        Me.btnPuntitos.Location = New System.Drawing.Point(570, 15)
+        Me.btnPuntitos.Location = New System.Drawing.Point(560, 3)
         Me.btnPuntitos.Name = "btnPuntitos"
-        Me.btnPuntitos.Size = New System.Drawing.Size(35, 23)
+        Me.btnPuntitos.Size = New System.Drawing.Size(75, 23)
         Me.btnPuntitos.TabIndex = 5
         Me.btnPuntitos.Text = "..."
         Me.btnPuntitos.UseVisualStyleBackColor = True
@@ -934,17 +938,18 @@ Partial Class frmSupervision_Movimientos_TareosDetalle
         Me.txtRutaExcel.Anchor = CType(((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.txtRutaExcel.Enabled = False
-        Me.txtRutaExcel.Location = New System.Drawing.Point(611, 18)
+        Me.txtRutaExcel.Location = New System.Drawing.Point(641, 6)
         Me.txtRutaExcel.Name = "txtRutaExcel"
-        Me.txtRutaExcel.Size = New System.Drawing.Size(329, 20)
+        Me.txtRutaExcel.Size = New System.Drawing.Size(299, 20)
         Me.txtRutaExcel.TabIndex = 6
         '
         'btnFormato
         '
         Me.btnFormato.Anchor = System.Windows.Forms.AnchorStyles.Left
-        Me.btnFormato.Location = New System.Drawing.Point(529, 9)
+        Me.btnFormato.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
+        Me.btnFormato.Location = New System.Drawing.Point(479, 3)
         Me.btnFormato.Name = "btnFormato"
-        Me.btnFormato.Size = New System.Drawing.Size(35, 23)
+        Me.btnFormato.Size = New System.Drawing.Size(75, 23)
         Me.btnFormato.TabIndex = 7
         Me.btnFormato.Text = "?"
         Me.btnFormato.UseVisualStyleBackColor = True
@@ -953,7 +958,7 @@ Partial Class frmSupervision_Movimientos_TareosDetalle
         '
         Me.cbxDistribucionAutomatica.Anchor = System.Windows.Forms.AnchorStyles.Left
         Me.cbxDistribucionAutomatica.AutoSize = True
-        Me.cbxDistribucionAutomatica.Location = New System.Drawing.Point(946, 12)
+        Me.cbxDistribucionAutomatica.Location = New System.Drawing.Point(946, 6)
         Me.cbxDistribucionAutomatica.Name = "cbxDistribucionAutomatica"
         Me.cbxDistribucionAutomatica.Size = New System.Drawing.Size(137, 17)
         Me.cbxDistribucionAutomatica.TabIndex = 8
@@ -962,7 +967,9 @@ Partial Class frmSupervision_Movimientos_TareosDetalle
         '
         'btnAprobar
         '
-        Me.btnAprobar.Location = New System.Drawing.Point(448, 3)
+        Me.btnAprobar.Anchor = System.Windows.Forms.AnchorStyles.Left
+        Me.btnAprobar.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
+        Me.btnAprobar.Location = New System.Drawing.Point(398, 3)
         Me.btnAprobar.Name = "btnAprobar"
         Me.btnAprobar.Size = New System.Drawing.Size(75, 23)
         Me.btnAprobar.TabIndex = 10
@@ -971,10 +978,12 @@ Partial Class frmSupervision_Movimientos_TareosDetalle
         '
         'btnCancelar
         '
-        Me.btnCancelar.Location = New System.Drawing.Point(358, 2)
+        Me.btnCancelar.Anchor = System.Windows.Forms.AnchorStyles.Left
+        Me.btnCancelar.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
+        Me.btnCancelar.Location = New System.Drawing.Point(318, 3)
         Me.btnCancelar.Margin = New System.Windows.Forms.Padding(2)
         Me.btnCancelar.Name = "btnCancelar"
-        Me.btnCancelar.Size = New System.Drawing.Size(85, 23)
+        Me.btnCancelar.Size = New System.Drawing.Size(75, 23)
         Me.btnCancelar.TabIndex = 9
         Me.btnCancelar.Text = "Cancelar"
         Me.btnCancelar.UseVisualStyleBackColor = True
@@ -983,10 +992,10 @@ Partial Class frmSupervision_Movimientos_TareosDetalle
         '
         Me.dgvResultado.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgvResultado.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.dgvResultado.Location = New System.Drawing.Point(21, 241)
+        Me.dgvResultado.Location = New System.Drawing.Point(21, 229)
         Me.dgvResultado.Margin = New System.Windows.Forms.Padding(2)
         Me.dgvResultado.Name = "dgvResultado"
-        Me.dgvResultado.Size = New System.Drawing.Size(1169, 222)
+        Me.dgvResultado.Size = New System.Drawing.Size(1169, 234)
         Me.dgvResultado.TabIndex = 100
         '
         'barProgreso
@@ -1007,18 +1016,6 @@ Partial Class frmSupervision_Movimientos_TareosDetalle
         Me.lblDin_Resultado.Size = New System.Drawing.Size(45, 13)
         Me.lblDin_Resultado.TabIndex = 100
         Me.lblDin_Resultado.Text = "Label19"
-        '
-        'tsMenudgvDetalles
-        '
-        Me.tsMenudgvDetalles.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.tsMenuItemEditarDNI})
-        Me.tsMenudgvDetalles.Name = "tsMenudgvDetalles"
-        Me.tsMenudgvDetalles.Size = New System.Drawing.Size(128, 26)
-        '
-        'tsMenuItemEditarDNI
-        '
-        Me.tsMenuItemEditarDNI.Name = "tsMenuItemEditarDNI"
-        Me.tsMenuItemEditarDNI.Size = New System.Drawing.Size(127, 22)
-        Me.tsMenuItemEditarDNI.Text = "Editar DNI"
         '
         'frmSupervision_Movimientos_TareosDetalle
         '
@@ -1043,7 +1040,6 @@ Partial Class frmSupervision_Movimientos_TareosDetalle
         Me.TableLayoutPanel2.ResumeLayout(False)
         Me.TableLayoutPanel2.PerformLayout()
         CType(Me.dgvResultado, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.tsMenudgvDetalles.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub
@@ -1117,6 +1113,4 @@ Partial Class frmSupervision_Movimientos_TareosDetalle
     Friend WithEvents cbxDistribucionAutomatica As System.Windows.Forms.CheckBox
     Friend WithEvents btnCancelar As System.Windows.Forms.Button
     Friend WithEvents btnAprobar As Button
-    Friend WithEvents tsMenudgvDetalles As ContextMenuStrip
-    Friend WithEvents tsMenuItemEditarDNI As ToolStripMenuItem
 End Class
