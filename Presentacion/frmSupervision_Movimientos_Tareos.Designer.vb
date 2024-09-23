@@ -101,7 +101,7 @@ Partial Class frmSupervision_Movimientos_Tareos
         Me.tlpPrincipal.RowStyles.Add(New System.Windows.Forms.RowStyle())
         Me.tlpPrincipal.RowStyles.Add(New System.Windows.Forms.RowStyle())
         Me.tlpPrincipal.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 15.0!))
-        Me.tlpPrincipal.Size = New System.Drawing.Size(1155, 473)
+        Me.tlpPrincipal.Size = New System.Drawing.Size(1265, 719)
         Me.tlpPrincipal.TabIndex = 1
         '
         'gbxFiltrar
@@ -116,7 +116,7 @@ Partial Class frmSupervision_Movimientos_Tareos
         Me.gbxFiltrar.Margin = New System.Windows.Forms.Padding(2)
         Me.gbxFiltrar.Name = "gbxFiltrar"
         Me.gbxFiltrar.Padding = New System.Windows.Forms.Padding(2)
-        Me.gbxFiltrar.Size = New System.Drawing.Size(1119, 52)
+        Me.gbxFiltrar.Size = New System.Drawing.Size(1229, 52)
         Me.gbxFiltrar.TabIndex = 0
         Me.gbxFiltrar.TabStop = False
         Me.gbxFiltrar.Text = "Filtrar"
@@ -154,13 +154,13 @@ Partial Class frmSupervision_Movimientos_Tareos
         Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
         Me.TableLayoutPanel1.RowCount = 1
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle())
-        Me.TableLayoutPanel1.Size = New System.Drawing.Size(1115, 31)
+        Me.TableLayoutPanel1.Size = New System.Drawing.Size(1225, 31)
         Me.TableLayoutPanel1.TabIndex = 0
         '
         'cboEstado
         '
         Me.cboEstado.FormattingEnabled = True
-        Me.cboEstado.Location = New System.Drawing.Point(685, 2)
+        Me.cboEstado.Location = New System.Drawing.Point(689, 2)
         Me.cboEstado.Margin = New System.Windows.Forms.Padding(2)
         Me.cboEstado.Name = "cboEstado"
         Me.cboEstado.Size = New System.Drawing.Size(142, 24)
@@ -169,7 +169,7 @@ Partial Class frmSupervision_Movimientos_Tareos
         'pkrHasta
         '
         Me.pkrHasta.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.pkrHasta.Location = New System.Drawing.Point(230, 2)
+        Me.pkrHasta.Location = New System.Drawing.Point(232, 2)
         Me.pkrHasta.Margin = New System.Windows.Forms.Padding(2)
         Me.pkrHasta.Name = "pkrHasta"
         Me.pkrHasta.Size = New System.Drawing.Size(116, 24)
@@ -179,10 +179,10 @@ Partial Class frmSupervision_Movimientos_Tareos
         '
         Me.Label5.Anchor = System.Windows.Forms.AnchorStyles.Right
         Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(350, 7)
+        Me.Label5.Location = New System.Drawing.Point(352, 7)
         Me.Label5.Margin = New System.Windows.Forms.Padding(2)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(94, 16)
+        Me.Label5.Size = New System.Drawing.Size(95, 16)
         Me.Label5.TabIndex = 4
         Me.Label5.Text = "Responsable:"
         '
@@ -190,10 +190,10 @@ Partial Class frmSupervision_Movimientos_Tareos
         '
         Me.Label3.Anchor = System.Windows.Forms.AnchorStyles.Right
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(177, 7)
+        Me.Label3.Location = New System.Drawing.Point(178, 7)
         Me.Label3.Margin = New System.Windows.Forms.Padding(2)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(49, 16)
+        Me.Label3.Size = New System.Drawing.Size(50, 16)
         Me.Label3.TabIndex = 2
         Me.Label3.Text = "Hasta:"
         '
@@ -204,7 +204,7 @@ Partial Class frmSupervision_Movimientos_Tareos
         Me.Label1.Location = New System.Drawing.Point(2, 7)
         Me.Label1.Margin = New System.Windows.Forms.Padding(2)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(51, 16)
+        Me.Label1.Size = New System.Drawing.Size(52, 16)
         Me.Label1.TabIndex = 0
         Me.Label1.Text = "Desde:"
         '
@@ -212,17 +212,17 @@ Partial Class frmSupervision_Movimientos_Tareos
         '
         Me.Label6.Anchor = System.Windows.Forms.AnchorStyles.Right
         Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(626, 7)
+        Me.Label6.Location = New System.Drawing.Point(629, 7)
         Me.Label6.Margin = New System.Windows.Forms.Padding(2)
         Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(55, 16)
+        Me.Label6.Size = New System.Drawing.Size(56, 16)
         Me.Label6.TabIndex = 5
         Me.Label6.Text = "Estado:"
         '
         'pkrDesde
         '
         Me.pkrDesde.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.pkrDesde.Location = New System.Drawing.Point(57, 2)
+        Me.pkrDesde.Location = New System.Drawing.Point(58, 2)
         Me.pkrDesde.Margin = New System.Windows.Forms.Padding(2)
         Me.pkrDesde.Name = "pkrDesde"
         Me.pkrDesde.Size = New System.Drawing.Size(116, 24)
@@ -231,7 +231,7 @@ Partial Class frmSupervision_Movimientos_Tareos
         'cboResponsable
         '
         Me.cboResponsable.FormattingEnabled = True
-        Me.cboResponsable.Location = New System.Drawing.Point(448, 2)
+        Me.cboResponsable.Location = New System.Drawing.Point(451, 2)
         Me.cboResponsable.Margin = New System.Windows.Forms.Padding(2)
         Me.cboResponsable.Name = "cboResponsable"
         Me.cboResponsable.Size = New System.Drawing.Size(174, 24)
@@ -241,9 +241,9 @@ Partial Class frmSupervision_Movimientos_Tareos
         '
         Me.cbxEscritorio.Anchor = System.Windows.Forms.AnchorStyles.Left
         Me.cbxEscritorio.AutoSize = True
-        Me.cbxEscritorio.Location = New System.Drawing.Point(832, 5)
+        Me.cbxEscritorio.Location = New System.Drawing.Point(836, 5)
         Me.cbxEscritorio.Name = "cbxEscritorio"
-        Me.cbxEscritorio.Size = New System.Drawing.Size(87, 20)
+        Me.cbxEscritorio.Size = New System.Drawing.Size(88, 20)
         Me.cbxEscritorio.TabIndex = 10
         Me.cbxEscritorio.Text = "Escritorio"
         Me.cbxEscritorio.UseVisualStyleBackColor = True
@@ -252,16 +252,16 @@ Partial Class frmSupervision_Movimientos_Tareos
         '
         Me.cbxMoviles.Anchor = System.Windows.Forms.AnchorStyles.Left
         Me.cbxMoviles.AutoSize = True
-        Me.cbxMoviles.Location = New System.Drawing.Point(925, 5)
+        Me.cbxMoviles.Location = New System.Drawing.Point(930, 5)
         Me.cbxMoviles.Name = "cbxMoviles"
-        Me.cbxMoviles.Size = New System.Drawing.Size(77, 20)
+        Me.cbxMoviles.Size = New System.Drawing.Size(78, 20)
         Me.cbxMoviles.TabIndex = 11
         Me.cbxMoviles.Text = "Moviles"
         Me.cbxMoviles.UseVisualStyleBackColor = True
         '
         'BtnConsultar
         '
-        Me.BtnConsultar.Location = New System.Drawing.Point(1008, 3)
+        Me.BtnConsultar.Location = New System.Drawing.Point(1014, 3)
         Me.BtnConsultar.Name = "BtnConsultar"
         Me.BtnConsultar.Size = New System.Drawing.Size(104, 25)
         Me.BtnConsultar.TabIndex = 12
@@ -280,7 +280,7 @@ Partial Class frmSupervision_Movimientos_Tareos
         Me.gbxTareo.Margin = New System.Windows.Forms.Padding(2)
         Me.gbxTareo.Name = "gbxTareo"
         Me.gbxTareo.Padding = New System.Windows.Forms.Padding(2)
-        Me.gbxTareo.Size = New System.Drawing.Size(1119, 75)
+        Me.gbxTareo.Size = New System.Drawing.Size(1229, 75)
         Me.gbxTareo.TabIndex = 1
         Me.gbxTareo.TabStop = False
         Me.gbxTareo.Text = "Tareo"
@@ -329,7 +329,7 @@ Partial Class frmSupervision_Movimientos_Tareos
         Me.TableLayoutPanel3.RowCount = 2
         Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle())
         Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle())
-        Me.TableLayoutPanel3.Size = New System.Drawing.Size(1115, 54)
+        Me.TableLayoutPanel3.Size = New System.Drawing.Size(1225, 54)
         Me.TableLayoutPanel3.TabIndex = 0
         '
         'lblDin_NroTareo
@@ -338,10 +338,10 @@ Partial Class frmSupervision_Movimientos_Tareos
         Me.lblDin_NroTareo.AutoSize = True
         Me.lblDin_NroTareo.Font = New System.Drawing.Font("Flexo Light", 10.0!, System.Drawing.FontStyle.Bold)
         Me.lblDin_NroTareo.ForeColor = System.Drawing.Color.FromArgb(CType(CType(35, Byte), Integer), CType(CType(35, Byte), Integer), CType(CType(35, Byte), Integer))
-        Me.lblDin_NroTareo.Location = New System.Drawing.Point(310, 2)
+        Me.lblDin_NroTareo.Location = New System.Drawing.Point(314, 2)
         Me.lblDin_NroTareo.Margin = New System.Windows.Forms.Padding(0, 2, 2, 2)
         Me.lblDin_NroTareo.Name = "lblDin_NroTareo"
-        Me.lblDin_NroTareo.Size = New System.Drawing.Size(52, 16)
+        Me.lblDin_NroTareo.Size = New System.Drawing.Size(53, 16)
         Me.lblDin_NroTareo.TabIndex = 5
         Me.lblDin_NroTareo.Text = "00000"
         '
@@ -351,10 +351,10 @@ Partial Class frmSupervision_Movimientos_Tareos
         Me.Label9.AutoSize = True
         Me.Label9.Font = New System.Drawing.Font("Flexo Light", 10.0!, System.Drawing.FontStyle.Bold)
         Me.Label9.ForeColor = System.Drawing.Color.FromArgb(CType(CType(90, Byte), Integer), CType(CType(90, Byte), Integer), CType(CType(90, Byte), Integer))
-        Me.Label9.Location = New System.Drawing.Point(276, 2)
+        Me.Label9.Location = New System.Drawing.Point(279, 2)
         Me.Label9.Margin = New System.Windows.Forms.Padding(2, 2, 0, 2)
         Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(34, 16)
+        Me.Label9.Size = New System.Drawing.Size(35, 16)
         Me.Label9.TabIndex = 4
         Me.Label9.Text = "Nro:"
         '
@@ -364,10 +364,10 @@ Partial Class frmSupervision_Movimientos_Tareos
         Me.lblDin_Anio.AutoSize = True
         Me.lblDin_Anio.Font = New System.Drawing.Font("Flexo Light", 10.0!, System.Drawing.FontStyle.Bold)
         Me.lblDin_Anio.ForeColor = System.Drawing.Color.FromArgb(CType(CType(35, Byte), Integer), CType(CType(35, Byte), Integer), CType(CType(35, Byte), Integer))
-        Me.lblDin_Anio.Location = New System.Drawing.Point(229, 2)
+        Me.lblDin_Anio.Location = New System.Drawing.Point(231, 2)
         Me.lblDin_Anio.Margin = New System.Windows.Forms.Padding(0, 2, 2, 2)
         Me.lblDin_Anio.Name = "lblDin_Anio"
-        Me.lblDin_Anio.Size = New System.Drawing.Size(43, 16)
+        Me.lblDin_Anio.Size = New System.Drawing.Size(44, 16)
         Me.lblDin_Anio.TabIndex = 3
         Me.lblDin_Anio.Text = "0000"
         '
@@ -377,10 +377,10 @@ Partial Class frmSupervision_Movimientos_Tareos
         Me.Label7.AutoSize = True
         Me.Label7.Font = New System.Drawing.Font("Flexo Light", 10.0!, System.Drawing.FontStyle.Bold)
         Me.Label7.ForeColor = System.Drawing.Color.FromArgb(CType(CType(90, Byte), Integer), CType(CType(90, Byte), Integer), CType(CType(90, Byte), Integer))
-        Me.Label7.Location = New System.Drawing.Point(193, 2)
+        Me.Label7.Location = New System.Drawing.Point(194, 2)
         Me.Label7.Margin = New System.Windows.Forms.Padding(2, 2, 0, 2)
         Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(36, 16)
+        Me.Label7.Size = New System.Drawing.Size(37, 16)
         Me.Label7.TabIndex = 2
         Me.Label7.Text = "Año:"
         '
@@ -390,10 +390,10 @@ Partial Class frmSupervision_Movimientos_Tareos
         Me.lblDin_IdTareo.AutoSize = True
         Me.lblDin_IdTareo.Font = New System.Drawing.Font("Flexo Light", 10.0!, System.Drawing.FontStyle.Bold)
         Me.lblDin_IdTareo.ForeColor = System.Drawing.Color.FromArgb(CType(CType(35, Byte), Integer), CType(CType(35, Byte), Integer), CType(CType(35, Byte), Integer))
-        Me.lblDin_IdTareo.Location = New System.Drawing.Point(48, 2)
+        Me.lblDin_IdTareo.Location = New System.Drawing.Point(49, 2)
         Me.lblDin_IdTareo.Margin = New System.Windows.Forms.Padding(0, 2, 2, 2)
         Me.lblDin_IdTareo.Name = "lblDin_IdTareo"
-        Me.lblDin_IdTareo.Size = New System.Drawing.Size(115, 16)
+        Me.lblDin_IdTareo.Size = New System.Drawing.Size(116, 16)
         Me.lblDin_IdTareo.TabIndex = 1
         Me.lblDin_IdTareo.Text = "000000000000"
         '
@@ -406,14 +406,14 @@ Partial Class frmSupervision_Movimientos_Tareos
         Me.Label2.Location = New System.Drawing.Point(25, 2)
         Me.Label2.Margin = New System.Windows.Forms.Padding(2, 2, 0, 2)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(23, 16)
+        Me.Label2.Size = New System.Drawing.Size(24, 16)
         Me.Label2.TabIndex = 0
         Me.Label2.Text = "Id:"
         '
         'btnGuardar
         '
         Me.btnGuardar.Anchor = System.Windows.Forms.AnchorStyles.Left
-        Me.btnGuardar.Location = New System.Drawing.Point(864, 22)
+        Me.btnGuardar.Location = New System.Drawing.Point(973, 22)
         Me.btnGuardar.Margin = New System.Windows.Forms.Padding(2)
         Me.btnGuardar.Name = "btnGuardar"
         Me.btnGuardar.Size = New System.Drawing.Size(100, 30)
@@ -428,10 +428,10 @@ Partial Class frmSupervision_Movimientos_Tareos
         Me.lblDin_Responsable.Dock = System.Windows.Forms.DockStyle.Fill
         Me.lblDin_Responsable.Font = New System.Drawing.Font("Flexo Light", 10.0!, System.Drawing.FontStyle.Bold)
         Me.lblDin_Responsable.ForeColor = System.Drawing.Color.FromArgb(CType(CType(35, Byte), Integer), CType(CType(35, Byte), Integer), CType(CType(35, Byte), Integer))
-        Me.lblDin_Responsable.Location = New System.Drawing.Point(470, 2)
+        Me.lblDin_Responsable.Location = New System.Drawing.Point(473, 2)
         Me.lblDin_Responsable.Margin = New System.Windows.Forms.Padding(0, 2, 2, 2)
         Me.lblDin_Responsable.Name = "lblDin_Responsable"
-        Me.lblDin_Responsable.Size = New System.Drawing.Size(157, 16)
+        Me.lblDin_Responsable.Size = New System.Drawing.Size(160, 16)
         Me.lblDin_Responsable.TabIndex = 12
         Me.lblDin_Responsable.Text = "00000"
         '
@@ -441,10 +441,10 @@ Partial Class frmSupervision_Movimientos_Tareos
         Me.Label13.AutoSize = True
         Me.Label13.Font = New System.Drawing.Font("Flexo Light", 10.0!, System.Drawing.FontStyle.Bold)
         Me.Label13.ForeColor = System.Drawing.Color.FromArgb(CType(CType(90, Byte), Integer), CType(CType(90, Byte), Integer), CType(CType(90, Byte), Integer))
-        Me.Label13.Location = New System.Drawing.Point(376, 2)
+        Me.Label13.Location = New System.Drawing.Point(378, 2)
         Me.Label13.Margin = New System.Windows.Forms.Padding(2, 2, 0, 2)
         Me.Label13.Name = "Label13"
-        Me.Label13.Size = New System.Drawing.Size(94, 16)
+        Me.Label13.Size = New System.Drawing.Size(95, 16)
         Me.Label13.TabIndex = 11
         Me.Label13.Text = "Responsable:"
         '
@@ -457,7 +457,7 @@ Partial Class frmSupervision_Movimientos_Tareos
         Me.Label11.Location = New System.Drawing.Point(2, 29)
         Me.Label11.Margin = New System.Windows.Forms.Padding(2, 2, 0, 2)
         Me.Label11.Name = "Label11"
-        Me.Label11.Size = New System.Drawing.Size(46, 16)
+        Me.Label11.Size = New System.Drawing.Size(47, 16)
         Me.Label11.TabIndex = 6
         Me.Label11.Text = "Turno:"
         '
@@ -465,7 +465,7 @@ Partial Class frmSupervision_Movimientos_Tareos
         '
         Me.cboTurno.Anchor = System.Windows.Forms.AnchorStyles.Left
         Me.cboTurno.FormattingEnabled = True
-        Me.cboTurno.Location = New System.Drawing.Point(50, 26)
+        Me.cboTurno.Location = New System.Drawing.Point(51, 26)
         Me.cboTurno.Margin = New System.Windows.Forms.Padding(2)
         Me.cboTurno.Name = "cboTurno"
         Me.cboTurno.Size = New System.Drawing.Size(139, 24)
@@ -477,10 +477,10 @@ Partial Class frmSupervision_Movimientos_Tareos
         Me.Label12.AutoSize = True
         Me.Label12.Font = New System.Drawing.Font("Flexo Light", 10.0!, System.Drawing.FontStyle.Bold)
         Me.Label12.ForeColor = System.Drawing.Color.FromArgb(CType(CType(90, Byte), Integer), CType(CType(90, Byte), Integer), CType(CType(90, Byte), Integer))
-        Me.Label12.Location = New System.Drawing.Point(197, 29)
+        Me.Label12.Location = New System.Drawing.Point(198, 29)
         Me.Label12.Margin = New System.Windows.Forms.Padding(2, 2, 0, 2)
         Me.Label12.Name = "Label12"
-        Me.Label12.Size = New System.Drawing.Size(32, 16)
+        Me.Label12.Size = New System.Drawing.Size(33, 16)
         Me.Label12.TabIndex = 7
         Me.Label12.Text = "Dia:"
         '
@@ -490,7 +490,7 @@ Partial Class frmSupervision_Movimientos_Tareos
         Me.TableLayoutPanel3.SetColumnSpan(Me.pkrDia, 3)
         Me.pkrDia.Font = New System.Drawing.Font("Flexo Light", 9.749999!, System.Drawing.FontStyle.Bold)
         Me.pkrDia.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.pkrDia.Location = New System.Drawing.Point(231, 25)
+        Me.pkrDia.Location = New System.Drawing.Point(233, 25)
         Me.pkrDia.Margin = New System.Windows.Forms.Padding(2)
         Me.pkrDia.Name = "pkrDia"
         Me.pkrDia.Size = New System.Drawing.Size(141, 23)
@@ -502,10 +502,10 @@ Partial Class frmSupervision_Movimientos_Tareos
         Me.Label15.AutoSize = True
         Me.Label15.Font = New System.Drawing.Font("Flexo Light", 10.0!, System.Drawing.FontStyle.Bold)
         Me.Label15.ForeColor = System.Drawing.Color.FromArgb(CType(CType(90, Byte), Integer), CType(CType(90, Byte), Integer), CType(CType(90, Byte), Integer))
-        Me.Label15.Location = New System.Drawing.Point(409, 29)
+        Me.Label15.Location = New System.Drawing.Point(411, 29)
         Me.Label15.Margin = New System.Windows.Forms.Padding(2, 2, 0, 2)
         Me.Label15.Name = "Label15"
-        Me.Label15.Size = New System.Drawing.Size(61, 16)
+        Me.Label15.Size = New System.Drawing.Size(62, 16)
         Me.Label15.TabIndex = 13
         Me.Label15.Text = "Periodo:"
         '
@@ -515,10 +515,10 @@ Partial Class frmSupervision_Movimientos_Tareos
         Me.lblDin_Periodo.AutoSize = True
         Me.lblDin_Periodo.Font = New System.Drawing.Font("Flexo Light", 10.0!, System.Drawing.FontStyle.Bold)
         Me.lblDin_Periodo.ForeColor = System.Drawing.Color.FromArgb(CType(CType(35, Byte), Integer), CType(CType(35, Byte), Integer), CType(CType(35, Byte), Integer))
-        Me.lblDin_Periodo.Location = New System.Drawing.Point(472, 29)
+        Me.lblDin_Periodo.Location = New System.Drawing.Point(475, 29)
         Me.lblDin_Periodo.Margin = New System.Windows.Forms.Padding(2)
         Me.lblDin_Periodo.Name = "lblDin_Periodo"
-        Me.lblDin_Periodo.Size = New System.Drawing.Size(61, 16)
+        Me.lblDin_Periodo.Size = New System.Drawing.Size(62, 16)
         Me.lblDin_Periodo.TabIndex = 14
         Me.lblDin_Periodo.Text = "000000"
         '
@@ -528,10 +528,10 @@ Partial Class frmSupervision_Movimientos_Tareos
         Me.Label17.AutoSize = True
         Me.Label17.Font = New System.Drawing.Font("Flexo Light", 10.0!, System.Drawing.FontStyle.Bold)
         Me.Label17.ForeColor = System.Drawing.Color.FromArgb(CType(CType(90, Byte), Integer), CType(CType(90, Byte), Integer), CType(CType(90, Byte), Integer))
-        Me.Label17.Location = New System.Drawing.Point(537, 29)
+        Me.Label17.Location = New System.Drawing.Point(541, 29)
         Me.Label17.Margin = New System.Windows.Forms.Padding(2, 2, 0, 2)
         Me.Label17.Name = "Label17"
-        Me.Label17.Size = New System.Drawing.Size(63, 16)
+        Me.Label17.Size = New System.Drawing.Size(64, 16)
         Me.Label17.TabIndex = 15
         Me.Label17.Text = "Semana:"
         '
@@ -541,17 +541,17 @@ Partial Class frmSupervision_Movimientos_Tareos
         Me.lblDin_Semana.AutoSize = True
         Me.lblDin_Semana.Font = New System.Drawing.Font("Flexo Light", 10.0!, System.Drawing.FontStyle.Bold)
         Me.lblDin_Semana.ForeColor = System.Drawing.Color.FromArgb(CType(CType(35, Byte), Integer), CType(CType(35, Byte), Integer), CType(CType(35, Byte), Integer))
-        Me.lblDin_Semana.Location = New System.Drawing.Point(602, 29)
+        Me.lblDin_Semana.Location = New System.Drawing.Point(607, 29)
         Me.lblDin_Semana.Margin = New System.Windows.Forms.Padding(2)
         Me.lblDin_Semana.Name = "lblDin_Semana"
-        Me.lblDin_Semana.Size = New System.Drawing.Size(25, 16)
+        Me.lblDin_Semana.Size = New System.Drawing.Size(26, 16)
         Me.lblDin_Semana.TabIndex = 16
         Me.lblDin_Semana.Text = "00"
         '
         'btnCancelar
         '
         Me.btnCancelar.Anchor = System.Windows.Forms.AnchorStyles.Right
-        Me.btnCancelar.Location = New System.Drawing.Point(760, 22)
+        Me.btnCancelar.Location = New System.Drawing.Point(869, 22)
         Me.btnCancelar.Margin = New System.Windows.Forms.Padding(2)
         Me.btnCancelar.Name = "btnCancelar"
         Me.btnCancelar.Size = New System.Drawing.Size(100, 30)
@@ -563,9 +563,9 @@ Partial Class frmSupervision_Movimientos_Tareos
         '
         Me.cbVistaSimplificada.AutoSize = True
         Me.cbVistaSimplificada.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.cbVistaSimplificada.Location = New System.Drawing.Point(969, 23)
+        Me.cbVistaSimplificada.Location = New System.Drawing.Point(1078, 23)
         Me.cbVistaSimplificada.Name = "cbVistaSimplificada"
-        Me.cbVistaSimplificada.Size = New System.Drawing.Size(143, 28)
+        Me.cbVistaSimplificada.Size = New System.Drawing.Size(144, 28)
         Me.cbVistaSimplificada.TabIndex = 18
         Me.cbVistaSimplificada.Text = "Vista Simplificada"
         Me.cbVistaSimplificada.UseVisualStyleBackColor = True
@@ -595,14 +595,15 @@ Partial Class frmSupervision_Movimientos_Tareos
         Me.TableLayoutPanel2.Name = "TableLayoutPanel2"
         Me.TableLayoutPanel2.RowCount = 1
         Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle())
-        Me.TableLayoutPanel2.Size = New System.Drawing.Size(1119, 29)
+        Me.TableLayoutPanel2.Size = New System.Drawing.Size(1229, 29)
         Me.TableLayoutPanel2.TabIndex = 2
         '
         'btnTransferir
         '
+        Me.btnTransferir.Anchor = System.Windows.Forms.AnchorStyles.Left
         Me.btnTransferir.AutoSize = True
         Me.btnTransferir.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
-        Me.btnTransferir.Location = New System.Drawing.Point(160, 2)
+        Me.btnTransferir.Location = New System.Drawing.Point(160, 3)
         Me.btnTransferir.Margin = New System.Windows.Forms.Padding(2)
         Me.btnTransferir.Name = "btnTransferir"
         Me.btnTransferir.Size = New System.Drawing.Size(61, 23)
@@ -612,9 +613,10 @@ Partial Class frmSupervision_Movimientos_Tareos
         '
         'btnEliminar
         '
+        Me.btnEliminar.Anchor = System.Windows.Forms.AnchorStyles.Left
         Me.btnEliminar.AutoSize = True
         Me.btnEliminar.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
-        Me.btnEliminar.Location = New System.Drawing.Point(103, 2)
+        Me.btnEliminar.Location = New System.Drawing.Point(103, 3)
         Me.btnEliminar.Margin = New System.Windows.Forms.Padding(2)
         Me.btnEliminar.Name = "btnEliminar"
         Me.btnEliminar.Size = New System.Drawing.Size(53, 23)
@@ -624,9 +626,10 @@ Partial Class frmSupervision_Movimientos_Tareos
         '
         'btnEditar
         '
+        Me.btnEditar.Anchor = System.Windows.Forms.AnchorStyles.Left
         Me.btnEditar.AutoSize = True
         Me.btnEditar.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
-        Me.btnEditar.Location = New System.Drawing.Point(55, 2)
+        Me.btnEditar.Location = New System.Drawing.Point(55, 3)
         Me.btnEditar.Margin = New System.Windows.Forms.Padding(2)
         Me.btnEditar.Name = "btnEditar"
         Me.btnEditar.Size = New System.Drawing.Size(44, 23)
@@ -636,9 +639,10 @@ Partial Class frmSupervision_Movimientos_Tareos
         '
         'btnNuevo
         '
+        Me.btnNuevo.Anchor = System.Windows.Forms.AnchorStyles.Left
         Me.btnNuevo.AutoSize = True
         Me.btnNuevo.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
-        Me.btnNuevo.Location = New System.Drawing.Point(2, 2)
+        Me.btnNuevo.Location = New System.Drawing.Point(2, 3)
         Me.btnNuevo.Margin = New System.Windows.Forms.Padding(2)
         Me.btnNuevo.Name = "btnNuevo"
         Me.btnNuevo.Size = New System.Drawing.Size(49, 23)
@@ -648,6 +652,7 @@ Partial Class frmSupervision_Movimientos_Tareos
         '
         'btnAprobar
         '
+        Me.btnAprobar.Anchor = System.Windows.Forms.AnchorStyles.Left
         Me.btnAprobar.AutoSize = True
         Me.btnAprobar.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
         Me.btnAprobar.Location = New System.Drawing.Point(226, 3)
@@ -659,6 +664,7 @@ Partial Class frmSupervision_Movimientos_Tareos
         '
         'btnDesaprobar
         '
+        Me.btnDesaprobar.Anchor = System.Windows.Forms.AnchorStyles.Left
         Me.btnDesaprobar.AutoSize = True
         Me.btnDesaprobar.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
         Me.btnDesaprobar.Location = New System.Drawing.Point(286, 3)
@@ -675,22 +681,22 @@ Partial Class frmSupervision_Movimientos_Tareos
         Me.dgvResultado.Location = New System.Drawing.Point(18, 185)
         Me.dgvResultado.Margin = New System.Windows.Forms.Padding(2)
         Me.dgvResultado.Name = "dgvResultado"
-        Me.dgvResultado.Size = New System.Drawing.Size(1119, 220)
+        Me.dgvResultado.Size = New System.Drawing.Size(1229, 466)
         Me.dgvResultado.TabIndex = 3
         '
         'barProgreso
         '
         Me.barProgreso.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.barProgreso.Location = New System.Drawing.Point(18, 409)
+        Me.barProgreso.Location = New System.Drawing.Point(18, 655)
         Me.barProgreso.Margin = New System.Windows.Forms.Padding(2)
         Me.barProgreso.Name = "barProgreso"
-        Me.barProgreso.Size = New System.Drawing.Size(1119, 30)
+        Me.barProgreso.Size = New System.Drawing.Size(1229, 30)
         Me.barProgreso.TabIndex = 4
         '
         'lblDin_Resultado
         '
         Me.lblDin_Resultado.AutoSize = True
-        Me.lblDin_Resultado.Location = New System.Drawing.Point(18, 443)
+        Me.lblDin_Resultado.Location = New System.Drawing.Point(18, 689)
         Me.lblDin_Resultado.Margin = New System.Windows.Forms.Padding(2)
         Me.lblDin_Resultado.Name = "lblDin_Resultado"
         Me.lblDin_Resultado.Size = New System.Drawing.Size(45, 13)
@@ -701,7 +707,7 @@ Partial Class frmSupervision_Movimientos_Tareos
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1155, 473)
+        Me.ClientSize = New System.Drawing.Size(1265, 719)
         Me.Controls.Add(Me.tlpPrincipal)
         Me.Name = "frmSupervision_Movimientos_Tareos"
         Me.Text = "[Supervision / Movimientos / Tareos.]"
