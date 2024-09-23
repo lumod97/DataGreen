@@ -34,13 +34,13 @@ Public Class frmPacking_Reportes_AlcanceEstandares
             Dim aux As New DataTable
             Dim p As New Dictionary(Of String, Object)
             If radAlcanceEstandares.Checked Then
-                p.Add("@Desde", CType(dtpFecha.Value.ToString("yyyy-MM-dd"), DateTime))
-                p.Add("@Hasta", CType(dtpFecha.Value.ToString("yyyy-MM-dd"), DateTime))
+                p.Add("@Desde", CType(dtpDesde.Value.ToString("yyyy-MM-dd"), DateTime))
+                p.Add("@Hasta", CType(dtpHasta.Value.ToString("yyyy-MM-dd"), DateTime))
                 p.Add("@TipoResultado", "T")
                 arrayDeParametros = obtenerCadenaParametros(p)
                 aux = Await Task.Run(Function() doItBaby("sp_Dg_Packing_Reportes_AlcanceEstandares", p, TipoQuery.DataTable))
             ElseIf radDistribucionHoras.Checked Then
-                p.Add("@Dia", CType(dtpFecha.Value.ToString("yyyy-MM-dd"), DateTime))
+                p.Add("@Dia", CType(dtpHasta.Value.ToString("yyyy-MM-dd"), DateTime))
                 arrayDeParametros = obtenerCadenaParametros(p)
                 aux = Await Task.Run(Function() doItBaby("sp_Dg_Packing_Movimientos_DistribuirHorasXConsumidorPacking_DistribuirHoras", p, TipoQuery.DataTable))
             End If
@@ -104,13 +104,13 @@ Public Class frmPacking_Reportes_AlcanceEstandares
             MessageBox.Show("Error, no hay registros para Convertir Tareos")
         Else
             Dim rpta As DialogResult
-            Dim s As String = "Desea convertir las eficiencias del dia " & dtpFecha.Value.ToString("yyyy-MM-dd")
+            Dim s As String = "Desea convertir las eficiencias del dia " & dtpHasta.Value.ToString("yyyy-MM-dd")
             rpta = MessageBox.Show(s, "Convertir en Tareo", MessageBoxButtons.YesNo)
             If rpta = DialogResult.Yes Then
                 Dim p As New Dictionary(Of String, Object)
                 Dim r As DataTable
                 Try
-                    p.Add("@Dia", CType(dtpFecha.Value.ToString("yyyy-MM-dd"), DateTime))
+                    p.Add("@Dia", CType(dtpHasta.Value.ToString("yyyy-MM-dd"), DateTime))
                     p.Add("@IdUsuario", usuarioActual)
                     r = doItBaby("sp_Dg_Packing_Reportes_AlcanceEstandares_ConvertirATareo", p, TipoQuery.DataTable)
                     If r.Rows(0).Item(0).ToString.Equals("1") Then

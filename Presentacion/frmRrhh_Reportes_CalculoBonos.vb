@@ -105,5 +105,7 @@ Public Class frmRrhh_Reportes_CalculoBonos
         End If
     End Sub
 
+    Private Sub cboPlanilla_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cboPlanilla.SelectedIndexChanged
 
+    End Sub
 End Class

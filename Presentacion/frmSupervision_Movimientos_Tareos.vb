@@ -508,6 +508,8 @@ Public Class frmSupervision_Movimientos_Tareos
                     dgvResultado_CellClick(sender, New DataGridViewCellEventArgs(1, dgvResultado.SelectedRows(0).Index))
                 Catch
                     MessageBox.Show("Error al tratar de eliminar tareo.")
+                Finally
+                    listarTareos()
                 End Try
             End If
             desbloquearFilas(dgvResultado)

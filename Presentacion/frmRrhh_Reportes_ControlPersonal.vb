@@ -7,8 +7,6 @@ Public Class frmRrhh_Reportes_ControlPersonal
     Dim dtResultado As DataTable
     Dim arrayDeParametros As String
 
-
-
     Private Sub frmRrhh_Reportes_ControlPersonal_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Me.WindowState = FormWindowState.Maximized
         tlpPrincipal.Visible = False
