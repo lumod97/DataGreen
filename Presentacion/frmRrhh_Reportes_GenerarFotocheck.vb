@@ -583,6 +583,7 @@ Public Class frmRrhh_Reportes_GenerarFotocheck
                 Next
             Next
             formatearDataGridView(dgvSeleccionados)
+
         End If
     End Sub
 
