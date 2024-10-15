@@ -1,13 +1,13 @@
-D:\DataGreen-20240919\Entidades\obj\Release\Entidades.vbproj.AssemblyReference.cache
-D:\DataGreen-20240919\Entidades\obj\Release\Entidades.Resources.resources
-D:\DataGreen-20240919\Entidades\obj\Release\Entidades.vbproj.GenerateResource.cache
-D:\DataGreen-20240919\Entidades\obj\Release\Entidades.vbproj.CoreCompileInputs.cache
 D:\DataGreen-20240919\Entidades\bin\Release\Entidades.dll
 D:\DataGreen-20240919\Entidades\bin\Release\Entidades.pdb
 D:\DataGreen-20240919\Entidades\bin\Release\Entidades.xml
 D:\DataGreen-20240919\Entidades\bin\Release\Newtonsoft.Json.dll
 D:\DataGreen-20240919\Entidades\bin\Release\WebSocket4Net.dll
 D:\DataGreen-20240919\Entidades\bin\Release\Newtonsoft.Json.xml
+D:\DataGreen-20240919\Entidades\obj\Release\Entidades.vbproj.AssemblyReference.cache
+D:\DataGreen-20240919\Entidades\obj\Release\Entidades.Resources.resources
+D:\DataGreen-20240919\Entidades\obj\Release\Entidades.vbproj.GenerateResource.cache
+D:\DataGreen-20240919\Entidades\obj\Release\Entidades.vbproj.CoreCompileInputs.cache
 D:\DataGreen-20240919\Entidades\obj\Release\Entidades.vbproj.Up2Date
 D:\DataGreen-20240919\Entidades\obj\Release\Entidades.dll
 D:\DataGreen-20240919\Entidades\obj\Release\Entidades.xml

@@ -102,22 +102,22 @@ Public Class frmPacking_Movimientos_GenerarCodigosPacking
                 For Each fila As DataGridViewRow In dgvResultado.Rows
                     If fila.Cells(7).Value <> 0 Then
                         cantidadCodigosAGenerar = CType(fila.Cells(7).Value, Integer)
-                        p.Add("@Dni", fila.Cells(0).Value.ToString)
-                        p.Add("@IdLaborPacking", fila.Cells(3).Value.ToString)
-                        p.Add("@IdLinea", fila.Cells(4).Value.ToString)
-                        p.Add("@TipoResultado", "N")
-                        codigosReciclables = doItBaby("sp_Dg_Packing_Movimientos_GenerarCodigosPacking_ConsultarCodigosLibres", p, TipoQuery.Scalar)
-                        If codigosReciclables > 0 Then
-                            If cantidadCodigosAGenerar >= codigosReciclables Then
-                                cantidadCodigosAGenerar = cantidadCodigosAGenerar - codigosReciclables
-                                cantidadCodigosALiberar = codigosReciclables
-                            ElseIf cantidadCodigosAGenerar < codigosReciclables Then
-                                cantidadCodigosALiberar = cantidadCodigosAGenerar
-                                cantidadCodigosAGenerar = 0
-                            End If
-                            p.Add("@Cantidad", cantidadCodigosALiberar)
-                            doItBaby("sp_Dg_Packing_Movimientos_GenerarCodigosPacking_LiberarCodigosReciclables", p, TipoQuery.NonQuery)
-                        End If
+                        'p.Add("@Dni", fila.Cells(0).Value.ToString)
+                        'p.Add("@IdLaborPacking", fila.Cells(3).Value.ToString)
+                        'p.Add("@IdLinea", fila.Cells(4).Value.ToString)
+                        'p.Add("@TipoResultado", "N")
+                        'codigosReciclables = doItBaby("sp_Dg_Packing_Movimientos_GenerarCodigosPacking_ConsultarCodigosLibres", p, TipoQuery.Scalar)
+                        'If codigosReciclables > 0 Then
+                        '    If cantidadCodigosAGenerar >= codigosReciclables Then
+                        '        cantidadCodigosAGenerar = cantidadCodigosAGenerar - codigosReciclables
+                        '        cantidadCodigosALiberar = codigosReciclables
+                        '    ElseIf cantidadCodigosAGenerar < codigosReciclables Then
+                        '        cantidadCodigosALiberar = cantidadCodigosAGenerar
+                        '        cantidadCodigosAGenerar = 0
+                        '    End If
+                        '    p.Add("@Cantidad", cantidadCodigosALiberar)
+                        '    doItBaby("sp_Dg_Packing_Movimientos_GenerarCodigosPacking_LiberarCodigosReciclables", p, TipoQuery.NonQuery)
+                        'End If
 
                         'p = New Dictionary(Of String, Object)
                         p.Clear()

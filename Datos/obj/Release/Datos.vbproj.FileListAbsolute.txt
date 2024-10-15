@@ -1,7 +1,3 @@
-D:\DataGreen-20240919\Datos\obj\Release\Datos.vbproj.AssemblyReference.cache
-D:\DataGreen-20240919\Datos\obj\Release\Datos.Resources.resources
-D:\DataGreen-20240919\Datos\obj\Release\Datos.vbproj.GenerateResource.cache
-D:\DataGreen-20240919\Datos\obj\Release\Datos.vbproj.CoreCompileInputs.cache
 D:\DataGreen-20240919\Datos\bin\Release\Datos.dll.config
 D:\DataGreen-20240919\Datos\bin\Release\Datos.dll
 D:\DataGreen-20240919\Datos\bin\Release\Datos.pdb
@@ -21,6 +17,10 @@ D:\DataGreen-20240919\Datos\bin\Release\EntityFramework.xml
 D:\DataGreen-20240919\Datos\bin\Release\EntityFramework.SqlServer.xml
 D:\DataGreen-20240919\Datos\bin\Release\Newtonsoft.Json.xml
 D:\DataGreen-20240919\Datos\bin\Release\System.Data.SQLite.xml
+D:\DataGreen-20240919\Datos\obj\Release\Datos.vbproj.AssemblyReference.cache
+D:\DataGreen-20240919\Datos\obj\Release\Datos.Resources.resources
+D:\DataGreen-20240919\Datos\obj\Release\Datos.vbproj.GenerateResource.cache
+D:\DataGreen-20240919\Datos\obj\Release\Datos.vbproj.CoreCompileInputs.cache
 D:\DataGreen-20240919\Datos\obj\Release\Datos.vbproj.Up2Date
 D:\DataGreen-20240919\Datos\obj\Release\Datos.dll
 D:\DataGreen-20240919\Datos\obj\Release\Datos.xml

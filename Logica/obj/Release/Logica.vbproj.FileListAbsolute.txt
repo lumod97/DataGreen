@@ -1,8 +1,3 @@
-D:\DataGreen-20240919\Logica\obj\Release\Logica.vbproj.AssemblyReference.cache
-D:\DataGreen-20240919\Logica\obj\Release\Logica.vbproj.ResolveComReference.cache
-D:\DataGreen-20240919\Logica\obj\Release\Logica.Resources.resources
-D:\DataGreen-20240919\Logica\obj\Release\Logica.vbproj.GenerateResource.cache
-D:\DataGreen-20240919\Logica\obj\Release\Logica.vbproj.CoreCompileInputs.cache
 D:\DataGreen-20240919\Logica\bin\Release\SkiaSharp.dll.config
 D:\DataGreen-20240919\Logica\bin\Release\libSkiaSharp.dll
 D:\DataGreen-20240919\Logica\bin\Release\libSkiaSharp.dylib
@@ -42,6 +37,11 @@ D:\DataGreen-20240919\Logica\bin\Release\ExcelNumberFormat.xml
 D:\DataGreen-20240919\Logica\bin\Release\Newtonsoft.Json.xml
 D:\DataGreen-20240919\Logica\bin\Release\SkiaSharp.xml
 D:\DataGreen-20240919\Logica\bin\Release\System.Runtime.CompilerServices.Unsafe.xml
+D:\DataGreen-20240919\Logica\obj\Release\Logica.vbproj.AssemblyReference.cache
+D:\DataGreen-20240919\Logica\obj\Release\Logica.vbproj.ResolveComReference.cache
+D:\DataGreen-20240919\Logica\obj\Release\Logica.Resources.resources
+D:\DataGreen-20240919\Logica\obj\Release\Logica.vbproj.GenerateResource.cache
+D:\DataGreen-20240919\Logica\obj\Release\Logica.vbproj.CoreCompileInputs.cache
 D:\DataGreen-20240919\Logica\obj\Release\Logica.vbproj.Up2Date
 D:\DataGreen-20240919\Logica\obj\Release\Logica.dll
 D:\DataGreen-20240919\Logica\obj\Release\Logica.xml
