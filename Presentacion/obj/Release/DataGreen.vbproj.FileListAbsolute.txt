@@ -256,3 +256,9 @@ D:\DataGreen-20240919\Presentacion\obj\Release\DataGreen.vbproj.Up2Date
 D:\DataGreen-20240919\Presentacion\obj\Release\DataGreen.exe
 D:\DataGreen-20240919\Presentacion\obj\Release\DataGreen.xml
 D:\DataGreen-20240919\Presentacion\obj\Release\DataGreen.pdb
+D:\DataGreen-20240919\Presentacion\bin\Release\Microsoft.VisualStudio.Shell.Interop.dll
+D:\DataGreen-20240919\Presentacion\bin\Release\Microsoft.VisualStudio.Shell.Interop.8.0.dll
+D:\DataGreen-20240919\Presentacion\bin\Release\Microsoft.VisualStudio.OLE.Interop.dll
+D:\DataGreen-20240919\Presentacion\bin\Release\Microsoft.VisualStudio.TextManager.Interop.dll
+D:\DataGreen-20240919\Presentacion\bin\Release\Microsoft.VisualStudio.TextManager.Interop.8.0.dll
+D:\DataGreen-20240919\Presentacion\bin\Release\Microsoft.MSXML.dll

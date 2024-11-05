@@ -77,6 +77,7 @@ Partial Class frmSupervision_Movimientos_TareosDetalle
         Me.lblDin_Campana = New System.Windows.Forms.Label()
         Me.Label15 = New System.Windows.Forms.Label()
         Me.Label7 = New System.Windows.Forms.Label()
+        Me.btnDescontarAlmuerzo = New System.Windows.Forms.Button()
         Me.TableLayoutPanel2 = New System.Windows.Forms.TableLayoutPanel()
         Me.btnGuardar = New System.Windows.Forms.Button()
         Me.btnEliminar = New System.Windows.Forms.Button()
@@ -92,6 +93,8 @@ Partial Class frmSupervision_Movimientos_TareosDetalle
         Me.dgvResultado = New System.Windows.Forms.DataGridView()
         Me.barProgreso = New System.Windows.Forms.ProgressBar()
         Me.lblDin_Resultado = New System.Windows.Forms.Label()
+        Me.TableLayoutPanel5 = New System.Windows.Forms.TableLayoutPanel()
+        Me.TextBox1 = New System.Windows.Forms.TextBox()
         Me.tlpPrincipal.SuspendLayout()
         Me.gboFiltrar.SuspendLayout()
         Me.TableLayoutPanel1.SuspendLayout()
@@ -100,6 +103,7 @@ Partial Class frmSupervision_Movimientos_TareosDetalle
         Me.TableLayoutPanel4.SuspendLayout()
         Me.TableLayoutPanel2.SuspendLayout()
         CType(Me.dgvResultado, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.TableLayoutPanel5.SuspendLayout()
         Me.SuspendLayout()
         '
         'tlpPrincipal
@@ -136,11 +140,11 @@ Partial Class frmSupervision_Movimientos_TareosDetalle
         Me.gboFiltrar.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
         Me.gboFiltrar.Controls.Add(Me.TableLayoutPanel1)
         Me.gboFiltrar.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.gboFiltrar.Location = New System.Drawing.Point(21, 182)
+        Me.gboFiltrar.Location = New System.Drawing.Point(21, 205)
         Me.gboFiltrar.Margin = New System.Windows.Forms.Padding(2)
         Me.gboFiltrar.Name = "gboFiltrar"
         Me.gboFiltrar.Padding = New System.Windows.Forms.Padding(2)
-        Me.gboFiltrar.Size = New System.Drawing.Size(1169, 43)
+        Me.gboFiltrar.Size = New System.Drawing.Size(1169, 63)
         Me.gboFiltrar.TabIndex = 2
         Me.gboFiltrar.TabStop = False
         Me.gboFiltrar.Text = "Filtrar"
@@ -171,9 +175,10 @@ Partial Class frmSupervision_Movimientos_TareosDetalle
         Me.TableLayoutPanel1.Location = New System.Drawing.Point(2, 15)
         Me.TableLayoutPanel1.Margin = New System.Windows.Forms.Padding(2)
         Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
-        Me.TableLayoutPanel1.RowCount = 1
+        Me.TableLayoutPanel1.RowCount = 2
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle())
-        Me.TableLayoutPanel1.Size = New System.Drawing.Size(1165, 26)
+        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
+        Me.TableLayoutPanel1.Size = New System.Drawing.Size(1165, 46)
         Me.TableLayoutPanel1.TabIndex = 0
         '
         'txtConsumidor
@@ -266,7 +271,7 @@ Partial Class frmSupervision_Movimientos_TareosDetalle
         Me.gboDetalle.Margin = New System.Windows.Forms.Padding(2)
         Me.gboDetalle.Name = "gboDetalle"
         Me.gboDetalle.Padding = New System.Windows.Forms.Padding(2)
-        Me.gboDetalle.Size = New System.Drawing.Size(1169, 128)
+        Me.gboDetalle.Size = New System.Drawing.Size(1169, 151)
         Me.gboDetalle.TabIndex = 1
         Me.gboDetalle.TabStop = False
         Me.gboDetalle.Text = "Detalle"
@@ -306,12 +311,11 @@ Partial Class frmSupervision_Movimientos_TareosDetalle
         Me.TableLayoutPanel3.Controls.Add(Me.cboActividad, 7, 0)
         Me.TableLayoutPanel3.Controls.Add(Me.Label20, 6, 1)
         Me.TableLayoutPanel3.Controls.Add(Me.cboLabor, 7, 1)
-        Me.TableLayoutPanel3.Controls.Add(Me.btnAgregar, 12, 2)
         Me.TableLayoutPanel3.Controls.Add(Me.TableLayoutPanel4, 0, 2)
-        Me.TableLayoutPanel3.Controls.Add(Me.btnActualizar, 10, 2)
         Me.TableLayoutPanel3.Controls.Add(Me.lblDin_Campana, 11, 1)
         Me.TableLayoutPanel3.Controls.Add(Me.Label15, 10, 1)
         Me.TableLayoutPanel3.Controls.Add(Me.Label7, 10, 0)
+        Me.TableLayoutPanel3.Controls.Add(Me.TableLayoutPanel5, 10, 2)
         Me.TableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TableLayoutPanel3.Location = New System.Drawing.Point(2, 15)
         Me.TableLayoutPanel3.Margin = New System.Windows.Forms.Padding(2)
@@ -320,7 +324,8 @@ Partial Class frmSupervision_Movimientos_TareosDetalle
         Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle())
         Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle())
         Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle())
-        Me.TableLayoutPanel3.Size = New System.Drawing.Size(1165, 111)
+        Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
+        Me.TableLayoutPanel3.Size = New System.Drawing.Size(1165, 134)
         Me.TableLayoutPanel3.TabIndex = 0
         '
         'lblDin_IdTareo
@@ -388,10 +393,10 @@ Partial Class frmSupervision_Movimientos_TareosDetalle
         Me.TableLayoutPanel3.SetColumnSpan(Me.cboConsumidor, 2)
         Me.cboConsumidor.Dock = System.Windows.Forms.DockStyle.Fill
         Me.cboConsumidor.FormattingEnabled = True
-        Me.cboConsumidor.Location = New System.Drawing.Point(954, 4)
+        Me.cboConsumidor.Location = New System.Drawing.Point(912, 4)
         Me.cboConsumidor.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.cboConsumidor.Name = "cboConsumidor"
-        Me.cboConsumidor.Size = New System.Drawing.Size(208, 21)
+        Me.cboConsumidor.Size = New System.Drawing.Size(250, 21)
         Me.cboConsumidor.TabIndex = 4
         '
         'cboVariedad
@@ -493,7 +498,7 @@ Partial Class frmSupervision_Movimientos_TareosDetalle
         Me.cboActividad.Location = New System.Drawing.Point(477, 4)
         Me.cboActividad.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.cboActividad.Name = "cboActividad"
-        Me.cboActividad.Size = New System.Drawing.Size(404, 21)
+        Me.cboActividad.Size = New System.Drawing.Size(362, 21)
         Me.cboActividad.TabIndex = 2
         '
         'Label20
@@ -516,14 +521,13 @@ Partial Class frmSupervision_Movimientos_TareosDetalle
         Me.cboLabor.Location = New System.Drawing.Point(477, 33)
         Me.cboLabor.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.cboLabor.Name = "cboLabor"
-        Me.cboLabor.Size = New System.Drawing.Size(404, 21)
+        Me.cboLabor.Size = New System.Drawing.Size(362, 21)
         Me.cboLabor.TabIndex = 3
         '
         'btnAgregar
         '
         Me.btnAgregar.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnAgregar.Location = New System.Drawing.Point(1082, 72)
-        Me.btnAgregar.Margin = New System.Windows.Forms.Padding(2)
+        Me.btnAgregar.Location = New System.Drawing.Point(134, 36)
         Me.btnAgregar.Name = "btnAgregar"
         Me.btnAgregar.Size = New System.Drawing.Size(81, 37)
         Me.btnAgregar.TabIndex = 6
@@ -575,7 +579,7 @@ Partial Class frmSupervision_Movimientos_TareosDetalle
         Me.TableLayoutPanel4.RowCount = 2
         Me.TableLayoutPanel4.RowStyles.Add(New System.Windows.Forms.RowStyle())
         Me.TableLayoutPanel4.RowStyles.Add(New System.Windows.Forms.RowStyle())
-        Me.TableLayoutPanel4.Size = New System.Drawing.Size(884, 53)
+        Me.TableLayoutPanel4.Size = New System.Drawing.Size(842, 76)
         Me.TableLayoutPanel4.TabIndex = 5
         '
         'cboMmFin
@@ -684,7 +688,7 @@ Partial Class frmSupervision_Movimientos_TareosDetalle
         Me.txtDni.Dock = System.Windows.Forms.DockStyle.Fill
         Me.txtDni.Location = New System.Drawing.Point(429, 30)
         Me.txtDni.Name = "txtDni"
-        Me.txtDni.Size = New System.Drawing.Size(452, 20)
+        Me.txtDni.Size = New System.Drawing.Size(410, 20)
         Me.txtDni.TabIndex = 9
         '
         'txtHoras
@@ -699,7 +703,7 @@ Partial Class frmSupervision_Movimientos_TareosDetalle
         Me.lblHoras.Anchor = System.Windows.Forms.AnchorStyles.Right
         Me.lblHoras.AutoSize = True
         Me.lblHoras.ForeColor = System.Drawing.Color.FromArgb(CType(CType(90, Byte), Integer), CType(CType(90, Byte), Integer), CType(CType(90, Byte), Integer))
-        Me.lblHoras.Location = New System.Drawing.Point(122, 33)
+        Me.lblHoras.Location = New System.Drawing.Point(122, 45)
         Me.lblHoras.Margin = New System.Windows.Forms.Padding(2, 2, 0, 2)
         Me.lblHoras.Name = "lblHoras"
         Me.lblHoras.Size = New System.Drawing.Size(38, 13)
@@ -724,7 +728,7 @@ Partial Class frmSupervision_Movimientos_TareosDetalle
         Me.radHorasFijas.AutoSize = True
         Me.radHorasFijas.Checked = True
         Me.radHorasFijas.ForeColor = System.Drawing.Color.FromArgb(CType(CType(90, Byte), Integer), CType(CType(90, Byte), Integer), CType(CType(90, Byte), Integer))
-        Me.radHorasFijas.Location = New System.Drawing.Point(3, 31)
+        Me.radHorasFijas.Location = New System.Drawing.Point(3, 43)
         Me.radHorasFijas.Name = "radHorasFijas"
         Me.radHorasFijas.Size = New System.Drawing.Size(77, 17)
         Me.radHorasFijas.TabIndex = 1
@@ -737,7 +741,7 @@ Partial Class frmSupervision_Movimientos_TareosDetalle
         Me.Label29.Anchor = System.Windows.Forms.AnchorStyles.Right
         Me.Label29.AutoSize = True
         Me.Label29.ForeColor = System.Drawing.Color.FromArgb(CType(CType(90, Byte), Integer), CType(CType(90, Byte), Integer), CType(CType(90, Byte), Integer))
-        Me.Label29.Location = New System.Drawing.Point(228, 33)
+        Me.Label29.Location = New System.Drawing.Point(228, 45)
         Me.Label29.Margin = New System.Windows.Forms.Padding(2, 2, 0, 2)
         Me.Label29.Name = "Label29"
         Me.Label29.Size = New System.Drawing.Size(69, 13)
@@ -756,7 +760,7 @@ Partial Class frmSupervision_Movimientos_TareosDetalle
         Me.Label28.Anchor = System.Windows.Forms.AnchorStyles.Right
         Me.Label28.AutoSize = True
         Me.Label28.ForeColor = System.Drawing.Color.FromArgb(CType(CType(90, Byte), Integer), CType(CType(90, Byte), Integer), CType(CType(90, Byte), Integer))
-        Me.Label28.Location = New System.Drawing.Point(365, 33)
+        Me.Label28.Location = New System.Drawing.Point(365, 45)
         Me.Label28.Margin = New System.Windows.Forms.Padding(2, 2, 0, 2)
         Me.Label28.Name = "Label28"
         Me.Label28.Size = New System.Drawing.Size(61, 13)
@@ -779,10 +783,9 @@ Partial Class frmSupervision_Movimientos_TareosDetalle
         '
         Me.btnActualizar.Anchor = CType(((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.TableLayoutPanel3.SetColumnSpan(Me.btnActualizar, 2)
-        Me.btnActualizar.Location = New System.Drawing.Point(887, 85)
+        Me.btnActualizar.Location = New System.Drawing.Point(3, 50)
         Me.btnActualizar.Name = "btnActualizar"
-        Me.btnActualizar.Size = New System.Drawing.Size(189, 23)
+        Me.btnActualizar.Size = New System.Drawing.Size(125, 23)
         Me.btnActualizar.TabIndex = 7
         Me.btnActualizar.Text = "Actualizar"
         Me.btnActualizar.UseVisualStyleBackColor = True
@@ -792,7 +795,7 @@ Partial Class frmSupervision_Movimientos_TareosDetalle
         Me.lblDin_Campana.Anchor = System.Windows.Forms.AnchorStyles.Left
         Me.lblDin_Campana.AutoSize = True
         Me.lblDin_Campana.ForeColor = System.Drawing.Color.Teal
-        Me.lblDin_Campana.Location = New System.Drawing.Point(953, 37)
+        Me.lblDin_Campana.Location = New System.Drawing.Point(911, 37)
         Me.lblDin_Campana.Margin = New System.Windows.Forms.Padding(2)
         Me.lblDin_Campana.Name = "lblDin_Campana"
         Me.lblDin_Campana.Size = New System.Drawing.Size(31, 13)
@@ -804,7 +807,7 @@ Partial Class frmSupervision_Movimientos_TareosDetalle
         Me.Label15.Anchor = System.Windows.Forms.AnchorStyles.Right
         Me.Label15.AutoSize = True
         Me.Label15.ForeColor = System.Drawing.Color.FromArgb(CType(CType(90, Byte), Integer), CType(CType(90, Byte), Integer), CType(CType(90, Byte), Integer))
-        Me.Label15.Location = New System.Drawing.Point(896, 37)
+        Me.Label15.Location = New System.Drawing.Point(854, 37)
         Me.Label15.Margin = New System.Windows.Forms.Padding(2, 2, 0, 2)
         Me.Label15.Name = "Label15"
         Me.Label15.Size = New System.Drawing.Size(55, 13)
@@ -816,12 +819,23 @@ Partial Class frmSupervision_Movimientos_TareosDetalle
         Me.Label7.Anchor = System.Windows.Forms.AnchorStyles.Right
         Me.Label7.AutoSize = True
         Me.Label7.ForeColor = System.Drawing.Color.FromArgb(CType(CType(90, Byte), Integer), CType(CType(90, Byte), Integer), CType(CType(90, Byte), Integer))
-        Me.Label7.Location = New System.Drawing.Point(886, 8)
+        Me.Label7.Location = New System.Drawing.Point(844, 8)
         Me.Label7.Margin = New System.Windows.Forms.Padding(2, 2, 0, 2)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(65, 13)
         Me.Label7.TabIndex = 100
         Me.Label7.Text = "Consumidor:"
+        '
+        'btnDescontarAlmuerzo
+        '
+        Me.btnDescontarAlmuerzo.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.btnDescontarAlmuerzo.Location = New System.Drawing.Point(134, 3)
+        Me.btnDescontarAlmuerzo.Margin = New System.Windows.Forms.Padding(3, 3, 3, 7)
+        Me.btnDescontarAlmuerzo.Name = "btnDescontarAlmuerzo"
+        Me.btnDescontarAlmuerzo.Size = New System.Drawing.Size(75, 23)
+        Me.btnDescontarAlmuerzo.TabIndex = 101
+        Me.btnDescontarAlmuerzo.Text = "Descontar Almuerzo"
+        Me.btnDescontarAlmuerzo.UseVisualStyleBackColor = True
         '
         'TableLayoutPanel2
         '
@@ -992,10 +1006,10 @@ Partial Class frmSupervision_Movimientos_TareosDetalle
         '
         Me.dgvResultado.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgvResultado.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.dgvResultado.Location = New System.Drawing.Point(21, 229)
+        Me.dgvResultado.Location = New System.Drawing.Point(21, 272)
         Me.dgvResultado.Margin = New System.Windows.Forms.Padding(2)
         Me.dgvResultado.Name = "dgvResultado"
-        Me.dgvResultado.Size = New System.Drawing.Size(1169, 234)
+        Me.dgvResultado.Size = New System.Drawing.Size(1169, 191)
         Me.dgvResultado.TabIndex = 100
         '
         'barProgreso
@@ -1016,6 +1030,37 @@ Partial Class frmSupervision_Movimientos_TareosDetalle
         Me.lblDin_Resultado.Size = New System.Drawing.Size(45, 13)
         Me.lblDin_Resultado.TabIndex = 100
         Me.lblDin_Resultado.Text = "Label19"
+        '
+        'TableLayoutPanel5
+        '
+        Me.TableLayoutPanel5.AutoSize = True
+        Me.TableLayoutPanel5.ColumnCount = 2
+        Me.TableLayoutPanel3.SetColumnSpan(Me.TableLayoutPanel5, 3)
+        Me.TableLayoutPanel5.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle())
+        Me.TableLayoutPanel5.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle())
+        Me.TableLayoutPanel5.Controls.Add(Me.btnAgregar, 1, 1)
+        Me.TableLayoutPanel5.Controls.Add(Me.btnDescontarAlmuerzo, 1, 0)
+        Me.TableLayoutPanel5.Controls.Add(Me.TextBox1, 0, 0)
+        Me.TableLayoutPanel5.Controls.Add(Me.btnActualizar, 0, 1)
+        Me.TableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Right
+        Me.TableLayoutPanel5.Location = New System.Drawing.Point(947, 58)
+        Me.TableLayoutPanel5.Margin = New System.Windows.Forms.Padding(0)
+        Me.TableLayoutPanel5.Name = "TableLayoutPanel5"
+        Me.TableLayoutPanel5.RowCount = 2
+        Me.TableLayoutPanel5.RowStyles.Add(New System.Windows.Forms.RowStyle())
+        Me.TableLayoutPanel5.RowStyles.Add(New System.Windows.Forms.RowStyle())
+        Me.TableLayoutPanel5.Size = New System.Drawing.Size(218, 76)
+        Me.TableLayoutPanel5.TabIndex = 0
+        '
+        'TextBox1
+        '
+        Me.TextBox1.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.TextBox1.Location = New System.Drawing.Point(28, 6)
+        Me.TextBox1.Margin = New System.Windows.Forms.Padding(3, 3, 3, 7)
+        Me.TextBox1.Name = "TextBox1"
+        Me.TextBox1.Size = New System.Drawing.Size(100, 20)
+        Me.TextBox1.TabIndex = 0
+        Me.TextBox1.Text = "1.00"
         '
         'frmSupervision_Movimientos_TareosDetalle
         '
@@ -1040,6 +1085,8 @@ Partial Class frmSupervision_Movimientos_TareosDetalle
         Me.TableLayoutPanel2.ResumeLayout(False)
         Me.TableLayoutPanel2.PerformLayout()
         CType(Me.dgvResultado, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.TableLayoutPanel5.ResumeLayout(False)
+        Me.TableLayoutPanel5.PerformLayout()
         Me.ResumeLayout(False)
 
     End Sub
@@ -1113,4 +1160,7 @@ Partial Class frmSupervision_Movimientos_TareosDetalle
     Friend WithEvents cbxDistribucionAutomatica As System.Windows.Forms.CheckBox
     Friend WithEvents btnCancelar As System.Windows.Forms.Button
     Friend WithEvents btnAprobar As Button
+    Friend WithEvents btnDescontarAlmuerzo As Button
+    Friend WithEvents TableLayoutPanel5 As TableLayoutPanel
+    Friend WithEvents TextBox1 As TextBox
 End Class

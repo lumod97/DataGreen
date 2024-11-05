@@ -28,7 +28,7 @@ Public Class frmRrhh_Reportes_Reporte_CTA_CTE
     Private Sub obtenerDataParaCombos()
         datosParaCombos.Add("Planillas", doItBaby("sp_ObtenerPlanillas", Nothing, TipoQuery.DataTable))
         datosParaCombos.Add("Monedas", doItBaby("sp_ObtenerMonedas_CTA_CTE", Nothing, TipoQuery.DataTable))
-        datosParaCombos.Add("Ambito", doItBaby("datagreentest..sp_ObtenerAmbito", Nothing, TipoQuery.DataTable))
+        datosParaCombos.Add("Ambito", doItBaby("DataGreen..sp_ObtenerAmbito", Nothing, TipoQuery.DataTable))
         '  datosParaCombos.Add("PeriodoDesde", doItBaby("sp_ObtenerPeriodos", Nothing, TipoQuery.DataTable))
         '  datosParaCombos.Add("PeriodoHasta", doItBaby("sp_ObtenerPeriodos", Nothing, TipoQuery.DataTable))
     End Sub
@@ -63,7 +63,7 @@ Public Class frmRrhh_Reportes_Reporte_CTA_CTE
             p.Add("@periodoDesde", txtPeriodoDesde.Text)
             p.Add("@periodoHasta", txtPeriodoHasta.Text)
             arrayDeParametros = obtenerCadenaParametros(p)
-            aux = Await Task.Run(Function() doItBaby("DataGreenTest..sp_Dg_Rrhh_Reporte_CTA_CTE", p, TipoQuery.DataTable))
+            aux = Await Task.Run(Function() doItBaby("DataGreen..sp_Dg_Rrhh_Reporte_CTA_CTE", p, TipoQuery.DataTable))
             Return aux
         Catch ex As Exception
             MessageBox.Show(ex.Message)

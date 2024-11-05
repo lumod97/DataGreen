@@ -177,7 +177,7 @@ Public Class frmRrhh_Movimientos_RegistrarAltasMasivas
                     cadenaParametros = cadenaParametros & fila.Cells(i).Value & "█"
                 Next
                 p.Add("@Cadena", cadenaParametros)
-                resultadoQuery = doItBaby("DATAGREENTEST..sp_Dg_Rrhh_Movimientos_RegistrarAltasMasivas", p, TipoQuery.Scalar)
+                resultadoQuery = doItBaby("DataGreen..sp_Dg_Rrhh_Movimientos_RegistrarAltasMasivas", p, TipoQuery.Scalar)
                 CheckForIllegalCrossThreadCalls = False
                 barProgreso.Value += 1
                 barProgreso.Refresh()

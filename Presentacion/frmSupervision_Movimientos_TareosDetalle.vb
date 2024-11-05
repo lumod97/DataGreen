@@ -73,7 +73,8 @@ Public Class frmSupervision_Movimientos_TareosDetalle
         bloquearControl(txtRutaExcel)
         bloquearControl(btnImportar)
 
-        dtPrivilegiosAccionesFormularios = obtenerPrivilegiosAccionesFormularios(usuarioActual, "TAREOS")
+        'PARECE SER QUE EN ESTA PARTE ESTÁ LLAMÁNDOSE ANTES DE QUE TODOS LOS PRIVILEGIOS SE CARGUEN
+        'dtPrivilegiosAccionesFormularios = obtenerPrivilegiosAccionesFormularios(usuarioActual, "TAREOS")
 
         tlpPrincipal.Visible = True
 
@@ -198,7 +199,6 @@ Public Class frmSupervision_Movimientos_TareosDetalle
         'ElseIf tareoActual.Estado = "L" Then
         'PENDIENTE DESDE SQLITE
         'End If
-
 
         'obtener data sqlite
         'Dim auxSqlite As DataSet = New DataSet
@@ -332,7 +332,15 @@ Public Class frmSupervision_Movimientos_TareosDetalle
     End Sub
 
     Private Sub btnEditar_Click(sender As Object, e As EventArgs) Handles btnEditar.Click
-        If Not comprobarPrivilegios(dtPrivilegiosAccionesFormularios, tareoActual.IdResponsable, "Editar") Then
+        'HACEMOS LA PRIMERA PASADA POR QUE CUANDO SE CREA SE ENVÍA EL CAMPO COMO Nothing, Y EL ID DEL USUARIO SE ENVÍA EN EL DNI YA QUE
+        'ESTE NO PUEDE SER NULO, ENTONCES HACEMOS UNA RECOMPROBACIÓN AL CAMPO DE DNI EN EL PRIMER IF DE ESTA FUNCIÓN
+        Dim privilegio As Boolean = comprobarPrivilegios(dtPrivilegiosAccionesFormularios, tareoActual.IdResponsable, "Editar")
+
+        If Not privilegio Then
+            privilegio = comprobarPrivilegios(dtPrivilegiosAccionesFormularios, tareoActual.DniResponsable, "Editar")
+        End If
+
+        If Not privilegio Then
             MessageBox.Show("Usted no tiene privilegios para realizar esta accion.")
             Exit Sub
         End If
@@ -911,6 +919,10 @@ Public Class frmSupervision_Movimientos_TareosDetalle
         Try
             ' Llamar al procedimiento almacenado
             doItBaby("sp_Dg_Supervision_Movimientos_Tareos_EliminarDetalle", p, Datos.Conexion.TipoQuery.Scalar)
+            For Each fila As DataRow In tablaParaDgvResultado.Rows
+                detalleTareoActual = obtenerDetalleDesdeFila(fila)
+                capturarDatos()
+            Next
             Return True
         Catch ex As Exception
             ' Mostrar el mensaje de error
@@ -960,6 +972,47 @@ Public Class frmSupervision_Movimientos_TareosDetalle
         Return True
     End Function
 
+    Private Sub ReasignarNumerosCorrelativos(dt As DataTable)
+        ' Crear una lista para almacenar los números existentes
+        Dim numerosExistentes As New List(Of Integer)
+
+        ' Recoger los números existentes desde la columna "Item"
+        For Each row As DataRow In dt.Rows
+            Dim itemValue As Integer
+            If Integer.TryParse(row("Item").ToString(), itemValue) Then
+                numerosExistentes.Add(itemValue)
+            End If
+        Next
+
+        ' Ordenar los números existentes
+        numerosExistentes.Sort()
+
+        ' Comenzar la reasignación de números correlativos
+        Dim nuevoNumero As Integer = 1 ' Comenzar desde 1
+
+        For i As Integer = 0 To dt.Rows.Count - 1
+            ' Asignar el nuevo número correlativo
+            dt.Rows(i)("Item") = nuevoNumero
+
+            For Each fila As DataRow In dt.Rows
+                detalleTareoActual = obtenerDetalleDesdeFila(fila)
+            Next
+            detalleTareoActual.Item = nuevoNumero
+            tareoActual.AgregarDetalle(detalleTareoActual)
+
+            ' Incrementar el nuevo número
+            nuevoNumero += 1
+
+            ' Asegurarse de que el nuevo número no está en la lista de existentes
+            While numerosExistentes.Contains(nuevoNumero)
+                nuevoNumero += 1
+            End While
+        Next
+
+        tablaParaDgvResultado = dt
+    End Sub
+
+
     Private Sub btnGuardar_Click(sender As Object, e As EventArgs) Handles btnGuardar.Click
         Try
 
@@ -985,7 +1038,8 @@ Public Class frmSupervision_Movimientos_TareosDetalle
             If tareoActual.ContarTareos > 0 Then
                 ' Primero, elimina los detalles seleccionados
                 ' If eliminarDetalles() Then ESTE SI FUNCIONA PARA 1 ITEM
-                Dim cadenaItems As String = String.Join(",", dgvResultado.SelectedRows.Cast(Of DataGridViewRow)().Select(Function(row) row.Cells(1).Value.ToString()))
+                'Dim cadenaItems As String = String.Join(",", dgvResultado.SelectedRows.Cast(Of DataGridViewRow)().Select(Function(row) row.Cells(1).Value.ToString()))
+                Dim cadenaItems As String = ""
 
                 ' Eliminar los detalles seleccionados
                 If eliminarDetallesV2(cadenaItems) Then 'funcion para eliminar una lista de items seleccionados
@@ -1158,10 +1212,21 @@ Public Class frmSupervision_Movimientos_TareosDetalle
 
     'End Sub
     Private Sub btnEliminar_Click(sender As Object, e As EventArgs) Handles btnEliminar.Click ' funcion modificada del boton eliminar_click
-        If Not comprobarPrivilegios(dtPrivilegiosAccionesFormularios, tareoActual.IdResponsable, "Eliminar") Then
+
+        Dim privilegio As Boolean = comprobarPrivilegios(dtPrivilegiosAccionesFormularios, tareoActual.IdResponsable, "Editar")
+
+        If Not privilegio Then
+            privilegio = comprobarPrivilegios(dtPrivilegiosAccionesFormularios, tareoActual.DniResponsable, "Editar")
+        End If
+
+        If Not privilegio Then
             MessageBox.Show("Usted no tiene privilegios para realizar esta accion.")
             Exit Sub
         End If
+        'If Not comprobarPrivilegios(dtPrivilegiosAccionesFormularios, tareoActual.IdResponsable, "Eliminar") Then
+        '    MessageBox.Show("Usted no tiene privilegios para realizar esta accion.")
+        '    Exit Sub
+        'End If
         ' Verificar que se haya seleccionado al menos una fila
         If dgvResultado.SelectedRows.Count = 0 Then
             MessageBox.Show("No se ha seleccionado ningún ítem para eliminar.")
@@ -1185,10 +1250,21 @@ Public Class frmSupervision_Movimientos_TareosDetalle
 
             ' Llamar a la función para eliminar detalles
             If eliminarDetallesV2(cadenaItems) Then
-                ' Si la eliminación es exitosa, eliminar las filas del DataGridView
-                For Each detalle As DataGridViewRow In dgvResultado.SelectedRows.Cast(Of DataGridViewRow)().ToList()
-                    tablaParaDgvResultado.Rows.RemoveAt(detalle.Index)
+                Dim numerosArray() As String = cadenaItems.Split(","c)
+
+                For Each numero As String In numerosArray
+                    Dim idToDelete As Integer = Convert.ToInt32(numero) ' El ID que deseas buscar y eliminar
+
+                    For Each row As DataRow In tablaParaDgvResultado.Rows
+                        If Convert.ToInt32(row("Item")) = idToDelete Then ' Reemplaza "Item" con el nombre real de la columna del ID
+                            row.Delete() ' Marca la fila para eliminación
+                            tablaParaDgvResultado.AcceptChanges()
+                            Exit For ' Sale del bucle una vez que encuentra y elimina la fila
+                        End If
+                    Next
                 Next
+                dgvResultado.DataSource = tablaParaDgvResultado
+                dgvResultado.ClearSelection()
 
                 ' Actualizar la interfaz
                 lblDin_Resultado.Text = "Registros: " + tablaParaDgvResultado.Rows.Count.ToString()
@@ -1196,6 +1272,8 @@ Public Class frmSupervision_Movimientos_TareosDetalle
                 MessageBox.Show("Error al eliminar los detalles.")
             End If
 
+
+            listarDetalle()
             ' Restablecer controles
             desbloquearFilas(dgvResultado)
             bloquearControl(btnActualizar)
@@ -1838,10 +1916,20 @@ Public Class frmSupervision_Movimientos_TareosDetalle
     End Sub
 
     Private Sub btnAprobar_Click(sender As Object, e As EventArgs) Handles btnAprobar.Click
-        If Not comprobarPrivilegios(dtPrivilegiosAccionesFormularios, tareoActual.IdResponsable, "Editar") Then
+        Dim privilegio As Boolean = comprobarPrivilegios(dtPrivilegiosAccionesFormularios, tareoActual.IdResponsable, "Editar")
+
+        If Not privilegio Then
+            privilegio = comprobarPrivilegios(dtPrivilegiosAccionesFormularios, tareoActual.DniResponsable, "Editar")
+        End If
+
+        If Not privilegio Then
             MessageBox.Show("Usted no tiene privilegios para realizar esta accion.")
             Exit Sub
         End If
+        'If Not comprobarPrivilegios(dtPrivilegiosAccionesFormularios, tareoActual.IdResponsable, "Editar") Then
+        '    MessageBox.Show("Usted no tiene privilegios para realizar esta accion.")
+        '    Exit Sub
+        'End If
         Dim p As New Dictionary(Of String, Object)
         p.Add("@Modulo", "Supervision")
         p.Add("@Dia", tareoActual.Fecha)
@@ -1863,28 +1951,28 @@ Public Class frmSupervision_Movimientos_TareosDetalle
         '    MessageBox.Show("No tiene permisos para aprobar este registro")
         'Else
         bloquearFilas(dgvResultado)
-            Dim id As String = tareoActual.Id
-            Dim respuesta As DialogResult = Windows.Forms.DialogResult.No
-            Dim mensaje As String
-            mensaje = String.Format("Esta seguro de aprobar el tareo: {0}", tareoActual.Id)
-            respuesta = MessageBox.Show(mensaje, "Aprobar Tareo", MessageBoxButtons.YesNo)
+        Dim id As String = tareoActual.Id
+        Dim respuesta As DialogResult = Windows.Forms.DialogResult.No
+        Dim mensaje As String
+        mensaje = String.Format("Esta seguro de aprobar el tareo: {0}", tareoActual.Id)
+        respuesta = MessageBox.Show(mensaje, "Aprobar Tareo", MessageBoxButtons.YesNo)
 
-            If respuesta = DialogResult.Yes Then
-                Try
-                    Dim parametros = New Dictionary(Of String, Object)
-                    parametros.Add("@IdTareo", id)
-                    If tareoActual.Estado = "PE" Then
-                        doItBaby("sp_Dg_Supervision_Movimientos_Tareos_AprobarTareo", parametros, Datos.Conexion.TipoQuery.NonQuery)
-                    Else
-                        MessageBox.Show("El tareo actual no cuenta con estado PENDIENTE para poder aprobar.")
-                    End If
-                    MessageBox.Show("Tareo aprobado correctamente.")
-                    dgvResultado_CellClick(sender, New DataGridViewCellEventArgs(1, dgvResultado.SelectedRows(0).Index))
-                Catch
-                    MessageBox.Show("Error al tratar de aprobar tareo.")
-                End Try
-            End If
-            desbloquearFilas(dgvResultado)
+        If respuesta = DialogResult.Yes Then
+            Try
+                Dim parametros = New Dictionary(Of String, Object)
+                parametros.Add("@IdTareo", id)
+                If tareoActual.Estado = "PE" Then
+                    doItBaby("sp_Dg_Supervision_Movimientos_Tareos_AprobarTareo", parametros, Datos.Conexion.TipoQuery.NonQuery)
+                Else
+                    MessageBox.Show("El tareo actual no cuenta con estado PENDIENTE para poder aprobar.")
+                End If
+                MessageBox.Show("Tareo aprobado correctamente.")
+                dgvResultado_CellClick(sender, New DataGridViewCellEventArgs(1, dgvResultado.SelectedRows(0).Index))
+            Catch
+                MessageBox.Show("Error al tratar de aprobar tareo.")
+            End Try
+        End If
+        desbloquearFilas(dgvResultado)
         'End If
     End Sub
 
@@ -2119,13 +2207,99 @@ Public Class frmSupervision_Movimientos_TareosDetalle
         End If
     End Sub
 
+    Private Sub btnDescontarAlmuerzo_Click(sender As Object, e As EventArgs) Handles btnDescontarAlmuerzo.Click
+
+        Dim cantidadDescontar As String = ""
+
+        If cantidadDescontar.Length < 0 Then
+            MessageBox.Show("Debes ingresar la cantidad de horas a descontar.")
+        Else
+            Dim cantidadSeleccionada As Integer = dgvResultado.SelectedRows.Count
+            Dim horasDescontar As Double
+            'Dim horasDescontarString As Double = If(String.IsNullOrWhiteSpace(TextBox1.Text), "1.00", CDbl(TextBox1.Text))
+
+
+            Double.TryParse(TextBox1.Text, horasDescontar)
+
+            If cantidadSeleccionada > 0 Then
+                Dim parametros As New Dictionary(Of String, Object)
+                Dim listaItems As New List(Of String)
+                Dim valor As String = ""
+                Dim idTareo As String = dgvResultado.SelectedRows.Item(0).Cells(0).Value.ToString
+                For i = 0 To cantidadSeleccionada - 1
+                    valor = dgvResultado.SelectedRows.Item(i).Cells(1).Value.ToString
+                    listaItems.Add(valor)
+                Next
+
+                ' Formatear la lista de items como JSON
+                Dim jsonItems As String = "{""items"":[" & String.Join(",", listaItems) & "]}"
+
+                parametros.Clear()
+                parametros.Add("@IdTareo", idTareo)
+                parametros.Add("@Items", jsonItems)
+                parametros.Add("@HorasDescontar", horasDescontar)
+
+                Dim response As DataTable = doItBaby("DataGreenMovil..sp_descontar_almuerzo_masivo_detalle_tareo", parametros, TipoQuery.DataTable)
+                MessageBox.Show("Se ha descontado " + horasDescontar.ToString + " hora(s) de almuerzo al personal seleccionado.")
+
+                listarDetalle()
+            Else
+                '        cboActividad.Items.AddRange(dataParaControles.Item("Actividades")
+                MessageBox.Show("No se han seleccionado items.")
+            End If
+        End If
+
+    End Sub
+
+    Private Sub frmSupervision_Movimientos_TareosDetalle_Shown(sender As Object, e As EventArgs) Handles MyBase.Shown
+        dtPrivilegiosAccionesFormularios = obtenerPrivilegiosAccionesFormularios(usuarioActual, "TAREOS")
+    End Sub
+
+    Private Sub TextBox1_KeyPress(sender As Object, e As KeyPressEventArgs) Handles TextBox1.KeyPress
+        ' Permite solo números, un punto o teclas de control
+        If Not Char.IsDigit(e.KeyChar) AndAlso e.KeyChar <> "."c AndAlso Not Char.IsControl(e.KeyChar) Then
+            e.Handled = True
+            Return
+        End If
+
+        Dim text As String = TextBox1.Text
+        Dim cursorPosition As Integer = TextBox1.SelectionStart
+        Dim hasDecimalPoint As Boolean = text.Contains(".")
+
+        If Char.IsDigit(e.KeyChar) Then
+            ' Si ya hay un punto, controla los decimales (máximo 2 dígitos después del punto)
+            If hasDecimalPoint Then
+                Dim decimalPosition As Integer = text.IndexOf(".")
+                Dim digitsAfterDecimal As Integer = text.Length - decimalPosition - 1
+                If cursorPosition > decimalPosition AndAlso digitsAfterDecimal >= 2 Then
+                    e.Handled = True ' Permite solo hasta 2 decimales
+                End If
+            Else
+                ' Si no hay un punto y hay dos dígitos, inserta el punto automáticamente
+                If text.Length = 2 AndAlso cursorPosition = text.Length Then
+                    TextBox1.Text &= "." ' Agrega el punto al final
+                    TextBox1.SelectionStart = TextBox1.Text.Length ' Mueve el cursor después del punto
+                End If
+            End If
+        ElseIf e.KeyChar = "."c Then
+            ' Permite solo un punto decimal
+            If hasDecimalPoint Then
+                e.Handled = True
+            End If
+        End If
+    End Sub
+
+
+
+
+
+
 
 
     'Private Sub FilterComboBox(filterText As String)
     '    cboActividad.Items.Clear() ' Limpiar elementos previos en el ComboBox
     '    If filterText.Trim() = "" Then
-    '        ' Si el cuadro de texto está vacío, mostrar todos los elementos originales
-    '        cboActividad.Items.AddRange(dataParaControles.Item("Actividades").Rows.Item)
+    '        ' Si el cuadro de texto está vacío, mostrar todos los elementos originales.Rows.Item)
     '        Return
     '    End If
 
