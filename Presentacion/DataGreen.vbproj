@@ -206,6 +206,12 @@
     <Compile Include="dlgBuscarPersona.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="frmMantenimiento_PrivilegiosUsuariosFormularios.Designer.vb">
+      <DependentUpon>frmMantenimiento_PrivilegiosUsuariosFormularios.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmMantenimiento_PrivilegiosUsuariosFormularios.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="frmRrhh_Reportes_Reporte_CTA_CTE.Designer.vb">
       <DependentUpon>frmRrhh_Reportes_Reporte_CTA_CTE.vb</DependentUpon>
     </Compile>
@@ -1130,6 +1136,9 @@
     <EmbeddedResource Include="dlgBuscarPersona.resx">
       <DependentUpon>dlgBuscarPersona.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmMantenimiento_PrivilegiosUsuariosFormularios.resx">
+      <DependentUpon>frmMantenimiento_PrivilegiosUsuariosFormularios.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmRrhh_Reportes_CheckListCalculoPlanilla.resx">
       <DependentUpon>frmRrhh_Reportes_CheckListCalculoPlanilla.vb</DependentUpon>
     </EmbeddedResource>
@@ -1679,6 +1688,23 @@
       <Lcid>0</Lcid>
       <WrapperTool>aximp</WrapperTool>
       <Isolated>False</Isolated>
+    </COMReference>
+    <COMReference Include="AxWMPLib">
+      <Guid>{6BF52A50-394A-11D3-B153-00C04F79FAA6}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>aximp</WrapperTool>
+      <Isolated>False</Isolated>
+    </COMReference>
+    <COMReference Include="WMPLib">
+      <Guid>{6BF52A50-394A-11D3-B153-00C04F79FAA6}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
     </COMReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />

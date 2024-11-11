@@ -262,3 +262,8 @@ D:\DataGreen-20240919\Presentacion\bin\Release\Microsoft.VisualStudio.OLE.Intero
 D:\DataGreen-20240919\Presentacion\bin\Release\Microsoft.VisualStudio.TextManager.Interop.dll
 D:\DataGreen-20240919\Presentacion\bin\Release\Microsoft.VisualStudio.TextManager.Interop.8.0.dll
 D:\DataGreen-20240919\Presentacion\bin\Release\Microsoft.MSXML.dll
+D:\DataGreen-20240919\Presentacion\obj\Release\DataGreen.frmMantenimiento_PrivilegiosUsuariosFormularios.resources
+D:\DataGreen-20240919\Presentacion\bin\Release\Interop.WMPLib.dll
+D:\DataGreen-20240919\Presentacion\bin\Release\AxInterop.WMPLib.dll
+D:\DataGreen-20240919\Presentacion\obj\Release\Interop.WMPLib.dll
+D:\DataGreen-20240919\Presentacion\obj\Release\AxInterop.WMPLib.dll

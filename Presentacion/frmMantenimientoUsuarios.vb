@@ -300,6 +300,7 @@ Public Class frmMantenimientoUsuarios
         'tviModulosPermitidos.Nodes(1).Nodes.Add("mnu2_1_Asistencia", "Asistencia")
         tviModulosPermitidos.Nodes(2).Nodes.Add("mnu3_1_Reportes", "Reportes")
         tviModulosPermitidos.Nodes(0).Nodes.Add("mnu1_3_ActualizacionSistema", "Actualizacion de Sistema") '30-06-2020
+        tviModulosPermitidos.Nodes(0).Nodes.Add("mnu1_5_PrivilegiosUsuariosFormularios", "Privilegios de Usuario - Formularios") '05-11-2024
         tviModulosPermitidos.Nodes(2).Nodes.Add("mnu3_2_Movimientos", "Movimientos") '2020-10-27
         'tviModulosPermitidos.Nodes(1).Nodes.Add("mnu2_2_GestioEstandares", "Gestion de Estandares") '04-07-2020
         tviModulosPermitidos.Nodes(3).Nodes.Add("mnu4_1_Movimientos", "Movimientos") '04-07-2020

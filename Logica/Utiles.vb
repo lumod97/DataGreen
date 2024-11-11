@@ -79,6 +79,7 @@ Public Class Utiles
         modulosPermitidos.Add("mnu1_1_ConfigBases", True)
         modulosPermitidos.Add("mnu1_2_MantenimientoUsuarios", False)
         modulosPermitidos.Add("mnu2_RecursosHumanos", False)
+        modulosPermitidos.Add("mnu1_5_PrivilegiosUsuariosFormularios", False)
         'modulosPermitidos.Add("mnu2_1_Asistencia", False)
         'modulosPermitidos.Add("mnu2_1_1_ReporteAsistencia", False)
         'modulosPermitidos.Add("mnu2_1_2_UltimoDiaAsistencia", False)

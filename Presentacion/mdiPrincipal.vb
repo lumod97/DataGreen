@@ -138,6 +138,7 @@ Public Class mdiPrincipal
         mnu1_Mantenimiento.Enabled = modulosPermitidos.Item("mnu1_Mantenimiento")
         mnu1_1_ConfigBases.Enabled = modulosPermitidos.Item("mnu1_1_ConfigBases")
         mnu1_2_MantenimientoUsuarios.Enabled = modulosPermitidos.Item("mnu1_2_MantenimientoUsuarios")
+        mnu1_5_PrivilegiosUsuariosFormularios.Enabled = modulosPermitidos.Item("mnu1_5_PrivilegiosUsuariosFormularios")
         mnu2_RecursosHumanos.Enabled = modulosPermitidos.Item("mnu2_RecursosHumanos")
         'mnu2_2_Reportes.Enabled = modulosPermitidos.Item("mnu2_1_Asistencia")
         'mnu2_2_1_ReporteAsistencia.Enabled = modulosPermitidos.Item("mnu2_1_1_ReporteAsistencia")
@@ -1123,6 +1124,12 @@ Public Class mdiPrincipal
 
     Private Sub mnu2_2_33_ReporteDelCtaCteDelPersonal_Click(sender As Object, e As EventArgs) Handles mnu2_2_33_ReporteDelCtaCteDelPersonal.Click
         Dim VenActual As New frmRrhh_Reportes_Reporte_CTA_CTE
+        VenActual.MdiParent = Me
+        VenActual.Show()
+    End Sub
+
+    Private Sub mnu1_5_PrivilegiosUsuariosFormularios_Click(sender As Object, e As EventArgs) Handles mnu1_5_PrivilegiosUsuariosFormularios.Click
+        Dim VenActual As New frmMantenimiento_PrivilegiosUsuariosFormularios
         VenActual.MdiParent = Me
         VenActual.Show()
     End Sub
