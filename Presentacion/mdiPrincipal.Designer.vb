@@ -76,6 +76,7 @@ Partial Class mdiPrincipal
         Me.mnu1_3_ActualizacionSistema = New System.Windows.Forms.ToolStripMenuItem()
         Me.mnu1_4_frmMantenimiento_AbrirCerrarDias = New System.Windows.Forms.ToolStripMenuItem()
         Me.mnu1_5_PrivilegiosUsuariosFormularios = New System.Windows.Forms.ToolStripMenuItem()
+        Me.mnu1_6_ConfiguracionLongitudCodigoGeneral = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator8 = New System.Windows.Forms.ToolStripSeparator()
         Me.mnu2_RecursosHumanos = New System.Windows.Forms.ToolStripMenuItem()
         Me.mnu2_1_Indices = New System.Windows.Forms.ToolStripMenuItem()
@@ -579,7 +580,7 @@ Partial Class mdiPrincipal
         '
         'mnu1_Mantenimiento
         '
-        Me.mnu1_Mantenimiento.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.mnu1_1_ConfigBases, Me.mnu1_2_MantenimientoUsuarios, Me.mnu1_3_ActualizacionSistema, Me.mnu1_4_frmMantenimiento_AbrirCerrarDias, Me.mnu1_5_PrivilegiosUsuariosFormularios})
+        Me.mnu1_Mantenimiento.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.mnu1_1_ConfigBases, Me.mnu1_2_MantenimientoUsuarios, Me.mnu1_3_ActualizacionSistema, Me.mnu1_4_frmMantenimiento_AbrirCerrarDias, Me.mnu1_5_PrivilegiosUsuariosFormularios, Me.mnu1_6_ConfiguracionLongitudCodigoGeneral})
         Me.mnu1_Mantenimiento.Name = "mnu1_Mantenimiento"
         Me.mnu1_Mantenimiento.Size = New System.Drawing.Size(106, 19)
         Me.mnu1_Mantenimiento.Text = "Mantenimientos"
@@ -587,32 +588,38 @@ Partial Class mdiPrincipal
         'mnu1_1_ConfigBases
         '
         Me.mnu1_1_ConfigBases.Name = "mnu1_1_ConfigBases"
-        Me.mnu1_1_ConfigBases.Size = New System.Drawing.Size(231, 22)
+        Me.mnu1_1_ConfigBases.Size = New System.Drawing.Size(318, 22)
         Me.mnu1_1_ConfigBases.Text = "Configuracion de Bases"
         '
         'mnu1_2_MantenimientoUsuarios
         '
         Me.mnu1_2_MantenimientoUsuarios.Name = "mnu1_2_MantenimientoUsuarios"
-        Me.mnu1_2_MantenimientoUsuarios.Size = New System.Drawing.Size(231, 22)
+        Me.mnu1_2_MantenimientoUsuarios.Size = New System.Drawing.Size(318, 22)
         Me.mnu1_2_MantenimientoUsuarios.Text = "Mantenimiento de Usuarios"
         '
         'mnu1_3_ActualizacionSistema
         '
         Me.mnu1_3_ActualizacionSistema.Name = "mnu1_3_ActualizacionSistema"
-        Me.mnu1_3_ActualizacionSistema.Size = New System.Drawing.Size(231, 22)
+        Me.mnu1_3_ActualizacionSistema.Size = New System.Drawing.Size(318, 22)
         Me.mnu1_3_ActualizacionSistema.Text = "Actualizacion de Sistema"
         '
         'mnu1_4_frmMantenimiento_AbrirCerrarDias
         '
         Me.mnu1_4_frmMantenimiento_AbrirCerrarDias.Name = "mnu1_4_frmMantenimiento_AbrirCerrarDias"
-        Me.mnu1_4_frmMantenimiento_AbrirCerrarDias.Size = New System.Drawing.Size(231, 22)
+        Me.mnu1_4_frmMantenimiento_AbrirCerrarDias.Size = New System.Drawing.Size(318, 22)
         Me.mnu1_4_frmMantenimiento_AbrirCerrarDias.Text = "Abrir Cerrar Dias"
         '
         'mnu1_5_PrivilegiosUsuariosFormularios
         '
         Me.mnu1_5_PrivilegiosUsuariosFormularios.Name = "mnu1_5_PrivilegiosUsuariosFormularios"
-        Me.mnu1_5_PrivilegiosUsuariosFormularios.Size = New System.Drawing.Size(261, 22)
+        Me.mnu1_5_PrivilegiosUsuariosFormularios.Size = New System.Drawing.Size(318, 22)
         Me.mnu1_5_PrivilegiosUsuariosFormularios.Text = "Privilegios de Usuario - Formularios"
+        '
+        'mnu1_6_ConfiguracionLongitudCodigoGeneral
+        '
+        Me.mnu1_6_ConfiguracionLongitudCodigoGeneral.Name = "mnu1_6_ConfiguracionLongitudCodigoGeneral"
+        Me.mnu1_6_ConfiguracionLongitudCodigoGeneral.Size = New System.Drawing.Size(318, 22)
+        Me.mnu1_6_ConfiguracionLongitudCodigoGeneral.Text = "Configuracion de Longitud de Codigo General"
         '
         'ToolStripSeparator8
         '
@@ -1857,4 +1864,5 @@ Partial Class mdiPrincipal
     Friend WithEvents mnu2_2_32_CheckListCalculoPlanilla As ToolStripMenuItem
     Friend WithEvents mnu2_2_33_ReporteDelCtaCteDelPersonal As ToolStripMenuItem
     Friend WithEvents mnu1_5_PrivilegiosUsuariosFormularios As ToolStripMenuItem
+    Friend WithEvents mnu1_6_ConfiguracionLongitudCodigoGeneral As ToolStripMenuItem
 End Class

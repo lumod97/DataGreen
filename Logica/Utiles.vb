@@ -4,6 +4,7 @@ Imports System.Drawing
 Imports System.Windows.Forms
 Imports System.Windows.Forms.Control
 Imports Datos.ConexionSqlite
+Imports Datos.Conexion
 Public Class Utiles
 
     'Public Shared Sub guardarConf(ByVal BLNomCon As String, ByVal BLServid As String, ByVal BLUsuari As String, ByVal BLPasswo As String, ByVal BLNomBas As String, ByVal BENomCon As String, ByVal BEServid As String, ByVal BEUsuari As String, ByVal BEPasswo As String, ByVal BENomBas As String)
@@ -79,7 +80,6 @@ Public Class Utiles
         modulosPermitidos.Add("mnu1_1_ConfigBases", True)
         modulosPermitidos.Add("mnu1_2_MantenimientoUsuarios", False)
         modulosPermitidos.Add("mnu2_RecursosHumanos", False)
-        modulosPermitidos.Add("mnu1_5_PrivilegiosUsuariosFormularios", False)
         'modulosPermitidos.Add("mnu2_1_Asistencia", False)
         'modulosPermitidos.Add("mnu2_1_1_ReporteAsistencia", False)
         'modulosPermitidos.Add("mnu2_1_2_UltimoDiaAsistencia", False)
@@ -258,6 +258,9 @@ Public Class Utiles
         modulosPermitidos.Add("mnu2_2_31_ComparativaUltimosMovimientosPlanilla", False) '2024-07-11
         modulosPermitidos.Add("mnu2_2_32_CheckListCalculoPlanilla", False) '2024-07-16
         modulosPermitidos.Add("mnu2_2_33_ReporteDelCtaCteDelPersonal", False) '2024-09-13
+        ' HATCH 21-11-2024
+        modulosPermitidos.Add("mnu1_5_PrivilegiosUsuariosFormularios", False)
+        modulosPermitidos.Add("mnu1_6_ConfiguracionLongitudCodigoGeneral", False)
 
 
 
@@ -268,7 +271,7 @@ Public Class Utiles
     Public Shared Async Sub manejarEtiquetaAsync(etiqueta As Windows.Forms.Label, filas As Integer)
         If filas < 0 Then
             etiqueta.Text = "Consultando..."
-            etiqueta.ForeColor = Await task.Run(Function() rojoAmarath)
+            etiqueta.ForeColor = Await Task.Run(Function() rojoAmarath)
         ElseIf filas = 0 Then
             aplicarTema(etiqueta)
             etiqueta.Text = "Listo!"
@@ -930,4 +933,66 @@ Public Class Utiles
         Next
     End Sub
 
+    Public Shared Function NumeroATexto(ByVal numero As Integer) As String
+        Dim unidades() As String = {"", "uno", "dos", "tres", "cuatro", "cinco", "seis", "siete", "ocho", "nueve"}
+        Dim decenas() As String = {"", "diez", "veinte", "treinta", "cuarenta", "cincuenta", "sesenta", "setenta", "ochenta", "noventa"}
+        Dim especiales() As String = {"diez", "once", "doce", "trece", "catorce", "quince", "dieciséis", "diecisiete", "dieciocho", "diecinueve"}
+
+        If numero < 10 Then
+            Return unidades(numero)
+        ElseIf numero < 20 Then
+            Return especiales(numero - 10)
+        ElseIf numero < 100 Then
+            Dim texto As String = decenas(numero \ 10)
+            If numero Mod 10 > 0 Then
+                texto &= " y " & unidades(numero Mod 10)
+            End If
+            Return texto
+        ElseIf numero < 1000 Then
+            Dim texto As String
+            If numero \ 100 = 1 Then
+                texto = "cien"
+            Else
+                texto = unidades(numero \ 100) & "cientos"
+            End If
+            If numero Mod 100 > 0 Then
+                texto &= " " & NumeroATexto(numero Mod 100)
+            End If
+            Return texto
+        ElseIf numero < 1000000 Then
+            Dim texto As String
+            If numero \ 1000 = 1 Then
+                texto = "mil"
+            Else
+                texto = NumeroATexto(numero \ 1000) & " mil"
+            End If
+            If numero Mod 1000 > 0 Then
+                texto &= " " & NumeroATexto(numero Mod 1000)
+            End If
+            Return texto
+        Else
+            Return "Número demasiado grande"
+        End If
+    End Function
+
+    Public Shared Function Capitalize(ByVal texto As String) As String
+        If String.IsNullOrEmpty(texto) Then
+            Return texto ' Retorna el texto tal cual si está vacío o es nulo
+        End If
+
+        ' Capitaliza la primera letra y pone el resto en minúsculas
+        Return Char.ToUpper(texto(0)) & texto.Substring(1).ToLower()
+    End Function
+
+    Public Shared Function obtenerParametroLongitud() As String
+        Dim p As New Dictionary(Of String, Object)
+        p.Add("@IdParametro", "LONCODTRAB")
+        Dim resultados As DataTable = New DataTable
+        Dim parametroNumero As String = ""
+        Dim parametroTexto As String = ""
+        resultados = doItBaby("sp_Dg_ObtenerValorParametroNisira", p, TipoQuery.DataTable)
+        parametroNumero = resultados.Rows(0).Item("Id")
+        parametroTexto = NumeroATexto(parametroNumero)
+        Return parametroNumero + "   |   " + Capitalize(parametroTexto)
+    End Function
 End Class

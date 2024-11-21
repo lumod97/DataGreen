@@ -728,4 +728,8 @@ Public Class frmSupervision_Movimientos_Tareos
         dgvResultado.Columns("T_Periodo").Visible = checkboxValue
         dgvResultado.Columns("T_Semana").Visible = checkboxValue
     End Sub
+
+    Private Sub btnTransferir_Click(sender As Object, e As EventArgs) Handles btnTransferir.Click
+
+    End Sub
 End Class

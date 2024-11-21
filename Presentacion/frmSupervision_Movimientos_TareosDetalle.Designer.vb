@@ -393,10 +393,10 @@ Partial Class frmSupervision_Movimientos_TareosDetalle
         Me.TableLayoutPanel3.SetColumnSpan(Me.cboConsumidor, 2)
         Me.cboConsumidor.Dock = System.Windows.Forms.DockStyle.Fill
         Me.cboConsumidor.FormattingEnabled = True
-        Me.cboConsumidor.Location = New System.Drawing.Point(813, 4)
+        Me.cboConsumidor.Location = New System.Drawing.Point(779, 4)
         Me.cboConsumidor.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.cboConsumidor.Name = "cboConsumidor"
-        Me.cboConsumidor.Size = New System.Drawing.Size(349, 21)
+        Me.cboConsumidor.Size = New System.Drawing.Size(383, 21)
         Me.cboConsumidor.TabIndex = 4
         '
         'cboVariedad
@@ -498,7 +498,7 @@ Partial Class frmSupervision_Movimientos_TareosDetalle
         Me.cboActividad.Location = New System.Drawing.Point(477, 4)
         Me.cboActividad.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.cboActividad.Name = "cboActividad"
-        Me.cboActividad.Size = New System.Drawing.Size(263, 21)
+        Me.cboActividad.Size = New System.Drawing.Size(229, 21)
         Me.cboActividad.TabIndex = 2
         '
         'Label20
@@ -521,7 +521,7 @@ Partial Class frmSupervision_Movimientos_TareosDetalle
         Me.cboLabor.Location = New System.Drawing.Point(477, 33)
         Me.cboLabor.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.cboLabor.Name = "cboLabor"
-        Me.cboLabor.Size = New System.Drawing.Size(263, 21)
+        Me.cboLabor.Size = New System.Drawing.Size(229, 21)
         Me.cboLabor.TabIndex = 3
         '
         'TableLayoutPanel4
@@ -569,7 +569,7 @@ Partial Class frmSupervision_Movimientos_TareosDetalle
         Me.TableLayoutPanel4.RowCount = 2
         Me.TableLayoutPanel4.RowStyles.Add(New System.Windows.Forms.RowStyle())
         Me.TableLayoutPanel4.RowStyles.Add(New System.Windows.Forms.RowStyle())
-        Me.TableLayoutPanel4.Size = New System.Drawing.Size(743, 76)
+        Me.TableLayoutPanel4.Size = New System.Drawing.Size(709, 76)
         Me.TableLayoutPanel4.TabIndex = 5
         '
         'cboMmFin
@@ -678,7 +678,7 @@ Partial Class frmSupervision_Movimientos_TareosDetalle
         Me.txtDni.Dock = System.Windows.Forms.DockStyle.Fill
         Me.txtDni.Location = New System.Drawing.Point(429, 30)
         Me.txtDni.Name = "txtDni"
-        Me.txtDni.Size = New System.Drawing.Size(311, 20)
+        Me.txtDni.Size = New System.Drawing.Size(277, 20)
         Me.txtDni.TabIndex = 9
         '
         'txtHoras
@@ -774,7 +774,7 @@ Partial Class frmSupervision_Movimientos_TareosDetalle
         Me.lblDin_Campana.Anchor = System.Windows.Forms.AnchorStyles.Left
         Me.lblDin_Campana.AutoSize = True
         Me.lblDin_Campana.ForeColor = System.Drawing.Color.Teal
-        Me.lblDin_Campana.Location = New System.Drawing.Point(812, 37)
+        Me.lblDin_Campana.Location = New System.Drawing.Point(778, 37)
         Me.lblDin_Campana.Margin = New System.Windows.Forms.Padding(2)
         Me.lblDin_Campana.Name = "lblDin_Campana"
         Me.lblDin_Campana.Size = New System.Drawing.Size(31, 13)
@@ -786,7 +786,7 @@ Partial Class frmSupervision_Movimientos_TareosDetalle
         Me.Label15.Anchor = System.Windows.Forms.AnchorStyles.Right
         Me.Label15.AutoSize = True
         Me.Label15.ForeColor = System.Drawing.Color.FromArgb(CType(CType(90, Byte), Integer), CType(CType(90, Byte), Integer), CType(CType(90, Byte), Integer))
-        Me.Label15.Location = New System.Drawing.Point(755, 37)
+        Me.Label15.Location = New System.Drawing.Point(721, 37)
         Me.Label15.Margin = New System.Windows.Forms.Padding(2, 2, 0, 2)
         Me.Label15.Name = "Label15"
         Me.Label15.Size = New System.Drawing.Size(55, 13)
@@ -798,7 +798,7 @@ Partial Class frmSupervision_Movimientos_TareosDetalle
         Me.Label7.Anchor = System.Windows.Forms.AnchorStyles.Right
         Me.Label7.AutoSize = True
         Me.Label7.ForeColor = System.Drawing.Color.FromArgb(CType(CType(90, Byte), Integer), CType(CType(90, Byte), Integer), CType(CType(90, Byte), Integer))
-        Me.Label7.Location = New System.Drawing.Point(745, 8)
+        Me.Label7.Location = New System.Drawing.Point(711, 8)
         Me.Label7.Margin = New System.Windows.Forms.Padding(2, 2, 0, 2)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(65, 13)

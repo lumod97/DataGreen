@@ -2289,6 +2289,10 @@ Public Class frmSupervision_Movimientos_TareosDetalle
         End If
     End Sub
 
+    Private Sub btnTransferir_Click(sender As Object, e As EventArgs) Handles btnTransferir.Click
+
+    End Sub
+
 
 
 

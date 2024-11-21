@@ -206,6 +206,12 @@
     <Compile Include="dlgBuscarPersona.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="frmMantenimiento_ConfiguracionLongitudCodigoGeneral.Designer.vb">
+      <DependentUpon>frmMantenimiento_ConfiguracionLongitudCodigoGeneral.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmMantenimiento_ConfiguracionLongitudCodigoGeneral.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="frmMantenimiento_PrivilegiosUsuariosFormularios.Designer.vb">
       <DependentUpon>frmMantenimiento_PrivilegiosUsuariosFormularios.vb</DependentUpon>
     </Compile>
@@ -1135,6 +1141,9 @@
   <ItemGroup>
     <EmbeddedResource Include="dlgBuscarPersona.resx">
       <DependentUpon>dlgBuscarPersona.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMantenimiento_ConfiguracionLongitudCodigoGeneral.resx">
+      <DependentUpon>frmMantenimiento_ConfiguracionLongitudCodigoGeneral.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmMantenimiento_PrivilegiosUsuariosFormularios.resx">
       <DependentUpon>frmMantenimiento_PrivilegiosUsuariosFormularios.vb</DependentUpon>

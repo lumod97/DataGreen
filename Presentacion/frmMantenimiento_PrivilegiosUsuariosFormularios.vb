@@ -10,25 +10,25 @@ Public Class frmMantenimiento_PrivilegiosUsuariosFormularios
     Dim listaPrivilegiosActualizar As New List(Of Dictionary(Of String, String))()
     Dim json As String = ""
 
-    Private Sub tbDNI_KeyPress(sender As Object, e As KeyPressEventArgs) Handles tbDNI.KeyPress
-        ' Permitir solo números (0-9) y las teclas de control como Backspace y Delete
-        If Not (Char.IsDigit(e.KeyChar) OrElse e.KeyChar = ChrW(Keys.Back) OrElse e.KeyChar = ChrW(Keys.Delete)) Then
-            e.Handled = True  ' Bloquear la tecla presionada si no es un número ni Backspace ni Delete
-        End If
+    'Private Sub tbDNI_KeyPress(sender As Object, e As KeyPressEventArgs)
+    '    ' Permitir solo números (0-9) y las teclas de control como Backspace y Delete
+    '    If Not (Char.IsDigit(e.KeyChar) OrElse e.KeyChar = ChrW(Keys.Back) OrElse e.KeyChar = ChrW(Keys.Delete)) Then
+    '        e.Handled = True  ' Bloquear la tecla presionada si no es un número ni Backspace ni Delete
+    '    End If
 
-        ' Limitar la longitud a 8 caracteres
-        If tbDNI.Text.Length >= 8 AndAlso Not (e.KeyChar = ChrW(Keys.Back) OrElse e.KeyChar = ChrW(Keys.Delete)) Then
-            e.Handled = True  ' Bloquear la tecla presionada si ya hay 8 caracteres
-        End If
-    End Sub
+    '    ' Limitar la longitud a 8 caracteres
+    '    If tbDNI.Text.Length >= 8 AndAlso Not (e.KeyChar = ChrW(Keys.Back) OrElse e.KeyChar = ChrW(Keys.Delete)) Then
+    '        e.Handled = True  ' Bloquear la tecla presionada si ya hay 8 caracteres
+    '    End If
+    'End Sub
 
-    Private Sub tbUsuario_KeyPress(sender As Object, e As KeyPressEventArgs) Handles tbUsuario.KeyPress
+    Private Sub tbUsuario_KeyPress(sender As Object, e As KeyPressEventArgs)
         If Char.IsLetter(e.KeyChar) Then
             e.KeyChar = Char.ToUpper(e.KeyChar)
         End If
     End Sub
 
-    Private Sub btnBuscar_Click(sender As Object, e As EventArgs) Handles btnBuscar.Click
+    Private Sub btnBuscar_Click(sender As Object, e As EventArgs)
 
     End Sub
     Private Sub CargarCheckBoxes(selectedUser As String)
@@ -55,6 +55,19 @@ Public Class frmMantenimiento_PrivilegiosUsuariosFormularios
     End Sub
 
     Public Sub RenderizarPermisos(table As DataTable, layoutPanel As TableLayoutPanel, scrollablePanel As Panel)
+
+        ' Inicializa un contador
+        Dim contador As Integer = 0
+
+        ' Itera sobre las columnas del DataTable
+        For Each column As DataColumn In table.Columns
+            ' Verifica si el nombre de la columna empieza con "PRIV_"
+            If column.ColumnName.StartsWith("PRIV_") Then
+                ' Incrementa el contador si la columna tiene el prefijo PRIV_
+                contador += 1
+            End If
+        Next
+
         ' Configurar el Panel contenedor para el desplazamiento
         scrollablePanel.AutoScroll = True  ' Habilita el scroll en el Panel
 
@@ -63,20 +76,24 @@ Public Class frmMantenimiento_PrivilegiosUsuariosFormularios
 
         ' Crear un nuevo TableLayoutPanel
         Dim nuevoLayoutPanel As New TableLayoutPanel()
+        nuevoLayoutPanel.BorderStyle = BorderStyle.FixedSingle
+
         nuevoLayoutPanel.RowCount = table.Rows.Count
-        nuevoLayoutPanel.ColumnCount = 6 ' Definimos 6 columnas: Formulario, IdUsuarioAfecto, Crear, Editar, Aprobar, Eliminar
+        nuevoLayoutPanel.ColumnCount = 2 + contador ' Definimos 6 columnas: Formulario, IdUsuarioAfecto, Crear, Editar, Aprobar, Eliminar
 
         ' Configurar el ancho de cada columna si es necesario
         nuevoLayoutPanel.ColumnStyles.Add(New ColumnStyle(SizeType.AutoSize)) ' Columna 0
         nuevoLayoutPanel.ColumnStyles.Add(New ColumnStyle(SizeType.AutoSize)) ' Columna 1
-        nuevoLayoutPanel.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 16.6)) ' Columna 2
-        nuevoLayoutPanel.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 16.6)) ' Columna 3
-        nuevoLayoutPanel.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 16.6)) ' Columna 4
-        nuevoLayoutPanel.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 16.6)) ' Columna 5
+        For i As Integer = 0 To contador
+            nuevoLayoutPanel.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 16.6)) ' Agrega las columas
+            ' de acuerdo a las columnas con prefijo PRIV_
+        Next
 
         ' Ajustar el nuevoLayoutPanel al tamaño del contenido
         nuevoLayoutPanel.AutoSize = True
         nuevoLayoutPanel.AutoSizeMode = AutoSizeMode.GrowAndShrink
+        nuevoLayoutPanel.CellBorderStyle = TableLayoutPanelCellBorderStyle.Single
+
 
         ' Recorre cada fila del DataTable
         For i As Integer = 0 To table.Rows.Count - 1
@@ -86,51 +103,39 @@ Public Class frmMantenimiento_PrivilegiosUsuariosFormularios
             ' Crear y agregar Label para Formulario
             Dim lblFormulario As New Label()
             lblFormulario.Text = row("Formulario").ToString()
-            lblFormulario.TextAlign = ContentAlignment.MiddleCenter
+            lblFormulario.Anchor = AnchorStyles.Left
             nuevoLayoutPanel.Controls.Add(lblFormulario, 0, i)
 
             ' Crear y agregar Label para IdUsuarioAfecto
             Dim lblIdUsuarioAfecto As New Label()
             lblIdUsuarioAfecto.Text = row("IdUsuarioAfecto").ToString()
-            lblIdUsuarioAfecto.TextAlign = ContentAlignment.MiddleCenter
+            lblIdUsuarioAfecto.Anchor = AnchorStyles.Left
             nuevoLayoutPanel.Controls.Add(lblIdUsuarioAfecto, 1, i)
+            ' Itera sobre las columnas del DataRow
+            Dim j As Integer = 0
+            For Each column As DataColumn In row.Table.Columns
+                ' Verifica si el nombre de la columna empieza con "PRIV_"
+                If column.ColumnName.StartsWith("PRIV_") Then
+                    ' Extrae el nombre de la acción (sin el prefijo PRIV_)
+                    Dim accion As String = column.ColumnName.Substring(5)
 
-            ' Crear y agregar CheckBox para cada permiso
-            Dim chkCrear As New CheckBox()
-            chkCrear.Checked = CBool(row("Crear"))
-            chkCrear.Name = nombreConcatenado + "_Crear"
-            chkCrear.Text = "Crear"
-            chkCrear.Anchor = AnchorStyles.None
-            ' Asignar el evento CheckedChanged
-            AddHandler chkCrear.CheckedChanged, AddressOf CheckBox_CheckedChanged
-            nuevoLayoutPanel.Controls.Add(chkCrear, 2, i)
+                    ' Crear un nuevo CheckBox
+                    Dim chk As New CheckBox()
+                    chk.Checked = CBool(row(column)) ' Asignar el valor de la columna a la propiedad Checked
+                    chk.Name = nombreConcatenado + "_" + accion
+                    chk.Text = accion ' El texto del CheckBox será el nombre de la acción
+                    chk.Anchor = AnchorStyles.None
 
-            Dim chkEditar As New CheckBox()
-            chkEditar.Checked = CBool(row("Editar"))
-            chkEditar.Name = nombreConcatenado + "_Editar"
-            chkEditar.Text = "Editar"
-            chkEditar.Anchor = AnchorStyles.None
-            ' Asignar el evento CheckedChanged
-            AddHandler chkEditar.CheckedChanged, AddressOf CheckBox_CheckedChanged
-            nuevoLayoutPanel.Controls.Add(chkEditar, 3, i)
+                    ' Asignar el evento CheckedChanged
+                    AddHandler chk.CheckedChanged, AddressOf CheckBox_CheckedChanged
 
-            Dim chkAprobar As New CheckBox()
-            chkAprobar.Checked = CBool(row("Aprobar"))
-            chkAprobar.Name = nombreConcatenado + "_Aprobar"
-            chkAprobar.Text = "Aprobar"
-            chkAprobar.Anchor = AnchorStyles.None
-            ' Asignar el evento CheckedChanged
-            AddHandler chkAprobar.CheckedChanged, AddressOf CheckBox_CheckedChanged
-            nuevoLayoutPanel.Controls.Add(chkAprobar, 4, i)
+                    ' Determinar la columna en la que agregar el CheckBox (esto depende de tu layout)
+                    ' Aquí se asume que la columna se va a agregar de manera secuencial.
+                    nuevoLayoutPanel.Controls.Add(chk, 2 + j, i)
+                    j += 1
+                End If
+            Next
 
-            Dim chkEliminar As New CheckBox()
-            chkEliminar.Checked = CBool(row("Eliminar"))
-            chkEliminar.Name = nombreConcatenado + "_Eliminar"
-            chkEliminar.Text = "Eliminar"
-            chkEliminar.Anchor = AnchorStyles.None
-            ' Asignar el evento CheckedChanged
-            AddHandler chkEliminar.CheckedChanged, AddressOf CheckBox_CheckedChanged
-            nuevoLayoutPanel.Controls.Add(chkEliminar, 5, i)
         Next
 
         ' Agregar el nuevo TableLayoutPanel al Panel si no está ya agregado
@@ -143,9 +148,10 @@ Public Class frmMantenimiento_PrivilegiosUsuariosFormularios
         If e.RowIndex >= 0 Then ' Verifica que la fila no sea el encabezado
             ' Obtén la fila clickeada
             Dim row As DataGridViewRow = dgvUsuarios.Rows(e.RowIndex)
-
-            ' Mostrar el valor de la columna "USUARIO" de la fila clickeada
             Dim usuarioSeleccionado As String = row.Cells("USUARIO").Value.ToString()
+
+            tbUsuario.Text = usuarioSeleccionado
+            ' Mostrar el valor de la columna "USUARIO" de la fila clickeada
             'MessageBox.Show(row.Cells("USUARIO").Value.ToString())
             CargarCheckBoxes(usuarioSeleccionado)
         End If
@@ -211,7 +217,7 @@ Public Class frmMantenimiento_PrivilegiosUsuariosFormularios
     Private Async Sub btnUpdate_Click(sender As Object, e As EventArgs) Handles btnUpdate.Click
         Dim params As New Dictionary(Of String, Object)
         params.Add("@json", json)
-        Dim privilegiosTable As DataTable = doItBaby("SP_ACTUALIZAR_PRIVILEGIOS_FORMULARIOS", params, TipoQuery.DataTable)
+        Dim privilegiosTable As DataTable = Await doItBaby("SP_ACTUALIZAR_PRIVILEGIOS_FORMULARIOS", params, TipoQuery.DataTable)
         Dim estado As DataRow = privilegiosTable.Rows(0)
         'If estado.Item("codigo").Equals("200") Then
         MessageBox.Show(estado.Item("mensaje"))
@@ -222,7 +228,31 @@ Public Class frmMantenimiento_PrivilegiosUsuariosFormularios
         'End If
     End Sub
 
+
     Private Sub frmMantenimiento_PrivilegiosUsuariosFormularios_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         aplicarTema(Me)
+        Me.WindowState = FormWindowState.Maximized
+        'scrollablePanel.AutoScroll = True
+        btnUpdate.Enabled = False
+        dgvUsuarios.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill
+        cargarDataGridView()
+        'CargarCheckBoxes()
+        tbUsuario.Focus()
+    End Sub
+
+    Private Sub btnAgregar_Click(sender As Object, e As EventArgs) Handles btnAgregar.Click
+        If String.IsNullOrWhiteSpace(tbUsuario.Text) AndAlso String.IsNullOrWhiteSpace(tbUsuarioAfecto.Text) AndAlso String.IsNullOrWhiteSpace(tbFormulario.Text) Then
+            MessageBox.Show("Rellene todos los campos!")
+        Else
+            Dim params As New Dictionary(Of String, Object)
+            params.Add("@idUsuario", tbUsuario.Text.ToString)
+            params.Add("@idUsuarioAfecto", tbUsuarioAfecto.Text.ToString)
+            params.Add("@formulario", tbFormulario.Text.ToString)
+            Dim privilegiosTable As DataTable = doItBaby("SP_INSERTAR_USUARIOS_PARA_PRIVILEGIOS", params, TipoQuery.DataTable)
+            Dim estado As DataRow = privilegiosTable.Rows(0)
+            'If estado.Item("codigo").Equals("200") Then
+            MessageBox.Show(estado.Item("mensaje"))
+            CargarCheckBoxes(tbUsuario.Text.ToString)
+        End If
     End Sub
 End Class

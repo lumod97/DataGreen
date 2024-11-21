@@ -33,7 +33,7 @@ Public Class mdiPrincipal
     Private Sub SaveAsToolStripMenuItem_Click(ByVal sender As Object, ByVal e As EventArgs) Handles SaveAsToolStripMenuItem.Click
         Dim SaveFileDialog As New SaveFileDialog
         SaveFileDialog.InitialDirectory = My.Computer.FileSystem.SpecialDirectories.MyDocuments
-        SaveFileDialog.Filter = "Archivos de texto (*.txt)|*.txt|Todos los archivos (*.*)|*.*" 
+        SaveFileDialog.Filter = "Archivos de texto (*.txt)|*.txt|Todos los archivos (*.*)|*.*"
 
         If (SaveFileDialog.ShowDialog(Me) = System.Windows.Forms.DialogResult.OK) Then
             Dim FileName As String = SaveFileDialog.FileName
@@ -138,7 +138,6 @@ Public Class mdiPrincipal
         mnu1_Mantenimiento.Enabled = modulosPermitidos.Item("mnu1_Mantenimiento")
         mnu1_1_ConfigBases.Enabled = modulosPermitidos.Item("mnu1_1_ConfigBases")
         mnu1_2_MantenimientoUsuarios.Enabled = modulosPermitidos.Item("mnu1_2_MantenimientoUsuarios")
-        mnu1_5_PrivilegiosUsuariosFormularios.Enabled = modulosPermitidos.Item("mnu1_5_PrivilegiosUsuariosFormularios")
         mnu2_RecursosHumanos.Enabled = modulosPermitidos.Item("mnu2_RecursosHumanos")
         'mnu2_2_Reportes.Enabled = modulosPermitidos.Item("mnu2_1_Asistencia")
         'mnu2_2_1_ReporteAsistencia.Enabled = modulosPermitidos.Item("mnu2_1_1_ReporteAsistencia")
@@ -326,6 +325,11 @@ Public Class mdiPrincipal
 
         mnu2_3_8_CalculoConceptosRemunerativos.Enabled = modulosPermitidos.Item("mnu2_3_8_CalculoConceptosRemunerativos") '2024-05-07 @Jota
 
+        ' HATCH 21-11-2024
+
+        mnu1_5_PrivilegiosUsuariosFormularios.Enabled = modulosPermitidos.Item("mnu1_5_PrivilegiosUsuariosFormularios")
+        mnu1_6_ConfiguracionLongitudCodigoGeneral.Enabled = modulosPermitidos.Item("mnu1_6_ConfiguracionLongitudCodigoGeneral")
+
 
         'Implentenacion para entrar a mantenimiento de usuarios por defecto 
         'mnu1_Mantenimiento.Enabled = True
@@ -334,7 +338,7 @@ Public Class mdiPrincipal
 
         'Inhabilitacion Temporal hasta implementacion
         mnuArchivo.Enabled = False
-        stdEstado.Text = "Usuario: " + usuarioActual
+        stdEstado.Text = "Usuario: " + usuarioActual + "           -         Parámetro Codigo General: " + obtenerParametroLongitud()
     End Sub
 
     Private Sub mnu2_2_2_UltimoDiaAsistencia_Click(sender As Object, e As EventArgs) Handles mnu2_2_2_UltimoDiaAsistencia.Click
@@ -1130,6 +1134,12 @@ Public Class mdiPrincipal
 
     Private Sub mnu1_5_PrivilegiosUsuariosFormularios_Click(sender As Object, e As EventArgs) Handles mnu1_5_PrivilegiosUsuariosFormularios.Click
         Dim VenActual As New frmMantenimiento_PrivilegiosUsuariosFormularios
+        VenActual.MdiParent = Me
+        VenActual.Show()
+    End Sub
+
+    Private Sub mnu1_6_ConfiguracionLongitudCodigoGeneral_Click(sender As Object, e As EventArgs) Handles mnu1_6_ConfiguracionLongitudCodigoGeneral.Click
+        Dim VenActual As New frmMantenimiento_ConfiguracionLongitudCodigoGeneral
         VenActual.MdiParent = Me
         VenActual.Show()
     End Sub

@@ -23,21 +23,23 @@ Partial Class frmMantenimiento_PrivilegiosUsuariosFormularios
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.tlpPrivilegios = New System.Windows.Forms.TableLayoutPanel()
-        Me.tlpPrincipal = New System.Windows.Forms.TableLayoutPanel()
-        Me.lblDNI = New System.Windows.Forms.Label()
-        Me.tbDNI = New System.Windows.Forms.TextBox()
-        Me.tbUsuario = New System.Windows.Forms.TextBox()
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.btnBuscar = New System.Windows.Forms.Button()
         Me.dgvUsuarios = New System.Windows.Forms.DataGridView()
         Me.scrollablePanel = New System.Windows.Forms.Panel()
         Me.tlpEditables = New System.Windows.Forms.TableLayoutPanel()
         Me.btnUpdate = New System.Windows.Forms.Button()
         Me.Sp_Dg_Exportaciones_Reportes_PackingList_T1TableAdapter1 = New DataGreen.ds_Dg_ReportesTableAdapters.sp_Dg_Exportaciones_Reportes_PackingList_T1TableAdapter()
+        Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
+        Me.lblUsuarioAfecto = New System.Windows.Forms.Label()
+        Me.tbUsuarioAfecto = New System.Windows.Forms.TextBox()
+        Me.btnAgregar = New System.Windows.Forms.Button()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.tbUsuario = New System.Windows.Forms.TextBox()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.tbFormulario = New System.Windows.Forms.TextBox()
         Me.tlpPrivilegios.SuspendLayout()
-        Me.tlpPrincipal.SuspendLayout()
         CType(Me.dgvUsuarios, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.scrollablePanel.SuspendLayout()
+        Me.TableLayoutPanel1.SuspendLayout()
         Me.SuspendLayout()
         '
         'tlpPrivilegios
@@ -45,10 +47,10 @@ Partial Class frmMantenimiento_PrivilegiosUsuariosFormularios
         Me.tlpPrivilegios.ColumnCount = 2
         Me.tlpPrivilegios.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 35.0!))
         Me.tlpPrivilegios.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 65.0!))
-        Me.tlpPrivilegios.Controls.Add(Me.tlpPrincipal, 0, 0)
         Me.tlpPrivilegios.Controls.Add(Me.dgvUsuarios, 0, 1)
         Me.tlpPrivilegios.Controls.Add(Me.scrollablePanel, 1, 1)
         Me.tlpPrivilegios.Controls.Add(Me.btnUpdate, 1, 2)
+        Me.tlpPrivilegios.Controls.Add(Me.TableLayoutPanel1, 0, 0)
         Me.tlpPrivilegios.Dock = System.Windows.Forms.DockStyle.Fill
         Me.tlpPrivilegios.Location = New System.Drawing.Point(10, 10)
         Me.tlpPrivilegios.Name = "tlpPrivilegios"
@@ -58,75 +60,6 @@ Partial Class frmMantenimiento_PrivilegiosUsuariosFormularios
         Me.tlpPrivilegios.RowStyles.Add(New System.Windows.Forms.RowStyle())
         Me.tlpPrivilegios.Size = New System.Drawing.Size(959, 452)
         Me.tlpPrivilegios.TabIndex = 0
-        '
-        'tlpPrincipal
-        '
-        Me.tlpPrincipal.ColumnCount = 5
-        Me.tlpPrivilegios.SetColumnSpan(Me.tlpPrincipal, 2)
-        Me.tlpPrincipal.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle())
-        Me.tlpPrincipal.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle())
-        Me.tlpPrincipal.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle())
-        Me.tlpPrincipal.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle())
-        Me.tlpPrincipal.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle())
-        Me.tlpPrincipal.Controls.Add(Me.lblDNI, 0, 0)
-        Me.tlpPrincipal.Controls.Add(Me.tbDNI, 1, 0)
-        Me.tlpPrincipal.Controls.Add(Me.tbUsuario, 3, 0)
-        Me.tlpPrincipal.Controls.Add(Me.Label1, 2, 0)
-        Me.tlpPrincipal.Controls.Add(Me.btnBuscar, 4, 0)
-        Me.tlpPrincipal.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.tlpPrincipal.Location = New System.Drawing.Point(3, 3)
-        Me.tlpPrincipal.Name = "tlpPrincipal"
-        Me.tlpPrincipal.RowCount = 1
-        Me.tlpPrincipal.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 34.0!))
-        Me.tlpPrincipal.Size = New System.Drawing.Size(953, 34)
-        Me.tlpPrincipal.TabIndex = 0
-        Me.tlpPrincipal.Visible = False
-        '
-        'lblDNI
-        '
-        Me.lblDNI.Anchor = System.Windows.Forms.AnchorStyles.Left
-        Me.lblDNI.AutoSize = True
-        Me.lblDNI.Location = New System.Drawing.Point(3, 10)
-        Me.lblDNI.Name = "lblDNI"
-        Me.lblDNI.Size = New System.Drawing.Size(26, 13)
-        Me.lblDNI.TabIndex = 0
-        Me.lblDNI.Text = "DNI"
-        '
-        'tbDNI
-        '
-        Me.tbDNI.Anchor = System.Windows.Forms.AnchorStyles.Left
-        Me.tbDNI.Location = New System.Drawing.Point(35, 7)
-        Me.tbDNI.Name = "tbDNI"
-        Me.tbDNI.Size = New System.Drawing.Size(180, 20)
-        Me.tbDNI.TabIndex = 2
-        '
-        'tbUsuario
-        '
-        Me.tbUsuario.Anchor = System.Windows.Forms.AnchorStyles.Left
-        Me.tbUsuario.Location = New System.Drawing.Point(270, 7)
-        Me.tbUsuario.Name = "tbUsuario"
-        Me.tbUsuario.Size = New System.Drawing.Size(180, 20)
-        Me.tbUsuario.TabIndex = 3
-        '
-        'Label1
-        '
-        Me.Label1.Anchor = System.Windows.Forms.AnchorStyles.Left
-        Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(221, 10)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(43, 13)
-        Me.Label1.TabIndex = 1
-        Me.Label1.Text = "Usuario"
-        '
-        'btnBuscar
-        '
-        Me.btnBuscar.Dock = System.Windows.Forms.DockStyle.Left
-        Me.btnBuscar.Location = New System.Drawing.Point(456, 3)
-        Me.btnBuscar.Name = "btnBuscar"
-        Me.btnBuscar.Size = New System.Drawing.Size(67, 28)
-        Me.btnBuscar.TabIndex = 4
-        Me.btnBuscar.Text = "Buscar"
-        Me.btnBuscar.UseVisualStyleBackColor = True
         '
         'dgvUsuarios
         '
@@ -175,13 +108,106 @@ Partial Class frmMantenimiento_PrivilegiosUsuariosFormularios
         Me.btnUpdate.Location = New System.Drawing.Point(881, 426)
         Me.btnUpdate.Name = "btnUpdate"
         Me.btnUpdate.Size = New System.Drawing.Size(75, 23)
-        Me.btnUpdate.TabIndex = 3
+        Me.btnUpdate.TabIndex = 4
         Me.btnUpdate.Text = "Actualizar"
         Me.btnUpdate.UseVisualStyleBackColor = True
         '
         'Sp_Dg_Exportaciones_Reportes_PackingList_T1TableAdapter1
         '
         Me.Sp_Dg_Exportaciones_Reportes_PackingList_T1TableAdapter1.ClearBeforeFill = True
+        '
+        'TableLayoutPanel1
+        '
+        Me.TableLayoutPanel1.ColumnCount = 7
+        Me.tlpPrivilegios.SetColumnSpan(Me.TableLayoutPanel1, 2)
+        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle())
+        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle())
+        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle())
+        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle())
+        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle())
+        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle())
+        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle())
+        Me.TableLayoutPanel1.Controls.Add(Me.lblUsuarioAfecto, 2, 0)
+        Me.TableLayoutPanel1.Controls.Add(Me.tbUsuarioAfecto, 3, 0)
+        Me.TableLayoutPanel1.Controls.Add(Me.Label1, 0, 0)
+        Me.TableLayoutPanel1.Controls.Add(Me.tbUsuario, 1, 0)
+        Me.TableLayoutPanel1.Controls.Add(Me.btnAgregar, 6, 0)
+        Me.TableLayoutPanel1.Controls.Add(Me.Label2, 4, 0)
+        Me.TableLayoutPanel1.Controls.Add(Me.tbFormulario, 5, 0)
+        Me.TableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.TableLayoutPanel1.Location = New System.Drawing.Point(3, 3)
+        Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
+        Me.TableLayoutPanel1.RowCount = 1
+        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
+        Me.TableLayoutPanel1.Size = New System.Drawing.Size(953, 34)
+        Me.TableLayoutPanel1.TabIndex = 4
+        '
+        'lblUsuarioAfecto
+        '
+        Me.lblUsuarioAfecto.Anchor = System.Windows.Forms.AnchorStyles.Left
+        Me.lblUsuarioAfecto.AutoSize = True
+        Me.lblUsuarioAfecto.Location = New System.Drawing.Point(217, 10)
+        Me.lblUsuarioAfecto.Margin = New System.Windows.Forms.Padding(10, 0, 3, 0)
+        Me.lblUsuarioAfecto.Name = "lblUsuarioAfecto"
+        Me.lblUsuarioAfecto.Size = New System.Drawing.Size(77, 13)
+        Me.lblUsuarioAfecto.TabIndex = 6
+        Me.lblUsuarioAfecto.Text = "Usuario Afecto"
+        '
+        'tbUsuarioAfecto
+        '
+        Me.tbUsuarioAfecto.Anchor = System.Windows.Forms.AnchorStyles.Left
+        Me.tbUsuarioAfecto.Location = New System.Drawing.Point(300, 7)
+        Me.tbUsuarioAfecto.Name = "tbUsuarioAfecto"
+        Me.tbUsuarioAfecto.Size = New System.Drawing.Size(172, 20)
+        Me.tbUsuarioAfecto.TabIndex = 1
+        '
+        'btnAgregar
+        '
+        Me.btnAgregar.Anchor = System.Windows.Forms.AnchorStyles.Left
+        Me.btnAgregar.Location = New System.Drawing.Point(711, 5)
+        Me.btnAgregar.Margin = New System.Windows.Forms.Padding(10, 3, 3, 3)
+        Me.btnAgregar.Name = "btnAgregar"
+        Me.btnAgregar.Size = New System.Drawing.Size(75, 23)
+        Me.btnAgregar.TabIndex = 3
+        Me.btnAgregar.Text = "Agregar"
+        Me.btnAgregar.UseVisualStyleBackColor = True
+        '
+        'Label1
+        '
+        Me.Label1.Anchor = System.Windows.Forms.AnchorStyles.Left
+        Me.Label1.AutoSize = True
+        Me.Label1.Location = New System.Drawing.Point(3, 10)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(43, 13)
+        Me.Label1.TabIndex = 5
+        Me.Label1.Text = "Usuario"
+        '
+        'tbUsuario
+        '
+        Me.tbUsuario.Anchor = System.Windows.Forms.AnchorStyles.Left
+        Me.tbUsuario.Location = New System.Drawing.Point(52, 7)
+        Me.tbUsuario.Name = "tbUsuario"
+        Me.tbUsuario.Size = New System.Drawing.Size(152, 20)
+        Me.tbUsuario.TabIndex = 0
+        '
+        'Label2
+        '
+        Me.Label2.Anchor = System.Windows.Forms.AnchorStyles.Left
+        Me.Label2.AutoSize = True
+        Me.Label2.Location = New System.Drawing.Point(485, 10)
+        Me.Label2.Margin = New System.Windows.Forms.Padding(10, 0, 3, 0)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(55, 13)
+        Me.Label2.TabIndex = 7
+        Me.Label2.Text = "Formulario"
+        '
+        'tbFormulario
+        '
+        Me.tbFormulario.Anchor = System.Windows.Forms.AnchorStyles.Left
+        Me.tbFormulario.Location = New System.Drawing.Point(546, 7)
+        Me.tbFormulario.Name = "tbFormulario"
+        Me.tbFormulario.Size = New System.Drawing.Size(152, 20)
+        Me.tbFormulario.TabIndex = 2
         '
         'frmMantenimiento_PrivilegiosUsuariosFormularios
         '
@@ -193,25 +219,27 @@ Partial Class frmMantenimiento_PrivilegiosUsuariosFormularios
         Me.Padding = New System.Windows.Forms.Padding(10)
         Me.Text = "frmMantenimiento_PrivilegiosUsuariosFormularios"
         Me.tlpPrivilegios.ResumeLayout(False)
-        Me.tlpPrincipal.ResumeLayout(False)
-        Me.tlpPrincipal.PerformLayout()
         CType(Me.dgvUsuarios, System.ComponentModel.ISupportInitialize).EndInit()
         Me.scrollablePanel.ResumeLayout(False)
         Me.scrollablePanel.PerformLayout()
+        Me.TableLayoutPanel1.ResumeLayout(False)
+        Me.TableLayoutPanel1.PerformLayout()
         Me.ResumeLayout(False)
 
     End Sub
 
     Friend WithEvents tlpPrivilegios As TableLayoutPanel
-    Friend WithEvents tlpPrincipal As TableLayoutPanel
-    Friend WithEvents lblDNI As Label
-    Friend WithEvents Label1 As Label
-    Friend WithEvents tbDNI As TextBox
-    Friend WithEvents tbUsuario As TextBox
-    Friend WithEvents btnBuscar As Button
     Friend WithEvents Sp_Dg_Exportaciones_Reportes_PackingList_T1TableAdapter1 As ds_Dg_ReportesTableAdapters.sp_Dg_Exportaciones_Reportes_PackingList_T1TableAdapter
     Friend WithEvents dgvUsuarios As DataGridView
     Friend WithEvents scrollablePanel As Panel
     Friend WithEvents tlpEditables As TableLayoutPanel
     Friend WithEvents btnUpdate As Button
+    Friend WithEvents TableLayoutPanel1 As TableLayoutPanel
+    Friend WithEvents lblUsuarioAfecto As Label
+    Friend WithEvents tbUsuarioAfecto As TextBox
+    Friend WithEvents btnAgregar As Button
+    Friend WithEvents Label1 As Label
+    Friend WithEvents tbUsuario As TextBox
+    Friend WithEvents Label2 As Label
+    Friend WithEvents tbFormulario As TextBox
 End Class
