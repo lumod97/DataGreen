@@ -29,9 +29,9 @@ Partial Class frmRrhh_Reportes_SupervisordeSSO
         Me.btnExportar = New System.Windows.Forms.Button()
         Me.dgvResultado = New System.Windows.Forms.DataGridView()
         Me.barProgreso = New System.Windows.Forms.ProgressBar()
-        Me.lbl_DinResultado = New System.Windows.Forms.Label()
         Me.pkrDesde = New System.Windows.Forms.DateTimePicker()
         Me.pkrHasta = New System.Windows.Forms.DateTimePicker()
+        Me.lbl_DinResultado = New System.Windows.Forms.Label()
         Me.tlpPrincipal.SuspendLayout()
         CType(Me.dgvResultado, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -74,7 +74,7 @@ Partial Class frmRrhh_Reportes_SupervisordeSSO
         Me.tlpPrincipal.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 104.0!))
         Me.tlpPrincipal.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 21.0!))
         Me.tlpPrincipal.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 18.0!))
-        Me.tlpPrincipal.Size = New System.Drawing.Size(899, 435)
+        Me.tlpPrincipal.Size = New System.Drawing.Size(904, 435)
         Me.tlpPrincipal.TabIndex = 1
         '
         'Label1
@@ -102,7 +102,7 @@ Partial Class frmRrhh_Reportes_SupervisordeSSO
         'btnConsultar
         '
         Me.btnConsultar.Anchor = System.Windows.Forms.AnchorStyles.Left
-        Me.btnConsultar.Location = New System.Drawing.Point(705, 17)
+        Me.btnConsultar.Location = New System.Drawing.Point(710, 17)
         Me.btnConsultar.Name = "btnConsultar"
         Me.btnConsultar.Size = New System.Drawing.Size(75, 23)
         Me.btnConsultar.TabIndex = 4
@@ -112,7 +112,7 @@ Partial Class frmRrhh_Reportes_SupervisordeSSO
         'btnExportar
         '
         Me.btnExportar.Anchor = System.Windows.Forms.AnchorStyles.Left
-        Me.btnExportar.Location = New System.Drawing.Point(786, 17)
+        Me.btnExportar.Location = New System.Drawing.Point(791, 17)
         Me.btnExportar.Name = "btnExportar"
         Me.btnExportar.Size = New System.Drawing.Size(75, 23)
         Me.btnExportar.TabIndex = 5
@@ -126,7 +126,7 @@ Partial Class frmRrhh_Reportes_SupervisordeSSO
         Me.dgvResultado.Dock = System.Windows.Forms.DockStyle.Fill
         Me.dgvResultado.Location = New System.Drawing.Point(17, 46)
         Me.dgvResultado.Name = "dgvResultado"
-        Me.dgvResultado.Size = New System.Drawing.Size(859, 299)
+        Me.dgvResultado.Size = New System.Drawing.Size(864, 299)
         Me.dgvResultado.TabIndex = 6
         '
         'barProgreso
@@ -135,18 +135,8 @@ Partial Class frmRrhh_Reportes_SupervisordeSSO
         Me.barProgreso.Dock = System.Windows.Forms.DockStyle.Fill
         Me.barProgreso.Location = New System.Drawing.Point(17, 365)
         Me.barProgreso.Name = "barProgreso"
-        Me.barProgreso.Size = New System.Drawing.Size(859, 21)
+        Me.barProgreso.Size = New System.Drawing.Size(864, 21)
         Me.barProgreso.TabIndex = 7
-        '
-        'lbl_DinResultado
-        '
-        Me.lbl_DinResultado.AutoSize = True
-        Me.tlpPrincipal.SetColumnSpan(Me.lbl_DinResultado, 2)
-        Me.lbl_DinResultado.Location = New System.Drawing.Point(17, 389)
-        Me.lbl_DinResultado.Name = "lbl_DinResultado"
-        Me.lbl_DinResultado.Size = New System.Drawing.Size(32, 13)
-        Me.lbl_DinResultado.TabIndex = 8
-        Me.lbl_DinResultado.Text = "Listo!"
         '
         'pkrDesde
         '
@@ -165,6 +155,16 @@ Partial Class frmRrhh_Reportes_SupervisordeSSO
         Me.pkrHasta.Name = "pkrHasta"
         Me.pkrHasta.Size = New System.Drawing.Size(180, 20)
         Me.pkrHasta.TabIndex = 12
+        '
+        'lbl_DinResultado
+        '
+        Me.lbl_DinResultado.AutoSize = True
+        Me.tlpPrincipal.SetColumnSpan(Me.lbl_DinResultado, 2)
+        Me.lbl_DinResultado.Location = New System.Drawing.Point(17, 389)
+        Me.lbl_DinResultado.Name = "lbl_DinResultado"
+        Me.lbl_DinResultado.Size = New System.Drawing.Size(32, 13)
+        Me.lbl_DinResultado.TabIndex = 8
+        Me.lbl_DinResultado.Text = "Listo!"
         '
         'frmRrhh_Reportes_SupervisordeSSO
         '

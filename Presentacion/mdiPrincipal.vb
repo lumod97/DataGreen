@@ -330,6 +330,8 @@ Public Class mdiPrincipal
         mnu1_5_PrivilegiosUsuariosFormularios.Enabled = modulosPermitidos.Item("mnu1_5_PrivilegiosUsuariosFormularios")
         mnu1_6_ConfiguracionLongitudCodigoGeneral.Enabled = modulosPermitidos.Item("mnu1_6_ConfiguracionLongitudCodigoGeneral")
 
+        ' HATCH 10-12-2024
+        mnu2_3_9_ConvertirTareosAsistencias.Enabled = modulosPermitidos.Item("mnu2_3_9_ConvertirTareosAsistencias")
 
         'Implentenacion para entrar a mantenimiento de usuarios por defecto 
         'mnu1_Mantenimiento.Enabled = True
@@ -1140,6 +1142,12 @@ Public Class mdiPrincipal
 
     Private Sub mnu1_6_ConfiguracionLongitudCodigoGeneral_Click(sender As Object, e As EventArgs) Handles mnu1_6_ConfiguracionLongitudCodigoGeneral.Click
         Dim VenActual As New frmMantenimiento_ConfiguracionLongitudCodigoGeneral
+        VenActual.MdiParent = Me
+        VenActual.Show()
+    End Sub
+
+    Private Sub mnu2_3_9_ConvertirTareosAsistencias_Click(sender As Object, e As EventArgs) Handles mnu2_3_9_ConvertirTareosAsistencias.Click
+        Dim VenActual As New frmRrhh_Movimientos_ConvertirTareosAsistencias
         VenActual.MdiParent = Me
         VenActual.Show()
     End Sub

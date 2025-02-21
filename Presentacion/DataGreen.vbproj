@@ -218,6 +218,18 @@
     <Compile Include="frmMantenimiento_PrivilegiosUsuariosFormularios.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="frmRrhh_Movimientos_ConvertirTareosAsistencias.Designer.vb">
+      <DependentUpon>frmRrhh_Movimientos_ConvertirTareosAsistencias.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmRrhh_Movimientos_ConvertirTareosAsistencias.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmRrhh_Movimientos_DistribuirCostos.Designer.vb">
+      <DependentUpon>frmRrhh_Movimientos_DistribuirCostos.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmRrhh_Movimientos_DistribuirCostos.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="frmRrhh_Reportes_Reporte_CTA_CTE.Designer.vb">
       <DependentUpon>frmRrhh_Reportes_Reporte_CTA_CTE.vb</DependentUpon>
     </Compile>
@@ -1147,6 +1159,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmMantenimiento_PrivilegiosUsuariosFormularios.resx">
       <DependentUpon>frmMantenimiento_PrivilegiosUsuariosFormularios.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmRrhh_Movimientos_ConvertirTareosAsistencias.resx">
+      <DependentUpon>frmRrhh_Movimientos_ConvertirTareosAsistencias.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmRrhh_Movimientos_DistribuirCostos.resx">
+      <DependentUpon>frmRrhh_Movimientos_DistribuirCostos.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmRrhh_Reportes_CheckListCalculoPlanilla.resx">
       <DependentUpon>frmRrhh_Reportes_CheckListCalculoPlanilla.vb</DependentUpon>

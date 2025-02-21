@@ -262,3 +262,5 @@ D:\DataGreen-20240919\Presentacion\bin\Release\AxInterop.WMPLib.dll
 D:\DataGreen-20240919\Presentacion\obj\Release\Interop.WMPLib.dll
 D:\DataGreen-20240919\Presentacion\obj\Release\AxInterop.WMPLib.dll
 D:\DataGreen-20240919\Presentacion\obj\Release\DataGreen.frmMantenimiento_ConfiguracionLongitudCodigoGeneral.resources
+D:\DataGreen-20240919\Presentacion\obj\Release\DataGreen.frmRrhh_Movimientos_ConvertirTareosAsistencias.resources
+D:\DataGreen-20240919\Presentacion\obj\Release\DataGreen.frmRrhh_Movimientos_DistribuirCostos.resources

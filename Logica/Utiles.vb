@@ -261,6 +261,8 @@ Public Class Utiles
         ' HATCH 21-11-2024
         modulosPermitidos.Add("mnu1_5_PrivilegiosUsuariosFormularios", False)
         modulosPermitidos.Add("mnu1_6_ConfiguracionLongitudCodigoGeneral", False)
+        ' HATCH 10-12-2024
+        modulosPermitidos.Add("mnu2_3_9_ConvertirTareosAsistencias", False)
 
 
 

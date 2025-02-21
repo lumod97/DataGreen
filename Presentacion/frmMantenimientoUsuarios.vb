@@ -475,6 +475,8 @@ Public Class frmMantenimientoUsuarios
         ' HATCH 21-11-2024
         tviModulosPermitidos.Nodes(0).Nodes.Add("mnu1_5_PrivilegiosUsuariosFormularios", "Privilegios de Usuario - Formularios") '21-11-2024
         tviModulosPermitidos.Nodes(0).Nodes.Add("mnu1_6_ConfiguracionLongitudCodigoGeneral", "Configuracion de Longitud de Codigo General") '21-11-2024
+        ' HATCH 10-12-2024
+        tviModulosPermitidos.Nodes(1).Nodes(2).Nodes.Add("mnu2_3_9_ConvertirTareosAsistencias", "Convertir Tareos a Asistencias") '10-12-2024
     End Sub
 
     Private Sub cargarPermisosDeUsuarioEnArbol(bitsDePermisos As String, arbol As TreeView)
